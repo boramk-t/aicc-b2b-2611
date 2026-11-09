@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>역할 관리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="roles" data-title="역할 관리">
+<div class="app">
+  <div id="sidebar"></div>
+  <div class="main">
+    <div class="topbar"><div class="crumb"><b>역할 관리</b></div></div>
+    <div class="content">
+      <div class="page-head"><h2>역할 관리</h2></div>
+      <div class="banner info">역할마다 메뉴 권한과 데이터 조회 범위를 정합니다. 사용자에게 역할을 지정하는 일은 사용자 관리에서 합니다. 기본 역할 구성과 역할별 기본 권한은 확인 필요입니다.</div>
+      <div class="list-wrap">
+        <div class="list-head"><div class="left"><b id="total" style="color:#0F172A"></b></div><div class="right"><a class="btn xs pri" href="role-form.html">역할 등록</a></div></div>
+        <table class="data" id="tbl">
+          <thead><tr><th>역할명</th><th>설명</th><th>데이터 조회 범위</th><th>사용자 수</th><th>수정일</th><th>관리</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="proto-note">프로토타입의 LNB 메뉴 노출은 보기 역할(상담사·리더·관리자)의 기본 권한으로 고정되어 있습니다.</div>
+    </div>
+  </div>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+UI.page(function () {
+  var $ = UI.$, esc = UI.esc;
+  var roles = MOCK.load('roles', MOCK.ROLES), users = MOCK.load('users', MOCK.USERS);
+  function render() {
+    $('#total').textContent = '총 ' + roles.length + '건';
+    $('#tbl').tBodies[0].innerHTML = roles.map(function (r, i) {
+      var cnt = users.filter(function (u) { return u.role === r.name; }).length;
+      return '<tr><td>' + esc(r.name) + (r.base ? ' <span class="bdg secondary">기본</span>' : '') + '</td><td><span class="ellipsis w280" title="' + esc(r.desc) + '">' + esc(r.desc || '-') + '</span></td>' +
+        '<td>' + esc(r.scope) + '</td><td>' + cnt + '명</td><td>' + esc(r.mod || '-') + '</td>' +
+        '<td><a class="btn xs" href="role-form.html?name=' + encodeURIComponent(r.name) + '">수정</a>' + (r.base ? '' : ' <button class="btn xs" data-del="' + i + '" data-cnt="' + cnt + '">삭제</button>') + '</td></tr>';
+    }).join('');
+  }
+  $('#tbl').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-del]'); if (!b) return;
+    var r = roles[+b.dataset.del], cnt = +b.dataset.cnt;
+    if (cnt) UI.dialog({ title: '역할을 삭제할 수 없습니다.', desc: '이 역할이 지정된 사용자가 ' + cnt + '명 있어 삭제할 수 없습니다. 사용자의 역할을 바꾼 뒤 삭제해 주세요.', cancel: null });
+    else UI.dialog({ title: '역할을 삭제하시겠습니까?', ok: '삭제', danger: true, onOk: function () { roles.splice(roles.indexOf(r), 1); MOCK.save('roles', roles); UI.toast('역할이 삭제되었습니다.'); render(); } });
+  });
+  render();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>키워드 관리</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="keyword" data-title="키워드 관리">
+<div class="app">
+  <div id="sidebar"></div>
+  <div class="main">
+    <div class="topbar"><div class="crumb"><b>키워드 관리</b></div></div>
+    <div class="content">
+      <div class="page-head"><h2>키워드 관리</h2></div>
+      <div class="banner info">등록·수정·삭제한 키워드는 이후 분석되는 콜부터 적용됩니다. 이미 분석된 콜에는 적용되지 않습니다.</div>
+
+      <div class="tabs" id="tabs"></div>
+
+      <!-- 상품 탭 -->
+      <div id="pane-product">
+        <div class="filter-bar" id="p-filters">
+          <div class="filter-grid">
+            <div class="fld"><label for="p-use">사용상태</label><select class="sel" id="p-use"><option value="">전체</option><option>사용</option><option>미사용</option></select></div>
+            <div class="fld"><label for="p-sync">기간계 반영</label><select class="sel" id="p-sync"><option value="">전체</option><option>반영 완료</option><option>반영 대기</option><option>반영 실패</option></select></div>
+            <div class="fld span2"><label for="p-q">검색어</label><div class="inline"><input class="inp-s grow" id="p-q" placeholder="상품 코드 또는 상품명"><button class="btn pri" id="p-search">검색</button></div></div>
+          </div>
+        </div>
+        <div class="banner warn" style="margin-bottom:12px">상품 정보(상품 코드·상품명·설명·사용상태)는 저장하면 기간계로 전송됩니다(포털 → 기간계 단방향). 연관 키워드는 전송되지 않으며 STT 인식 키워드와 별개입니다.</div>
+        <div class="list-wrap">
+          <div class="list-head">
+            <div class="left"><b id="p-total" style="color:#0F172A">총 0건</b></div>
+            <div class="right"><button class="btn xs pri" id="p-add">상품 등록</button><label class="hint" for="p-size" style="margin:0 0 0 8px">페이지 크기</label><select class="sel" id="p-size"><option>10</option><option selected>20</option><option>50</option></select></div>
+          </div>
+          <table class="data" id="p-tbl">
+            <thead><tr>
+              <th class="sortable" data-default="asc">상품 코드</th><th class="sortable">상품명</th><th>설명</th><th class="sortable">사용상태</th><th>연관 키워드</th>
+              <th class="sortable">기간계 반영</th><th class="sortable">등록일</th><th class="sortable">수정일</th><th>관리</th>
+            </tr></thead>
+            <tbody></tbody>
+          </table>
+          <div class="pager" id="p-pager"></div>
+        </div>
+      </div>
+
+      <!-- 키워드 탭 (리스크·제외 키워드·추가한 유형) -->
+      <div id="pane-kw" hidden>
+        <div class="filter-bar">
+          <div class="filter-grid c3">
+            <div class="fld span2"><label for="k-q">키워드</label><div class="inline"><input class="inp-s grow" id="k-q" placeholder="키워드 입력 (부분 일치)"><button class="btn pri" id="k-search">검색</button></div></div>
+          </div>
+        </div>
+        <div class="list-wrap">
+          <div class="list-head">
+            <div class="left"><b id="k-total" style="color:#0F172A">총 0건</b></div>
+            <div class="right">
+              <button class="btn xs" id="k-del" disabled>선택 삭제</button>
+              <button class="btn xs" id="k-excel">엑셀 업로드</button>
+              <button class="btn xs pri" id="k-add">키워드 등록</button>
+              <label class="hint" for="k-size" style="margin:0 0 0 8px">페이지 크기</label><select class="sel" id="k-size"><option>10</option><option selected>20</option><option>50</option></select>
+            </div>
+          </div>
+          <table class="data" id="k-tbl">
+            <thead><tr>
+              <th><input type="checkbox" class="chk-all" aria-label="현재 페이지 전체 선택"></th>
+              <th class="sortable">키워드</th><th>설명</th><th>연관 상담유형</th><th class="sortable">등록자</th><th class="sortable" data-default="desc">등록일</th><th class="sortable">수정일</th><th>관리</th>
+            </tr></thead>
+            <tbody></tbody>
+          </table>
+          <div class="pager" id="k-pager"></div>
+        </div>
+      </div>
+      <div class="proto-note">기간계 전송은 저장 후 4초 뒤 '반영 완료'로 바뀌도록 흉내 냅니다. 상품 코드 형식은 프로토타입에서 P-AAA-000으로 검사합니다(기간계 규칙 확인 필요).</div>
+    </div>
+  </div>
+</div>
+
+<!-- 상품 등록·수정 -->
+<div class="modal-overlay" id="m-product" hidden>
+  <div class="modal lg">
+    <h3 id="mp-title">상품 등록</h3>
+    <div class="note" id="mp-pending" hidden>기간계 반영이 끝난 뒤 상품 정보를 수정할 수 있습니다. 연관 키워드는 수정할 수 있습니다.</div>
+    <div class="form" style="margin-top:10px">
+      <div class="grid2">
+        <div class="fld"><label class="req" for="mp-code">상품 코드</label><input class="inp-s" id="mp-code" placeholder="상품 코드를 입력해 주세요."></div>
+        <div class="fld"><label class="req" for="mp-name">상품명</label><input class="inp-s" id="mp-name" placeholder="상품명을 입력해 주세요."></div>
+      </div>
+      <div class="fld"><label for="mp-desc">설명</label><textarea class="ta" id="mp-desc" placeholder="설명을 입력해 주세요."></textarea></div>
+      <div class="fld"><label class="req">사용상태</label><div class="radio-row" id="mp-use"><label><input type="radio" name="mp-use" value="사용" checked> 사용</label><label><input type="radio" name="mp-use" value="미사용"> 미사용</label></div></div>
+      <div class="fld" id="mp-chips"><label for="mp-kw">연관 키워드</label><div class="inline"><input class="inp-s grow" id="mp-kw" placeholder="연관 키워드를 입력해 주세요."><button type="button" class="btn" data-add>추가</button></div><div class="err"></div><div class="chips"></div></div>
+      <div class="err" id="mp-err"></div>
+      <div class="note">저장하면 상품 정보가 기간계로 전송됩니다. 연관 키워드는 전송되지 않습니다.</div>
+    </div>
+    <div class="modal-actions"><button class="btn" data-close>취소</button><button class="btn pri" id="mp-ok" disabled>등록</button></div>
+  </div>
+</div>
+
+<!-- 키워드 등록·수정 -->
+<div class="modal-overlay" id="m-kw" hidden>
+  <div class="modal md">
+    <h3 id="mk-title">키워드 등록</h3>
+    <div class="form">
+      <div class="fld"><label>키워드 유형</label><div class="ro-field" id="mk-type"></div></div>
+      <div class="fld"><label class="req" for="mk-k">키워드</label><input class="inp-s" id="mk-k" placeholder="키워드를 입력해 주세요."><div class="err" id="mk-err"></div></div>
+      <div class="fld"><label for="mk-desc">설명</label><textarea class="ta" id="mk-desc" placeholder="설명을 입력해 주세요."></textarea></div>
+      <div class="fld"><label>연관 상담유형</label><div class="ms" id="mk-types" data-all="상담유형을 선택해 주세요."></div><div class="hint">상담유형 분류 체계(대분류 > 중분류 > 소분류 > 세분류)를 따릅니다. 선택 단계와 필수 여부는 확인 필요.</div></div>
+    </div>
+    <div class="modal-actions"><button class="btn" data-close>취소</button><button class="btn pri" id="mk-ok" disabled>등록</button></div>
+  </div>
+</div>
+
+<!-- 엑셀 일괄 등록 -->
+<div class="modal-overlay" id="m-excel" hidden>
+  <div class="modal md">
+    <h3>엑셀 일괄 등록</h3>
+    <div class="form">
+      <div class="fld"><label>키워드 유형</label><div class="ro-field" id="mx-type"></div><div class="hint">업로드한 키워드는 모두 이 유형으로 등록됩니다.</div></div>
+      <div class="fld"><label>양식</label><div><button class="btn xs" id="mx-tpl">양식 다운로드</button></div><div class="hint">양식 컬럼: 키워드(필수) · 설명 · 연관 상담유형(여러 개는 쉼표로 구분)</div></div>
+      <div class="fld"><label class="req" for="mx-file">파일</label><input type="file" id="mx-file" accept=".xlsx"><div class="err" id="mx-err"></div></div>
+    </div>
+    <div class="modal-actions"><button class="btn" data-close>취소</button><button class="btn pri" id="mx-ok" disabled>업로드</button></div>
+  </div>
+</div>
+<div class="modal-overlay" id="m-excel-res" hidden>
+  <div class="modal md">
+    <h3>엑셀 일괄 등록 결과</h3>
+    <p class="desc" id="mr-desc"></p>
+    <table class="upload-res"><thead><tr><th>행 번호</th><th>키워드</th><th>실패 사유</th></tr></thead><tbody id="mr-body"></tbody></table>
+    <div class="modal-actions"><button class="btn pri" data-close>확인</button></div>
+  </div>
+</div>
+
+<!-- 유형 추가 -->
+<div class="modal-overlay" id="m-type" hidden>
+  <div class="modal">
+    <h3>유형 추가</h3>
+    <div class="form">
+      <div class="fld"><label class="req" for="mt-name">유형명</label><input class="inp-s" id="mt-name" placeholder="유형명을 입력해 주세요."><div class="err" id="mt-err"></div></div>
+      <div class="note">추가한 유형은 상담이력의 키워드 유형에도 표시됩니다.</div>
+    </div>
+    <div class="modal-actions"><button class="btn" data-close>취소</button><button class="btn pri" id="mt-ok" disabled>추가</button></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+UI.page(function () {
+  var $ = UI.$, $$ = UI.$$, esc = UI.esc;
+  var types = MOCK.KW_TYPES.slice();
+  var keywords = MOCK.KEYWORDS;
+  var products = MOCK.PRODUCTS.map(function (p) { return Object.assign({}, p, { kws: p.kws.slice() }); });
+  var cur = '상품';
+  var CODE_RE = /^P-[A-Z]{3}-\d{3}$/;
+
+  /* ---- 탭 ---- */
+  function count(t) { return t === '상품' ? products.length : (keywords[t] || []).length; }
+  function renderTabs() {
+    $('#tabs').innerHTML = types.map(function (t) { return '<div class="tab' + (t === cur ? ' on' : '') + '" data-tab="' + esc(t) + '">' + esc(t) + '<span class="tc">(' + count(t) + ')</span></div>'; }).join('') +
+      '<button class="btn xs tab-add" id="btn-type">+ 유형 추가</button>';
+  }
+  $('#tabs').addEventListener('click', function (e) {
+    if (e.target.closest('#btn-type')) { $('#mt-name').value = ''; $('#mt-err').textContent = ''; $('#mt-ok').disabled = true; UI.openModal('m-type'); return; }
+    var t = e.target.closest('.tab'); if (!t) return;
+    cur = t.dataset.tab; $('#k-q').value = ''; showPane();
+  });
+  function showPane() {
+    renderTabs();
+    $('#pane-product').hidden = cur !== '상품';
+    $('#pane-kw').hidden = cur === '상품';
+    if (cur === '상품') renderProducts(); else renderKeywords();
+  }
+
+  /* ---- 상품 탭 ---- */
+  var pCtl = null;
+  function syncBadge(p) {
+    var s = p.sync;
+    if (s === '반영 완료') return '<span class="bdg ok">반영 완료</span>';
+    if (s.indexOf('대기') >= 0) return '<span class="bdg wait">' + esc(s) + '</span>';
+    return '<span class="bdg fail" title="' + esc(p.fail || '') + '">' + esc(s) + '</span>' + (p.fail ? '<div class="fail-tip ellipsis w160" title="' + esc(p.fail) + '">' + esc(p.fail) + '</div>' : '');
+  }
+  function pending(p) { return p.sync.indexOf('대기') >= 0; }
+  function renderProducts() {
+    var use = $('#p-use').value, sync = $('#p-sync').value, q = $('#p-q').value.trim();
+    var list = products.filter(function (p) {
+      if (use && (use === '사용') !== p.use) return false;
+      if (sync && p.sync.indexOf(sync.replace('반영 ', '')) < 0) return false;
+      if (q && p.code.indexOf(q) < 0 && p.name.indexOf(q) < 0) return false;
+      return true;
+    });
+    var tb = $('#p-tbl').tBodies[0];
+    tb.innerHTML = list.length ? list.map(function (p) {
+      return '<tr data-code="' + esc(p.code) + '"><td>' + esc(p.code) + '</td><td>' + esc(p.name) + '</td>' +
+        '<td><span class="ellipsis w160" title="' + esc(p.desc) + '">' + esc(p.desc || '-') + '</span></td>' +
+        '<td>' + (p.use ? '<span class="bdg ok">사용</span>' : '<span class="bdg st-none">미사용</span>') + '</td>' +
+        '<td>' + UI.moreList(p.kws, 3) + '</td><td data-sort="' + esc(p.sync) + '">' + syncBadge(p) + '</td>' +
+        '<td>' + esc(p.reg) + '</td><td>' + esc(p.mod) + '</td>' +
+        '<td><button class="btn xs" data-edit="' + esc(p.code) + '">수정</button> <button class="btn xs" data-del="' + esc(p.code) + '"' + (pending(p) ? ' disabled title="기간계 반영이 끝난 뒤 삭제할 수 있습니다."' : '') + '>삭제</button>' +
+        (p.sync.indexOf('실패') >= 0 ? ' <button class="btn xs" data-resend="' + esc(p.code) + '">재전송</button>' : '') + '</td></tr>';
+    }).join('') : UI.emptyRow(9, products.length ? '입력한 조건과 일치하는 상품이 없습니다.' : '등록된 상품이 없습니다.');
+    if (pCtl) pCtl.refresh(); else pCtl = UI.table($('#p-tbl'), { sizeSel: $('#p-size'), pager: $('#p-pager'), totalEl: $('#p-total') });
+  }
+  $('#p-search').addEventListener('click', renderProducts);
+  $('#p-q').addEventListener('keydown', function (e) { if (e.key === 'Enter') renderProducts(); });
+  ['#p-use', '#p-sync'].forEach(function (s) { $(s).addEventListener('change', renderProducts); });
+  function settle(code, kind) {
+    setTimeout(function () {
+      var p = products.filter(function (x) { return x.code === code; })[0];
+      if (!p) return;
+      if (kind === '삭제') products.splice(products.indexOf(p), 1); else p.sync = '반영 완료';
+      if (cur === '상품') showPane();
+    }, 4000);
+  }
+
+  var chips = UI.chipInput($('#mp-chips'), { max: 20, onChange: function () { mpDirty(); } });
+  var editing = null, snapshot = '';
+  function mpState() { return JSON.stringify([$('#mp-code').value.trim(), $('#mp-name').value.trim(), $('#mp-desc').value.trim(), $('input[name=mp-use]:checked').value, chips.get()]); }
+  function mpDirty() {
+    var ok = $('#mp-code').value.trim() && $('#mp-name').value.trim();
+    $('#mp-ok').disabled = !ok || (editing && mpState() === snapshot);
+    $('#mp-err').textContent = '';
+  }
+  ['#mp-code', '#mp-name', '#mp-desc'].forEach(function (s) { $(s).addEventListener('input', mpDirty); });
+  $('#mp-use').addEventListener('change', mpDirty);
+  function openProduct(p) {
+    editing = p || null;
+    $('#mp-title').textContent = p ? '상품 수정' : '상품 등록';
+    $('#mp-ok').textContent = p ? '저장' : '등록';
+    $('#mp-code').value = p ? p.code : ''; $('#mp-code').disabled = !!p;
+    $('#mp-name').value = p ? p.name : ''; $('#mp-desc').value = p ? p.desc : '';
+    $$('input[name=mp-use]').forEach(function (r) { r.checked = r.value === (p ? (p.use ? '사용' : '미사용') : '사용'); });
+    var lock = !!(p && pending(p));
+    $('#mp-pending').hidden = !lock;
+    ['#mp-name', '#mp-desc'].forEach(function (s) { $(s).disabled = lock; });
+    $$('input[name=mp-use]').forEach(function (r) { r.disabled = lock; });
+    chips.set(p ? p.kws : []);
+    snapshot = mpState(); mpDirty();
+    UI.openModal('m-product');
+  }
+  $('#p-add').addEventListener('click', function () { openProduct(null); });
+  $('#mp-ok').addEventListener('click', function () {
+    var code = $('#mp-code').value.trim(), name = $('#mp-name').value.trim();
+    if (!editing) {
+      if (products.some(function (p) { return p.code === code; })) { $('#mp-err').textContent = '이미 등록된 상품 코드입니다.'; return; }
+      if (!CODE_RE.test(code)) { $('#mp-err').textContent = '상품 코드 형식이 올바르지 않습니다. (형식은 기간계 규칙을 따름, 확인 필요)'; return; }
+    }
+    var infoChanged = !editing || name !== editing.name || $('#mp-desc').value.trim() !== editing.desc || ($('input[name=mp-use]:checked').value === '사용') !== editing.use;
+    var p = editing || { code: code, reg: UI.TODAY, mod: '-', sync: '' };
+    p.name = name; p.desc = $('#mp-desc').value.trim(); p.use = $('input[name=mp-use]:checked').value === '사용'; p.kws = chips.get();
+    if (editing) p.mod = UI.TODAY;
+    if (infoChanged) { p.sync = editing ? '수정 반영 대기' : '등록 반영 대기'; delete p.fail; settle(p.code, '반영'); }
+    if (!editing) products.push(p);
+    UI.closeModal('m-product');
+    UI.toast(editing ? (infoChanged ? '변경사항이 저장되었습니다. 기간계 반영 결과는 목록에서 확인할 수 있습니다.' : '변경사항이 저장되었습니다.') : '상품이 등록되었습니다. 기간계 반영 결과는 목록에서 확인할 수 있습니다.');
+    showPane();
+  });
+  $('#p-tbl').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    var code = b.dataset.edit || b.dataset.del || b.dataset.resend;
+    var p = products.filter(function (x) { return x.code === code; })[0]; if (!p) return;
+    if (b.dataset.edit) openProduct(p);
+    if (b.dataset.del) UI.dialog({ title: '상품을 삭제하시겠습니까?', desc: '기간계에서도 삭제되며, 등록한 연관 키워드도 함께 삭제됩니다. 이미 분석된 콜의 키워드는 유지됩니다.', ok: '삭제', danger: true,
+      onOk: function () { p.sync = '삭제 반영 대기'; UI.toast('삭제를 요청했습니다. 기간계 반영 결과는 목록에서 확인할 수 있습니다.'); settle(p.code, '삭제'); showPane(); } });
+    if (b.dataset.resend) { p.sync = p.sync.replace('실패', '대기'); delete p.fail; UI.toast('기간계로 다시 보냈습니다.'); settle(p.code, '반영'); showPane(); }
+  });
+
+  /* ---- 키워드 탭 ---- */
+  var kCtl = null, kSel = null, kEditing = null;
+  UI.setMsOptions((function () { var el = $('#mk-types'); el.dataset.options = MOCK.CONSULT_TYPES.join('|'); UI.initMs(el.parentNode); return el; })(), MOCK.CONSULT_TYPES, []);
+  function saveKw() { MOCK.save('keywords', keywords); }
+  function renderKeywords() {
+    var q = $('#k-q').value.trim();
+    var all = keywords[cur] || [];
+    var list = all.filter(function (k) { return !q || k.k.indexOf(q) >= 0; });
+    var tb = $('#k-tbl').tBodies[0];
+    tb.innerHTML = list.length ? list.map(function (k) {
+      return '<tr><td><input type="checkbox" class="chk-row" value="' + esc(k.k) + '" aria-label="' + esc(k.k) + ' 선택"></td><td>' + esc(k.k) + '</td>' +
+        '<td><span class="ellipsis" title="' + esc(k.desc) + '">' + esc(k.desc || '-') + '</span></td>' +
+        '<td>' + UI.moreList(k.types, 2) + '</td><td>' + esc(k.by) + '</td><td>' + esc(k.reg) + '</td><td>' + esc(k.mod) + '</td>' +
+        '<td><button class="btn xs" data-kedit="' + esc(k.k) + '">수정</button> <button class="btn xs" data-kdel="' + esc(k.k) + '">삭제</button></td></tr>';
+    }).join('') : UI.emptyRow(8, all.length ? '입력한 키워드와 일치하는 결과가 없습니다.' : '등록된 키워드가 없습니다.');
+    if (kCtl) kCtl.refresh(); else kCtl = UI.table($('#k-tbl'), { sizeSel: $('#k-size'), pager: $('#k-pager'), totalEl: $('#k-total') });
+    if (kSel) kSel.clear(); else kSel = UI.selection($('#k-tbl'), [$('#k-del')]);
+  }
+  $('#k-search').addEventListener('click', renderKeywords);
+  $('#k-q').addEventListener('keydown', function (e) { if (e.key === 'Enter') renderKeywords(); });
+  var kSnap = '';
+  function kState() { return JSON.stringify([$('#mk-k').value.trim(), $('#mk-desc').value.trim(), UI.msValue($('#mk-types'))]); }
+  function kDirty() { $('#mk-ok').disabled = !$('#mk-k').value.trim() || (kEditing && kState() === kSnap); $('#mk-err').textContent = ''; }
+  ['#mk-k', '#mk-desc'].forEach(function (s) { $(s).addEventListener('input', kDirty); });
+  $('#mk-types').addEventListener('ms-change', kDirty);
+  function openKw(k) {
+    kEditing = k || null;
+    $('#mk-title').textContent = k ? '키워드 수정' : '키워드 등록'; $('#mk-ok').textContent = k ? '저장' : '등록';
+    $('#mk-type').textContent = cur;
+    $('#mk-k').value = k ? k.k : ''; $('#mk-desc').value = k ? k.desc : '';
+    UI.setMsValue($('#mk-types'), k ? k.types : []);
+    kSnap = kState(); kDirty(); UI.openModal('m-kw');
+  }
+  $('#k-add').addEventListener('click', function () { openKw(null); });
+  $('#mk-ok').addEventListener('click', function () {
+    var v = $('#mk-k').value.trim(), list = keywords[cur] = keywords[cur] || [];
+    if (list.some(function (k) { return k.k === v && k !== kEditing; })) { $('#mk-err').textContent = '이미 등록된 키워드입니다.'; return; }
+    if (v.length > 30) { $('#mk-err').textContent = '키워드는 최대 30자까지 입력할 수 있습니다. (최대 글자 수 확인 필요)'; return; }
+    if (kEditing) { kEditing.k = v; kEditing.desc = $('#mk-desc').value.trim(); kEditing.types = UI.msValue($('#mk-types')); kEditing.mod = UI.TODAY; }
+    else list.push({ k: v, desc: $('#mk-desc').value.trim(), types: UI.msValue($('#mk-types')), by: UI.LOGIN.name, reg: UI.TODAY, mod: '-' });
+    saveKw(); UI.closeModal('m-kw');
+    UI.toast(kEditing ? '변경사항이 저장되었습니다.' : '키워드가 등록되었습니다.');
+    showPane();
+  });
+  function removeKws(names) {
+    keywords[cur] = (keywords[cur] || []).filter(function (k) { return names.indexOf(k.k) < 0; });
+    saveKw(); UI.toast('키워드가 삭제되었습니다.'); showPane();
+  }
+  $('#k-tbl').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    var name = b.dataset.kedit || b.dataset.kdel;
+    var k = (keywords[cur] || []).filter(function (x) { return x.k === name; })[0]; if (!k) return;
+    if (b.dataset.kedit) openKw(k);
+    if (b.dataset.kdel) UI.dialog({ title: '키워드를 삭제하시겠습니까?', desc: '이미 분석된 콜의 키워드는 유지됩니다.', ok: '삭제', danger: true, onOk: function () { removeKws([name]); } });
+  });
+  $('#k-del').addEventListener('click', function () {
+    var ids = kSel.ids();
+    UI.dialog({ title: '선택한 키워드 ' + ids.length + '개를 삭제하시겠습니까?', desc: '이미 분석된 콜의 키워드는 유지됩니다.', ok: '삭제', danger: true, onOk: function () { removeKws(ids); } });
+  });
+
+  /* ---- 엑셀 일괄 등록 ---- */
+  $('#k-excel').addEventListener('click', function () { $('#mx-type').textContent = cur; $('#mx-file').value = ''; $('#mx-err').textContent = ''; $('#mx-ok').disabled = true; UI.openModal('m-excel'); });
+  $('#mx-tpl').addEventListener('click', function () { UI.toast('양식을 내려받았습니다. (프로토타입)'); });
+  $('#mx-file').addEventListener('change', function () {
+    var f = this.files[0]; $('#mx-err').textContent = '';
+    if (f && !/\.xlsx$/i.test(f.name)) { $('#mx-err').textContent = '엑셀 파일(.xlsx)만 업로드할 수 있습니다.'; $('#mx-ok').disabled = true; return; }
+    $('#mx-ok').disabled = !f;
+  });
+  $('#mx-ok').addEventListener('click', function () {
+    var list = keywords[cur] = keywords[cur] || [];
+    var sample = cur === '리스크' ? ['보장 수익', '원금 보장', '원금 손실 없음', '', '100% 수익'] : [cur + ' 키워드 1', cur + ' 키워드 2', list[0] ? list[0].k : cur + ' 키워드 1', '', cur + ' 키워드 3'];
+    var seen = {}, okN = 0, fails = [];
+    sample.forEach(function (k, i) {
+      var row = i + 2;
+      if (!k) { fails.push([row, '-', '키워드가 비어 있습니다.']); return; }
+      if (seen[k]) { fails.push([row, k, '파일 안에 같은 키워드가 있습니다.']); return; }
+      seen[k] = 1;
+      if (list.some(function (x) { return x.k === k; })) { fails.push([row, k, '이미 등록된 키워드입니다.']); return; }
+      list.push({ k: k, desc: '', types: [], by: UI.LOGIN.name, reg: UI.TODAY, mod: '-' }); okN++;
+    });
+    saveKw(); UI.closeModal('m-excel'); showPane();
+    if (!fails.length) { UI.toast(okN + '건의 키워드가 등록되었습니다.'); return; }
+    $('#mr-desc').textContent = '총 ' + sample.length + '건 중 ' + okN + '건을 등록했습니다. ' + fails.length + '건은 등록하지 못했습니다.';
+    $('#mr-body').innerHTML = fails.map(function (f) { return '<tr><td>' + f[0] + '</td><td>' + esc(f[1]) + '</td><td>' + esc(f[2]) + '</td></tr>'; }).join('');
+    UI.openModal('m-excel-res');
+  });
+
+  /* ---- 유형 추가 ---- */
+  $('#mt-name').addEventListener('input', function () { $('#mt-ok').disabled = !this.value.trim(); $('#mt-err').textContent = ''; });
+  $('#mt-ok').addEventListener('click', function () {
+    var v = $('#mt-name').value.trim();
+    if (types.indexOf(v) >= 0) { $('#mt-err').textContent = '이미 있는 유형명입니다.'; return; }
+    if (v.length > 20) { $('#mt-err').textContent = '유형명은 최대 20자까지 입력할 수 있습니다. (최대 글자 수 확인 필요)'; return; }
+    types.push(v); keywords[v] = []; MOCK.save('kwTypes', types); saveKw();
+    UI.closeModal('m-type'); UI.toast('유형이 추가되었습니다.');
+    cur = v; showPane();
+  });
+
+  showPane();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>상담이력</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="history" data-title="상담이력">
+<div class="app">
+  <div id="sidebar"></div>
+  <div class="main">
+    <div class="topbar"><div class="crumb">상담이력 조회 › <b>상담이력</b></div></div>
+    <div class="content">
+      <div class="banner info agent-only">상담사 역할은 본인 콜만 조회합니다. 센터·팀·사번 필터는 표시하지 않습니다. (역할별 조회 범위 확인 필요)</div>
+
+      <div class="filter-bar" id="filters">
+        <div class="filter-grid">
+          <div class="fld span2"><label>기간</label><div id="f-period"></div></div>
+          <div class="fld not-agent"><label>센터</label><div class="ms" id="f-center" data-options="서울센터|부산센터"></div></div>
+          <div class="fld not-agent"><label>팀</label><div class="ms" id="f-team" data-options=""></div></div>
+          <div class="fld not-agent"><label for="f-emp">사번</label><input class="inp-s" id="f-emp" placeholder="쉼표(,)로 여러 사번 입력"></div>
+          <div class="fld"><label>통화시간 (mm:ss)</label><div class="inline"><input class="inp-s" id="f-dmin" placeholder="최소" style="width:90px"> ~ <input class="inp-s" id="f-dmax" placeholder="최대" style="width:90px"></div></div>
+          <div class="fld"><label for="f-re">재인입</label><select class="sel" id="f-re"><option value="">전체</option><option>재인입</option><option>비재인입</option></select></div>
+          <div class="fld"><label>키워드</label><div class="inline"><select class="sel" id="f-kwtype" aria-label="키워드 유형" style="width:120px"></select><input class="inp-s grow" id="f-kw" aria-label="키워드"></div></div>
+        </div>
+        <div class="filter-err"></div>
+        <div class="filter-actions">
+          <button class="btn" id="btn-reset">초기화</button>
+          <button class="btn pri" id="btn-search">검색</button>
+        </div>
+      </div>
+
+      <div class="list-wrap">
+        <div class="list-head">
+          <div class="left"><b id="total" style="color:#0F172A">총 0건</b><span>행을 클릭하면 상담이력 상세로 이동합니다.</span></div>
+          <div class="right"><label class="hint" for="size" style="margin:0">페이지 크기</label><select class="sel" id="size"><option>10</option><option selected>20</option><option>50</option></select></div>
+        </div>
+        <table class="data" id="tbl">
+          <thead>
+            <tr>
+              <th class="sortable">콜 ID</th>
+              <th class="sortable" data-default="desc">일시</th>
+              <th class="sortable">센터</th>
+              <th class="sortable">팀</th>
+              <th class="sortable">사번</th>
+              <th class="sortable">상담사</th>
+              <th class="sortable">상담유형</th>
+              <th class="sortable">통화시간</th>
+              <th class="sortable">I/B·O/B</th>
+              <th class="sortable">묵음시간</th>
+              <th class="sortable">재인입</th>
+              <th>키워드</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div class="pager" id="pager"></div>
+      </div>
+      <div class="proto-note">목업 데이터 · 기간 기본값 '오늘'은 확인 필요 항목입니다. 최근 7일·최근 30일로 바꿔 더 많은 콜을 볼 수 있습니다.</div>
+    </div>
+  </div>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+UI.page(function () {
+  var $ = UI.$, esc = UI.esc;
+  var bar = $('#filters');
+  $('#f-period').innerHTML = UI.drHtml();
+  UI.initMs(bar);
+  UI.linkCenterTeam($('#f-center'), $('#f-team'));
+  var dr = UI.dateRange($('[data-dr]', bar), 0);
+
+  var typeSel = $('#f-kwtype'), kwInp = $('#f-kw');
+  typeSel.innerHTML = '<option value="">키워드 유형</option>' + MOCK.KW_TYPES.map(function (t) { return '<option>' + esc(t) + '</option>'; }).join('');
+  function syncKw() {
+    kwInp.disabled = !typeSel.value;
+    kwInp.placeholder = typeSel.value ? '키워드를 입력해 주세요.' : '키워드 유형을 먼저 선택해 주세요.';
+  }
+  typeSel.addEventListener('change', syncKw); syncKw();
+  kwInp.addEventListener('keydown', function (e) { if (e.key === 'Enter') search(); });
+  var keep = UI.keepList('history', bar, dr, $('#size'));
+  keep.restoreForm(); syncKw();
+
+  var tbl = $('#tbl'), tb = tbl.tBodies[0], ctl = null, appliedType = '';
+  var DUR_RE = /^\d{1,3}:\d{2}$/;
+
+  function collect() {
+    var err = dr.check();
+    var dmin = $('#f-dmin').value.trim(), dmax = $('#f-dmax').value.trim();
+    if (!err && ((dmin && !DUR_RE.test(dmin)) || (dmax && !DUR_RE.test(dmax)))) err = '통화시간은 mm:ss 형식으로 입력해 주세요.';
+    if (!err && dmin && dmax && UI.toSec(dmin) > UI.toSec(dmax)) err = '최소 통화시간은 최대 통화시간보다 클 수 없습니다.';
+    UI.showErr(bar, err);
+    if (err) return null;
+    var p = dr.get();
+    return {
+      from: p[0], to: p[1], centers: UI.msValue($('#f-center')), teams: UI.msValue($('#f-team')),
+      emps: $('#f-emp').value.split(',').map(function (s) { return s.trim(); }).filter(Boolean),
+      dmin: dmin ? UI.toSec(dmin) : null, dmax: dmax ? UI.toSec(dmax) : null,
+      re: $('#f-re').value, kwType: typeSel.value, kw: kwInp.value.trim()
+    };
+  }
+  function match(c, f) {
+    var d = c.dt.slice(0, 10);
+    if (d < f.from || d > f.to) return false;
+    if (UI.role === 'agent' && c.emp !== UI.LOGIN.emp) return false;
+    if (f.centers.length && f.centers.indexOf(c.center) < 0) return false;
+    if (f.teams.length && f.teams.indexOf(c.team) < 0) return false;
+    if (f.emps.length && !f.emps.some(function (e) { return c.emp.indexOf(e) >= 0; })) return false;
+    var s = UI.toSec(c.dur);
+    if (f.dmin != null && s < f.dmin) return false;
+    if (f.dmax != null && s > f.dmax) return false;
+    if (f.re === '재인입' && !c.re) return false;
+    if (f.re === '비재인입' && c.re) return false;
+    if (f.kwType && f.kw) {
+      if (c.analyzing) return false;
+      if (!c.kws.some(function (k) { return k.t === f.kwType && k.k.indexOf(f.kw) >= 0; })) return false;
+    }
+    return true;
+  }
+  function kwCell(c) {
+    if (c.analyzing) return '<span class="bdg secondary">분석 중</span>';
+    var list = appliedType ? c.kws.filter(function (k) { return k.t === appliedType; })
+      : c.kws.concat(c.issueKws.map(function (k) { return { t: '이슈', k: k }; }));
+    return UI.kwChips(list, 3);
+  }
+  function rowHtml(c) {
+    var ana = '<span class="bdg secondary">분석 중</span>';
+    return '<tr class="clickable" data-id="' + esc(c.id) + '">' +
+      '<td><a class="lnk" href="history-detail.html?id=' + encodeURIComponent(c.id) + '">' + esc(c.id) + '</a></td>' +
+      '<td>' + esc(c.dt) + '</td><td>' + esc(c.center) + '</td><td>' + esc(c.team) + '</td><td>' + esc(c.emp) + '</td><td>' + esc(c.agent) + '</td>' +
+      '<td>' + (c.analyzing ? ana : '<span class="ellipsis" title="' + esc(c.type) + '">' + esc(c.type) + '</span>') + '</td>' +
+      '<td>' + esc(c.dur) + '</td>' +
+      '<td><span class="bdg ' + (c.dir === 'I/B' ? 'ib' : 'ob') + '">' + esc(c.dir) + '</span></td>' +
+      '<td>' + (c.analyzing ? ana : esc(c.sil)) + '</td>' +
+      '<td>' + (c.re ? '<span class="bdg re">재인입</span>' : '-') + '</td>' +
+      '<td class="wrap" style="min-width:180px">' + kwCell(c) + '</td></tr>';
+  }
+  function search() {
+    var f = collect();
+    if (!f) return;
+    appliedType = f.kwType;
+    var list = MOCK.CALLS.filter(function (c) { return match(c, f); });
+    tb.innerHTML = list.length ? list.map(rowHtml).join('') : UI.emptyRow(12, '입력한 조건에 맞는 상담 이력이 없습니다.');
+    if (ctl) ctl.refresh(); else { ctl = UI.table(tbl, { sizeSel: $('#size'), pager: $('#pager'), totalEl: $('#total') }); keep.restoreTable(ctl); }
+  }
+  tb.addEventListener('click', function (e) {
+    var tr = e.target.closest('tr[data-id]');
+    if (!tr) return;
+    if (e.target.closest('a')) { keep.save(ctl); return; }
+    if (UI.interactive(e.target)) return;
+    keep.save(ctl);
+    location.href = 'history-detail.html?id=' + encodeURIComponent(tr.dataset.id);
+  });
+  $('#btn-search').addEventListener('click', search);
+  $('#btn-reset').addEventListener('click', function () {
+    dr.reset(); UI.setMsValue($('#f-center'), []); UI.setMsOptions($('#f-team'), Object.keys(MOCK.CENTERS).reduce(function (a, c) { return a.concat(MOCK.CENTERS[c]); }, []), []);
+    $('#f-emp').value = ''; $('#f-dmin').value = ''; $('#f-dmax').value = ''; $('#f-re').value = ''; typeSel.value = ''; kwInp.value = ''; syncKw();
+    search();
+  });
+  search();
+});
+</script>
+</body>
+</html>

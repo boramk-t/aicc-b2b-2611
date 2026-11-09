@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>실시간 상태 모니터링</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="monitor" data-title="실시간 상태 모니터링">
+<div class="app">
+  <div id="sidebar"></div>
+  <div class="main">
+    <div class="topbar"><div class="crumb"><b>실시간 상태 모니터링</b></div></div>
+    <div class="content">
+      <div class="page-head">
+        <h2>실시간 상태 모니터링</h2>
+        <div class="inline">
+          <span id="conn" class="bdg ok">실시간 연결됨</span>
+          <span class="hint" style="margin:0" id="last">마지막 갱신 2026.11.07 15:05:12</span>
+          <button class="btn xs" id="sim-new" title="프로토타입: 이슈 콜 등록 이벤트를 받은 것처럼 갱신합니다.">이슈 콜 등록 이벤트 (시뮬레이션)</button>
+          <button class="btn xs" id="sim-drop">연결 끊김 보기</button>
+        </div>
+      </div>
+      <div class="banner err" id="ws-err" hidden>실시간 연결이 끊어졌습니다. 다시 연결하는 중입니다. 표시된 수치는 마지막 갱신 시점 기준입니다. (기존 웹소켓 오류 표시: Figma L_리더_실시간_상태모니터링_웹소켓_error_02)</div>
+
+      <div class="placeholder-box">기존 실시간 상태 모니터링 영역 (상담사 상태·대기 콜 등)<br>프로토타입 HTML과 Figma(L_리더_실시간_상태모니터링_웹소켓_error_02)를 따르며, 이번 스토리보드 범위가 아닙니다.</div>
+
+      <div class="grid2" style="margin-top:14px">
+        <div class="card">
+          <h3>이슈 콜 인입 추이 <span class="bdg secondary">오늘</span></h3>
+          <div class="trend-sum" id="tsum"></div>
+          <div class="trend" id="trend"><div class="tip" id="tip"></div></div>
+          <div class="legend-row"><span><i style="background:var(--primary)"></i>오늘 (시간대별 인입)</span><span><i style="background:#F59E0B"></i>전일 같은 시간대</span><span>인입 기준: 이슈 콜 목록 등록 시점 · 1시간 단위 (확인 필요)</span></div>
+        </div>
+        <div class="card">
+          <h3>처리 단계별 상태 <span class="bdg secondary">오늘 등록</span></h3>
+          <div class="kpi-grid c4" id="scards" style="margin-bottom:8px"></div>
+          <div class="stackbar" id="sbar"></div>
+          <div class="legend-row" id="slegend"></div>
+          <div class="kpi click k-over" id="over" style="margin-top:14px" role="link" tabindex="0"></div>
+          <div class="hint">상태별 카드는 오늘 등록된 이슈 콜 기준이고(확인 필요), 기한 초과는 등록일과 관계없이 처리 전이면서 기한일이 지난 이슈 콜 전체입니다. 카드를 누르면 같은 조건의 이슈 콜 목록으로 이동합니다.</div>
+        </div>
+      </div>
+      <div class="proto-note">목업 데이터: 수치는 합성 데이터라 이슈 콜 목록의 샘플 건수와 다를 수 있습니다.</div>
+    </div>
+  </div>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+UI.page(function () {
+  var $ = UI.$, esc = UI.esc;
+  var S = MOCK.stats();
+  var today = S.todayHourly.slice(), prev = S.prevHourly, status = Object.assign({}, S.todayStatus), overAll = S.overdueAll, recent = S.recentHour;
+  var nowHour = S.nowHour, nowMin = S.nowMin, live = true;
+  var COLORS = { '미처리': '#DC2626', '검토필요': '#D97706', '처리완료': '#16A34A', '이슈없음': '#94A3B8' };
+
+  function sum(a, to) { var s = 0; for (var i = 0; i <= to && i < a.length; i++) s += a[i]; return s; }
+  function renderTrend() {
+    var tsum = sum(today, nowHour), psum = sum(prev, nowHour - 1) + Math.round(prev[nowHour] * nowMin / 60), diff = tsum - psum;
+    $('#tsum').innerHTML = '<span>오늘 인입<b>' + tsum + '건</b></span><span>최근 1시간<b>' + recent + '건</b></span><span>전일 같은 시각까지 대비 <span class="' + (diff > 0 ? 'up' : diff < 0 ? 'down' : '') + '">' + (diff > 0 ? '+' : diff < 0 ? '−' : '±') + Math.abs(diff) + '건</span></span>';
+    if (!tsum) { $('#trend').innerHTML = '<div class="hint" style="padding:60px 0;text-align:center">오늘 등록된 이슈 콜이 없습니다.</div>'; return; }
+    var W = 560, H = 220, L = 30, R = 10, T = 12, B = 26, hours = nowHour + 1;
+    var max = Math.max(4, Math.max.apply(null, today.concat(prev.slice(0, hours))));
+    var bw = (W - L - R) / hours, y = function (v) { return T + (H - T - B) * (1 - v / max); };
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="오늘 시간대별 이슈 콜 인입 그래프">';
+    for (var g = 0; g <= max; g += Math.ceil(max / 4)) s += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(g) + '" y2="' + y(g) + '" stroke="#E2E8F0"/><text x="' + (L - 6) + '" y="' + (y(g) + 4) + '" font-size="10" fill="#94A3B8" text-anchor="end">' + g + '</text>';
+    var pts = [];
+    for (var h = 0; h < hours; h++) {
+      var x = L + bw * h, v = today[h] || 0;
+      s += '<rect x="' + (x + bw * 0.18) + '" y="' + y(v) + '" width="' + (bw * 0.64) + '" height="' + (y(0) - y(v)) + '" rx="2" fill="' + (h === nowHour ? '#7FD0EC' : '#008CCD') + '"/>';
+      s += '<rect data-h="' + h + '" x="' + x + '" y="' + T + '" width="' + bw + '" height="' + (H - T - B) + '" fill="transparent"/>';
+      pts.push((x + bw / 2) + ',' + y(prev[h] || 0));
+      if (h % 2 === 0 || h === nowHour) s += '<text x="' + (x + bw / 2) + '" y="' + (H - 8) + '" font-size="10" fill="#94A3B8" text-anchor="middle">' + h + '시</text>';
+    }
+    s += '<polyline points="' + pts.join(' ') + '" fill="none" stroke="#F59E0B" stroke-width="2" pointer-events="none"/>';
+    s += '</svg>';
+    $('#trend').innerHTML = s + '<div class="tip" id="tip"></div>';
+  }
+  $('#trend').addEventListener('mousemove', function (e) {
+    var r = e.target.closest('rect[data-h]'), tip = $('#tip');
+    if (!tip) return;
+    if (!r) { tip.style.display = 'none'; return; }
+    var h = +r.dataset.h, box = $('#trend').getBoundingClientRect();
+    tip.innerHTML = String(h).padStart(2, '0') + ':00~' + String(h).padStart(2, '0') + ':59' + (h === nowHour ? ' (진행 중)' : '') + '<br>오늘 ' + (today[h] || 0) + '건 · 전일 ' + (prev[h] || 0) + '건';
+    tip.style.display = 'block'; tip.style.left = Math.min(e.clientX - box.left + 12, box.width - 150) + 'px'; tip.style.top = (e.clientY - box.top - 40) + 'px';
+  });
+  $('#trend').addEventListener('mouseleave', function () { var t = $('#tip'); if (t) t.style.display = 'none'; });
+
+  function renderStatus() {
+    var total = UI.STATUSES.reduce(function (a, s) { return a + status[s]; }, 0);
+    $('#scards').innerHTML = UI.STATUSES.map(function (s) {
+      var cls = { '미처리': 'k-open', '검토필요': 'k-review', '처리완료': 'k-done', '이슈없음': 'k-none' }[s];
+      return '<div class="kpi click ' + cls + '" data-st="' + s + '" role="link" tabindex="0"><div class="lab">' + s + '</div><div class="val">' + status[s] + '<small>건</small></div><div class="sub">' + (total ? (Math.round(status[s] / total * 1000) / 10).toFixed(1) + '%' : '-') + '</div></div>';
+    }).join('');
+    $('#sbar').innerHTML = UI.STATUSES.map(function (s) { var p = total ? status[s] / total * 100 : 0; return '<div style="width:' + p + '%;background:' + COLORS[s] + '" title="' + s + ' ' + status[s] + '건 (' + p.toFixed(1) + '%)"></div>'; }).join('');
+    $('#slegend').innerHTML = UI.STATUSES.map(function (s) { return '<span><i style="background:' + COLORS[s] + '"></i>' + s + '</span>'; }).join('') + '<span>합계 ' + total + '건 (오늘 인입과 같음)</span>';
+    $('#over').innerHTML = '<div class="lab">기한 초과 (처리 전 · 전체)</div><div class="val">' + overAll + '<small>건</small></div>';
+  }
+  $('#scards').addEventListener('click', function (e) { var c = e.target.closest('[data-st]'); if (c) location.href = 'issue-list.html?period=today&status=' + encodeURIComponent(c.dataset.st); });
+  $('#scards').addEventListener('keydown', function (e) { var c = e.target.closest('[data-st]'); if (c && e.key === 'Enter') c.click(); });
+  $('#over').addEventListener('click', function () { location.href = 'issue-list.html?over=1'; });
+  $('#over').addEventListener('keydown', function (e) { if (e.key === 'Enter') this.click(); });
+
+  /* 프로토타입: 실시간 이벤트 시뮬레이션 */
+  var sec = 12;
+  function stamp() { sec += 7; var m = nowMin + Math.floor(sec / 60); return '2026.11.07 ' + String(nowHour).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0') + ':' + String(sec % 60).padStart(2, '0'); }
+  $('#sim-new').addEventListener('click', function () {
+    if (!live) { UI.toast('실시간 연결이 끊어져 갱신할 수 없습니다.'); return; }
+    today[nowHour] = (today[nowHour] || 0) + 1; recent++; status['미처리']++;
+    $('#last').textContent = '마지막 갱신 ' + stamp();
+    renderTrend(); renderStatus(); UI.toast('새 이슈 콜 1건이 등록되었습니다.');
+  });
+  $('#sim-drop').addEventListener('click', function () {
+    live = !live;
+    $('#ws-err').hidden = live;
+    $('#conn').className = 'bdg ' + (live ? 'ok' : 'fail'); $('#conn').textContent = live ? '실시간 연결됨' : '연결 끊김';
+    this.textContent = live ? '연결 끊김 보기' : '다시 연결';
+    if (live) $('#last').textContent = '마지막 갱신 ' + stamp();
+  });
+
+  renderTrend(); renderStatus();
+});
+</script>
+</body>
+</html>

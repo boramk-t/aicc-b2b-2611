@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>공지사항 등록</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="notice-form" data-title="공지사항 등록·수정">
+<div class="app">
+  <div id="sidebar"></div>
+  <div class="main">
+    <div class="topbar"><div class="crumb"><a href="notice.html">공지사항</a> › <b id="crumb">공지사항 등록</b></div></div>
+    <div class="content">
+      <div class="card">
+        <h3 id="title">공지사항 등록</h3>
+        <div class="form" style="display:flex;flex-direction:column;gap:14px;max-width:900px">
+          <div class="fld"><label class="req">구분</label><div class="radio-row"><label><input type="radio" name="cat" value="중요"> 중요</label><label><input type="radio" name="cat" value="일반" checked> 일반</label></div></div>
+          <div class="fld"><label class="req" for="t">제목</label><input class="inp-s" id="t" placeholder="제목을 입력해 주세요."></div>
+          <div class="fld"><label class="req" for="b">본문</label>
+            <div class="editor"><div class="tb"><button type="button">B</button><button type="button"><i>I</i></button><button type="button"><u>U</u></button><button type="button">• 목록</button><button type="button">링크</button></div>
+            <textarea id="b" placeholder="내용을 입력해 주세요."></textarea></div></div>
+          <div class="fld"><label for="file">첨부파일</label><input type="file" id="file"><div class="hint">형식·개수·크기는 확인 필요</div></div>
+        </div>
+        <div class="filter-actions"><button class="btn" id="cancel">취소</button><button class="btn pri" id="ok" disabled>등록</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+UI.page(function () {
+  var $ = UI.$, $$ = UI.$$;
+  var all = MOCK.load('notices', MOCK.NOTICES), id = UI.params.get('id');
+  var x = id ? all.filter(function (v) { return v.id === id; })[0] : null;
+  if (x) {
+    $('#title').textContent = $('#crumb').textContent = '공지사항 수정'; $('#ok').textContent = '저장';
+    $$('input[name=cat]').forEach(function (r) { r.checked = r.value === x.cat; });
+    $('#t').value = x.title; $('#b').value = x.body;
+  }
+  function state() { return [$('input[name=cat]:checked').value, $('#t').value.trim(), $('#b').value.trim(), $('#file').value].join('|'); }
+  var snap = state();
+  function upd() { $('#ok').disabled = !$('#t').value.trim() || !$('#b').value.trim() || (x && state() === snap); }
+  ['#t', '#b'].forEach(function (s) { $(s).addEventListener('input', upd); });
+  $$('input[name=cat]').forEach(function (r) { r.addEventListener('change', upd); });
+  $('#file').addEventListener('change', upd);
+  $('#cancel').addEventListener('click', function () {
+    var back = x ? 'notice-detail.html?id=' + encodeURIComponent(x.id) : 'notice.html';
+    if (state() === snap) { location.href = back; return; }
+    UI.dialog({ title: '작성 중인 내용이 저장되지 않습니다. 나가시겠습니까?', cancel: '계속 작성', ok: '나가기', onOk: function () { location.href = back; } });
+  });
+  $('#ok').addEventListener('click', function () {
+    var v = { cat: $('input[name=cat]:checked').value, title: $('#t').value.trim(), body: $('#b').value.trim() };
+    var f = $('#file').files[0];
+    if (x) { Object.assign(x, v, { mod: UI.TODAY }); if (f) x.file = f.name; }
+    else {
+      var max = all.reduce(function (m, a) { return Math.max(m, +a.id.split('-')[1]); }, 0);
+      x = Object.assign(v, { id: 'N-' + String(max + 1).padStart(4, '0'), by: UI.LOGIN.name, reg: UI.TODAY, mod: '', file: f ? f.name : '' });
+      all.push(x); id = null;
+    }
+    MOCK.save('notices', all);
+    UI.flash(id ? '변경사항이 저장되었습니다.' : '공지사항이 등록되었습니다.');
+    location.href = 'notice-detail.html?id=' + encodeURIComponent(x.id);
+  });
+});
+</script>
+</body>
+</html>

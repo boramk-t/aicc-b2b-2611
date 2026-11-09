@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>공지사항 상세</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="notice-detail" data-title="공지사항 상세">
+<div class="app">
+  <div id="sidebar"></div>
+  <div class="main">
+    <div class="topbar"><div class="crumb"><a href="notice.html">공지사항</a> › <b>공지사항 상세</b></div></div>
+    <div class="content">
+      <div class="card" id="box"></div>
+    </div>
+  </div>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+UI.page(function () {
+  var $ = UI.$, esc = UI.esc;
+  var all = MOCK.load('notices', MOCK.NOTICES), id = UI.params.get('id') || (all[0] && all[0].id);
+  var x = all.filter(function (v) { return v.id === id; })[0];
+  if (!x) {
+    $('#box').innerHTML = '<div class="placeholder" style="min-height:30vh"><h2>삭제되었거나 존재하지 않는 공지사항입니다.</h2><a class="btn" href="notice.html">목록으로</a></div>';
+    return;
+  }
+  $('#box').innerHTML =
+    '<div><span class="bdg ' + (x.cat === '중요' ? 'default' : 'outline') + '">' + esc(x.cat) + '</span></div>' +
+    '<h2 style="font-size:18px;margin:10px 0 6px">' + esc(x.title) + '</h2>' +
+    '<div class="hint">' + esc(x.by) + ' · 등록일 ' + esc(x.reg) + (x.mod ? ' · 수정일 ' + esc(x.mod) : '') + '</div>' +
+    '<div class="notice-body">' + esc(x.body) + '</div>' +
+    (x.file ? '<div class="attach">📎 <a class="lnk" href="#" id="file">' + esc(x.file) + '</a><span class="hint" style="margin:0">(첨부파일 제공 여부 확인 필요)</span></div>' : '') +
+    '<div class="filter-actions"><a class="btn" href="notice.html">목록으로</a><a class="btn admin-only" href="notice-form.html?id=' + encodeURIComponent(x.id) + '">수정</a><button class="btn danger admin-only" id="del">삭제</button></div>';
+  var f = $('#file'); if (f) f.addEventListener('click', function (e) { e.preventDefault(); UI.toast('첨부파일을 내려받았습니다. (프로토타입)'); });
+  $('#del').addEventListener('click', function () {
+    UI.dialog({ title: '공지사항을 삭제하시겠습니까?', ok: '삭제', danger: true, onOk: function () {
+      MOCK.save('notices', all.filter(function (v) { return v.id !== x.id; }));
+      UI.flash('공지사항이 삭제되었습니다.'); location.href = 'notice.html';
+    } });
+  });
+});
+</script>
+</body>
+</html>

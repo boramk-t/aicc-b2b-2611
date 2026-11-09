@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>이슈 콜 설정</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="issue-settings" data-title="이슈 콜 설정">
+<div class="app">
+  <div id="sidebar"></div>
+  <div class="main">
+    <div class="topbar"><div class="crumb">상담이력 조회 › <a href="issue-list.html">이슈 콜 목록</a> › <b>이슈 콜 설정</b></div></div>
+    <div class="content">
+      <div class="page-head"><h2>이슈 콜 설정</h2><a class="btn" href="issue-list.html">이슈 콜 목록으로</a></div>
+      <div class="banner info">설정을 바꾸면 이후 처리부터 적용합니다. 이미 지정된 이슈 유형·담당 관리자와 처리 내역은 바뀌지 않습니다. 이슈 유형은 키워드 유형, 상담유형과 별개입니다.</div>
+
+      <div class="card" id="tabs-root">
+        <div class="tabs">
+          <div class="tab on" data-tab="type">이슈 유형</div>
+          <div class="tab" data-tab="period">기간</div>
+          <div class="tab" data-tab="suggest">개선 제안</div>
+          <div class="tab" data-tab="owner">담당자</div>
+          <div class="tab" data-tab="scope">공개 범위</div>
+        </div>
+
+        <div class="tabpane on" data-pane="type">
+          <div class="list-head"><div class="left"><b id="ty-total" style="color:#0F172A"></b></div><div class="right"><button class="btn xs pri" id="ty-add">이슈 유형 추가</button></div></div>
+          <table class="data" id="ty-tbl"><thead><tr><th>이슈 유형명</th><th>설명</th><th>사용 여부</th><th>이슈 콜 수</th><th>수정일</th><th>관리</th></tr></thead><tbody></tbody></table>
+        </div>
+
+        <div class="tabpane" data-pane="period">
+          <div class="filter-grid c3" style="max-width:720px">
+            <div class="fld"><label for="pd-due">기본 이슈 기한</label><select class="sel" id="pd-due"><option>일</option><option>주</option><option>월</option><option>연</option></select><div class="hint">새로 등록되는 이슈 콜의 이슈 기한 기본값 (기본값 주, 확인 필요)</div></div>
+          </div>
+          <table class="cls-table" style="max-width:720px;margin-top:14px">
+            <thead><tr><th style="width:90px">이슈 기한</th><th>기한일 (달력 기준)</th><th>예시: 등록일 2026.11.05 (목)</th></tr></thead>
+            <tbody id="pd-ex"></tbody>
+          </table>
+          <div class="hint">기간 끝 무렵에 등록된 이슈 콜은 처리할 수 있는 날이 짧습니다. 예: 일요일에 등록한 이슈 콜의 '주' 기한은 등록 당일입니다. 바꾼 기본 이슈 기한은 이후 등록되는 이슈 콜부터 적용합니다.</div>
+          <div class="filter-actions" style="justify-content:flex-start"><button class="btn pri" id="pd-save" disabled>저장</button></div>
+        </div>
+
+        <div class="tabpane" data-pane="suggest">
+          <div class="list-head">
+            <div class="left"><select class="sel" id="sg-filter" aria-label="이슈 유형 필터" style="width:160px"></select><b id="sg-total" style="color:#0F172A"></b></div>
+            <div class="right"><button class="btn xs pri" id="sg-add">개선 제안 등록</button><label class="hint" for="sg-size" style="margin:0 0 0 8px">페이지 크기</label><select class="sel" id="sg-size"><option>10</option><option selected>20</option><option>50</option></select></div>
+          </div>
+          <table class="data" id="sg-tbl"><thead><tr><th>이슈 유형</th><th>개선 제안</th><th>사용 여부</th><th>등록자</th><th>수정일</th><th>관리</th></tr></thead><tbody></tbody></table>
+          <div class="pager" id="sg-pager"></div>
+        </div>
+
+        <div class="tabpane" data-pane="owner">
+          <div class="list-head"><div class="left"><b id="ow-total" style="color:#0F172A"></b></div><div class="right"><button class="btn xs pri" id="ow-add">담당자 등록</button></div></div>
+          <table class="data" id="ow-tbl"><thead><tr><th>사번</th><th>이름</th><th>센터/팀</th><th>담당 이슈 유형</th><th>처리 중 이슈 콜</th><th>관리</th></tr></thead><tbody></tbody></table>
+        </div>
+
+        <div class="tabpane" data-pane="scope">
+          <div class="filter-grid c3" style="max-width:720px">
+            <div class="fld"><label for="sc-sel">상담사 공개 범위</label><select class="sel" id="sc-sel"><option>본인</option><option>센터</option><option>전체</option></select></div>
+          </div>
+          <table class="cls-table" style="max-width:720px;margin-top:14px">
+            <tbody>
+              <tr><th>본인</th><td>상담사 본인의 이슈 콜</td></tr>
+              <tr><th>센터</th><td>상담사가 속한 센터의 이슈 콜</td></tr>
+              <tr><th>전체</th><td>모든 이슈 콜</td></tr>
+            </tbody>
+          </table>
+          <div class="hint">적용 대상: 상담어드바이저에서 상담사 역할 사용자가 보는 이슈 콜 목록과, 목록에서 여는 상담이력 상세의 이슈 처리 영역. 상담사가 이슈 콜을 처리할 수 있는지는 역할 관리의 이슈 콜 목록 편집 권한을 따릅니다. 기본값 본인 (확인 필요)</div>
+          <div class="filter-actions" style="justify-content:flex-start"><button class="btn pri" id="sc-save" disabled>저장</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="m-type" hidden>
+  <div class="modal md">
+    <h3 id="mt-title">이슈 유형 추가</h3>
+    <div class="form">
+      <div class="fld"><label class="req" for="mt-name">이슈 유형명</label><input class="inp-s" id="mt-name" placeholder="이슈 유형명을 입력해 주세요."><div class="err" id="mt-err"></div></div>
+      <div class="fld"><label for="mt-desc">설명</label><input class="inp-s" id="mt-desc"></div>
+      <div class="fld"><label>사용 여부</label><div class="radio-row"><label><input type="radio" name="mt-use" value="1" checked> 사용</label><label><input type="radio" name="mt-use" value="0"> 사용 안 함</label></div></div>
+    </div>
+    <div class="modal-actions"><button class="btn" data-close>취소</button><button class="btn pri" id="mt-ok" disabled>추가</button></div>
+  </div>
+</div>
+<div class="modal-overlay" id="m-sg" hidden>
+  <div class="modal md">
+    <h3 id="ms-title">개선 제안 등록</h3>
+    <div class="form">
+      <div class="fld"><label class="req" for="ms-type">이슈 유형</label><select class="sel" id="ms-type"></select></div>
+      <div class="fld"><label class="req" for="ms-text">개선 제안</label><textarea class="ta" id="ms-text" placeholder="개선 제안을 입력해 주세요."></textarea></div>
+      <div class="fld"><label>사용 여부</label><div class="radio-row"><label><input type="radio" name="ms-use" value="1" checked> 사용</label><label><input type="radio" name="ms-use" value="0"> 사용 안 함</label></div></div>
+    </div>
+    <div class="modal-actions"><button class="btn" data-close>취소</button><button class="btn pri" id="ms-ok" disabled>등록</button></div>
+  </div>
+</div>
+<div class="modal-overlay" id="m-ow" hidden>
+  <div class="modal md">
+    <h3 id="mo-title">담당자 등록</h3>
+    <div class="form">
+      <div class="fld" id="mo-user-fld"><label class="req" for="mo-q">사용자</label><input class="inp-s" id="mo-q" placeholder="사번 또는 이름으로 검색" list="mo-list"><datalist id="mo-list"></datalist><div class="hint">사용자 관리에 등록된 '사용' 상태 사용자만 선택할 수 있습니다.</div><div class="err" id="mo-err"></div></div>
+      <div class="fld" id="mo-user-ro" hidden><label>사용자</label><div class="ro-field" id="mo-user-name"></div></div>
+      <div class="fld"><label>담당 이슈 유형</label><div class="ms" id="mo-types" data-options="" data-all="전체 (지정하지 않음)"></div></div>
+    </div>
+    <div class="modal-actions"><button class="btn" data-close>취소</button><button class="btn pri" id="mo-ok" disabled>등록</button></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+UI.page(function () {
+  var $ = UI.$, $$ = UI.$$, esc = UI.esc;
+  var root = $('#tabs-root');
+  UI.tabs(root);
+  var tabMap = { type: 'type', period: 'period', suggest: 'suggest', owner: 'owner', scope: 'scope' };
+  if (tabMap[UI.params.get('tab')]) UI.selectTab(root, tabMap[UI.params.get('tab')]);
+
+  var types = MOCK.issueTypes(), sugs = MOCK.load('suggestions', MOCK.SUGGESTIONS), owners = MOCK.owners();
+  function issuesOf(fn) { return MOCK.issues().filter(fn); }
+  function persist() { MOCK.save('issueTypes', types); MOCK.save('suggestions', sugs); MOCK.save('owners', owners); }
+
+  /* ---- 이슈 유형 ---- */
+  var tyEdit = null;
+  function renderTypes() {
+    $('#ty-total').textContent = '총 ' + types.length + '건';
+    $('#ty-tbl').tBodies[0].innerHTML = types.length ? types.map(function (t, i) {
+      var cnt = issuesOf(function (x) { return x.itype === t.name; }).length;
+      return '<tr><td>' + esc(t.name) + '</td><td><span class="ellipsis w280" title="' + esc(t.desc) + '">' + esc(t.desc || '-') + '</span></td>' +
+        '<td>' + (t.use ? '<span class="bdg ok">사용</span>' : '<span class="bdg st-none">사용 안 함</span>') + '</td><td>' + cnt + '건</td><td>' + esc(t.mod) + '</td>' +
+        '<td><button class="btn xs" data-ty-edit="' + i + '">수정</button> <button class="btn xs" data-ty-del="' + i + '" data-cnt="' + cnt + '">삭제</button></td></tr>';
+    }).join('') : UI.emptyRow(6, '등록된 이슈 유형이 없습니다.');
+  }
+  var tySnap = '';
+  function tyState() { return [$('#mt-name').value.trim(), $('#mt-desc').value.trim(), $('input[name=mt-use]:checked').value].join('|'); }
+  function tyDirty() { $('#mt-ok').disabled = !$('#mt-name').value.trim() || (tyEdit && tyState() === tySnap); $('#mt-err').textContent = ''; }
+  ['#mt-name', '#mt-desc'].forEach(function (s) { $(s).addEventListener('input', tyDirty); });
+  $$('input[name=mt-use]').forEach(function (r) { r.addEventListener('change', tyDirty); });
+  function openType(t) {
+    tyEdit = t || null;
+    $('#mt-title').textContent = t ? '이슈 유형 수정' : '이슈 유형 추가'; $('#mt-ok').textContent = t ? '저장' : '추가';
+    $('#mt-name').value = t ? t.name : ''; $('#mt-desc').value = t ? t.desc : '';
+    $$('input[name=mt-use]').forEach(function (r) { r.checked = r.value === (t && !t.use ? '0' : '1'); });
+    tySnap = tyState(); tyDirty(); UI.openModal('m-type');
+  }
+  $('#ty-add').addEventListener('click', function () { openType(null); });
+  $('#mt-ok').addEventListener('click', function () {
+    var name = $('#mt-name').value.trim();
+    if (types.some(function (t) { return t.name === name && t !== tyEdit; })) { $('#mt-err').textContent = '이미 있는 이슈 유형명입니다.'; return; }
+    var use = $('input[name=mt-use]:checked').value === '1';
+    if (tyEdit) {
+      var old = tyEdit.name;
+      if (old !== name) {
+        issuesOf(function (x) { return x.itype === old; }).forEach(function (x) { MOCK.saveIssue(x.id, { itype: name }); });
+        sugs.forEach(function (s) { if (s.type === old) s.type = name; });
+        owners.forEach(function (o) { o.types = o.types.map(function (t) { return t === old ? name : t; }); });
+      }
+      tyEdit.name = name; tyEdit.desc = $('#mt-desc').value.trim(); tyEdit.use = use; tyEdit.mod = UI.TODAY;
+    } else types.push({ name: name, desc: $('#mt-desc').value.trim(), use: use, mod: '-' });
+    persist(); UI.closeModal('m-type');
+    UI.toast(tyEdit ? '변경사항이 저장되었습니다.' : '이슈 유형이 추가되었습니다.');
+    renderAll();
+  });
+  $('#ty-tbl').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.tyEdit != null) openType(types[+b.dataset.tyEdit]);
+    if (b.dataset.tyDel != null) {
+      var t = types[+b.dataset.tyDel], cnt = +b.dataset.cnt;
+      if (cnt) UI.dialog({ title: '이슈 유형을 삭제할 수 없습니다.', desc: '이 유형이 지정된 이슈 콜이 ' + cnt + '건 있어 삭제할 수 없습니다. 더 쓰지 않으려면 사용 여부를 \'사용 안 함\'으로 바꿔 주세요.', cancel: null });
+      else UI.dialog({ title: '이슈 유형을 삭제하시겠습니까?', ok: '삭제', danger: true, onOk: function () { types.splice(types.indexOf(t), 1); persist(); UI.toast('이슈 유형이 삭제되었습니다.'); renderAll(); } });
+    }
+  });
+
+  /* ---- 기간 (기본 이슈 기한) ---- */
+  var st = MOCK.settings();
+  $('#pd-due').value = st.defaultDue;
+  var desc = { '일': '등록일 당일', '주': '등록일이 속한 주의 일요일 (주는 월요일~일요일)', '월': '등록일이 속한 달의 말일', '연': '등록일이 속한 해의 12월 31일' };
+  $('#pd-ex').innerHTML = UI.DUE_UNITS.map(function (u) { return '<tr><th>' + u + '</th><td>' + desc[u] + '</td><td>' + UI.dueDate('2026.11.05', u) + '</td></tr>'; }).join('');
+  $('#pd-due').addEventListener('change', function () { $('#pd-save').disabled = this.value === MOCK.settings().defaultDue; });
+  $('#pd-save').addEventListener('click', function () { MOCK.saveSettings({ defaultDue: $('#pd-due').value }); this.disabled = true; UI.toast('변경사항이 저장되었습니다.'); });
+
+  /* ---- 개선 제안 ---- */
+  var sgCtl = null, sgEdit = null;
+  function renderSugs() {
+    var f = $('#sg-filter');
+    var keep = f.value || '';
+    f.innerHTML = '<option value="">전체</option>' + types.map(function (t) { return '<option' + (t.name === keep ? ' selected' : '') + '>' + esc(t.name) + '</option>'; }).join('');
+    var list = sugs.filter(function (s) { return !f.value || s.type === f.value; });
+    $('#sg-tbl').tBodies[0].innerHTML = list.length ? list.map(function (s) {
+      var i = sugs.indexOf(s);
+      return '<tr><td>' + esc(s.type) + '</td><td><span class="ellipsis w280" title="' + esc(s.text) + '">' + esc(s.text) + '</span></td>' +
+        '<td>' + (s.use ? '<span class="bdg ok">사용</span>' : '<span class="bdg st-none">사용 안 함</span>') + '</td><td>' + esc(s.by) + '</td><td>' + esc(s.mod) + '</td>' +
+        '<td><button class="btn xs" data-sg-edit="' + i + '">수정</button> <button class="btn xs" data-sg-del="' + i + '">삭제</button></td></tr>';
+    }).join('') : UI.emptyRow(6, '등록된 개선 제안이 없습니다.');
+    if (sgCtl) sgCtl.refresh(); else sgCtl = UI.table($('#sg-tbl'), { sizeSel: $('#sg-size'), pager: $('#sg-pager'), totalEl: $('#sg-total') });
+  }
+  $('#sg-filter').addEventListener('change', renderSugs);
+  var sgSnap = '';
+  function sgState() { return [$('#ms-type').value, $('#ms-text').value.trim(), $('input[name=ms-use]:checked').value].join('|'); }
+  function sgDirty() { $('#ms-ok').disabled = !$('#ms-type').value || !$('#ms-text').value.trim() || (sgEdit && sgState() === sgSnap); }
+  ['#ms-type', '#ms-text'].forEach(function (s) { $(s).addEventListener('input', sgDirty); $(s).addEventListener('change', sgDirty); });
+  $$('input[name=ms-use]').forEach(function (r) { r.addEventListener('change', sgDirty); });
+  function openSug(s) {
+    sgEdit = s || null;
+    $('#ms-title').textContent = s ? '개선 제안 수정' : '개선 제안 등록'; $('#ms-ok').textContent = s ? '저장' : '등록';
+    $('#ms-type').innerHTML = '<option value="">이슈 유형을 선택해 주세요.</option>' + types.filter(function (t) { return t.use || (s && t.name === s.type); }).map(function (t) { return '<option>' + esc(t.name) + '</option>'; }).join('');
+    $('#ms-type').value = s ? s.type : ($('#sg-filter').value || '');
+    $('#ms-text').value = s ? s.text : '';
+    $$('input[name=ms-use]').forEach(function (r) { r.checked = r.value === (s && !s.use ? '0' : '1'); });
+    sgSnap = sgState(); sgDirty(); UI.openModal('m-sg');
+  }
+  $('#sg-add').addEventListener('click', function () { openSug(null); });
+  $('#ms-ok').addEventListener('click', function () {
+    var v = { type: $('#ms-type').value, text: $('#ms-text').value.trim(), use: $('input[name=ms-use]:checked').value === '1' };
+    if (sgEdit) { Object.assign(sgEdit, v, { mod: UI.TODAY }); } else sugs.push(Object.assign(v, { by: UI.LOGIN.name, mod: '-' }));
+    persist(); UI.closeModal('m-sg'); UI.toast(sgEdit ? '변경사항이 저장되었습니다.' : '개선 제안이 등록되었습니다.'); renderSugs();
+  });
+  $('#sg-tbl').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.sgEdit != null) openSug(sugs[+b.dataset.sgEdit]);
+    if (b.dataset.sgDel != null) {
+      var s = sugs[+b.dataset.sgDel];
+      UI.dialog({ title: '개선 제안을 삭제하시겠습니까?', desc: '이미 처리 내용에 넣은 내용은 유지됩니다.', ok: '삭제', danger: true, onOk: function () { sugs.splice(sugs.indexOf(s), 1); persist(); UI.toast('개선 제안이 삭제되었습니다.'); renderSugs(); } });
+    }
+  });
+
+  /* ---- 담당자 ---- */
+  var owEdit = null;
+  var moTypes = $('#mo-types');
+  UI.initMs(moTypes.parentNode);
+  function renderOwners() {
+    $('#ow-total').textContent = '총 ' + owners.length + '건';
+    $('#ow-tbl').tBodies[0].innerHTML = owners.length ? owners.map(function (o, i) {
+      var open = issuesOf(function (x) { return x.owner === o.name && UI.isOpen(x.status); }).length;
+      return '<tr><td>' + esc(o.emp) + '</td><td>' + esc(o.name) + '</td><td>' + esc(o.center + ' / ' + o.team) + '</td><td>' + UI.moreList(o.types, 2, '전체') + '</td><td>' + open + '건</td>' +
+        '<td><button class="btn xs" data-ow-edit="' + i + '">수정</button> <button class="btn xs" data-ow-del="' + i + '" data-cnt="' + open + '">삭제</button></td></tr>';
+    }).join('') : UI.emptyRow(6, '등록된 담당자가 없습니다.');
+  }
+  function eligible() { return MOCK.USERS.filter(function (u) { return u.st === '사용' && u.role !== '상담사'; }); }
+  function pickUser() {
+    var q = $('#mo-q').value.trim();
+    return eligible().filter(function (u) { return q && (q === u.emp || q === u.name || q === u.name + ' (' + u.emp + ')'); })[0];
+  }
+  function owDirty() { $('#mo-ok').disabled = owEdit ? false : !pickUser(); $('#mo-err').textContent = ''; }
+  $('#mo-q').addEventListener('input', owDirty);
+  function openOwner(o) {
+    owEdit = o || null;
+    $('#mo-title').textContent = o ? '담당자 수정' : '담당자 등록'; $('#mo-ok').textContent = o ? '저장' : '등록';
+    $('#mo-user-fld').hidden = !!o; $('#mo-user-ro').hidden = !o;
+    if (o) $('#mo-user-name').textContent = o.name + ' (' + o.emp + ')';
+    $('#mo-q').value = '';
+    $('#mo-list').innerHTML = eligible().map(function (u) { return '<option value="' + esc(u.name + ' (' + u.emp + ')') + '">' + esc(u.center + ' / ' + u.team + ' · ' + u.role) + '</option>'; }).join('');
+    UI.setMsOptions(moTypes, types.filter(function (t) { return t.use; }).map(function (t) { return t.name; }), o ? o.types : []);
+    owDirty(); UI.openModal('m-ow');
+  }
+  $('#ow-add').addEventListener('click', function () { openOwner(null); });
+  $('#mo-ok').addEventListener('click', function () {
+    if (owEdit) { owEdit.types = UI.msValue(moTypes); }
+    else {
+      var u = pickUser(); if (!u) return;
+      if (owners.some(function (o) { return o.emp === u.emp; })) { $('#mo-err').textContent = '이미 등록된 담당자입니다.'; return; }
+      owners.push({ emp: u.emp, name: u.name, center: u.center, team: u.team, types: UI.msValue(moTypes) });
+    }
+    persist(); UI.closeModal('m-ow'); UI.toast(owEdit ? '변경사항이 저장되었습니다.' : '담당자가 등록되었습니다.'); renderOwners();
+  });
+  $('#ow-tbl').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.owEdit != null) openOwner(owners[+b.dataset.owEdit]);
+    if (b.dataset.owDel != null) {
+      var o = owners[+b.dataset.owDel], cnt = +b.dataset.cnt;
+      if (cnt) UI.dialog({ title: '담당자를 삭제할 수 없습니다.', desc: '처리 중인 이슈 콜이 ' + cnt + '건 있어 삭제할 수 없습니다. 담당 관리자를 바꾼 뒤 삭제해 주세요.', cancel: null });
+      else UI.dialog({ title: '담당자를 삭제하시겠습니까?', ok: '삭제', danger: true, onOk: function () { owners.splice(owners.indexOf(o), 1); persist(); UI.toast('담당자가 삭제되었습니다.'); renderOwners(); } });
+    }
+  });
+
+  /* ---- 공개 범위 ---- */
+  $('#sc-sel').value = st.scope;
+  $('#sc-sel').addEventListener('change', function () { $('#sc-save').disabled = this.value === MOCK.settings().scope; });
+  $('#sc-save').addEventListener('click', function () {
+    UI.dialog({ title: '상담어드바이저의 이슈 콜 공개 범위가 바뀝니다. 저장하시겠습니까?', ok: '저장', onOk: function () {
+      MOCK.saveSettings({ scope: $('#sc-sel').value }); $('#sc-save').disabled = true; UI.toast('변경사항이 저장되었습니다.');
+    } });
+  });
+
+  function renderAll() { renderTypes(); renderSugs(); renderOwners(); }
+  renderAll();
+});
+</script>
+</body>
+</html>

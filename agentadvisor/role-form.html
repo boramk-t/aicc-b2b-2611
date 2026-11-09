@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>역할 등록</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="role-form" data-title="역할 등록·수정">
+<div class="app">
+  <div id="sidebar"></div>
+  <div class="main">
+    <div class="topbar"><div class="crumb"><a href="roles.html">역할 관리</a> › <b id="crumb">역할 등록</b></div></div>
+    <div class="content">
+      <div class="card">
+        <h3 id="title">역할 등록</h3>
+        <div class="grid2" style="max-width:900px">
+          <div class="fld"><label class="req" for="nm">역할명</label><input class="inp-s" id="nm" placeholder="역할명을 입력해 주세요."><div class="err" id="err"></div></div>
+          <div class="fld"><label for="ds">설명</label><input class="inp-s" id="ds"></div>
+        </div>
+        <div class="fld" style="margin-top:14px"><label class="req">데이터 조회 범위</label>
+          <div class="radio-row" id="scope"><label><input type="radio" name="scope" value="본인"> 본인</label><label><input type="radio" name="scope" value="소속 팀"> 소속 팀</label><label><input type="radio" name="scope" value="소속 센터"> 소속 센터</label><label><input type="radio" name="scope" value="전체"> 전체</label></div>
+          <div class="hint">상담이력·이슈 콜 목록·콜 통계에서 조회할 수 있는 콜의 범위. 상담어드바이저 상담사의 이슈 콜 목록은 이슈 콜 설정의 공개 범위를 따릅니다.</div>
+        </div>
+        <div style="margin-top:16px;font-size:13px;font-weight:700">메뉴 권한</div>
+        <table class="perm" style="max-width:900px;margin-top:6px">
+          <thead><tr><th>메뉴</th><th class="c">조회</th><th class="c">편집</th><th>편집 권한으로 할 수 있는 작업</th></tr></thead>
+          <tbody id="perm"></tbody>
+        </table>
+        <div class="hint">편집을 선택하면 조회도 함께 선택됩니다. 조회를 해제하면 편집도 함께 해제됩니다.</div>
+        <div class="filter-actions"><a class="btn" href="roles.html">취소</a><button class="btn pri" id="ok" disabled>등록</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+UI.page(function () {
+  var $ = UI.$, $$ = UI.$$, esc = UI.esc;
+  var MENUS = [
+    ['history', '상담이력 조회 > 상담이력', false, ''],
+    ['issue', '상담이력 조회 > 이슈 콜 목록', true, '상태 변경, 이슈 기한·이슈 유형·담당 관리자 지정, 처리 내용 저장, 일괄 처리'],
+    ['issueSet', '이슈 콜 설정 (리더어드바이저)', true, '이슈 유형 추가·수정·삭제, 기본 이슈 기한·상담사 공개 범위 설정, 개선 제안·담당자 등록·수정·삭제'],
+    ['monitor', '실시간 상태 모니터링 (리더어드바이저)', false, ''],
+    ['keyword', '키워드 관리', true, '키워드·유형·상품·연관 키워드 등록·수정·삭제, 엑셀 일괄 등록, 기간계 재전송'],
+    ['stats', '콜 통계', false, ''],
+    ['notice', '공지사항', true, '공지사항 등록·수정·삭제'],
+    ['users', '사용자 관리', true, '사용자 등록·수정, 역할 지정, 계정 상태 변경, 잠금 해제'],
+    ['roles', '역할 관리', true, '역할 등록·수정·삭제'],
+    ['audit', '감사로그', false, '']
+  ];
+  var roles = MOCK.load('roles', MOCK.ROLES), users = MOCK.load('users', MOCK.USERS);
+  var name = UI.params.get('name'), r = name ? roles.filter(function (x) { return x.name === name; })[0] : null;
+  var perm = r ? JSON.parse(JSON.stringify(r.perm)) : {};
+  MENUS.forEach(function (m) { if (!perm[m[0]]) perm[m[0]] = [m[0] === 'notice' ? 1 : 0, 0]; });
+  var lockAdmin = r && r.name === '관리자';
+  if (r) { $('#title').textContent = $('#crumb').textContent = '역할 수정'; $('#ok').textContent = '저장'; $('#nm').value = r.name; $('#ds').value = r.desc; $('#nm').disabled = r.base; }
+  $$('input[name=scope]').forEach(function (x) { x.checked = x.value === (r ? r.scope : '본인'); });
+
+  function render() {
+    $('#perm').innerHTML = MENUS.map(function (m) {
+      var p = perm[m[0]], lock = lockAdmin && m[0] === 'roles';
+      var view = m[0] === 'notice' ? '<span class="hint" style="margin:0">항상 허용</span>' : '<input type="checkbox" data-k="' + m[0] + '" data-i="0"' + (p[0] ? ' checked' : '') + (lock ? ' disabled' : '') + ' aria-label="' + esc(m[1]) + ' 조회">';
+      var edit = m[2] ? '<input type="checkbox" data-k="' + m[0] + '" data-i="1"' + (p[1] ? ' checked' : '') + (lock ? ' disabled' : '') + ' aria-label="' + esc(m[1]) + ' 편집">' : '-';
+      return '<tr><td>' + esc(m[1]) + (lock ? ' <span class="hint" style="margin:0">(관리자 역할은 해제 불가)</span>' : '') + '</td><td class="c">' + view + '</td><td class="c">' + edit + '</td><td>' + esc(m[3] || '-') + '</td></tr>';
+    }).join('');
+  }
+  var snap = '';
+  function state() { return JSON.stringify([$('#nm').value.trim(), $('#ds').value.trim(), $('input[name=scope]:checked').value, perm]); }
+  function dirty() { $('#ok').disabled = !$('#nm').value.trim() || (r && state() === snap); $('#err').textContent = ''; }
+  $('#perm').addEventListener('change', function (e) {
+    var c = e.target, k = c.dataset.k, i = +c.dataset.i; if (!k) return;
+    perm[k][i] = c.checked ? 1 : 0;
+    if (i === 1 && c.checked) perm[k][0] = 1;
+    if (i === 0 && !c.checked) perm[k][1] = 0;
+    render(); dirty();
+  });
+  ['#nm', '#ds'].forEach(function (s) { $(s).addEventListener('input', dirty); });
+  $('#scope').addEventListener('change', dirty);
+  render(); snap = state(); dirty();
+
+  $('#ok').addEventListener('click', function () {
+    var nm = $('#nm').value.trim();
+    if (roles.some(function (x) { return x.name === nm && x !== r; })) { $('#err').textContent = '이미 있는 역할명입니다.'; return; }
+    var cnt = r ? users.filter(function (u) { return u.role === r.name; }).length : 0;
+    var permChanged = r && JSON.stringify(perm) !== JSON.stringify(r.perm) || (r && $('input[name=scope]:checked').value !== r.scope);
+    function commit() {
+      var v = { name: nm, desc: $('#ds').value.trim(), scope: $('input[name=scope]:checked').value, perm: perm, mod: UI.TODAY };
+      if (r) { if (r.name !== nm) users.forEach(function (u) { if (u.role === r.name) u.role = nm; }); Object.assign(r, v); }
+      else roles.push(Object.assign(v, { base: false, mod: '-' }));
+      MOCK.save('roles', roles); MOCK.save('users', users);
+      UI.flash(r ? '변경사항이 저장되었습니다.' : '역할이 등록되었습니다.'); location.href = 'roles.html';
+    }
+    if (permChanged && cnt) UI.dialog({ title: '이 역할이 지정된 사용자 ' + cnt + '명에게 바뀐 권한이 적용됩니다. 저장하시겠습니까?', ok: '저장', onOk: commit });
+    else commit();
+  });
+});
+</script>
+</body>
+</html>

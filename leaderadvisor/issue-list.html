@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>이슈 콜 목록</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="issue" data-title="이슈 콜 목록">
+<div class="app">
+  <div id="sidebar"></div>
+  <div class="main">
+    <div class="topbar"><div class="crumb">상담이력 조회 › <b>이슈 콜 목록</b></div></div>
+    <div class="content">
+      <div class="page-head">
+        <h2>이슈 콜 목록</h2>
+        <a class="btn leader-only edit-only" href="issue-settings.html">⚙ 설정</a>
+      </div>
+
+      <div class="banner info agent-only" id="scope-banner"></div>
+
+      <div class="filter-bar" id="filters">
+        <div class="filter-grid">
+          <div class="fld span2"><label>기간 (통화 일시)</label><div id="f-period"></div></div>
+          <div class="fld" data-scope="center"><label>센터</label><div class="ms" id="f-center" data-options="서울센터|부산센터"></div></div>
+          <div class="fld" data-scope="team"><label>팀</label><div class="ms" id="f-team" data-options=""></div></div>
+          <div class="fld" data-scope="agent"><label for="f-agent">상담사</label><input class="inp-s" id="f-agent" placeholder="사번 또는 이름"></div>
+          <div class="fld"><label for="f-kw">이슈 키워드</label><input class="inp-s" id="f-kw" placeholder="이슈 키워드 입력"></div>
+          <div class="fld"><label>상태</label><div class="ms" id="f-status" data-options="미처리|검토필요|처리완료|이슈없음"></div></div>
+          <div class="fld"><label>이슈 기한</label><div class="ms" id="f-due" data-options="일|주|월|연"></div></div>
+          <div class="fld"><label>이슈 유형</label><div class="inline"><div class="ms grow" id="f-type" data-options=""></div><a class="btn xs leader-only edit-only" href="issue-settings.html?tab=type" title="이슈 콜 설정 '이슈 유형' 탭으로 이동">이슈 유형 관리</a></div></div>
+          <div class="fld"><label>담당 관리자</label><div class="ms" id="f-owner" data-options=""></div></div>
+          <div class="fld"><label>기한 초과</label><label class="chkline"><input type="checkbox" id="f-over"> 기한 초과만 보기</label></div>
+        </div>
+        <div class="filter-err"></div>
+        <div class="filter-actions">
+          <button class="btn" id="btn-reset">초기화</button>
+          <button class="btn pri" id="btn-search">검색</button>
+        </div>
+      </div>
+
+      <div class="list-wrap">
+        <div class="list-head">
+          <div class="left"><b id="total" style="color:#0F172A">총 0건</b><span id="chips"></span></div>
+          <div class="right">
+            <button class="btn xs edit-only" id="b-status" disabled>상태 변경</button>
+            <button class="btn xs edit-only" id="b-due" disabled>기한 지정</button>
+            <button class="btn xs edit-only" id="b-owner" disabled>담당 관리자 지정</button>
+            <label class="hint" for="size" style="margin:0 0 0 8px">페이지 크기</label><select class="sel" id="size"><option>10</option><option selected>20</option><option>50</option></select>
+          </div>
+        </div>
+        <table class="data" id="tbl">
+          <thead>
+            <tr>
+              <th class="edit-only"><input type="checkbox" class="chk-all" aria-label="현재 페이지 전체 선택"></th>
+              <th class="sortable">콜 ID</th>
+              <th class="sortable" data-default="desc">일시</th>
+              <th class="sortable">센터/팀</th>
+              <th class="sortable">상담사</th>
+              <th class="sortable">통화시간</th>
+              <th>이슈 키워드</th>
+              <th class="sortable">이슈 유형</th>
+              <th class="sortable">상태</th>
+              <th class="sortable">이슈 기한</th>
+              <th class="sortable">담당 관리자</th>
+              <th class="sortable">처리 완료일</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div class="pager" id="pager"></div>
+      </div>
+      <div class="proto-note">이슈 기한은 달력 기준입니다. 일=등록 당일, 주=등록일이 속한 주의 일요일, 월=그 달 말일, 연=그 해 12월 31일 · 목업 기준일 2026.11.07</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="m-status" hidden>
+  <div class="modal md">
+    <h3>상태 변경</h3>
+    <p class="sub" id="ms-sub"></p>
+    <div class="form">
+      <div class="fld"><label class="req" for="s-st">상태</label><select class="sel" id="s-st"><option value="">상태를 선택해 주세요.</option><option>미처리</option><option>검토필요</option><option>처리완료</option><option>이슈없음</option></select></div>
+      <div class="fld"><label for="s-memo">처리 내용</label><textarea class="ta" id="s-memo" placeholder="처리 내용을 입력해 주세요."></textarea><div class="hint">'처리완료'·'이슈없음'이면 필수</div><div class="err" id="s-err"></div></div>
+    </div>
+    <div class="modal-actions"><button class="btn" data-close>취소</button><button class="btn pri" id="s-ok">변경</button></div>
+  </div>
+</div>
+<div class="modal-overlay" id="m-due" hidden>
+  <div class="modal">
+    <h3>이슈 기한 지정</h3>
+    <p class="sub" id="md-sub"></p>
+    <div class="form">
+      <div class="fld"><label class="req" for="d-unit">이슈 기한</label><select class="sel" id="d-unit"><option value="">이슈 기한을 선택해 주세요.</option><option>일</option><option>주</option><option>월</option><option>연</option></select><div class="hint">기한일은 이슈 콜마다 등록일이 속한 기간의 마지막 날로 계산합니다.</div></div>
+    </div>
+    <div class="modal-actions"><button class="btn" data-close>취소</button><button class="btn pri" id="d-ok" disabled>지정</button></div>
+  </div>
+</div>
+<div class="modal-overlay" id="m-owner" hidden>
+  <div class="modal">
+    <h3>담당 관리자 지정</h3>
+    <p class="sub" id="mo-sub"></p>
+    <div class="form">
+      <div class="fld"><label class="req" for="o-sel">담당 관리자</label><select class="sel" id="o-sel"></select></div>
+    </div>
+    <div class="modal-actions"><button class="btn" data-close>취소</button><button class="btn pri" id="o-ok" disabled>지정</button></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+UI.page(function () {
+  var $ = UI.$, $$ = UI.$$, esc = UI.esc;
+  var bar = $('#filters');
+  $('#f-period').innerHTML = UI.drHtml();
+  $('#f-type').dataset.options = MOCK.issueTypes().map(function (t) { return t.name; }).concat(['미지정']).join('|');
+  $('#f-owner').dataset.options = MOCK.owners().map(function (o) { return o.name; }).concat(['미지정']).join('|');
+  UI.initMs(bar);
+  UI.linkCenterTeam($('#f-center'), $('#f-team'));
+  var dr = UI.dateRange($('[data-dr]', bar), 6);
+
+  /* 상담사 공개 범위 (이슈 콜 설정 '공개 범위' 탭) */
+  var isAgent = UI.role === 'agent';
+  function scope() { return MOCK.settings().scope; }
+  function applyScopeUi() {
+    if (!isAgent) return;
+    var s = scope();
+    $('[data-scope=center]').hidden = s !== '전체';
+    $('[data-scope=team]').hidden = s === '본인';
+    $('[data-scope=agent]').hidden = s === '본인';
+    $('#scope-banner').innerHTML = '상담사 공개 범위: <b>' + s + '</b> (' + (s === '본인' ? '본인의 이슈 콜' : s === '센터' ? '소속 센터(' + UI.LOGIN.center + ')의 이슈 콜' : '모든 이슈 콜') + ') · 리더어드바이저 이슈 콜 설정의 \'공개 범위\' 탭에서 바꿉니다.' +
+      ' <span style="margin-left:8px">프로토타입 미리보기 <select class="sel" id="scope-prev" style="width:auto;min-height:24px;padding:2px 6px"><option>본인</option><option>센터</option><option>전체</option></select></span>';
+    $('#scope-prev').value = s;
+    $('#scope-prev').addEventListener('change', function () { MOCK.saveSettings({ scope: this.value }); applyScopeUi(); search(); });
+  }
+  applyScopeUi();
+
+  var keep = UI.keepList('issue', bar, dr, $('#size'));
+  var fromMonitor = UI.params.get('status') || UI.params.get('period') || UI.params.get('over');
+  if (!fromMonitor) keep.restoreForm();
+
+  /* 모니터링 화면에서 넘어온 조건 */
+  if (UI.params.get('status')) UI.setMsValue($('#f-status'), [UI.params.get('status')]);
+  if (UI.params.get('period') === 'today') dr.set(UI.TODAY, UI.TODAY);
+  if (UI.params.get('over') === '1') { $('#f-over').checked = true; dr.set(UI.addDays(UI.TODAY, -29), UI.TODAY); }
+
+  var tbl = $('#tbl'), tb = tbl.tBodies[0], ctl = null, sel = null;
+  var btns = [$('#b-status'), $('#b-due'), $('#b-owner')];
+
+  function filters() {
+    var err = dr.check(); UI.showErr(bar, err); if (err) return null;
+    var p = dr.get();
+    return { from: p[0], to: p[1], centers: UI.msValue($('#f-center')), teams: UI.msValue($('#f-team')), agent: $('#f-agent').value.trim(),
+      kw: $('#f-kw').value.trim(), status: UI.msValue($('#f-status')), due: UI.msValue($('#f-due')), types: UI.msValue($('#f-type')),
+      owners: UI.msValue($('#f-owner')), over: $('#f-over').checked };
+  }
+  function base(it, f) {
+    var d = it.dt.slice(0, 10);
+    if (d < f.from || d > f.to) return false;
+    if (isAgent) {
+      var s = scope();
+      if (s === '본인' && it.emp !== UI.LOGIN.emp) return false;
+      if (s === '센터' && it.center !== UI.LOGIN.center) return false;
+    }
+    if (f.centers.length && f.centers.indexOf(it.center) < 0) return false;
+    if (f.teams.length && f.teams.indexOf(it.team) < 0) return false;
+    if (f.agent && it.agent.indexOf(f.agent) < 0 && it.emp.indexOf(f.agent) < 0) return false;
+    if (f.kw && !it.issueKws.some(function (k) { return k.indexOf(f.kw) >= 0; })) return false;
+    if (f.due.length && f.due.indexOf(it.due) < 0) return false;
+    if (f.types.length && f.types.indexOf(it.itype || '미지정') < 0) return false;
+    if (f.owners.length && f.owners.indexOf(it.owner || '미지정') < 0) return false;
+    return true;
+  }
+  function rowHtml(it) {
+    var due = UI.dueDate(it.reg, it.due), over = UI.isOverdue(it);
+    var dueCell = UI.canEdit
+      ? '<div class="inline"><select class="sel due-sel" data-id="' + esc(it.id) + '" aria-label="이슈 기한">' + UI.DUE_UNITS.map(function (u) { return '<option' + (u === it.due ? ' selected' : '') + '>' + u + '</option>'; }).join('') + '</select><span class="hint" style="margin:0">' + due + '</span>' + (over ? '<span class="bdg over">기한 초과</span>' : '') + '</div>'
+      : esc(it.due) + ' · ' + due + (over ? ' <span class="bdg over">기한 초과</span>' : '');
+    return '<tr class="clickable" data-id="' + esc(it.id) + '">' +
+      '<td class="edit-only"><input type="checkbox" class="chk-row" value="' + esc(it.id) + '" aria-label="' + esc(it.id) + ' 선택"></td>' +
+      '<td><a class="lnk" href="history-detail.html?from=issue&id=' + encodeURIComponent(it.id) + '">' + esc(it.id) + '</a></td>' +
+      '<td>' + esc(it.dt) + '</td><td>' + esc(it.center + ' / ' + it.team) + '</td><td>' + esc(it.agent + '(' + it.emp + ')') + '</td><td>' + esc(it.dur) + '</td>' +
+      '<td class="wrap">' + UI.kwChips(it.issueKws.map(function (k) { return { t: '이슈', k: k }; }), 3) + '</td>' +
+      '<td>' + esc(it.itype || '미지정') + '</td><td data-sort="' + UI.STATUSES.indexOf(it.status) + '">' + UI.stBadge(it.status) + '</td>' +
+      '<td data-sort="' + due + '">' + dueCell + '</td>' +
+      '<td>' + esc(it.owner || '미지정') + '</td><td>' + esc(it.done || '-') + '</td></tr>';
+  }
+  function search() {
+    var f = filters(); if (!f) return;
+    var all = MOCK.issues().filter(function (it) { return base(it, f); });
+    var counts = { '미처리': 0, '검토필요': 0, '처리완료': 0, '이슈없음': 0 }, overN = 0;
+    all.forEach(function (it) { counts[it.status]++; if (UI.isOverdue(it)) overN++; });
+    $('#chips').innerHTML = UI.STATUSES.map(function (s) { return '<span class="stat-chip" data-st="' + s + '">' + s + ' <b>' + counts[s] + '건</b></span>'; }).join(' · ') +
+      ' <span class="stat-chip over" data-over="1">기한 초과 <b>' + overN + '건</b></span>';
+    var list = all.filter(function (it) { return (!f.status.length || f.status.indexOf(it.status) >= 0) && (!f.over || UI.isOverdue(it)); });
+    tb.innerHTML = list.length ? list.map(rowHtml).join('') : UI.emptyRow(12, '입력한 조건에 맞는 이슈 콜이 없습니다.');
+    if (ctl) ctl.refresh(); else { ctl = UI.table(tbl, { sizeSel: $('#size'), pager: $('#pager'), totalEl: $('#total') }); if (!fromMonitor) keep.restoreTable(ctl); }
+    if (sel) sel.clear(); else sel = UI.selection(tbl, btns);
+  }
+  $('#chips').addEventListener('click', function (e) {
+    var c = e.target.closest('.stat-chip'); if (!c) return;
+    if (c.dataset.st) { UI.setMsValue($('#f-status'), [c.dataset.st]); $('#f-over').checked = false; }
+    if (c.dataset.over) { $('#f-over').checked = true; UI.setMsValue($('#f-status'), []); }
+    search();
+  });
+  tb.addEventListener('click', function (e) {
+    var tr = e.target.closest('tr[data-id]');
+    if (!tr) return;
+    if (e.target.closest('a')) { keep.save(ctl); return; }
+    if (UI.interactive(e.target)) return;
+    keep.save(ctl);
+    location.href = 'history-detail.html?from=issue&id=' + encodeURIComponent(tr.dataset.id);
+  });
+  tb.addEventListener('change', function (e) {
+    if (!e.target.classList.contains('due-sel')) return;
+    var id = e.target.dataset.id, it = MOCK.issues().filter(function (x) { return x.id === id; })[0];
+    MOCK.saveIssue(id, { due: e.target.value });
+    MOCK.addHistory(id, { t: MOCK.NOW, w: UI.LOGIN.name + '(' + UI.LOGIN.emp + ')', c: '이슈 기한 변경: ' + it.due + ' → ' + e.target.value });
+    UI.toast('이슈 기한을 변경했습니다.');
+    search();
+  });
+  $('#btn-search').addEventListener('click', search);
+  $('#f-agent').addEventListener('keydown', function (e) { if (e.key === 'Enter') search(); });
+  $('#f-kw').addEventListener('keydown', function (e) { if (e.key === 'Enter') search(); });
+  $('#btn-reset').addEventListener('click', function () {
+    dr.reset(); ['#f-center', '#f-status', '#f-due', '#f-type', '#f-owner'].forEach(function (s) { UI.setMsValue($(s), []); });
+    UI.setMsOptions($('#f-team'), Object.keys(MOCK.CENTERS).reduce(function (a, c) { return a.concat(MOCK.CENTERS[c]); }, []), []);
+    $('#f-agent').value = ''; $('#f-kw').value = ''; $('#f-over').checked = false; search();
+  });
+
+  /* 일괄 처리 */
+  function apply(patchFn, label) {
+    var ids = sel.ids(), list = MOCK.issues();
+    ids.forEach(function (id) {
+      var it = list.filter(function (x) { return x.id === id; })[0];
+      var r = patchFn(it);
+      MOCK.saveIssue(id, r.patch);
+      MOCK.addHistory(id, { t: MOCK.NOW, w: UI.LOGIN.name + '(' + UI.LOGIN.emp + ')', c: r.log + ' (일괄 처리)' });
+    });
+    UI.toast(label.replace('n', ids.length));
+    search();
+  }
+  function subText() { return '선택한 이슈 콜 ' + sel.ids().length + '건'; }
+  $('#b-status').addEventListener('click', function () { $('#ms-sub').textContent = subText(); $('#s-st').value = ''; $('#s-memo').value = ''; $('#s-err').textContent = ''; UI.openModal('m-status'); });
+  $('#s-ok').addEventListener('click', function () {
+    var st = $('#s-st').value, memo = $('#s-memo').value.trim();
+    if (!st) { $('#s-err').textContent = '상태를 선택해 주세요.'; return; }
+    if ((st === '처리완료' || st === '이슈없음') && !memo) { $('#s-err').textContent = '처리 내용을 입력해 주세요.'; return; }
+    UI.closeModal('m-status');
+    apply(function (it) {
+      var closed = st === '처리완료' || st === '이슈없음';
+      return { patch: { status: st, done: closed ? (UI.isOpen(it.status) || !it.done ? UI.TODAY : it.done) : '' }, log: '상태 변경: ' + it.status + ' → ' + st + (memo ? ' · 처리 내용: ' + memo : '') };
+    }, 'n건의 상태를 변경했습니다.');
+  });
+  $('#b-due').addEventListener('click', function () { $('#md-sub').textContent = subText(); $('#d-unit').value = ''; $('#d-ok').disabled = true; UI.openModal('m-due'); });
+  $('#d-unit').addEventListener('change', function () { $('#d-ok').disabled = !this.value; });
+  $('#d-ok').addEventListener('click', function () {
+    var u = $('#d-unit').value; UI.closeModal('m-due');
+    apply(function (it) { return { patch: { due: u }, log: '이슈 기한 변경: ' + it.due + ' → ' + u }; }, 'n건의 이슈 기한을 지정했습니다.');
+  });
+  $('#b-owner').addEventListener('click', function () {
+    $('#mo-sub').textContent = subText();
+    $('#o-sel').innerHTML = '<option value="">담당 관리자를 선택해 주세요.</option>' + MOCK.owners().map(function (o) { return '<option>' + esc(o.name) + '</option>'; }).join('');
+    $('#o-ok').disabled = true; UI.openModal('m-owner');
+  });
+  $('#o-sel').addEventListener('change', function () { $('#o-ok').disabled = !this.value; });
+  $('#o-ok').addEventListener('click', function () {
+    var o = $('#o-sel').value; UI.closeModal('m-owner');
+    apply(function (it) { return { patch: { owner: o }, log: '담당 관리자 ' + (it.owner ? '변경: ' + it.owner + ' → ' : '지정: ') + o }; }, 'n건의 담당 관리자를 지정했습니다.');
+  });
+
+  search();
+});
+</script>
+</body>
+</html>

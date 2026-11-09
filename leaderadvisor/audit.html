@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>감사로그</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="audit" data-title="감사로그">
+<div class="app">
+  <div id="sidebar"></div>
+  <div class="main">
+    <div class="topbar"><div class="crumb"><b>감사로그</b></div></div>
+    <div class="content">
+      <div class="page-head"><h2>감사로그</h2></div>
+      <div class="banner info">감사로그는 열람만 가능하며 관리자를 포함해 누구도 수정·삭제할 수 없습니다. 로그에는 작업 대상의 식별값만 남기고 상담 내용은 남기지 않습니다.</div>
+      <div class="filter-bar" id="filters">
+        <div class="filter-grid">
+          <div class="fld span2"><label>기간</label><div id="f-period"></div></div>
+          <div class="fld"><label for="f-user">사용자</label><input class="inp-s" id="f-user" placeholder="사번 또는 이름"></div>
+          <div class="fld"><label for="f-ok">결과</label><select class="sel" id="f-ok"><option value="">전체</option><option value="1">성공</option><option value="0">실패</option></select></div>
+          <div class="fld"><label>작업 유형</label><div class="ms" id="f-act" data-options="로그인|조회|녹취 재생|등록|수정|삭제|권한 변경|이슈 처리|기간계 전송"></div></div>
+          <div class="fld"><label>메뉴</label><div class="ms" id="f-menu" data-options="상담이력|이슈 콜 목록|이슈 콜 설정|키워드 관리|콜 통계|공지사항|사용자 관리|역할 관리|감사로그"></div></div>
+        </div>
+        <div class="filter-err"></div>
+        <div class="filter-actions"><button class="btn" id="btn-reset">초기화</button><button class="btn pri" id="btn-search">검색</button></div>
+      </div>
+      <div class="list-wrap">
+        <div class="list-head">
+          <div class="left"><b id="total" style="color:#0F172A">총 0건</b><span>행을 클릭하면 상세 내용을 확인할 수 있습니다.</span></div>
+          <div class="right"><label class="hint" for="size" style="margin:0">페이지 크기</label><select class="sel" id="size"><option>10</option><option selected>20</option><option>50</option></select></div>
+        </div>
+        <table class="data" id="tbl">
+          <thead><tr><th class="sortable" data-default="desc">일시</th><th class="sortable">사번</th><th class="sortable">이름</th><th>역할</th><th class="sortable">메뉴</th><th class="sortable">작업 유형</th><th>대상</th><th class="sortable">결과</th><th>접속 IP</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="pager" id="pager"></div>
+      </div>
+      <div class="proto-note">기간 기본값 '오늘'은 확인 필요입니다. 최근 7일로 바꾸면 2026.11.06 기록도 볼 수 있습니다.</div>
+    </div>
+  </div>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+UI.page(function () {
+  var $ = UI.$, esc = UI.esc;
+  var bar = $('#filters');
+  $('#f-period').innerHTML = UI.drHtml();
+  UI.initMs(bar);
+  var dr = UI.dateRange($('[data-dr]', bar), 0);
+  var tbl = $('#tbl'), tb = tbl.tBodies[0], ctl = null, rows = [];
+  function search() {
+    var err = dr.check(); UI.showErr(bar, err); if (err) return;
+    var p = dr.get(), u = $('#f-user').value.trim(), ok = $('#f-ok').value, acts = UI.msValue($('#f-act')), menus = UI.msValue($('#f-menu'));
+    rows = MOCK.AUDIT.filter(function (a) {
+      var d = a.t.slice(0, 10);
+      return d >= p[0] && d <= p[1] && (!u || a.emp.indexOf(u) >= 0 || a.name.indexOf(u) >= 0) && (!ok || (ok === '1') === a.ok) &&
+        (!acts.length || acts.indexOf(a.act) >= 0) && (!menus.length || menus.indexOf(a.menu) >= 0);
+    });
+    tb.innerHTML = rows.length ? rows.map(function (a) {
+      return '<tr class="clickable" data-i="' + MOCK.AUDIT.indexOf(a) + '"><td>' + esc(a.t) + '</td><td>' + esc(a.emp) + '</td><td>' + esc(a.name) + '</td><td>' + esc(a.role) + '</td><td>' + esc(a.menu) + '</td><td>' + esc(a.act) + '</td><td>' + esc(a.target) + '</td>' +
+        '<td>' + (a.ok ? '<span class="bdg ok">성공</span>' : '<span class="bdg fail">실패</span>') + '</td><td>' + esc(a.ip) + '</td></tr>';
+    }).join('') : UI.emptyRow(9, '입력한 조건에 맞는 기록이 없습니다.');
+    if (ctl) ctl.refresh(); else ctl = UI.table(tbl, { sizeSel: $('#size'), pager: $('#pager'), totalEl: $('#total') });
+  }
+  tb.addEventListener('click', function (e) {
+    var tr = e.target.closest('tr[data-i]'); if (!tr) return;
+    var a = MOCK.AUDIT[+tr.dataset.i];
+    var rowsHtml = [['일시', a.t], ['사번', a.emp], ['이름', a.name], ['역할', a.role], ['메뉴', a.menu], ['작업 유형', a.act], ['대상', a.target], ['결과', a.ok ? '성공' : '실패'], ['접속 IP', a.ip]];
+    if (a.change) rowsHtml.push(['변경 전·후', a.change]);
+    if (a.fail) rowsHtml.push(['실패 사유', a.fail]);
+    UI.dialog({ title: '감사로그 상세', ok: '닫기', cancel: null, html: '<table class="cls-table">' + rowsHtml.map(function (x) { return '<tr><th style="width:90px">' + esc(x[0]) + '</th><td>' + esc(x[1]) + '</td></tr>'; }).join('') + '</table>' });
+  });
+  $('#btn-search').addEventListener('click', search);
+  $('#f-user').addEventListener('keydown', function (e) { if (e.key === 'Enter') search(); });
+  $('#btn-reset').addEventListener('click', function () { dr.reset(); $('#f-user').value = ''; $('#f-ok').value = ''; UI.setMsValue($('#f-act'), []); UI.setMsValue($('#f-menu'), []); search(); });
+  search();
+});
+</script>
+</body>
+</html>
