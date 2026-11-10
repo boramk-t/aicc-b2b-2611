@@ -642,3 +642,38 @@ body.nb-off section.screen table.mapt td .n { display:inline-flex !important; }
 .ntl .tx { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .ntl .lab { flex:none; height:18px; padding:0 6px; font-size:11px; } .ntl svg.i { color:var(--mu); }
 .lab.gray { background:var(--sf); color:#475569; } .lab.ok { background:#e8f6ed; color:var(--gr); }
+
+/* ===== 2026.11.07 피드백: 고객 이력 정보 · 대화 검색 · STT 보정 · 대화 클리핑 개수 · 스티키 메모 · NER 태그명 ===== */
+.cinfo { display:flex; flex-direction:column; gap:8px; padding:10px 12px; border-radius:var(--r-lg); background:var(--sf); position:relative; }
+.cinfo .hd { font-size:14px; font-weight:600; line-height:20px; }
+.cinfo dl.kv { display:grid; grid-template-columns:max-content minmax(0,1fr); gap:4px 16px; margin:0; font-size:13px; line-height:20px; }
+.cinfo dt { color:var(--mu); white-space:nowrap; } .cinfo dd { margin:0; min-width:0; white-space:nowrap; }
+.cinfo u.lk { color:var(--fg); text-underline-offset:3px; cursor:pointer; position:relative; } .cinfo u.lk.on { color:var(--p6); font-weight:500; }
+.wtt .ib.sm.on { background:var(--p50); color:var(--p6); }
+.wsrch.on { border-color:var(--p); box-shadow:0 0 0 3px rgba(41,169,224,.2); }
+.wsrch .cur { width:1px; height:18px; background:var(--fg); margin-right:-6px; flex:none; }
+.u .ub.sttx { display:flex; flex-direction:column; gap:8px; min-width:340px; background:#fff; border:1px solid var(--p); box-shadow:0 0 0 3px rgba(41,169,224,.15); }
+.sttx .sti { font-size:14px; line-height:20px; } .sttx .sti::after { content:''; display:inline-block; width:1px; height:16px; margin-left:2px; background:var(--fg); vertical-align:-3px; }
+.sttx .sta { display:flex; align-items:center; gap:6px; } .sttx .sta .sp { flex:1; } .sttx .sta .hint { font-size:12px; }
+.u .hb2 .ib.sm.on { color:var(--rd); background:#fdf4f4; }
+.clt { display:inline-flex; align-items:center; gap:4px; font-size:14px; font-weight:500; position:relative; } .clt em { font-style:normal; font-size:12px; color:var(--mu); }
+.stp { display:inline-flex; align-items:center; gap:2px; height:28px; padding:0 2px; border:1px solid var(--bd); border-radius:var(--r-md); background:#fff; position:relative; }
+.stp .ib.sm { width:22px; height:22px; color:var(--fg); } .stp b { min-width:18px; text-align:center; font-size:13px; font-weight:600; }
+.mwa .sp { flex:1; }
+.ner.t-name .nl, .ner.t-date .nl { border-color:var(--rd); background:#fce9e9; color:var(--rd); }
+.ner.t-acct .nl { border-color:#020617; background:#f2f2f3; color:#020617; }
+.ner.t-prod .nl { border-color:var(--p); background:#eaf6fc; color:var(--p6); }
+.smemo { width:400px; max-width:100%; background:#fff; border:1px solid #cbd5e1; border-radius:var(--r-lg); box-shadow:0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1); position:relative; }
+.mpb { display:flex; flex-direction:column; gap:8px; padding:12px; position:relative; }
+.pbh { display:flex; align-items:center; gap:6px; margin-bottom:2px; } .pbh b { font-size:12.5px; font-weight:600; } .pbh .sp { flex:1; } .pbh .hint { font-size:12px; }
+.pbh .btn.s { position:relative; } .btn.s.ico { width:28px; padding:0; justify-content:center; }
+.mg { display:flex; flex-direction:column; gap:2px; padding:4px 6px 6px; border:1px solid var(--bd); border-radius:var(--r-md); background:#fff; position:relative; }
+.mg.sel { border-color:var(--p); background:var(--p50); }
+.mg.dropin { border-style:dashed; border-color:var(--p); background:#f8fcfe; }
+.mgh { display:flex; align-items:center; gap:6px; height:28px; font-size:13px; font-weight:600; } .mgh .sp { flex:1; } .mgh .ib.sm { width:24px; height:24px; } .mgh .hint { font-weight:400; }
+.mi { display:flex; align-items:center; gap:6px; min-height:30px; padding:2px 6px; border-radius:6px; background:#fff; font-size:13px; line-height:18px; position:relative; }
+.mi > svg.i { width:14px; height:14px; color:var(--mu); flex:none; cursor:grab; } .mi .mtx { min-width:0; }
+.mi.drag { border:1px solid var(--bd); box-shadow:0 6px 12px rgba(0,0,0,.12); transform:translateX(6px) rotate(-1deg); }
+.tn { display:inline-flex; align-items:center; flex:none; height:18px; padding:0 6px; border:1px solid var(--p); border-radius:9999px; background:#eaf6fc; color:var(--p6); font-size:11px; font-weight:500; }
+.tn.t-name, .tn.t-date { border-color:var(--rd); background:#fce9e9; color:var(--rd); } .tn.t-ct { border-color:var(--gr); background:#e8f6ed; color:var(--gr); } .tn.t-acct { border-color:#020617; background:#f2f2f3; color:#020617; }
+.pbf { display:flex; align-items:center; gap:6px; } .pbf .in2 { flex:1; }
