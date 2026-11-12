@@ -52,15 +52,15 @@
     svc: '리더어드바이저', user: ['박', '박지훈', '리더', '서울센터'], admin: true,
     groups: [
       ['일반', [['ladv', 'dash', '리더 어드바이저']]],
-      ['조회', [['mon', 'mon', '실시간 모니터링'], ['hist', 'tsearch', '상담 이력 조회', [['issue', '이슈 콜 목록']]], ['bm', 'bm', '상담 어시스트 책갈피']]],
-      ['통계 · 분석', [['stats', 'chart', '콜 통계']]],
+      ['조회', [['mon', 'mon', '실시간 모니터링'], ['hist', 'tsearch', '상담 이력 조회'], ['issue', 'alert', '이슈 콜 목록'], ['bm', 'bm', '상담 어시스트 책갈피']]],
+      ['통계 · 분석', [['stats', 'chart', '콜 통계'], ['imp', 'ccheck', '개선 이행', [['impd', '대시보드'], ['impr', '리포트']]]]],
       ['도구', [['kw', 'tag', '키워드 관리'], ['watch', 'phone', '관심 통화 관리'], ['threat', 'shield', '위협 감지 설정'], ['kms', 'book', '지식 관리']]]
     ]
   } : {
     svc: 'AI 상담어드바이저', user: ['이', '이서연', '상담직원', '서울센터'], admin: false,
     groups: [
       ['일반', [['adv', 'headset', '상담 어드바이저']]],
-      ['조회', [['hist', 'tsearch', '상담 이력 조회', [['issue', '이슈 콜 목록']]], ['bm', 'bm', '상담 어시스트 책갈피']]]
+      ['조회', [['hist', 'tsearch', '상담 이력 조회'], ['issue', 'alert', '이슈 콜 목록'], ['bm', 'bm', '상담 어시스트 책갈피']]]
     ]
   };
   var OPS = [['users', '사용자 관리'], ['roles', '역할 관리'], ['audit', '감사로그']];
@@ -75,7 +75,7 @@
     });
     h += '<span class="grow"></span><div class="ft">';
     h += '<div class="nv' + (d.qm ? ' on' : '') + '">' + ic('link', 1) + '<span>퀵 메뉴</span>' + (has('qm') ? bd('65', 'r') : '') + (d.qm ? QPOP : '') + '</div>';
-    h += '<div class="nv' + (d.nt ? ' on' : '') + '" title="공지사항 창이 새 창으로 열립니다">' + ic('mega', 1) + '<span>공지사항</span><span class="nvc">2</span>' + (has('nt') ? bd(PORTAL === 'L' ? '12' : '61', 'r') : '') + '</div>';
+    h += '<div class="nv' + (d.nt ? ' on' : '') + '" title="공지사항 목록으로 이동합니다">' + ic('mega', 1) + '<span>공지사항</span><span class="nvc">2</span>' + (has('nt') ? bd(PORTAL === 'L' ? '12' : '61', 'r') : '') + '</div>';
     if (PORTAL === 'A') h += '<div class="nv' + (d.mm ? ' on' : '') + '" title="스티키 메모가 화면 위에 팝업됩니다">' + ic('pencil', 1) + '<span>메모</span>' + (has('mm') ? bd('44', 'r') : '') + '</div>';
     h += '<div class="nv' + (d.al ? ' on' : '') + '">' + ic('bell', 1) + '<span>알림</span><span class="nvc">3</span>' + (has('al') ? bd(PORTAL === 'L' ? '13' : '61', 'r') : '') + '</div>';
     if (IA.admin) {

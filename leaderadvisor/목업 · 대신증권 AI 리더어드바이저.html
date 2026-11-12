@@ -12,85 +12,113 @@
   <div class="doc-head">
     <h1>대신증권 AI 리더어드바이저 · 넘버링 목업</h1>
     <p>관리자 · 리더 화면 기능을 목업으로 표현하고, 각 화면 요소에 기능 목록의 No를 배지로 붙였습니다. 화면마다 아래에 넘버링 매핑표가 있고, 문서 끝에 전체 기능 목록(No 1~77, 24가 두 행이라 78행)과 목업 위치를 정리했습니다.</p>
-    <p>디자인과 컴포넌트는 상담어드바이저 목업과 같습니다(2026 U+AICC 디자인시스템 · Figma 와이어프레임 '기획-상담어드바이저'). 메뉴는 I.A를 따릅니다: 일반(리더 어드바이저) · 조회(실시간 모니터링, 상담 이력 조회 › 이슈 콜 목록, 상담 어시스트 책갈피) · 통계 · 분석(콜 통계) · 도구(키워드 관리, 관심 통화 관리, 위협 감지 설정, 지식 관리) · LNB 공통(퀵 메뉴, 공지사항, 알림, 운영 관리).</p>
+    <p>디자인과 컴포넌트는 상담어드바이저 목업과 같습니다(2026 U+AICC 디자인시스템 · Figma 와이어프레임 '기획-상담어드바이저'). 메뉴는 I.A를 따릅니다: 일반(리더 어드바이저) · 조회(실시간 모니터링, 상담 이력 조회, 이슈 콜 목록, 상담 어시스트 책갈피) · 통계 · 분석(콜 통계, 개선 이행) · 도구(키워드 관리, 관심 통화 관리, 위협 감지 설정, 지식 관리) · LNB 공통(퀵 메뉴, 공지사항, 알림, 운영 관리).</p>
     <p>상담직원 화면 기능(No 31~67)은 상담어드바이저 목업에 있습니다. 두 포털에 모두 해당하는 기능(17, 30, 64, 68~71, 73, 75)은 양쪽에 붙였습니다. No 11(별도 STT 관리 메뉴)과 No 29(BE 기능)는 목업에서 뺐습니다. 기준일 2026.11.07, 값은 모두 예시입니다.</p>
     <span class="legend-hint"><i class="n in">12</i> 화면 기능 번호 <i class="n in be">68</i> 분석 엔진(BE) 기능 · 결과가 보이는 위치에 표시</span>
     <p id="cover-count" class="hint" style="margin-top:8px"></p>
-    <div class="toc"><a href="#l1">L1 리더 어드바이저</a><a href="#l2">L2 실시간 모니터링</a><a href="#l3">L3 상담 이력 조회</a><a href="#l4">L4 이슈 콜 목록</a><a href="#l5">L5 상담 어시스트 책갈피</a><a href="#l6">L6 콜 통계</a><a href="#l7">L7 키워드 관리</a><a href="#l8">L8 관심 통화 관리</a><a href="#l9">L9 위협 감지 설정</a><a href="#l10">L10 지식 관리</a><a href="#l11">L11 LNB 공통 영역</a><a href="#l12">L12 운영 관리</a><a href="#all">전체 기능 목록</a></div>
+    <div class="toc"><a href="#l1">L1 리더 어드바이저</a><a href="#l2">L2 실시간 모니터링</a><a href="#l3">L3 상담 이력 조회</a><a href="#l4">L4 이슈 콜 목록</a><a href="#l5">L5 상담 어시스트 책갈피</a><a href="#l6">L6 콜 통계</a><a href="#l7">L7 개선 이행</a><a href="#l8">L8 키워드 관리</a><a href="#l9">L9 관심 통화 관리</a><a href="#l10">L10 위협 감지 설정</a><a href="#l11">L11 지식 관리</a><a href="#l12">L12 LNB 공통 영역</a><a href="#l13">L13 운영 관리</a><a href="#all">전체 기능 목록</a></div>
   </div>
 
   <section class="screen" id="l1" data-title="L1 · 리더 어드바이저">
-    <div class="screen-caption"><span class="tag">L1</span> 리더 어드바이저 <small>일반 · 상담직원 상태 · 콜타임 지연 · 멀티뷰(실시간 대화 팝업 창) · 콜 청취/검색 · 위험 알람 · 코칭 요청(쪽지) · 프로필 메뉴</small></div>
-    <div class="lg-lbl">1-1 리더 어드바이저 · 팀 선택 · 상담직원 상태 · 콜타임 지연 · 코칭 요청 · 프로필 메뉴 열림</div>
+    <div class="screen-caption"><span class="tag">L1</span> 리더 어드바이저 <small>일반 · 상담직원 현황(팀 변경 · 상태 카드 · 상담직원 목록) · 지연콜 · 알림 토스트 · 멀티뷰(실시간 대화 팝업 창) · 코칭 · 설정 · 프로필 메뉴</small></div>
+    <div class="lg-lbl">1-1 리더 어드바이저 · [팀 변경] 열림 · 알림 토스트(Risk Call · 관심 번호) · 프로필 메뉴 열림</div>
     <div class="frame"><div class="ab">
       <nav class="asb" data-on="ladv" data-bd="pf" data-pm="1"></nav>
       <div class="amc">
-        <div class="tnb" data-st="none" data-ttl="리더 어드바이저"><span class="btn"><i data-ic="gear"></i>리더 어드바이저 설정<i class="n" data-k="15"></i></span></div>
-        <div class="nbw"><div class="ntbar"><i data-ic="mega"></i><span class="lab red">긴급</span><b>ISA 비과세 한도 안내 기준 변경</b><span class="hint">2026.11.07 · 운영관리팀</span><span class="sp"></span><span class="ib sm" title="공지 닫기"><i data-ic="x"></i></span></div></div>
+        <div class="tnb" data-st="none" data-ttl="리더 어드바이저"></div>
+        <div class="fw-nt"><i data-ic="mega"></i><span class="fw-bd fw-rdn" style="height:18px;font-size:10.5px;padding:0 6px">긴급</span><b>ISA 비과세 한도 안내 기준 변경</b><span class="fw-hint" style="font-size:12.5px">2026.11.07 · 운영관리팀</span><span class="sp" style="flex:1"></span><span class="ib sm" title="공지 닫기"><i data-ic="x"></i></span></div>
         <div class="pg">
-          <div class="cal err"><i data-ic="alert"></i><div><b>Risk Call · 민원성 불만 감지 · 이서연</b><span>고객 발화 '금감원에 신고' 감지 (오전 10:32) · 상담직원에게도 같은 알람이 전송되었습니다.</span></div><span class="btn s">대화 보기</span><i class="n r" data-k="17"></i></div>
-          <div class="cal inf"><i data-ic="phone"></i><div><b>관심 번호 인입 · 오전 10:28</b><span>02-1588-4488(관심 번호 · 민원 이력 다수)이 이서연 상담직원에게 연결되었습니다.</span></div><span class="btn s">대화 보기</span><i class="n r" data-k="30"></i></div>
-          <div class="qf"><div class="fl2" style="width:160px"><label>센터</label><div class="in2"><span>서울센터</span></div></div><div style="position:relative"><div class="fl2" style="width:200px"><label>팀</label><div class="in2"><span>계좌상담1팀 (8명)</span><i data-ic="chev"></i></div></div><i class="n r" data-k="9"></i></div><span class="sp" style="flex:1"></span><span class="bw g">통화중 4</span><span class="bw">대기중 2</span><span class="bw a">후처리 1</span><span class="bw n">자리비움 1</span><span class="hint">초과 기준 8분 · 알림 설정에서 변경</span></div>
-          <div class="tbx"><div class="th2">상담직원 8명<span class="sp"></span><span class="hint" style="font-weight:400">오전 10:40:12 갱신</span></div><table><tr><th>상담직원</th><th>사번</th><th>상태</th><th>상태 시간</th><th>통화 상대</th><th>상담 유형(실시간)</th><th>알람</th><th></th></tr><tr class="hl"><td><b>이서연</b></td><td>D10231</td><td><span class="bw g">통화중</span></td><td><b style="color:var(--rd)">12:30 초과</b><i class="n" data-k="8"></i></td><td>02-1588-4488</td><td>상품 &gt; ISA</td><td><span class="bw f">Risk</span></td><td><span class="btn s">대화 보기</span></td></tr><tr><td><b>정하늘</b></td><td>D10244</td><td><span class="bw g">통화중</span></td><td>03:12</td><td>010-****-7712</td><td>주식 &gt; 주문·체결</td><td><span class="mu">-</span></td><td><span class="btn s">대화 보기</span></td></tr><tr><td><b>김하은</b></td><td>D10252</td><td><span class="bw g">통화중</span></td><td>06:48</td><td>010-****-3301</td><td>계좌 &gt; 계좌 조회</td><td><span class="mu">-</span></td><td><span class="btn s">대화 보기</span></td></tr><tr><td><b>오민재</b></td><td>D10260</td><td><span class="bw a">후처리</span></td><td>01:05</td><td>-</td><td>-</td><td><span class="mu">-</span></td><td></td></tr><tr><td><b>윤가람</b></td><td>D10271</td><td><span class="bw">대기중</span></td><td>00:42</td><td>-</td><td>-</td><td><span class="mu">-</span></td><td></td></tr><tr><td><b>최도현</b></td><td>D10283</td><td><span class="bw n">자리비움</span></td><td>15:20</td><td>-</td><td>-</td><td><span class="mu">-</span></td><td></td></tr></table><i class="n" data-k="10"></i></div>
-          <div style="display:flex;justify-content:flex-end"><div class="sonner"><i data-ic="alert"></i>이서연 상담직원 통화가 8분을 넘었습니다 (12:30)</div></div>
+          <div class="fw-top"><h2 class="fw-ttl">상담직원 현황</h2><span class="fw-tot">총원 8명</span><span class="fw-hint">계좌상담1팀</span><span class="fw-tw"><button class="fw-btn on"><svg viewBox="0 0 24 24" width="14" height="14"><path d="m17 3 4 4-4 4M3 7h18M7 21l-4-4 4-4M21 17H3"></path></svg>팀 변경</button><div class="fw-pop"><div class="fw-pi"><span>전체 팀</span><span class="h">24명 · 서울센터</span></div><div class="fw-pi on"><span>계좌상담1팀</span><span class="h">8명</span></div><div class="fw-pi"><span>계좌상담2팀</span><span class="h">9명</span></div><div class="fw-pi"><span>상품상담팀</span><span class="h">7명</span></div><i class="n r" data-k="9"></i></div></span><span class="sp" style="flex:1"></span><button class="fw-btn" title="설정" style="width:32px;padding:0;justify-content:center"><i data-ic="gear"></i><i class="n r" data-k="15"></i></button></div>
+          <div class="fw-boxes"><div class="fw-card"><div class="fw-row"><span class="fw-bd fw-pu">통화중</span></div><div class="fw-num">4명</div><div class="fw-row"><span class="fw-bd fw-pu"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>IB</span><span class="fw-hint">3명</span><span class="fw-bd fw-bk"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M12 5v14M19 12l-7 7-7-7"></path></svg>OB</span><span class="fw-hint">1명</span></div></div><div class="fw-card"><div class="fw-row"><span class="fw-bd fw-gy">대기중</span></div><div class="fw-num">2명</div><div class="fw-hint">즉시 응대 가능</div></div><div class="fw-card"><div class="fw-row"><span class="fw-bd fw-ol">자리비움</span></div><div class="fw-num">1명</div><div class="fw-hint">최장 00:15:20 · 최도현</div></div><div class="fw-card"><div class="fw-row"><span class="fw-bd fw-am">후처리</span></div><div class="fw-num">1명</div><div class="fw-hint">평균 00:01:05</div></div><i class="n r" data-k="10"></i></div>
+          <div class="fw-tb"><i class="n" data-k="10"></i><table><colgroup><col style="width:25%"><col style="width:25%"><col style="width:25%"><col style="width:25%"></colgroup><thead><tr><th>이름<svg viewBox="0 0 24 24" width="16" height="16"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"></path></svg></th><th>상태<svg viewBox="0 0 24 24" width="16" height="16"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"></path></svg></th><th>알림<svg viewBox="0 0 24 24" width="16" height="16"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"></path></svg></th><th>시간<svg viewBox="0 0 24 24" width="16" height="16"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"></path></svg></th></tr></thead><tbody>
+  <tr><td><span class="fw-nm">이서연</span></td><td><span class="fw-bd fw-pu"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>IB</span></td><td><span class="fw-bd fw-gn"><svg viewBox="0 0 24 24" width="12" height="12"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4M12 16h.01"></path></svg>대외민원</span><i class="n r" data-k="17"></i></td><td><span class="fw-tt fw-tt-l">00:12:30</span><i class="n r" data-k="8"></i></td></tr>
+  <tr><td><span class="fw-nm">김하은</span></td><td><span class="fw-bd fw-bk"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M12 5v14M19 12l-7 7-7-7"></path></svg>OB</span></td><td><span class="fw-bd fw-dk"><svg viewBox="0 0 24 24" width="12" height="12"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4M12 16h.01"></path></svg>금지키워드</span></td><td><span class="fw-tt fw-tt-m">00:06:48</span></td></tr>
+  <tr><td><span class="fw-nm">정하늘</span></td><td><span class="fw-bd fw-pu"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>IB</span></td><td><span class="fw-mu">-</span></td><td><span class="fw-tt">00:03:12</span></td></tr>
+  <tr><td><span class="fw-nm">송지호</span></td><td><span class="fw-bd fw-pu"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>IB</span></td><td><span class="fw-bd fw-rdn"><svg viewBox="0 0 24 24" width="12" height="12"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4M12 16h.01"></path></svg>개인정보유출</span></td><td><span class="fw-tt">00:02:05</span></td></tr>
+  <tr><td><span class="fw-nm">윤가람</span></td><td><span class="fw-bd fw-gy">대기중</span></td><td><span class="fw-mu">-</span></td><td><span class="fw-tt">00:00:42</span></td></tr><tr><td><span class="fw-nm">임서윤</span></td><td><span class="fw-bd fw-gy">대기중</span></td><td><span class="fw-mu">-</span></td><td><span class="fw-tt">00:01:10</span></td></tr><tr><td><span class="fw-nm">오민재</span></td><td><span class="fw-bd fw-am">후처리</span></td><td><span class="fw-mu">-</span></td><td><span class="fw-tt">00:01:05</span></td></tr><tr class="off"><td><span class="fw-nm">최도현</span></td><td><span class="fw-bd fw-ol">자리비움</span></td><td><span class="fw-mu">-</span></td><td><span class="fw-tt">00:15:20</span></td></tr>
+</tbody></table></div>
           <div class="bx"><h4>코칭 요청<span class="bw f">새 요청 2</span><span class="sp"></span><span class="hint" style="font-weight:400">주고받은 코칭은 알림에 쌓입니다</span></h4>
             <div class="ir"><span class="dot"></span><div class="c2"><div class="tr"><b>이서연 · 계좌상담1팀</b><span>오전 10:32 · 김*준 고객 통화 중</span></div><div class="cc">ISA 비과세 한도를 잘못 안내한 뒤 고객이 민원을 언급했습니다. 정정 안내 문구와 민원 응대 방법 확인 부탁드립니다.</div><div class="fn"><i data-ic="doc"></i>상담화면_캡처_1031.png · ISA_상품설명서_발췌.pdf</div></div><span class="btn p" style="flex:none">코칭 보내기</span></div>
             <div class="ir"><span class="dot"></span><div class="c2"><div class="tr"><b>정하늘 · 계좌상담1팀</b><span>오전 10:30 · 박*호 고객 통화 중</span></div><div class="cc">정정 주문이 체결되지 않은 이유를 묻는 고객입니다. 안내 순서 확인 부탁드립니다.</div></div><span class="btn p" style="flex:none">코칭 보내기</span></div>
             <div class="ir read"><span class="dot"></span><div class="c2"><div class="tr"><b>이서연 · 계좌상담1팀</b><span>오전 10:31 · 김*준 고객</span></div><div class="cc">반복 민원 고객 응대 방법 문의</div></div><span class="btn" style="flex:none">보낸 코칭 보기</span></div><i class="n" data-k="22"></i></div>
         </div>
       </div>
-
+<div class="fw-tst"><div class="fw-toast"><div class="tx"><b>이서연</b> 민원성 불만이 감지되었습니다.</div><button class="ac">실시간 대화 보기</button><i class="n r" data-k="17"></i></div><div class="fw-toast"><div class="tx"><b>이서연</b> 관심 번호 통화가 연결되었습니다.</div><button class="ac">실시간 대화 보기</button><i class="n r" data-k="30"></i></div></div>
     </div></div>
-    <div class="lg-lbl" style="margin-top:18px">1-2 상담직원 여러 명 [대화 보기] → 상담직원별 실시간 대화 팝업 창이 자동으로 열림 (멀티뷰)</div>
+    <div class="lg-lbl" style="margin-top:18px">1-2 상담직원 이름을 누를 때마다 실시간 대화 팝업 창이 열림 (멀티뷰) · 코칭 요청 토스트</div>
     <div class="frame"><div class="ab">
       <nav class="asb" data-on="ladv"></nav>
       <div class="amc">
-        <div class="tnb" data-st="none" data-ttl="리더 어드바이저"><span class="btn"><i data-ic="gear"></i>리더 어드바이저 설정</span></div>
-        
+        <div class="tnb" data-st="none" data-ttl="리더 어드바이저"></div>
+        <div class="fw-nt"><i data-ic="mega"></i><span class="fw-bd fw-rdn" style="height:18px;font-size:10.5px;padding:0 6px">긴급</span><b>ISA 비과세 한도 안내 기준 변경</b><span class="fw-hint" style="font-size:12.5px">2026.11.07 · 운영관리팀</span><span class="sp" style="flex:1"></span><span class="ib sm" title="공지 닫기"><i data-ic="x"></i></span></div>
         <div class="pg">
-          <div class="qf"><div class="fl2" style="width:160px"><label>센터</label><div class="in2"><span>서울센터</span></div></div><div style="position:relative"><div class="fl2" style="width:200px"><label>팀</label><div class="in2"><span>계좌상담1팀 (8명)</span><i data-ic="chev"></i></div></div><i class="n r" data-k="9"></i></div><span class="sp" style="flex:1"></span><span class="bw g">통화중 4</span><span class="bw">대기중 2</span><span class="bw a">후처리 1</span><span class="bw n">자리비움 1</span><span class="hint">초과 기준 8분 · 알림 설정에서 변경</span></div>
-          <div class="tbx"><div class="th2">상담직원 8명<span class="sp"></span><span class="hint" style="font-weight:400">대화 창 3개 열림 · 오전 10:40:12 갱신</span></div><table><tr><th>상담직원</th><th>사번</th><th>상태</th><th>상태 시간</th><th>통화 상대</th><th>상담 유형(실시간)</th><th>알람</th><th></th></tr><tr class="sel"><td><b>이서연</b></td><td>D10231</td><td><span class="bw g">통화중</span></td><td><b style="color:var(--rd)">12:30 초과</b></td><td>02-1588-4488</td><td>상품 &gt; ISA</td><td><span class="bw f">Risk</span></td><td><span class="btn s p">대화 창 열림</span></td></tr><tr class="sel"><td><b>정하늘</b></td><td>D10244</td><td><span class="bw g">통화중</span></td><td>03:12</td><td>010-****-7712</td><td>주식 &gt; 주문·체결</td><td><span class="mu">-</span></td><td><span class="btn s p">대화 창 열림</span></td></tr><tr class="sel"><td><b>김하은</b></td><td>D10252</td><td><span class="bw g">통화중</span></td><td>06:48</td><td>010-****-3301</td><td>계좌 &gt; 계좌 조회</td><td><span class="mu">-</span></td><td><span class="btn s p">대화 창 열림</span></td></tr><tr><td><b>오민재</b></td><td>D10260</td><td><span class="bw a">후처리</span></td><td>01:05</td><td>-</td><td>-</td><td><span class="mu">-</span></td><td></td></tr><tr><td><b>윤가람</b></td><td>D10271</td><td><span class="bw">대기중</span></td><td>00:42</td><td>-</td><td>-</td><td><span class="mu">-</span></td><td></td></tr><tr><td><b>최도현</b></td><td>D10283</td><td><span class="bw n">자리비움</span></td><td>15:20</td><td>-</td><td>-</td><td><span class="mu">-</span></td><td></td></tr></table><i class="n" data-k="16"></i></div>
-          <div class="alr"><i data-ic="calert"></i><span>상담직원의 [대화 보기]를 누를 때마다 그 상담직원의 실시간 대화 팝업 창이 하나씩 열립니다. 여러 명을 누르면 창이 여러 개 열려 동시에 모니터링합니다.</span></div>
+          <div class="fw-top"><h2 class="fw-ttl">상담직원 현황</h2><span class="fw-tot">총원 8명</span><span class="fw-hint">계좌상담1팀</span><span class="fw-tw"><button class="fw-btn"><svg viewBox="0 0 24 24" width="14" height="14"><path d="m17 3 4 4-4 4M3 7h18M7 21l-4-4 4-4M21 17H3"></path></svg>팀 변경</button></span><span class="sp" style="flex:1"></span><button class="fw-btn" title="설정" style="width:32px;padding:0;justify-content:center"><i data-ic="gear"></i></button></div>
+          <div class="fw-boxes"><div class="fw-card"><div class="fw-row"><span class="fw-bd fw-pu">통화중</span></div><div class="fw-num">4명</div><div class="fw-row"><span class="fw-bd fw-pu"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>IB</span><span class="fw-hint">3명</span><span class="fw-bd fw-bk"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M12 5v14M19 12l-7 7-7-7"></path></svg>OB</span><span class="fw-hint">1명</span></div></div><div class="fw-card"><div class="fw-row"><span class="fw-bd fw-gy">대기중</span></div><div class="fw-num">2명</div><div class="fw-hint">즉시 응대 가능</div></div><div class="fw-card"><div class="fw-row"><span class="fw-bd fw-ol">자리비움</span></div><div class="fw-num">1명</div><div class="fw-hint">최장 00:15:20 · 최도현</div></div><div class="fw-card"><div class="fw-row"><span class="fw-bd fw-am">후처리</span></div><div class="fw-num">1명</div><div class="fw-hint">평균 00:01:05</div></div></div>
+          <div class="fw-tb"><i class="n" data-k="16"></i><table><colgroup><col style="width:25%"><col style="width:25%"><col style="width:25%"><col style="width:25%"></colgroup><thead><tr><th>이름<svg viewBox="0 0 24 24" width="16" height="16"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"></path></svg></th><th>상태<svg viewBox="0 0 24 24" width="16" height="16"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"></path></svg></th><th>알림<svg viewBox="0 0 24 24" width="16" height="16"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"></path></svg></th><th>시간<svg viewBox="0 0 24 24" width="16" height="16"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"></path></svg></th></tr></thead><tbody>
+  <tr class="sel"><td><span class="fw-nm">이서연</span></td><td><span class="fw-bd fw-pu"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>IB</span></td><td><span class="fw-bd fw-gn"><svg viewBox="0 0 24 24" width="12" height="12"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4M12 16h.01"></path></svg>대외민원</span></td><td><span class="fw-tt fw-tt-l">00:12:30</span></td></tr>
+  <tr class="sel"><td><span class="fw-nm">김하은</span></td><td><span class="fw-bd fw-bk"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M12 5v14M19 12l-7 7-7-7"></path></svg>OB</span></td><td><span class="fw-bd fw-dk"><svg viewBox="0 0 24 24" width="12" height="12"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4M12 16h.01"></path></svg>금지키워드</span></td><td><span class="fw-tt fw-tt-m">00:06:48</span></td></tr>
+  <tr class="sel"><td><span class="fw-nm">정하늘</span></td><td><span class="fw-bd fw-pu"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>IB</span></td><td><span class="fw-mu">-</span></td><td><span class="fw-tt">00:03:12</span></td></tr>
+  <tr><td><span class="fw-nm">송지호</span></td><td><span class="fw-bd fw-pu"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>IB</span></td><td><span class="fw-bd fw-rdn"><svg viewBox="0 0 24 24" width="12" height="12"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4M12 16h.01"></path></svg>개인정보유출</span></td><td><span class="fw-tt">00:02:05</span></td></tr>
+  <tr><td><span class="fw-nm">윤가람</span></td><td><span class="fw-bd fw-gy">대기중</span></td><td><span class="fw-mu">-</span></td><td><span class="fw-tt">00:00:42</span></td></tr><tr><td><span class="fw-nm">임서윤</span></td><td><span class="fw-bd fw-gy">대기중</span></td><td><span class="fw-mu">-</span></td><td><span class="fw-tt">00:01:10</span></td></tr><tr><td><span class="fw-nm">오민재</span></td><td><span class="fw-bd fw-am">후처리</span></td><td><span class="fw-mu">-</span></td><td><span class="fw-tt">00:01:05</span></td></tr><tr class="off"><td><span class="fw-nm">최도현</span></td><td><span class="fw-bd fw-ol">자리비움</span></td><td><span class="fw-mu">-</span></td><td><span class="fw-tt">00:15:20</span></td></tr>
+</tbody></table></div>
+          <div class="alr"><i data-ic="calert"></i><span>상담직원 이름을 누를 때마다 그 상담직원의 실시간 대화 팝업 창이 하나씩 열립니다. 여러 명을 누르면 창이 여러 개 열려 동시에 모니터링합니다. 창이 열린 상담직원은 목록에서 선택 상태로 표시합니다.</span></div>
         </div>
       </div>
-
+<div class="fw-tst"><div class="fw-toast"><div class="tx"><b>정하늘</b> 코칭 요청이 왔습니다.</div><button class="ac">실시간 대화 보기</button><i class="n r" data-k="22"></i></div></div>
     </div></div>
-    <div class="lg-lbl" style="margin-top:18px">[대화 보기] 3명 → 실시간 대화 팝업 창 3개 (새 창) · 창마다 대화 검색 · 콜 청취 · 코칭 보내기</div>
-    <div class="mvw"><div class="win"><div class="wtb"><span>AI 리더어드바이저 - 실시간 대화 · 이서연</span><span class="sp"></span><i data-ic="x"></i></div><div class="wbd"><div class="mwh"><b>이서연 · 김*준 고객님</b><span class="bw f">Risk</span><span class="bw">IB</span><span class="hint">02-1588-4488 · 12:30</span><span class="sp"></span><span class="ib sm on" title="대화 내용 검색"><i data-ic="search"></i></span></div>
-<div class="wsrch on"><i data-ic="search"></i><span class="vl">ISA</span><span class="cnt">1/3</span><i data-ic="x"></i><i class="n r" data-k="18"></i></div>
-<div class="mwa"><span class="sp"></span><span class="btn s"><i data-ic="hph"></i>콜 청취</span><span class="btn s p"><i data-ic="headset"></i>코칭 보내기<i class="n" data-k="22"></i></span></div>
-<div class="stt">
-<div class="cal inf"><i data-ic="phone"></i><div><b>관심 번호 인입</b><span>02-1588-4488 · 민원 이력 다수로 등록된 번호입니다.</span></div><i class="n r" data-k="30"></i></div>
-              <div class="u"><span class="nm">김*준 고객님</span><div class="ba"><div class="ub"><mark>ISA</mark> 계좌 비과세 한도가 얼마인가요?</div></div><span class="tm">오전 10:30</span></div>
+    <div class="lg-lbl" style="margin-top:18px">이름 3명 → 실시간 대화 팝업 창 3개 (새 창) · 상담어드바이저 실시간 대화와 같은 대화 영역 · 아래 코칭 메시지</div>
+    <div class="mvw"><div class="win" style="width:auto"><div class="wtb"><span>AI 리더어드바이저 - 실시간 대화 · 이서연</span><span class="sp"></span><i data-ic="x"></i></div><div class="wbd"><div class="pw">
+<div class="pw-top"><div class="pw-leg">계좌상담1팀 · 김*준 · ISA 가입 문의</div><span class="ib sm on" title="대화 내용 검색"><i data-ic="search"></i><i class="n r" data-k="18"></i></span><span class="pw-pl" title="콜 청취"><i data-ic="hph"></i></span><span class="tchip long"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M10 2h4M12 14l3-3"></path><circle cx="12" cy="14" r="8"></circle></svg>00:12:30<i class="n r" data-k="8"></i></span></div>
+<div class="pw-nmrow"><b class="pw-nm">이서연</b><span class="pw-dir ib"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>IB</span><span class="lab2 ai">실시간 상담</span><span class="fw-bd fw-gn"><svg viewBox="0 0 24 24" width="12" height="12"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4M12 16h.01"></path></svg>대외민원</span></div>
+<div class="pw-sr"><div class="wsrch on"><i data-ic="search"></i><span class="vl">ISA</span><span class="cnt">1/3</span><i data-ic="x"></i></div></div>
+<div class="stt pw-stt">
+              <div class="dvd">통화가 연결되었습니다 · 오전 10:30</div>
+              <div class="cal inf"><i data-ic="phone"></i><div><b>관심 번호 인입</b><span>02-1588-4488 · 민원 이력 다수로 등록된 번호입니다.</span></div><i class="n r" data-k="30"></i></div>
+              <div class="cinfo"><div class="hd">고객 이력 정보</div><dl class="kv"><dt>이름</dt><dd><u class="lk" role="link" tabindex="0">김*준</u></dd><dt>연락처</dt><dd><u class="lk" role="link" tabindex="0">010-****-1234</u></dd><dt>보유 계좌</dt><dd><u class="lk" role="link" tabindex="0">종합매매, 연금저축</u></dd><dt>인입 채널</dt><dd><u class="lk" role="link" tabindex="0">[ARS] 수수료 문의</u></dd><dt>최근 상담</dt><dd><u class="lk on" role="link" tabindex="0">매매 수수료 내역 문의 (09/12)</u></dd></dl></div>
+              <div class="u"><span class="nm">김*준 고객님</span><div class="ba"><div class="ub"><span class="ner t-prod" title="클릭하면 메모에 기록합니다"><span class="nl">상품명</span><u><mark>ISA</mark></u></span> 계좌 비과세 한도가 얼마인가요?</div></div><span class="tm">오전 10:30</span></div>
               <div class="u a"><div class="wrn"><span class="bw r">오안내 유의</span>바른 답변을 확인하세요</div><div class="ba"><div class="ub bad">일반형 기준 순이익 400만 원까지 비과세입니다.</div></div><span class="tm">오전 10:31</span></div>
               <div class="u"><span class="nm">김*준 고객님</span><div class="ba"><div class="ub">또 그러면 금감원에 신고할 거예요.</div></div><span class="tm">오전 10:32</span></div>
-              <div class="cm"><div class="snd"><b>박지훈</b><span>계좌상담1팀</span></div><div class="cb"><p>사과 멘트를 먼저 하고 일반형 200만 원 기준으로 정정해 주세요.</p><div class="af"><i data-ic="doc"></i><span>민원응대스크립트_ISA.pdf</span><span class="ib sm" title="다운로드"><i data-ic="dl"></i></span></div><div class="ra"><span class="btn s">추가 요청</span></div></div><span class="tm">오전 10:33</span></div>
-</div><i class="n r" data-k="19"></i></div></div><div class="win"><div class="wtb"><span>AI 리더어드바이저 - 실시간 대화 · 정하늘</span><span class="sp"></span><i data-ic="x"></i></div><div class="wbd"><div class="mwh"><b>정하늘 · 박*호 고객님</b><span class="bw">IB</span><span class="hint">010-****-7712 · 03:12</span><span class="sp"></span><span class="ib sm on" title="대화 내용 검색"><i data-ic="search"></i></span></div>
-<div class="wsrch on"><i data-ic="search"></i><span class="cur"></span><span class="ph">대화 내용 검색</span><i data-ic="x"></i></div>
-<div class="mwa"><span class="sp"></span><span class="btn s"><i data-ic="hph"></i>콜 청취</span><span class="btn s p"><i data-ic="headset"></i>코칭 보내기</span></div>
-<div class="stt">
+              <div class="cm"><div class="snd"><b>박지훈</b><span>계좌상담1팀</span></div><div class="cb"><p>사과 멘트를 먼저 하고 일반형 200만 원 기준으로 정정해 주세요.</p><div class="af"><i data-ic="doc"></i><span>민원응대스크립트_ISA.pdf</span><span class="ib sm" title="다운로드"><i data-ic="dl"></i></span></div><div class="ra"><span class="btn s">추가 요청</span></div></div><span class="tm">오전 10:33</span></div><i class="n r" data-k="19"></i>
+</div>
+<div class="pw-coach"><div class="pw-cl"><i data-ic="chat"></i>코칭 메시지</div><div class="pw-rqc"><div class="pw-rr"><span class="pw-rl">상담사 요청 메시지</span><span class="pw-rv">정정 안내 문구와 민원 응대 방법 확인 부탁드립니다</span></div><div class="pw-rr"><span class="pw-rl">요청 첨부파일</span><span class="pw-rv pw-fl"><i data-ic="clip"></i>상담화면_캡처_1031.png</span></div></div><div class="pw-ig"><div class="pw-ta">예: 고객 요청사항을 한 번 더 확인해 주세요.</div><div class="pw-ad"><span class="pw-ib" title="파일 첨부"><i data-ic="clip"></i></span><span style="flex:1"></span><span class="pw-sb dis" title="보내기"><svg viewBox="0 0 24 24" width="16" height="16"><path d="m5 12 7-7 7 7M12 19V5"></path></svg></span></div></div><i class="n r" data-k="22"></i></div></div></div></div><div class="win" style="width:auto"><div class="wtb"><span>AI 리더어드바이저 - 실시간 대화 · 김하은</span><span class="sp"></span><i data-ic="x"></i></div><div class="wbd"><div class="pw">
+<div class="pw-top"><div class="pw-leg">계좌상담1팀 · 최*아 · 잔고 문의</div><span class="ib sm on" title="대화 내용 검색"><i data-ic="search"></i></span><span class="pw-pl" title="콜 청취"><i data-ic="hph"></i></span><span class="tchip mid"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M10 2h4M12 14l3-3"></path><circle cx="12" cy="14" r="8"></circle></svg>00:06:48</span></div>
+<div class="pw-nmrow"><b class="pw-nm">김하은</b><span class="pw-dir ob"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M12 5v14M19 12l-7 7-7-7"></path></svg>OB</span><span class="lab2 ai">실시간 상담</span><span class="fw-bd fw-dk"><svg viewBox="0 0 24 24" width="12" height="12"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4M12 16h.01"></path></svg>금지키워드</span></div>
+<div class="pw-sr"><div class="wsrch on"><i data-ic="search"></i><span class="cur"></span><span class="ph">대화 내용 검색</span><i data-ic="x"></i></div></div>
+<div class="stt pw-stt">
+              <div class="dvd">통화가 연결되었습니다 · 오전 10:33</div>
+              <div class="cinfo"><div class="hd">고객 이력 정보</div><dl class="kv"><dt>이름</dt><dd><u class="lk" role="link" tabindex="0">최*아</u></dd><dt>연락처</dt><dd><u class="lk" role="link" tabindex="0">010-****-3301</u></dd><dt>보유 계좌</dt><dd><u class="lk" role="link" tabindex="0">종합매매</u></dd><dt>인입 채널</dt><dd><u class="lk" role="link" tabindex="0">[OB] 잔고 확인 안내</u></dd><dt>최근 상담</dt><dd><u class="lk on" role="link" tabindex="0">미수 동결 해제 문의 (10/21)</u></dd></dl></div>
+              <div class="u"><span class="nm">최*아 고객님</span><div class="ba"><div class="ub">잔고가 안 맞는 것 같아요.</div></div><span class="tm">오전 10:34</span></div>
+              <div class="u a"><div class="ba"><div class="ub">체결 기준과 결제 기준이 달라서 그렇습니다.</div></div><span class="tm">오전 10:35</span></div>
+              <div class="u"><span class="nm">최*아 고객님</span><div class="ba"><div class="ub">그럼 <span class="ner t-date" title="클릭하면 메모에 기록합니다"><span class="nl">날짜</span><u>내일</u></span> 확인하면 되나요?</div></div><span class="tm">오전 10:36</span></div>
+</div>
+<div class="pw-coach"><div class="pw-cl"><i data-ic="chat"></i>코칭 메시지</div><div class="pw-ig"><div class="pw-ta">예: 고객 요청사항을 한 번 더 확인해 주세요.</div><div class="pw-ad"><span class="pw-ib" title="파일 첨부"><i data-ic="clip"></i></span><span style="flex:1"></span><span class="pw-sb dis" title="보내기"><svg viewBox="0 0 24 24" width="16" height="16"><path d="m5 12 7-7 7 7M12 19V5"></path></svg></span></div></div></div></div></div></div><div class="win" style="width:auto"><div class="wtb"><span>AI 리더어드바이저 - 실시간 대화 · 정하늘</span><span class="sp"></span><i data-ic="x"></i></div><div class="wbd"><div class="pw">
+<div class="pw-top"><div class="pw-leg">계좌상담1팀 · 박*호 · 정정 주문 문의</div><span class="ib sm" title="대화 내용 검색"><i data-ic="search"></i></span><span class="pw-pl" title="콜 청취"><i data-ic="hph"></i></span><span class="tchip"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M10 2h4M12 14l3-3"></path><circle cx="12" cy="14" r="8"></circle></svg>00:03:12</span></div>
+<div class="pw-nmrow"><b class="pw-nm">정하늘</b><span class="pw-dir ib"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>IB</span><span class="lab2 ai">실시간 상담</span></div>
+
+<div class="stt pw-stt">
+              <div class="dvd">통화가 연결되었습니다 · 오전 10:37</div>
+              <div class="cinfo"><div class="hd">고객 이력 정보</div><dl class="kv"><dt>이름</dt><dd><u class="lk" role="link" tabindex="0">박*호</u></dd><dt>연락처</dt><dd><u class="lk" role="link" tabindex="0">010-****-7712</u></dd><dt>보유 계좌</dt><dd><u class="lk" role="link" tabindex="0">종합매매, CMA</u></dd><dt>인입 채널</dt><dd><u class="lk" role="link" tabindex="0">[ARS] 주문 문의</u></dd><dt>최근 상담</dt><dd><u class="lk on" role="link" tabindex="0">해외주식 주문 문의 (10/30)</u></dd></dl></div>
               <div class="u"><span class="nm">박*호 고객님</span><div class="ba"><div class="ub">정정 주문은 어디서 하나요?</div></div><span class="tm">오전 10:37</span></div>
               <div class="u a"><div class="ba"><div class="ub">MTS 주문 화면에서 [정정]을 누르시면 됩니다.</div></div><span class="tm">오전 10:38</span></div>
               <div class="u"><span class="nm">박*호 고객님</span><div class="ba"><div class="ub">아 네, 찾았어요.</div></div><span class="tm">오전 10:39</span></div>
-</div></div></div><div class="win"><div class="wtb"><span>AI 리더어드바이저 - 실시간 대화 · 김하은</span><span class="sp"></span><i data-ic="x"></i></div><div class="wbd"><div class="mwh"><b>김하은 · 최*아 고객님</b><span class="bw">OB</span><span class="hint">010-****-3301 · 06:48</span><span class="sp"></span><span class="ib sm" title="대화 내용 검색"><i data-ic="search"></i></span></div>
-
-<div class="mwa"><span class="sp"></span><span class="btn s"><i data-ic="hph"></i>콜 청취</span><span class="btn s p"><i data-ic="headset"></i>코칭 보내기</span></div>
-<div class="stt">
-              <div class="u"><span class="nm">최*아 고객님</span><div class="ba"><div class="ub">잔고가 안 맞는 것 같아요.</div></div><span class="tm">오전 10:34</span></div>
-              <div class="u a"><div class="ba"><div class="ub">체결 기준과 결제 기준이 달라서 그렇습니다.</div></div><span class="tm">오전 10:35</span></div>
-              <div class="u"><span class="nm">최*아 고객님</span><div class="ba"><div class="ub">그럼 내일 확인하면 되나요?</div></div><span class="tm">오전 10:36</span></div>
-</div></div></div><i class="n" data-k="16"></i></div>
+</div>
+<div class="pw-coach"><div class="pw-cl"><i data-ic="chat"></i>코칭 메시지</div><div class="pw-ig"><div class="pw-ta">예: 고객 요청사항을 한 번 더 확인해 주세요.</div><div class="pw-ad"><span class="pw-ib" title="파일 첨부"><i data-ic="clip"></i></span><span style="flex:1"></span><span class="pw-sb dis" title="보내기"><svg viewBox="0 0 24 24" width="16" height="16"><path d="m5 12 7-7 7 7M12 19V5"></path></svg></span></div></div></div></div></div></div><i class="n" data-k="16"></i></div>
+    <div class="lg-lbl" style="margin-top:18px">상담직원 현황 [설정] → 설정 (지연콜 설정 · 콘텐츠 크기 설정 · 권한 위임 관리 탭)</div>
+    <div class="row" style="margin-top:6px;align-items:flex-start;flex-wrap:wrap;gap:14px"><div class="fw-md" role="dialog" aria-label="설정"><div class="fw-mh"><h3>설정</h3><span class="fw-x"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M18 6 6 18M6 6l12 12"></path></svg></span></div><div class="fw-tabs"><span class="on">지연콜 설정</span><span>콘텐츠 크기 설정</span><span>권한 위임 관리</span></div><div class="fw-pn"><div><div class="fw-h5">지연콜 기준 시간을 정해 주세요.</div><div class="fw-desc" style="margin-top:8px">통화 시간이 기준을 넘으면 상담직원 목록 · 대화 창의 시간을 중콜은 주황, 장콜은 빨강으로 표시합니다.</div></div>
+<div class="fw-sec"><div class="fw-cl"><span class="lb"><i class="fw-dot" style="background:#D97706"></i>중콜</span><div class="fw-st"><span class="fw-sb l"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14"></path></svg></span><div class="fw-si"><span class="v">4</span><span class="u">분</span></div><span class="fw-sb r"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14M12 5v14"></path></svg></span></div></div><div class="fw-cl"><span class="lb"><i class="fw-dot" style="background:#DC2626"></i>장콜</span><div class="fw-st"><span class="fw-sb l"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14"></path></svg></span><div class="fw-si"><span class="v">7</span><span class="u">분</span></div><span class="fw-sb r"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14M12 5v14"></path></svg></span></div></div></div>
+<div class="fw-info"><svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"></path></svg><span>장콜 기준은 중콜 기준보다 길어야 합니다. 미설정 시 기본값(중콜 4분 · 장콜 7분)이 적용됩니다.</span></div><button class="fw-pb">저장하기</button></div><i class="n r" data-k="8"></i><i class="n" data-k="13"></i></div><div class="fw-md" role="dialog" aria-label="설정"><div class="fw-mh"><h3>설정</h3><span class="fw-x"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M18 6 6 18M6 6l12 12"></path></svg></span></div><div class="fw-tabs"><span>지연콜 설정</span><span class="on">콘텐츠 크기 설정</span><span>권한 위임 관리</span></div><div class="fw-pn"><div><div class="fw-h5">콘텐츠 크기를 선택해 주세요.</div><div class="fw-desc" style="margin-top:8px">원하는 배율에 맞춰 콘텐츠 크기를 변경할 수 있습니다.</div><div class="fw-ths"><div class="fw-th"><div class="fw-thb"><div class="fw-thi" style="--s:1.1"><div class="fw-it"><i style="width:80%"></i><i style="width:100%"></i></div><div class="fw-it r"><i class="c"></i><i style="flex:1"></i></div><div class="fw-it r"><i class="c"></i><i style="flex:1"></i></div></div></div><div class="fw-rl"><span class="fw-rb"></span>110%</div></div><div class="fw-th"><div class="fw-thb"><div class="fw-thi" style="--s:1"><div class="fw-it"><i style="width:80%"></i><i style="width:100%"></i></div><div class="fw-it r"><i class="c"></i><i style="flex:1"></i></div><div class="fw-it r"><i class="c"></i><i style="flex:1"></i></div></div></div><div class="fw-rl"><span class="fw-rb on"></span>100%</div></div><div class="fw-th"><div class="fw-thb"><div class="fw-thi" style="--s:0.9"><div class="fw-it"><i style="width:80%"></i><i style="width:100%"></i></div><div class="fw-it r"><i class="c"></i><i style="flex:1"></i></div><div class="fw-it r"><i class="c"></i><i style="flex:1"></i></div></div></div><div class="fw-rl"><span class="fw-rb"></span>90%</div></div><div class="fw-th"><div class="fw-thb"><div class="fw-thi" style="--s:0.8"><div class="fw-it"><i style="width:80%"></i><i style="width:100%"></i></div><div class="fw-it r"><i class="c"></i><i style="flex:1"></i></div><div class="fw-it r"><i class="c"></i><i style="flex:1"></i></div></div></div><div class="fw-rl"><span class="fw-rb"></span>80%</div></div></div></div>
+<div class="fw-sep"></div><div style="display:flex;flex-direction:column;gap:16px"><div class="fw-h5">개인 맞춤 설정</div><div class="fw-st"><span class="fw-sb l dis"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14"></path></svg></span><div class="fw-si"><span class="v"><span class="fph">100</span></span><span class="u">%</span></div><span class="fw-sb r"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14M12 5v14"></path></svg></span></div></div>
+<div class="fw-info"><svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"></path></svg><span>미설정 시 기본값(100%)이 적용됩니다.</span></div><button class="fw-pb dis">저장하기</button></div><i class="n r" data-k="63"></i></div><div class="fw-md" role="dialog" aria-label="설정"><div class="fw-mh"><h3>설정</h3><span class="fw-x"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M18 6 6 18M6 6l12 12"></path></svg></span></div><div class="fw-tabs"><span>지연콜 설정</span><span>콘텐츠 크기 설정</span><span class="on">권한 위임 관리</span></div><div class="fw-pn"><div><div class="fw-h5">권한 위임</div><div class="fw-desc" style="margin-top:8px">정해진 기간 동안 리더 권한을 다른 사용자에게 맡깁니다.</div></div>
+<div class="g2c"><div class="fs"><div class="lbl">수임자<em>*</em></div><span class="in2"><span>최도현 (D10283) · 계좌상담1팀</span><i data-ic="chev"></i></span></div><div class="fs"><div class="lbl">위임 기간<em>*</em></div><div class="in2"><span>2026.11.10 ~ 2026.11.14</span></div></div></div>
+<div class="tbx"><div class="th2">위임 내역<span class="sp"></span></div><table><tr><th>수임자</th><th>기간</th><th>상태</th><th></th></tr><tr><td>최도현</td><td>2026.11.10 ~ 11.14</td><td><span class="bw">예약</span></td><td><span class="ib sm" title="수정"><i data-ic="pencil"></i></span><span class="ib sm" title="삭제"><i data-ic="trash"></i></span></td></tr><tr><td>윤가람</td><td>2026.11.06 ~ 11.08</td><td><span class="bw g">위임 중</span></td><td><span class="btn s">즉시 회수</span></td></tr><tr><td>윤가람</td><td>2026.10.20 ~ 10.24</td><td><span class="bw n">종료</span></td><td><span class="mu">-</span></td></tr></table></div>
+<div class="acts" style="margin-top:0;justify-content:space-between"><span class="btn lg">위임 받은 화면으로 전환</span><span style="display:flex;gap:8px"><button class="btn lg">취소</button><button class="btn lg p">위임</button></span></div></div><i class="n r" data-k="15"></i></div></div>
     <div class="row" style="margin-top:14px;align-items:flex-start">
-      <div class="col" style="width:420px;flex:none"><div class="lg-lbl">[코칭 보내기] → 쪽지 창 (팝업 윈도우)</div><div class="win"><div class="wtb"><span>AI 리더어드바이저 - 코칭 보내기</span><span class="sp"></span><i data-ic="x"></i></div><div class="wbd"><h5 class="wh">코칭 보내기</h5>
+      <div class="col" style="width:420px;flex:none"><div class="lg-lbl">코칭 요청 [코칭 보내기] → 쪽지 창 (팝업 윈도우)</div><div class="win"><div class="wtb"><span>AI 리더어드바이저 - 코칭 보내기</span><span class="sp"></span><i data-ic="x"></i></div><div class="wbd"><h5 class="wh">코칭 보내기</h5>
 <div class="fs"><div class="lbl b6">받은 요청</div><div class="rqb"><span class="who">이서연 · 계좌상담1팀 · 김*준 고객 · 오전 10:32</span>ISA 비과세 한도를 잘못 안내한 뒤 고객이 민원을 언급했습니다. 정정 안내 문구와 민원 응대 방법 확인 부탁드립니다.<div class="af"><i data-ic="doc"></i><span>상담화면_캡처_1031.png</span><span class="ib sm" title="다운로드"><i data-ic="dl"></i></span></div><div class="af"><i data-ic="doc"></i><span>ISA_상품설명서_발췌.pdf</span><span class="ib sm" title="다운로드"><i data-ic="dl"></i></span></div></div></div>
 <div class="fs"><div class="lbl">코칭 내용<em>*</em></div><div class="ta3">사과 멘트를 먼저 하고 일반형 200만 원 기준으로 정정해 주세요. 민원 응대 스크립트를 첨부합니다.</div></div>
 <div class="fs" style="gap:8px"><div class="atr"><span class="ib sm" title="파일 첨부"><i data-ic="clip"></i></span>파일 첨부</div><div class="af"><i data-ic="doc"></i><span>민원응대스크립트_ISA.pdf</span><span class="ib sm" title="첨부 제외"><i data-ic="x"></i></span></div></div>
 <div class="acts"><button class="btn lg">취소</button><button class="btn lg p">보내기</button></div></div><i class="n" data-k="22"></i></div></div>
-      <div class="col" style="width:520px;flex:none"><div class="lg-lbl">상단 [리더 어드바이저 설정] → 권한 위임</div><div class="dlg" style="padding:24px;gap:16px"><div><h5 style="line-height:22px">리더 어드바이저 설정</h5><p style="margin-top:6px">권한 위임 · 정해진 기간 동안 리더 권한을 다른 사용자에게 맡깁니다.</p></div>
-  <div class="g2c"><div class="fs"><div class="lbl">수임자<em>*</em></div><span class="in2"><span>최도현 (D10283) · 계좌상담1팀</span><i data-ic="chev"></i></span></div><div class="fs"><div class="lbl">위임 기간<em>*</em></div><div class="in2"><span>2026.11.10 ~ 2026.11.14</span></div></div></div>
-  <div class="tbx"><div class="th2">위임 내역<span class="sp"></span></div><table><tr><th>수임자</th><th>기간</th><th>상태</th><th></th></tr><tr><td>최도현</td><td>2026.11.10 ~ 11.14</td><td><span class="bw">예약</span></td><td><span class="ib sm" title="수정"><i data-ic="pencil"></i></span><span class="ib sm" title="삭제"><i data-ic="trash"></i></span></td></tr><tr><td>윤가람</td><td>2026.11.06 ~ 11.08</td><td><span class="bw g">위임 중</span></td><td><span class="btn s">즉시 회수</span></td></tr><tr><td>윤가람</td><td>2026.10.20 ~ 10.24</td><td><span class="bw n">종료</span></td><td><span class="mu">-</span></td></tr></table></div>
-  <div class="acts" style="margin-top:0;justify-content:space-between"><span class="btn lg">위임 받은 화면으로 전환</span><span style="display:flex;gap:8px"><button class="btn lg">취소</button><button class="btn lg p">위임</button></span></div><i class="n" data-k="15"></i></div></div>
-      <div class="card g1" style="box-shadow:none"><h4>리더 어드바이저 동작</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· 상담직원 목록은 선택한 팀의 상태(통화중 · 대기중 · 자리비움 · 후처리)와 상태 시간을 실시간으로 보여 줍니다. 통화가 초과 기준(알림 설정의 상담시간 이상 범위)을 넘으면 행을 강조하고 Sonner로 알립니다.<br>· [대화 보기]를 누르면 그 상담직원의 실시간 대화 팝업 창(새 창)이 열립니다. 여러 명을 누르면 상담직원별로 창이 자동으로 하나씩 더 열려 동시에 모니터링합니다(멀티뷰). 창이 열린 상담직원은 [대화 창 열림]으로 표시합니다.<br>· 대화 창마다 [콜 청취] · [코칭 보내기]를 씁니다. 대화 검색은 제목 줄의 돋보기 아이콘이며, 누르면 입력창이 열리고 placeholder '대화 내용 검색'이 보입니다.<br>· 관심 번호가 인입되면 상담직원 목록에 배지를 달지 않고, 그 상담직원의 실시간 대화 창 안에 관심 번호 안내를 표시합니다.<br>· 상담직원이 보낸 코칭 요청은 [코칭 요청] 목록에 새 요청으로 쌓이고, 알림에도 남습니다. [코칭 보내기]를 누르면 쪽지 창이 새 창으로 열립니다. 받은 요청(내용 · 첨부 파일)을 보고 코칭 내용을 쓰고 파일을 첨부해 보냅니다.<br>· 보낸 코칭은 상담직원의 실시간 대화에 코칭 말풍선으로 나타나고, 주고받은 이력은 양쪽 알림에 쌓입니다.<br>· [리더 어드바이저 설정]에서 권한을 위임합니다. 수임자 · 기간을 정하고, 위임 내역을 수정 · 삭제하거나 즉시 회수합니다. 위임받은 사용자는 [위임 받은 화면으로 전환]으로 화면을 바꿉니다.</div></div>
+      <div class="card g1" style="box-shadow:none"><h4>리더 어드바이저 동작</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· 상담직원 현황은 선택한 팀의 총원과 상태 카드 4개(통화중 · 대기중 · 자리비움 · 후처리)로 보여 줍니다. 통화중 카드에는 IB · OB 인원을 나눠 보여 줍니다.<br>· [팀 변경]을 누르면 팀 목록 팝오버가 열립니다. 전체 팀 또는 팀을 고르면 현황 카드와 상담직원 목록이 바뀝니다.<br>· 상담직원 목록은 이름 · 상태 · 알림 · 시간 4열이며 열마다 정렬합니다. 상태는 IB · OB(통화중) · 대기중 · 자리비움 · 후처리 배지, 알림은 개인정보유출 · 대외민원 · 금지키워드 배지입니다. 시간은 지연콜 기준을 넘으면 중콜은 주황, 장콜은 빨강으로 표시하고, 자리비움 상담직원은 이름을 회색으로 표시합니다.<br>· Risk Call · 관심 번호 인입 · 코칭 요청 알림은 공지 배너 아래 가운데에 토스트로 띄웁니다. 문구는 “상담직원명 + 내용”이고, [실시간 대화 보기]를 누르면 그 상담직원의 실시간 대화 창이 열립니다. 여러 건이면 아래로 쌓입니다.<br>· 상담직원 이름을 누르면 실시간 대화 팝업 창(새 창)이 열립니다. 여러 명을 누르면 상담직원별로 창이 하나씩 더 열려 동시에 모니터링합니다(멀티뷰). 창이 열린 상담직원은 목록에서 선택 상태로 표시합니다.<br>· 대화 창 위쪽에는 팀 · 고객 · 상담 유형, 대화 검색(돋보기), 콜 청취, 통화 시간(지연콜 색)이 있고, 그 아래에 상담직원 이름 · IB/OB · 알림 배지가 있습니다. 대화 영역은 상담어드바이저 실시간 대화와 같습니다(통화 연결 안내 · 관심 번호 안내 · 고객 이력 정보 · NER 태그 · 말풍선 · 시간 표기).<br>· 대화 창 아래 코칭 메시지에서 상담직원이 보낸 요청 메시지 · 첨부 파일을 보고 코칭을 써서 보냅니다(파일 첨부 가능). 보낸 코칭은 상담직원의 실시간 대화에 코칭 말풍선으로 나타나고, 이력은 양쪽 알림에 쌓입니다.<br>· [설정]은 지연콜 설정(중콜 · 장콜 기준 분) · 콘텐츠 크기 설정(110 · 100 · 90 · 80% · 개인 맞춤) · 권한 위임 관리 탭으로 나뉩니다. 권한 위임은 수임자 · 기간을 정하고, 위임 내역을 수정 · 삭제하거나 즉시 회수합니다.</div></div>
     </div>
   </section>
 
@@ -162,32 +190,15 @@
   </section>
 
   <section class="screen" id="l4" data-title="L4 · 이슈 콜 목록">
-    <div class="screen-caption"><span class="tag">L4</span> 이슈 콜 목록 <small>상담 이력 조회의 하위 메뉴 · 이슈 콜 처리 · 개선 이행</small></div>
-    <div class="lg-lbl">4-1 [이슈 콜] 탭 · 상태 · 담당 관리자 · 처리 내역</div>
+    <div class="screen-caption"><span class="tag">L4</span> 이슈 콜 목록 <small>조회 · 상담 이력 조회와 같은 단계 메뉴 · 이슈 콜 처리 (화면 미확정)</small></div>
     <div class="frame"><div class="ab">
       <nav class="asb" data-on="issue"></nav>
       <div class="amc">
         <div class="tnb" data-st="none" data-ttl="이슈 콜 목록"></div>
         
         <div class="pg">
-          <div class="brow"><div class="seg" style="flex:0 0 260px"><span class="on">이슈 콜</span><span>개선 이행</span></div></div>
           <div class="qf"><div class="fl2" style="width:210px"><label>기간</label><div class="in2"><span>2026.11.01 ~ 2026.11.07</span></div></div><div class="fl2" style="width:160px"><label>센터/팀</label><div class="in2"><span>서울센터 · 전체</span><i data-ic="chev"></i></div></div><div class="fl2" style="width:120px"><label>상태</label><div class="in2"><span>전체</span><i data-ic="chev"></i></div></div><div class="fl2" style="width:120px"><label>이슈 유형</label><div class="in2"><span>전체</span><i data-ic="chev"></i></div></div><div class="fl2" style="width:150px"><label>이슈 키워드</label><div class="in2 ph"><span>키워드 입력</span></div></div><div class="fl2" style="width:120px"><label>담당 관리자</label><div class="in2"><span>전체</span><i data-ic="chev"></i></div></div><span class="btn lg">초기화</span><span class="btn lg p">조회</span></div>
           <div class="tbx"><div class="th2">이슈 콜 14건<span class="sp"></span><span class="bw r">미처리 5</span><span class="bw a">검토필요 3</span><span class="bw g">처리완료 5</span><span class="bw n">이슈없음 1</span></div><table><tr><th></th><th>콜 ID</th><th>일시</th><th>센터/팀</th><th>상담사</th><th>통화시간</th><th>이슈 키워드</th><th>이슈 유형</th><th>상태</th><th>담당 관리자</th><th>처리 완료일</th></tr><tr class="sel"><td><span class="chv"><i data-ic="chev"></i></span></td><td><u>C-20261107-01842</u></td><td>11.07 10:28</td><td>서울/계좌1</td><td>이서연</td><td>08:12</td><td><span class="kw i">금감원</span></td><td>민원 위험</td><td><span class="in2" style="width:120px"><span>검토필요</span><i data-ic="chev"></i></span></td><td><span class="in2" style="width:100px"><span>박지훈</span><i data-ic="chev"></i></span></td><td>-</td></tr><tr class="xp"><td colspan="11"><div class="xpg" style="grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) minmax(0,.8fr)"><div><h6>이슈 키워드 근거</h6><p>“또 그러면 <mark>금감원</mark>에 신고할 거예요.” <span class="hint">오전 10:32</span></p></div><div><h6>처리 내역</h6><div class="ta3" style="min-height:52px">고객 콜백 후 정정 안내 완료. 상담직원 재교육 예정.</div></div><div><h6>처리 완료일</h6><div class="in2"><span>2026.11.07</span></div><div class="acts" style="margin-top:8px"><span class="btn p">저장</span></div></div></div></td></tr><tr><td><span class="chv"><i data-ic="chevr"></i></span></td><td><u>C-20261106-00977</u></td><td>11.06 15:41</td><td>서울/계좌1</td><td>이서연</td><td>12:40</td><td><span class="kw i">손실 보상</span></td><td>민원 위험</td><td><span class="bw r">미처리</span></td><td>박지훈</td><td>-</td></tr><tr><td><span class="chv"><i data-ic="chevr"></i></span></td><td><u>C-20261104-02210</u></td><td>11.04 11:05</td><td>서울/계좌1</td><td>정하늘</td><td>06:03</td><td><span class="kw i">개인정보</span></td><td>정보 유출</td><td><span class="bw g">처리완료</span></td><td>최유리</td><td>2026.11.05</td></tr></table><div class="pgr"><span>총 14건</span><span class="pager" style="padding:0"><span class="pn"><span>‹</span><span class="on">1</span><span>2</span><span>3</span><span>›</span></span></span></div><i class="n" data-k="73"></i></div>
-        </div>
-      </div>
-
-    </div></div>
-    <div class="lg-lbl" style="margin-top:18px">4-2 [개선 이행] 탭 (위치 확인 필요)</div>
-    <div class="frame"><div class="ab">
-      <nav class="asb" data-on="issue"></nav>
-      <div class="amc">
-        <div class="tnb" data-st="none" data-ttl="이슈 콜 목록"></div>
-        
-        <div class="pg">
-          <div class="brow"><div class="seg" style="flex:0 0 260px"><span>이슈 콜</span><span class="on">개선 이행</span></div></div>
-          <div class="qf"><div class="fl2"><label>기간 단위</label><div class="seg" style="flex:none;width:240px"><span>일</span><span class="on">주</span><span>월</span><span>연</span></div></div><div class="fl2" style="width:210px"><label>기간</label><div class="in2"><span>2026.11.01 ~ 2026.11.30</span></div></div><div class="fl2" style="width:120px"><label>유형</label><div class="in2"><span>전체</span><i data-ic="chev"></i></div></div><div class="fl2" style="width:120px"><label>상태</label><div class="in2"><span>전체</span><i data-ic="chev"></i></div></div><span class="btn lg">초기화</span><span class="btn lg p">조회</span></div>
-          <div class="alr"><i data-ic="calert"></i><span>개선 이행 현황은 대시보드와 리포트의 '개선 이행 현황'에 연계됩니다.</span></div>
-          <div class="tbx"><div class="th2">개선 이행 3건<span class="sp"></span><span class="btn p"><i data-ic="plus"></i>개선 등록</span></div><table><tr><th>유형</th><th>기간</th><th>개선 제안</th><th>담당자</th><th>상태</th><th>처리일</th><th>처리 내역</th></tr><tr><td>안내 오류</td><td>주 · 11.02 ~ 11.08</td><td>ISA 비과세 한도 지식글 문구 정정, 팀 공유</td><td>박지훈</td><td><span class="bw">진행중</span></td><td><span class="mu">-</span></td><td>지식글 수정 요청 접수</td></tr><tr><td>민원 위험</td><td>월 · 11.01 ~ 11.30</td><td>민원 언급 콜 리더 즉시 코칭 기준 수립</td><td>최유리</td><td><span class="bw n">미이행</span></td><td><span class="mu">-</span></td><td><span class="mu">-</span></td></tr><tr><td>정보 유출</td><td>주 · 10.26 ~ 11.01</td><td>개인정보 확인 스크립트 개정</td><td>박지훈</td><td><span class="bw g">완료</span></td><td>2026.10.31</td><td>스크립트 배포 완료</td></tr></table><i class="n" data-k="74"></i></div>
         </div>
       </div>
 
@@ -195,24 +206,44 @@
   </section>
 
   <section class="screen" id="l5" data-title="L5 · 상담 어시스트 책갈피">
-    <div class="screen-caption"><span class="tag">L5</span> 상담 어시스트 책갈피 <small>조회 · 상담어드바이저와 같은 화면 · 행 펼침 (와이어프레임 책갈피 2-2)</small></div>
+    <div class="screen-caption"><span class="tag">L5</span> 상담 어시스트 책갈피 <small>조회 · 상담어드바이저와 같은 화면 · 목록 → 상세</small></div>
+    <div class="lg-lbl">5-1 LNB [상담 어시스트 책갈피] → 책갈피 목록</div>
     <div class="frame"><div class="ab">
       <nav class="asb" data-on="bm"></nav>
       <div class="amc">
         <div class="tnb" data-st="none" data-ttl="상담 어시스트 책갈피"></div>
         
-        <div class="pg">
-          <div class="qf"><div class="fl2" style="width:180px"><label>상담 유형</label><div class="in2"><span>전체</span><i data-ic="chev"></i></div></div><div class="fl2" style="width:180px"><label>문서 유형</label><div class="in2"><span>전체</span><i data-ic="chev"></i></div></div><div class="fl2" style="width:220px"><label>최근 책갈피</label><div class="in2 ph"><span>기간 선택</span></div></div><div class="fl2" style="width:260px"><label>텍스트 검색</label><div class="in2 ph"><i data-ic="search"></i><span>제목 또는 답변 내용 검색</span></div></div><span class="btn lg">초기화</span><span class="btn lg p">조회</span></div>
-          <div class="alr"><i data-ic="calert"></i><span>책갈피에 저장된 내용은 저장 시점의 내용이며 KMS와 연동되지 않습니다. KMS에서 수정·삭제돼도 반영되거나 알려 드리지 않으니, 최신 내용은 원본 문서에서 확인해 주세요.</span></div>
-          <div class="tbx"><div class="th2">책갈피 목록 4건<span class="sp"></span><span class="hint" style="font-weight:400">최근 저장순 · 최대 10건</span></div>
-            <table><tr><th style="width:28px"></th><th>상담 유형</th><th>문서 유형</th><th>제목</th><th>최근 책갈피 일시</th><th style="width:40px"></th></tr>
-            <tr class="sel"><td><span class="chv"><i data-ic="chev"></i></span></td><td>상품</td><td>추천 답변</td><td>ISA 비과세 한도 안내</td><td>2026.11.07 10:31</td><td><span class="ib sm on" title="책갈피 해제"><i data-ic="bm"></i></span></td></tr><tr class="xp"><td colspan="6"><div class="xpg"><div><h6>스크립트</h6><p>“고객님, ISA 일반형은 순이익 200만 원까지 비과세이고, 초과분은 9.9% 분리과세됩니다.”</p></div><div><h6>답변 요약</h6><p>일반형 200만 원 · 서민형/농어민형 400만 원 비과세, 초과분 9.9% 분리과세.</p></div><div><h6>출처</h6><p><u>ISA 상품설명서 v3 · 4p</u></p></div></div></td></tr>
-            <tr><td><span class="chv"><i data-ic="chevr"></i></span></td><td>상품</td><td>지식</td><td>ISA 의무가입기간 · 중도해지</td><td>2026.11.07 10:34</td><td><span class="ib sm on" title="책갈피 해제"><i data-ic="bm"></i></span></td></tr><tr><td><span class="chv"><i data-ic="chevr"></i></span></td><td>세금</td><td>스크립트</td><td>해외주식 양도세 신고 대행 안내</td><td>2026.10.30 15:12</td><td><span class="ib sm on" title="책갈피 해제"><i data-ic="bm"></i></span></td></tr><tr><td><span class="chv"><i data-ic="chevr"></i></span></td><td>계좌</td><td>지식</td><td>미수 동결 계좌 해제 절차</td><td>2026.10.21 09:48</td><td><span class="ib sm on" title="책갈피 해제"><i data-ic="bm"></i></span></td></tr></table><i class="n" data-k="64"></i></div>
+        <div class="lpg">
+          
+          <div class="alr"><i data-ic="calert"></i><span>책갈피는 지식 추천 한 건(지식 요약 · 스크립트 · 추천 답변 · 출처)을 저장 시점 그대로 담습니다. KMS와 연동되지 않으니 최신 내용은 원본 문서에서 확인해 주세요.</span></div>
+          <div class="ldt"><div class="ltb"><table class="lt"><tr><th class="c1">상담 유형</th><th>제목</th><th class="c3">책갈피 일시</th></tr><tr><td class="c1"><span class="lbdg">상품</span></td><td class="c2"><u>ISA 비과세 한도</u></td><td class="c3">2026.11.07 10:31</td></tr><tr><td class="c1"><span class="lbdg">상품</span></td><td class="c2"><u>ISA 의무가입기간 · 중도해지</u></td><td class="c3">2026.11.07 10:34</td></tr><tr><td class="c1"><span class="lbdg">세금</span></td><td class="c2"><u>해외주식 양도세 신고 대행</u></td><td class="c3">2026.10.30 15:12</td></tr><tr><td class="c1"><span class="lbdg">계좌</span></td><td class="c2"><u>미수 동결 계좌 해제 절차</u></td><td class="c3">2026.10.21 09:48</td></tr><tr><td class="c1"><span class="lbdg">상품</span></td><td class="c2"><u>중개형 ISA 납입 한도 이월</u></td><td class="c3">2026.10.18 11:20</td></tr><tr><td class="c1"><span class="lbdg">세금</span></td><td class="c2"><u>연금저축 세액공제 한도</u></td><td class="c3">2026.10.11 14:05</td></tr></table><i class="n" data-k="64"></i></div>
+          <div class="lpgn"><span class="si">총 6건</span><div class="fx"><b>1 / 1</b><div class="bt"><span class="off" title="처음"><i data-ic="chevsl"></i></span><span class="off" title="이전"><i data-ic="chevl"></i></span><span title="다음"><i data-ic="chevr"></i></span><span title="마지막"><i data-ic="chevsr"></i></span></div></div></div></div>
         </div>
       </div>
 
     </div></div>
-    <div class="row" style="margin-top:14px"><div class="card g1" style="box-shadow:none"><h4>책갈피 동작 (상담어드바이저와 같음 · 와이어프레임 책갈피 1-1 ~ 2-7)</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· 상담 어시스트 카드의 책갈피 아이콘에 마우스를 올리면 툴팁 "책갈피", 누르면 저장하고 아이콘이 활성 색으로 바뀝니다(Sonner). 다시 누르면 해제합니다.<br>· 최근 저장순으로 최대 10건입니다. 10건을 넘으면 가장 오래된 책갈피를 자동으로 지우고 안내합니다.<br>· 목록 위에 KMS 비연동 안내를 항상 보여 줍니다. 제목을 누르면 행이 펼쳐져 스크립트 · 답변 요약 · 출처를 보여 줍니다.<br>· 빈 상태, 검색 결과 없음, 조회 오류([다시 시도])를 구분해 보여 줍니다. 저장 · 해제에 실패하면 상태를 유지하고 Sonner로 알립니다.</div></div></div>
+    <div class="lg-lbl" style="margin-top:18px">5-2 책갈피 목록 [제목] → 책갈피 상세</div>
+    <div class="frame"><div class="ab">
+      <nav class="asb" data-on="bm"></nav>
+      <div class="amc">
+        <div class="tnb" data-st="none" data-ttl="상담 어시스트 책갈피 > 책갈피 상세"><span class="btn"><i data-ic="bm"></i>책갈피 해제</span><span class="btn"><i data-ic="chevl"></i>목록</span></div>
+        
+        <div class="lpg">
+          <div class="ldv">
+            <div class="dh"><span class="lbdg">상품</span><b>ISA 비과세 한도</b><span class="sp"></span><span class="tm">책갈피 2026.11.07 10:31</span></div>
+            <div class="dm">저장 시점의 내용입니다. KMS에서 수정 · 삭제돼도 반영되지 않습니다.</div>
+            <hr>
+            <div class="ds"><h6>지식 요약</h6><p>일반형은 순이익 200만 원까지, 서민형 · 농어민형은 400만 원까지 비과세입니다. 한도 초과분은 9.9% 분리과세됩니다.</p></div>
+            <div class="ds"><h6>스크립트</h6><p>“고객님, ISA 일반형은 순이익 200만 원까지 비과세이고, 초과분은 9.9% 분리과세됩니다.”</p></div>
+            <div class="ds"><h6>추천 답변</h6><p>일반형 200만 원 · 서민형/농어민형 400만 원 비과세 → 초과분 9.9% 분리과세 → 의무 가입 기간 3년 순으로 안내합니다.</p></div>
+            <div class="ds"><h6>출처</h6><p><u>ISA 상품설명서 v3 · 4p</u></p></div>
+            <i class="n r" data-k="64"></i>
+          </div>
+        </div>
+      </div>
+
+    </div></div>
+    <div class="row" style="margin-top:14px"><div class="card g1" style="box-shadow:none"><h4>책갈피 동작 (상담어드바이저와 같음 · 와이어프레임 책갈피 1-1 ~ 2-7)</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· 상담 어시스트 지식 추천의 책갈피 아이콘을 누르면 저장하고 아이콘이 활성 색으로 바뀝니다(Sonner). 다시 누르면 해제합니다.<br>· 최근 저장순으로 최대 10건입니다. 10건을 넘으면 가장 오래된 책갈피를 자동으로 지우고 안내합니다.<br>· 추천 답변 · 지식 · 스크립트를 나누지 않고 지식 추천 한 건을 통째로 저장합니다. 목록 위에 KMS 비연동 안내를 항상 보여 주고, 제목을 누르면 책갈피 상세에서 지식 요약 · 스크립트 · 추천 답변 · 출처를 한 번에 봅니다. 상세의 [책갈피 해제]로 지웁니다.<br>· 빈 상태와 조회 오류([다시 시도])를 구분해 보여 줍니다. 저장 · 해제에 실패하면 상태를 유지하고 Sonner로 알립니다.</div></div></div>
   </section>
 
   <section class="screen" id="l6" data-title="L6 · 콜 통계">
@@ -235,9 +266,57 @@
     </div></div>
   </section>
 
-  <section class="screen" id="l7" data-title="L7 · 키워드 관리">
-    <div class="screen-caption"><span class="tag">L7</span> 키워드 관리 <small>도구 · 탭: 상품명 / 리스크 / 제외 키워드</small></div>
-    <div class="lg-lbl">7-1 [리스크] 탭 · 신규 키워드 발굴(분석 엔진 결과)</div>
+  <section class="screen" id="l7" data-title="L7 · 개선 이행">
+    <div class="screen-caption"><span class="tag">L7</span> 개선 이행 <small>통계 · 분석 · 대시보드 · 리포트 · 의견 보내기 접수 건 등록 · 처리</small></div>
+    <div class="lg-lbl">7-1 개선 이행 › 대시보드</div>
+    <div class="frame"><div class="ab">
+      <nav class="asb" data-on="impd"></nav>
+      <div class="amc">
+        <div class="tnb" data-st="none" data-ttl="개선 이행 > 대시보드"></div>
+        
+        <div class="pg">
+          <div class="qf"><div class="fl2"><label>기간 단위</label><div class="seg" style="flex:none;width:240px"><span>일</span><span>주</span><span class="on">월</span><span>연</span></div></div><div class="fl2" style="width:210px"><label>기간</label><div class="in2"><span>2026.11.01 ~ 2026.11.30</span></div></div><div class="fl2" style="width:130px"><label>유형</label><div class="in2"><span>전체</span><i data-ic="chev"></i></div></div><div class="fl2" style="width:120px"><label>담당자</label><div class="in2"><span>전체</span><i data-ic="chev"></i></div></div><span class="btn lg">초기화</span><span class="btn lg p">조회</span></div>
+          <div class="kpis c5"><div class="kpi"><span>접수 (의견 보내기)</span><b>18</b><small>건</small></div><div class="kpi r"><span>미이행</span><b>6</b><small>건</small></div><div class="kpi"><span>진행중</span><b>7</b><small>건</small></div><div class="kpi"><span>완료</span><b>5</b><small>건</small></div><div class="kpi"><span>이행률</span><b>27.8</b><small>%</small></div><i class="n" data-k="74"></i></div>
+          <div class="g2c">
+            <div class="bx"><h4>유형별 현황<span class="sp"></span><span class="hint" style="font-weight:400"><i class="lg bd1"></i>완료 <i class="lg bp1"></i>진행중 <i class="lg bn1"></i>미이행</span></h4>
+              <div class="ibar"><span class="l">안내 오류</span><div class="t"><i class="bd1" style="width:16.666666666666664%"></i><i class="bp1" style="width:50%"></i><i class="bn1" style="width:33.33333333333333%"></i></div><b>6건</b></div><div class="ibar"><span class="l">화면 개선</span><div class="t"><i class="bd1" style="width:33.33333333333333%"></i><i class="bp1" style="width:33.33333333333333%"></i><i class="bn1" style="width:16.666666666666664%"></i></div><b>5건</b></div><div class="ibar"><span class="l">지식 보완</span><div class="t"><i class="bd1" style="width:16.666666666666664%"></i><i class="bp1" style="width:16.666666666666664%"></i><i class="bn1" style="width:33.33333333333333%"></i></div><b>4건</b></div><div class="ibar"><span class="l">기능 요청</span><div class="t"><i class="bd1" style="width:16.666666666666664%"></i><i class="bp1" style="width:16.666666666666664%"></i><i class="bn1" style="width:16.666666666666664%"></i></div><b>3건</b></div></div>
+            <div class="tbx"><div class="th2">담당자별 현황<span class="sp"></span></div><table><tr><th>담당자</th><th>전체</th><th>미이행</th><th>진행중</th><th>완료</th><th>평균 처리일</th></tr><tr><td>박지훈</td><td>8</td><td>2</td><td>4</td><td>2</td><td>3.5일</td></tr><tr><td>최유리</td><td>6</td><td>2</td><td>2</td><td>2</td><td>4.0일</td></tr><tr><td>김도윤</td><td>4</td><td>2</td><td>1</td><td>1</td><td>2.0일</td></tr><tr class="sel"><td><b>합계</b></td><td><b>18</b></td><td><b>6</b></td><td><b>7</b></td><td><b>5</b></td><td><b>3.4일</b></td></tr></table></div>
+          </div>
+          <div class="tbx"><div class="th2">최근 접수 · 의견 보내기<span class="sp"></span><span class="btn s">리포트에서 보기</span></div><table><tr><th>접수일</th><th>상담직원</th><th>의견 유형</th><th>의견 내용</th><th>상태</th></tr><tr><td>2026.11.07</td><td>이서연</td><td>기능 개선</td><td>오안내 유의 카드에서 근거 문서 원문으로 바로 가는 버튼이 있으면 좋겠습니다.</td><td><span class="bw n">미이행</span></td></tr><tr><td>2026.11.06</td><td>정하늘</td><td>화면 개선</td><td>대화 클리핑 개수를 늘릴 수 있으면 좋겠습니다.</td><td><span class="bw">진행중</span></td></tr><tr><td>2026.11.05</td><td>김하은</td><td>오류 신고</td><td>ISA 비과세 한도 지식글 문구가 예전 기준입니다.</td><td><span class="bw g">완료</span></td></tr></table><i class="n r" data-k="64"></i></div>
+        </div>
+      </div>
+
+    </div></div>
+    <div class="lg-lbl" style="margin-top:18px">7-2 개선 이행 › 리포트</div>
+    <div class="frame"><div class="ab">
+      <nav class="asb" data-on="impr"></nav>
+      <div class="amc">
+        <div class="tnb" data-st="none" data-ttl="개선 이행 > 리포트"><span class="btn"><i data-ic="dl"></i>엑셀 다운로드</span><span class="btn p"><i data-ic="plus"></i>개선 등록</span></div>
+        
+        <div class="pg">
+          <div class="qf"><div class="fl2"><label>기간 단위</label><div class="seg" style="flex:none;width:240px"><span>일</span><span>주</span><span class="on">월</span><span>연</span></div></div><div class="fl2" style="width:210px"><label>기간</label><div class="in2"><span>2026.11.01 ~ 2026.11.30</span></div></div><div class="fl2" style="width:130px"><label>유형</label><div class="in2"><span>전체</span><i data-ic="chev"></i></div></div><div class="fl2" style="width:120px"><label>상태</label><div class="in2"><span>전체</span><i data-ic="chev"></i></div></div><div class="fl2" style="width:120px"><label>담당자</label><div class="in2"><span>전체</span><i data-ic="chev"></i></div></div><span class="btn lg">초기화</span><span class="btn lg p">조회</span></div>
+          <div class="tbx"><div class="th2">개선 이행 18건<span class="sp"></span><span class="bw n">미이행 6</span><span class="bw">진행중 7</span><span class="bw g">완료 5</span></div><table><tr><th>접수일</th><th>접수 (의견 보내기)</th><th>유형</th><th>기간</th><th>개선 제안</th><th>담당자</th><th>상태</th><th>처리일</th><th>처리 내역</th></tr><tr class="sel"><td>11.07</td><td>이서연 · 근거 문서 바로가기 요청</td><td>기능 요청</td><td>월 · 11.01 ~ 11.30</td><td>오안내 카드에 원문 바로가기 버튼 추가</td><td>박지훈</td><td><span class="bw n">미이행</span></td><td><span class="mu">-</span></td><td><span class="mu">-</span></td></tr><tr><td>11.06</td><td>정하늘 · 대화 클리핑 개수</td><td>화면 개선</td><td>주 · 11.02 ~ 11.08</td><td>클리핑 개수 1~5개 설정 추가</td><td>최유리</td><td><span class="bw">진행중</span></td><td><span class="mu">-</span></td><td>설정 화면 시안 검토 중</td></tr><tr><td>11.05</td><td>김하은 · 지식글 문구 오류</td><td>지식 보완</td><td>주 · 11.02 ~ 11.08</td><td>ISA 비과세 한도 지식글 문구 정정</td><td>박지훈</td><td><span class="bw g">완료</span></td><td>2026.11.06</td><td>KMS 지식글 수정 · 팀 공유 완료</td></tr><tr><td>11.03</td><td>송지호 · 민원 응대 스크립트</td><td>안내 오류</td><td>월 · 11.01 ~ 11.30</td><td>민원 언급 콜 응대 스크립트 개정</td><td>김도윤</td><td><span class="bw">진행중</span></td><td><span class="mu">-</span></td><td>초안 작성 · 법무 검토 요청</td></tr><tr><td>10.30</td><td>오민재 · 후처리 저장 버튼</td><td>화면 개선</td><td>주 · 10.26 ~ 11.01</td><td>후처리 저장 버튼 위치 조정</td><td>최유리</td><td><span class="bw g">완료</span></td><td>2026.10.31</td><td>배포 완료</td></tr></table><div class="pgr"><span>총 18건 · 1 / 4쪽</span><span class="pager" style="padding:0"><span class="pn"><span>‹</span><span class="on">1</span><span>2</span><span>3</span><span>›</span></span></span></div><i class="n" data-k="74"></i></div>
+        </div>
+      </div>
+
+    </div></div>
+    <div class="row" style="margin-top:14px;align-items:flex-start">
+      <div class="col" style="width:560px;flex:none"><div class="lg-lbl">리포트 [개선 등록] · 행 선택 → 개선 이행 등록 · 처리 (Dialog)</div><div class="dlg" style="padding:24px;gap:16px"><div><h5 style="line-height:22px">개선 이행 등록 · 처리</h5><p style="margin-top:6px">의견 보내기로 접수된 의견을 개선 과제로 등록하고 처리 상태를 관리합니다.</p></div>
+  <div class="rqb"><span class="who">접수 · 이서연 (계좌상담1팀) · 2026.11.07 10:42 · 의견 보내기 · 기능 개선</span>오안내 유의 카드에서 근거 문서 원문으로 바로 가는 버튼이 있으면 좋겠습니다.</div>
+  <div class="g2c"><div class="fs"><div class="lbl">유형<em>*</em></div><span class="in2"><span>기능 요청</span><i data-ic="chev"></i></span></div><div class="fs"><div class="lbl">담당자<em>*</em></div><span class="in2"><span>박지훈 · 계좌상담1팀</span><i data-ic="chev"></i></span></div></div>
+  <div class="fs"><div class="lbl">기간<em>*</em></div><div style="display:flex;gap:8px;align-items:center"><div class="seg" style="flex:none;width:220px"><span>일</span><span>주</span><span class="on">월</span><span>연</span></div><div class="in2" style="flex:1"><span>2026.11.01 ~ 2026.11.30</span></div></div></div>
+  <div class="fs"><div class="lbl">개선 제안<em>*</em></div><div class="ta3">오안내 유의 카드의 출처 옆에 원문 바로가기 버튼을 추가하고, 원문 뷰어에서 근거 문장을 하이라이트합니다.</div></div>
+  <hr style="border:none;height:1px;background:var(--bd);margin:0">
+  <div class="g2c"><div class="fs"><div class="lbl">상태</div><div class="seg" style="flex:none;width:260px"><span>미이행</span><span class="on">진행중</span><span>완료</span></div></div><div class="fs"><div class="lbl">처리일</div><div class="in2 ph"><span>완료 시 입력</span></div></div></div>
+  <div class="fs"><div class="lbl">처리 내역</div><div class="ta3">2026.11.08 · 화면 시안 작성, 개발 일정 협의 중</div></div>
+  <div class="acts" style="margin-top:0"><button class="btn lg">취소</button><button class="btn lg p">저장</button></div><i class="n" data-k="74"></i></div></div>
+      <div class="card g1" style="box-shadow:none"><h4>개선 이행 동작</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· 상담어드바이저 프로필 메뉴의 [의견 보내기]로 보낸 의견이 개선 이행에 접수됩니다. 접수 건은 미이행 상태로 쌓입니다.<br>· 대시보드: 기간 단위(일 · 주 · 월 · 연)와 기간 · 유형 · 담당자로 거르고, 접수 · 미이행 · 진행중 · 완료 건수와 이행률, 유형별 · 담당자별 현황, 최근 접수 의견을 봅니다.<br>· 리포트: 개선 이행 건을 목록으로 보고 엑셀로 내려받습니다. 행을 누르거나 [개선 등록]을 누르면 등록 · 처리 Dialog가 열립니다.<br>· 등록: 유형 · 기간(일 · 주 · 월 · 연) · 개선 제안 · 담당자를 정합니다. 처리: 상태(미이행 · 진행중 · 완료) · 처리일 · 처리 내역을 기록합니다. 완료로 바꾸면 처리일을 입력해야 합니다.</div></div>
+    </div>
+  </section>
+
+  <section class="screen" id="l8" data-title="L8 · 키워드 관리">
+    <div class="screen-caption"><span class="tag">L8</span> 키워드 관리 <small>도구 · 탭: 상품명 / 리스크 / 제외 키워드</small></div>
+    <div class="lg-lbl">8-1 [리스크] 탭 · 신규 키워드 발굴(분석 엔진 결과)</div>
     <div class="frame"><div class="ab">
       <nav class="asb" data-on="kw"></nav>
       <div class="amc">
@@ -254,7 +333,7 @@
       </div>
 
     </div></div>
-    <div class="lg-lbl" style="margin-top:18px">7-2 [상품명] 탭 (상품명 관리)</div>
+    <div class="lg-lbl" style="margin-top:18px">8-2 [상품명] 탭 (상품명 관리)</div>
     <div class="frame"><div class="ab">
       <nav class="asb" data-on="kw"></nav>
       <div class="amc">
@@ -270,8 +349,8 @@
     </div></div>
   </section>
 
-  <section class="screen" id="l8" data-title="L8 · 관심 통화 관리">
-    <div class="screen-caption"><span class="tag">L8</span> 관심 통화 관리 <small>도구 · 전화번호 · 키워드 기준 관심콜</small></div>
+  <section class="screen" id="l9" data-title="L9 · 관심 통화 관리">
+    <div class="screen-caption"><span class="tag">L9</span> 관심 통화 관리 <small>도구 · 전화번호 · 키워드 기준 관심콜</small></div>
     <div class="frame"><div class="ab">
       <nav class="asb" data-on="watch"></nav>
       <div class="amc">
@@ -292,8 +371,8 @@
   <div class="acts" style="margin-top:0"><button class="btn lg">취소</button><button class="btn lg p">등록</button></div><i class="n" data-k="77"></i></div></div></div>
   </section>
 
-  <section class="screen" id="l9" data-title="L9 · 위협 감지 설정">
-    <div class="screen-caption"><span class="tag">L9</span> 위협 감지 설정 <small>도구 · 위협 레벨 · 액션 · 감정 · 리스크 인텐트</small></div>
+  <section class="screen" id="l10" data-title="L10 · 위협 감지 설정">
+    <div class="screen-caption"><span class="tag">L10</span> 위협 감지 설정 <small>도구 · 위협 레벨 · 액션 · 감정 · 리스크 인텐트</small></div>
     <div class="frame"><div class="ab">
       <nav class="asb" data-on="threat"></nav>
       <div class="amc">
@@ -311,9 +390,9 @@
     </div></div>
   </section>
 
-  <section class="screen" id="l10" data-title="L10 · 지식 관리">
-    <div class="screen-caption"><span class="tag">L10</span> 지식 관리 <small>도구 · AI 피드백 관리 · 지식글 수정 요청(KMS 팝업)</small></div>
-    <div class="lg-lbl">10-1 [AI 추천답변 피드백] 탭</div>
+  <section class="screen" id="l11" data-title="L11 · 지식 관리">
+    <div class="screen-caption"><span class="tag">L11</span> 지식 관리 <small>도구 · AI 피드백 관리 · 지식글 수정 요청(KMS 팝업)</small></div>
+    <div class="lg-lbl">11-1 [AI 추천답변 피드백] 탭</div>
     <div class="frame"><div class="ab">
       <nav class="asb" data-on="kms"></nav>
       <div class="amc">
@@ -327,7 +406,7 @@
       </div>
 
     </div></div>
-    <div class="lg-lbl" style="margin-top:18px">10-2 [지식글 수정 요청] 탭 · [KMS에서 처리] → KMS 팝업</div>
+    <div class="lg-lbl" style="margin-top:18px">11-2 [지식글 수정 요청] 탭 · [KMS에서 처리] → KMS 팝업</div>
     <div class="frame"><div class="ab" style="min-height:760px">
       <nav class="asb" data-on="kms"></nav>
       <div class="amc">
@@ -343,40 +422,104 @@
     </div></div>
   </section>
 
-  <section class="screen" id="l11" data-title="L11 · LNB 공통 영역">
-    <div class="screen-caption"><span class="tag">L11</span> LNB 공통 영역 <small>퀵 메뉴 · 공지사항(새 창) · 알림(알림 및 기준 설정)</small></div>
-    <div class="lg-lbl">11-1 LNB [알림] → 알림 화면으로 전환 · [알림 설정](알림 및 기준 설정)</div>
+  <section class="screen" id="l12" data-title="L12 · LNB 공통 영역">
+    <div class="screen-caption"><span class="tag">L12</span> LNB 공통 영역 <small>퀵 메뉴 · 공지사항(목록 → 상세 · 등록 · 관리) · 알림(목록 → 상세 · 알림 및 기준 설정)</small></div>
+    <div class="lg-lbl">12-1 LNB [알림] → 알림 목록 · 상단 [알림 설정](알림 및 기준 설정) 열림</div>
     <div class="frame"><div class="ab" style="min-height:760px">
       <nav class="asb" data-on="alarm" data-al="1"></nav>
       <div class="amc">
-        <div class="tnb" data-st="none" data-ttl="알림"></div>
+        <div class="tnb" data-st="none" data-ttl="알림"><span class="btn"><i data-ic="cchk"></i>모두 읽음</span><span class="btn on"><i data-ic="gear"></i>알림 설정</span></div>
         
-        <div class="pg">
-          <div class="brow"><div class="seg" style="flex:0 0 360px"><span class="on">전체 <em>5</em></span><span>코칭</span><span>공지 · 기타</span></div><span class="sp"></span><span class="hint">읽지 않은 알림 2건</span><span class="btn">모두 읽음</span><span class="btn"><i data-ic="gear"></i>알림 설정</span></div>
-          <div class="ntp"><div class="nt unread"><span class="dotu"></span><i data-ic="chat"></i><div style="flex:1;min-width:0"><b>코칭 요청 · 이서연 · 계좌상담1팀</b><div class="hint ntl"><span class="lab gray">요청</span><span class="tx">ISA 비과세 한도를 잘못 안내한 뒤 고객이 민원을 언급했습니다. 정정 안내 문구와 민원 응대 방법 확인 부탁드립니다.</span></div><div class="hint ntl"><i data-ic="clip"></i><span class="tx">상담화면_캡처_1031.png · ISA_상품설명서_발췌.pdf</span></div></div><span class="hint" style="white-space:nowrap">방금 전 · 10:32</span></div><div class="nt unread"><span class="dotu"></span><i data-ic="alert"></i><div style="flex:1;min-width:0"><b>상담시간 이상 · 이서연</b><div class="hint ntl"><span class="tx">통화가 8분을 넘었습니다 (12:30) · 리더 어드바이저에서 확인</span></div></div><span class="hint" style="white-space:nowrap">방금 전 · 10:40</span></div><div class="nt"><span class="dotu r"></span><i data-ic="chat"></i><div style="flex:1;min-width:0"><b>코칭 완료 · 이서연 · 계좌상담1팀</b><div class="hint ntl"><span class="lab gray">요청</span><span class="tx">반복 민원 고객 응대 방법 문의</span></div><div class="hint ntl"><span class="lab ok">코칭</span><span class="tx">공감 표현 후 수수료 차감 내역부터 확인해 드린다고 안내해 주세요.</span></div></div><span class="hint" style="white-space:nowrap">2분 전 · 10:31</span></div><div class="nt"><span class="dotu r"></span><i data-ic="mega"></i><div style="flex:1;min-width:0"><b>공지 등록 · 긴급</b><div class="hint ntl"><span class="tx">ISA 비과세 한도 안내 기준 변경 · 서울센터 전체</span></div></div><span class="hint" style="white-space:nowrap">1시간 전 · 09:30</span></div><div class="nt"><span class="dotu r"></span><i data-ic="chat"></i><div style="flex:1;min-width:0"><b>코칭 완료 · 정하늘 · 계좌상담1팀</b><div class="hint ntl"><span class="lab gray">요청</span><span class="tx">해외주식 양도세 신고 대행 신청 기한 문의</span></div><div class="hint ntl"><span class="lab ok">코칭</span><span class="tx">신고 대행은 매년 5월 31일까지 신청할 수 있다고 안내해 주세요.</span></div><div class="hint ntl"><i data-ic="clip"></i><span class="tx">양도세_신고대행_안내.pdf</span></div></div><span class="hint" style="white-space:nowrap">어제 · 15:55</span></div><i class="n" data-k="22"></i></div>
-          <p class="disc" style="text-align:left">알림은 최신순으로 쌓입니다. 항목을 누르면 읽음으로 바뀌고, 코칭 알림은 쪽지 창을, 공지 알림은 공지사항 창을 엽니다.</p>
+        <div class="lpg">
+          <div class="ltabs"><span class="on">전체</span><span>미확인</span></div>
+          
+          <div class="ldt"><div class="ltb"><table class="lt"><tr><th class="c1">구분</th><th>내용</th><th class="c3">수신 일시</th></tr><tr><td class="c1"><span class="lbdg">코칭 요청</span></td><td class="c2"><u>이서연 · 계좌상담1팀 · ISA 비과세 한도 정정 안내 문구 요청</u></td><td class="c3">2026.11.07 10:32</td></tr><tr><td class="c1"><span class="lbdg">관심 번호</span></td><td class="c2"><u>02-1588-4488 인입 · 이서연 상담직원 연결</u></td><td class="c3">2026.11.07 10:28</td></tr><tr><td class="c1"><span class="lbdg">코칭 요청</span></td><td class="c2"><u>정하늘 · 계좌상담1팀 · 정정 주문 안내 순서 확인 요청</u></td><td class="c3">2026.11.07 10:30</td></tr><tr class="rd"><td class="c1"><span class="lbdg">코칭 완료</span></td><td class="c2"><u>이서연 · 반복 민원 고객 응대 방법 문의</u></td><td class="c3">2026.11.07 10:31</td></tr><tr class="rd"><td class="c1"><span class="lbdg">공지 등록</span></td><td class="c2"><u>ISA 비과세 한도 안내 기준 변경 · 서울센터 전체</u></td><td class="c3">2026.11.07 09:30</td></tr><tr class="rd"><td class="c1"><span class="lbdg">코칭 완료</span></td><td class="c2"><u>정하늘 · 해외주식 양도세 신고 대행 신청 기한 문의</u></td><td class="c3">2026.11.06 15:55</td></tr><tr class="rd"><td class="c1"><span class="lbdg">코칭 요청</span></td><td class="c2"><u>김하은 · 잔고 기준 안내 순서 확인 요청</u></td><td class="c3">2026.11.06 11:02</td></tr><tr class="rd"><td class="c1"><span class="lbdg">관심 번호</span></td><td class="c2"><u>010-****-9921 인입 · 정하늘 상담직원 연결</u></td><td class="c3">2026.11.06 10:15</td></tr><tr class="rd"><td class="c1"><span class="lbdg">공지 등록</span></td><td class="c2"><u>11월 해외주식 양도세 신고 대행 접수 안내</u></td><td class="c3">2026.11.03 09:00</td></tr><tr class="rd"><td class="c1"><span class="lbdg">코칭 완료</span></td><td class="c2"><u>김하은 · 미수 동결 계좌 해제 절차 문의</u></td><td class="c3">2026.11.02 16:12</td></tr></table><i class="n" data-k="22"></i></div>
+          <div class="lpgn"><span class="si">총 27건</span><div class="fx"><b>1 / 3</b><div class="bt"><span class="off" title="처음"><i data-ic="chevsl"></i></span><span class="off" title="이전"><i data-ic="chevl"></i></span><span title="다음"><i data-ic="chevr"></i></span><span title="마지막"><i data-ic="chevsr"></i></span></div></div></div></div>
         </div>
       </div>
-<div class="spop" style="right:24px;top:118px">
-<div class="hd"><b>알림 설정</b><span>알림 수신과 상담시간 기준을 정합니다.</span></div><hr>
-<div class="sec"><div class="swr"><span>공지사항 알림</span><span class="swd on"></span></div><div class="swr"><span>코칭 알림</span><span class="swd on"></span></div></div><hr>
-<div class="sec"><div class="hd"><b>상담시간 이상 범위</b><span>범위를 벗어난 콜을 리더 어드바이저 상담직원 목록에서 강조합니다</span></div><div style="display:flex;align-items:center;gap:6px;font-size:14px"><span class="in2" style="width:64px"><span>1</span></span>분 미만 또는<span class="in2" style="width:64px"><span>8</span></span>분 초과</div></div>
+<div class="spop" style="right:16px;top:60px">
+<div class="hd"><b>알림 설정</b><span>받을 알림을 고릅니다.</span></div><hr>
+<div class="sec"><div class="swr"><span>공지사항 알림</span><span class="swd on"></span></div><div class="swr"><span>코칭 알림</span><span class="swd on"></span></div></div><span class="hint">통화 시간 기준(중콜 · 장콜)은 리더 어드바이저 [설정] › 지연콜 설정에서 정합니다.</span>
 <button class="btn lg p" style="width:100%">저장</button><i class="n r" data-k="13"></i></div>
     </div></div>
+    <div class="lg-lbl" style="margin-top:18px">12-2 알림 목록 [제목] → 알림 상세 (코칭 요청 → [코칭 보내기])</div>
+    <div class="frame"><div class="ab">
+      <nav class="asb" data-on="alarm" data-al="1"></nav>
+      <div class="amc">
+        <div class="tnb" data-st="none" data-ttl="알림 > 알림 상세"><span class="btn"><i data-ic="chevl"></i>목록</span></div>
+        
+        <div class="lpg">
+          <div class="ldv">
+            <div class="dh"><span class="lbdg">코칭 요청</span><b>이서연 · 계좌상담1팀</b><span class="sp"></span><span class="tm">2026.11.07 10:32</span></div>
+            <div class="dm">김*준 고객님 통화 중 · 02-1588-4488</div>
+            <hr>
+            <div class="ds"><h6>요청 내용</h6><p>ISA 비과세 한도를 잘못 안내한 뒤 고객이 민원을 언급했습니다. 정정 안내 문구와 민원 응대 방법 확인 부탁드립니다.</p><div class="af"><i data-ic="doc"></i><span>상담화면_캡처_1031.png</span><span class="ib sm" title="다운로드"><i data-ic="dl"></i></span></div><div class="af"><i data-ic="doc"></i><span>ISA_상품설명서_발췌.pdf</span><span class="ib sm" title="다운로드"><i data-ic="dl"></i></span></div></div>
+            <div class="ds"><h6>코칭 답변</h6><p class="mu">아직 보내지 않았습니다. [코칭 보내기]를 누르면 쪽지 창이 열립니다.</p></div>
+            <div class="da"><span class="btn p"><i data-ic="headset"></i>코칭 보내기<i class="n r" data-k="22"></i></span></div>
+          </div>
+        </div>
+      </div>
+
+    </div></div>
+    <div class="lg-lbl" style="margin-top:18px">12-3 LNB [공지사항] → 공지사항 목록</div>
+    <div class="frame"><div class="ab">
+      <nav class="asb" data-on="notice" data-nt="1"></nav>
+      <div class="amc">
+        <div class="tnb" data-st="none" data-ttl="공지사항"><span class="btn p"><i data-ic="plus"></i>공지 등록</span></div>
+        
+        <div class="lpg">
+          <div class="ltabs"><span class="on">전체</span><span>긴급</span></div>
+          
+          <div class="ldt"><div class="ltb"><table class="lt"><tr><th class="c1">구분</th><th>제목</th><th class="c3">등록일</th></tr><tr><td class="c1"><span class="lbdg r">긴급</span></td><td class="c2"><u>ISA 비과세 한도 안내 기준 변경</u></td><td class="c3">2026.11.07</td></tr><tr><td class="c1"><span class="lbdg r">긴급</span></td><td class="c2"><u>2026.11.07 18:00 MTS 점검 안내</u></td><td class="c3">2026.11.07</td></tr><tr class="rd"><td class="c1"><span class="lbdg">일반</span></td><td class="c2"><u>11월 해외주식 양도세 신고 대행 접수 안내</u></td><td class="c3">2026.11.03</td></tr><tr class="rd"><td class="c1"><span class="lbdg">일반</span></td><td class="c2"><u>상담 품질 평가 기준 개정</u></td><td class="c3">2026.10.28</td></tr><tr class="rd"><td class="c1"><span class="lbdg">일반</span></td><td class="c2"><u>연금저축 세액공제 한도 안내 스크립트 배포</u></td><td class="c3">2026.10.21</td></tr><tr class="rd"><td class="c1"><span class="lbdg">일반</span></td><td class="c2"><u>10월 상담 어시스트 지식 업데이트 내역</u></td><td class="c3">2026.10.15</td></tr></table><i class="n" data-k="12"></i></div>
+          <div class="lpgn"><span class="si">총 18건</span><div class="fx"><b>1 / 2</b><div class="bt"><span class="off" title="처음"><i data-ic="chevsl"></i></span><span class="off" title="이전"><i data-ic="chevl"></i></span><span title="다음"><i data-ic="chevr"></i></span><span title="마지막"><i data-ic="chevsr"></i></span></div></div></div></div>
+        </div>
+      </div>
+
+    </div></div>
+    <div class="lg-lbl" style="margin-top:18px">12-4 공지사항 목록 [제목] → 공지사항 상세 ([수정] · [삭제])</div>
+    <div class="frame"><div class="ab">
+      <nav class="asb" data-on="notice" data-nt="1"></nav>
+      <div class="amc">
+        <div class="tnb" data-st="none" data-ttl="공지사항 > 공지사항 상세"><span class="btn"><i data-ic="trash"></i>삭제</span><span class="btn"><i data-ic="pencil"></i>수정</span><span class="btn"><i data-ic="chevl"></i>목록</span></div>
+        
+        <div class="lpg">
+          <div class="ldv">
+            <div class="dh"><span class="lbdg r">긴급</span><b>ISA 비과세 한도 안내 기준 변경</b><span class="sp"></span><span class="tm">2026.11.07 09:30</span></div>
+            <div class="dm">운영관리팀 · 대상 서울센터 전체 · 작성 박지훈</div>
+            <hr>
+            <div class="ds"><h6>내용</h6><p>ISA 일반형 비과세 한도는 순이익 200만 원, 서민형 · 농어민형은 400만 원입니다. 고객 안내 시 일반형 기준을 먼저 말씀해 주시고, 한도 초과분은 9.9% 분리과세된다고 안내해 주세요.<br>관련 스크립트는 상담 어시스트 지식에 반영되었습니다.</p></div>
+            <div class="ds"><h6>첨부 파일</h6><div class="af"><i data-ic="doc"></i><span>ISA_비과세한도_안내기준_2611.pdf</span><span class="ib sm" title="다운로드"><i data-ic="dl"></i></span></div></div>
+            <i class="n r" data-k="12"></i>
+          </div>
+        </div>
+      </div>
+
+    </div></div>
+    <div class="lg-lbl" style="margin-top:18px">12-5 공지사항 목록 [공지 등록] · 상세 [수정] → 공지 등록 · 수정</div>
+    <div class="frame"><div class="ab">
+      <nav class="asb" data-on="notice" data-nt="1"></nav>
+      <div class="amc">
+        <div class="tnb" data-st="none" data-ttl="공지사항 > 공지 등록"><span class="btn">취소</span><span class="btn p">등록</span></div>
+        
+        <div class="lpg">
+          <div class="ldv lfm">
+            <div class="fs"><div class="lbl">제목<em>*</em></div><div class="in2"><span>2026.11.07 18:00 MTS 점검 안내</span></div></div>
+            <div class="g2c"><div class="fs"><div class="lbl">긴급 공지</div><div style="display:flex;align-items:center;gap:8px"><span class="swd on"></span><span class="hint">상단 배너 · 즉시 알림</span></div></div><div class="fs"><div class="lbl">공지 대상<em>*</em></div><span class="in2"><span>서울센터 · 계좌 상담 · 전체 팀</span><i data-ic="chev"></i></span></div></div>
+            <div class="fs"><div class="lbl">내용<em>*</em></div><div class="ta3" style="min-height:120px">오늘 18:00~20:00 MTS 점검이 있습니다. 점검 시간 문의는 HTS 이용을 안내해 주세요.</div></div>
+            <div class="fs" style="gap:8px"><div class="atr"><span class="ib sm" title="파일 첨부"><i data-ic="clip"></i></span>파일 첨부</div><div class="af"><i data-ic="doc"></i><span>MTS_점검_안내.pdf</span><span class="ib sm" title="첨부 제외"><i data-ic="x"></i></span></div></div><i class="n r" data-k="12"></i>
+          </div>
+        </div>
+      </div>
+
+    </div></div>
     <div class="row" style="margin-top:14px;align-items:flex-start">
-      <div class="col" style="width:440px;flex:none"><div class="lg-lbl">[공지사항] → 공지사항 (새 창)</div><div class="win" style="width:440px"><div class="wtb"><span>AI 리더어드바이저 - 공지사항</span><span class="sp"></span><i data-ic="x"></i></div><div class="wbd"><div class="qf" style="gap:8px"><div class="fl2" style="width:110px"><label>구분</label><div class="in2"><span>전체</span><i data-ic="chev"></i></div></div><div class="fl2" style="width:170px"><label>검색</label><div class="in2 ph"><i data-ic="search"></i><span>제목 검색</span></div></div><span class="btn p"><i data-ic="plus"></i>공지 등록</span></div>
-<div class="nlist"><div class="nr"><span class="lab red">긴급</span><b>ISA 비과세 한도 안내 기준 변경</b><span>2026.11.07</span><span class="ib sm" title="수정"><i data-ic="pencil"></i></span><span class="ib sm" title="삭제"><i data-ic="trash"></i></span></div><div class="nr"><span class="lab red">긴급</span><b>2026.11.07 18:00 MTS 점검 안내</b><span>2026.11.07</span><span class="ib sm" title="수정"><i data-ic="pencil"></i></span><span class="ib sm" title="삭제"><i data-ic="trash"></i></span></div><div class="nr"><b>11월 해외주식 양도세 신고 대행 접수 안내</b><span>2026.11.03</span><span class="ib sm" title="수정"><i data-ic="pencil"></i></span><span class="ib sm" title="삭제"><i data-ic="trash"></i></span></div></div></div><i class="n" data-k="12"></i></div></div>
-      <div class="col" style="width:440px;flex:none"><div class="lg-lbl">[공지 등록] → 공지 등록 (새 창)</div><div class="win" style="width:440px"><div class="wtb"><span>AI 리더어드바이저 - 공지 등록</span><span class="sp"></span><i data-ic="x"></i></div><div class="wbd"><div class="fs"><div class="lbl">제목<em>*</em></div><div class="in2"><span>2026.11.07 18:00 MTS 점검 안내</span></div></div>
-<div class="g2c"><div class="fs"><div class="lbl">긴급 공지</div><div style="display:flex;align-items:center;gap:8px"><span class="swd on"></span><span class="hint">상단 배너 · 즉시 알림</span></div></div><div class="fs"><div class="lbl">공지 대상<em>*</em></div><span class="in2"><span>서울센터 · 계좌 상담 · 전체 팀</span><i data-ic="chev"></i></span></div></div>
-<div class="fs"><div class="lbl">내용<em>*</em></div><div class="ta3">오늘 18:00~20:00 MTS 점검이 있습니다. 점검 시간 문의는 HTS 이용을 안내해 주세요.</div></div>
-<div class="acts"><button class="btn lg">삭제</button><button class="btn lg">취소</button><button class="btn lg p">등록</button></div></div><i class="n r" data-k="12"></i></div></div>
-      <div class="card g1" style="box-shadow:none"><h4>공지사항 · 알림</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· [공지사항]은 새 창으로 열리고, 리더 · 관리자는 같은 창에서 공지를 등록 · 수정 · 삭제합니다. 소속 · 업무 · 팀별 대상과 긴급 공지를 정합니다.<br>· LNB [알림]을 누르면 본문이 알림 화면으로 바뀝니다. 코칭 요청 · 코칭 완료 · 상담시간 이상 · 공지 알림이 최신순으로 쌓이고, 코칭 요청을 누르면 [코칭 보내기] 쪽지 창이 열립니다.<br>· 알림 화면의 [알림 설정]에서 공지 · 코칭 알림 수신과 상담시간 이상 범위(기준)를 정합니다.<br>· 퀵 메뉴는 상담어드바이저와 같습니다(상담어드바이저 목업 화면 4).</div></div>
+      <div class="card g1" style="box-shadow:none"><h4>공지사항 · 알림 (목록 → 상세)</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· LNB [공지사항] · [알림]은 같은 목록 화면입니다. 위쪽 탭으로 거르고, 표의 제목(밑줄)을 누르면 상세 화면으로 들어갑니다. 상세 화면 오른쪽 위 [목록]으로 돌아갑니다. 읽은 항목은 회색 배경으로 표시합니다.<br>· 공지사항: 리더 · 관리자는 목록의 [공지 등록]과 상세의 [수정] · [삭제]로 관리합니다. 소속 · 업무 · 팀별 대상과 긴급 공지를 정합니다.<br>· 알림: 코칭 요청 · 코칭 완료 · 상담시간 이상 · 관심 번호 · 위험 감지 · 공지 알림이 최신순으로 쌓입니다. 코칭 요청 상세에서 [코칭 보내기]를 누르면 쪽지 창이 열립니다.<br>· 알림 목록 위 [알림 설정]에서 공지 · 코칭 알림 수신과 상담시간 이상 범위(기준)를 정합니다. [모두 읽음]으로 한 번에 읽음 처리합니다.<br>· 퀵 메뉴는 상담어드바이저와 같습니다(상담어드바이저 목업 화면 4).</div></div>
     </div>
   </section>
 
-  <section class="screen" id="l12" data-title="L12 · 운영 관리">
-    <div class="screen-caption"><span class="tag">L12</span> 운영 관리 <small>LNB 공통 · 리더 · 관리자에게 같게 표시 · 사용자 관리 / 역할 관리 / 감사로그</small></div>
-    <div class="lg-lbl">12-1 사용자 관리</div>
+  <section class="screen" id="l13" data-title="L13 · 운영 관리">
+    <div class="screen-caption"><span class="tag">L13</span> 운영 관리 <small>LNB 공통 · 리더 · 관리자에게 같게 표시 · 사용자 관리 / 역할 관리 / 감사로그</small></div>
+    <div class="lg-lbl">13-1 사용자 관리</div>
     <div class="frame"><div class="ab">
       <nav class="asb" data-on="users"></nav>
       <div class="amc">
@@ -389,7 +532,7 @@
       </div>
 
     </div></div>
-    <div class="lg-lbl" style="margin-top:18px">12-2 역할 관리</div>
+    <div class="lg-lbl" style="margin-top:18px">13-2 역할 관리</div>
     <div class="frame"><div class="ab">
       <nav class="asb" data-on="roles"></nav>
       <div class="amc">
@@ -399,13 +542,13 @@
           <div class="g2c" style="grid-template-columns:minmax(0,.7fr) minmax(0,1.6fr)">
             <div class="tbx"><div class="th2">역할 4개<span class="sp"></span><span class="btn s"><i data-ic="plus"></i>역할 추가</span></div><table><tr><th>역할</th><th>사용자</th></tr><tr><td>상담직원</td><td>31명</td></tr><tr class="sel"><td><b>리더</b></td><td>6명</td></tr><tr><td>매니저</td><td>3명</td></tr><tr><td>관리자</td><td>2명</td></tr></table></div>
             <div class="bx"><h4>리더 · 메뉴 접근 권한<span class="sp"></span><span class="hint" style="font-weight:400">데이터 범위</span><span class="in2" style="width:110px"><span>팀</span><i data-ic="chev"></i></span></h4>
-              <div class="tbx"><div class="th2">메뉴<span class="sp"></span></div><table><tr><th>메뉴</th><th>조회</th><th>등록 · 수정</th><th>삭제</th></tr><tr><td>리더 어드바이저</td><td><span class="chk on"></span></td><td><span class="chk on"></span></td><td><span class="chk"></span></td></tr><tr><td>실시간 모니터링</td><td><span class="chk on"></span></td><td><span class="chk"></span></td><td><span class="chk"></span></td></tr><tr><td>상담 이력 조회 · 이슈 콜 목록</td><td><span class="chk on"></span></td><td><span class="chk on"></span></td><td><span class="chk"></span></td></tr><tr><td>상담 어시스트 책갈피</td><td><span class="chk on"></span></td><td><span class="chk on"></span></td><td><span class="chk on"></span></td></tr><tr><td>콜 통계</td><td><span class="chk on"></span></td><td><span class="chk"></span></td><td><span class="chk"></span></td></tr><tr><td>키워드 관리 · 관심 통화 관리</td><td><span class="chk on"></span></td><td><span class="chk on"></span></td><td><span class="chk on"></span></td></tr><tr><td>위협 감지 설정 · 지식 관리</td><td><span class="chk on"></span></td><td><span class="chk on"></span></td><td><span class="chk"></span></td></tr><tr><td>공지사항</td><td><span class="chk on"></span></td><td><span class="chk on"></span></td><td><span class="chk on"></span></td></tr><tr><td>운영 관리</td><td><span class="chk on"></span></td><td><span class="chk on"></span></td><td><span class="chk on"></span></td></tr></table></div><i class="n" data-k="14"></i></div>
+              <div class="tbx"><div class="th2">메뉴<span class="sp"></span></div><table><tr><th>메뉴</th><th>조회</th><th>등록 · 수정</th><th>삭제</th></tr><tr><td>리더 어드바이저</td><td><span class="chk on"></span></td><td><span class="chk on"></span></td><td><span class="chk"></span></td></tr><tr><td>실시간 모니터링</td><td><span class="chk on"></span></td><td><span class="chk"></span></td><td><span class="chk"></span></td></tr><tr><td>상담 이력 조회 · 이슈 콜 목록</td><td><span class="chk on"></span></td><td><span class="chk on"></span></td><td><span class="chk"></span></td></tr><tr><td>상담 어시스트 책갈피</td><td><span class="chk on"></span></td><td><span class="chk on"></span></td><td><span class="chk on"></span></td></tr><tr><td>콜 통계</td><td><span class="chk on"></span></td><td><span class="chk"></span></td><td><span class="chk"></span></td></tr><tr><td>개선 이행</td><td><span class="chk on"></span></td><td><span class="chk on"></span></td><td><span class="chk"></span></td></tr><tr><td>키워드 관리 · 관심 통화 관리</td><td><span class="chk on"></span></td><td><span class="chk on"></span></td><td><span class="chk on"></span></td></tr><tr><td>위협 감지 설정 · 지식 관리</td><td><span class="chk on"></span></td><td><span class="chk on"></span></td><td><span class="chk"></span></td></tr><tr><td>공지사항</td><td><span class="chk on"></span></td><td><span class="chk on"></span></td><td><span class="chk on"></span></td></tr><tr><td>운영 관리</td><td><span class="chk on"></span></td><td><span class="chk on"></span></td><td><span class="chk on"></span></td></tr></table></div><i class="n" data-k="14"></i></div>
           </div>
         </div>
       </div>
 
     </div></div>
-    <div class="lg-lbl" style="margin-top:18px">12-3 감사로그</div>
+    <div class="lg-lbl" style="margin-top:18px">13-3 감사로그</div>
     <div class="frame"><div class="ab">
       <nav class="asb" data-on="audit"></nav>
       <div class="amc">
