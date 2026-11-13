@@ -839,3 +839,100 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 .ibar .t { display:flex; height:12px; border-radius:6px; background:#F1F5F9; overflow:hidden; }
 .ibar .t i, .hint i.lg { display:inline-block; height:100%; } .ibar .t i.bd1, .hint i.lg.bd1 { background:var(--p); } .ibar .t i.bp1, .hint i.lg.bp1 { background:#94d3ef; } .ibar .t i.bn1, .hint i.lg.bn1 { background:#cbd5e1; }
 .hint i.lg { width:10px; height:10px; border-radius:3px; vertical-align:-1px; margin:0 2px 0 8px; }
+/* 후처리 카드(와이어프레임 chat_card) · 추천 VOC · VOC 검색 Dialog · 리더 AI 상담 요약 · 2026.11.13 */
+.pp.cards { border-top:0; padding-top:0; gap:12px; }
+.ccard { background:#fff; border:1px solid var(--bd); border-radius:var(--r-xl); padding:16px; display:flex; flex-direction:column; gap:16px; position:relative; }
+.cc-t { display:flex; align-items:center; gap:4px; min-height:28px; position:relative; }
+.cc-t > svg.i { width:20px; height:20px; color:var(--p); }
+.cc-t b { font-size:16px; font-weight:600; line-height:24px; color:var(--fg); }
+.cc-t .sp { flex:1; }
+.cc-list { display:flex; flex-direction:column; gap:12px; position:relative; }
+.cc-code { display:flex; align-items:flex-start; gap:12px; padding:16px; border-radius:var(--r-md); background:var(--sf); border:1px solid transparent; position:relative; }
+.cc-code.on { background:var(--p50); border-color:var(--p); }
+.cc-acc { width:80px; flex:none; display:flex; flex-direction:column; gap:8px; }
+.cc-acc .pct { font-size:14px; line-height:20px; color:var(--fg); }
+.cc-cd { display:flex; align-items:center; gap:4px; font-size:14px; font-weight:700; line-height:16px; color:var(--p6); position:relative; }
+.cc-cd u { text-decoration:underline; }
+.cc-cd svg.i { width:16px; height:16px; color:var(--mu); opacity:.7; }
+.cc-path { flex:1; min-width:0; display:flex; flex-direction:column; gap:4px; }
+.cc-path .lm { display:flex; gap:8px; min-width:0; }
+.cc-path .lm > span, .cc-path .s { flex:1; min-width:0; display:flex; align-items:center; gap:4px; font-size:14px; line-height:20px; color:var(--fg); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.cc-lv { width:20px; height:20px; flex:none; border-radius:999px; background:var(--mu); color:#f8fafc; font-size:11px; font-weight:500; line-height:16px; display:inline-flex; align-items:center; justify-content:center; }
+.cc-lv.on { background:var(--p); }
+.cc-more { align-self:center; height:28px; padding:0 10px; font-size:12px; font-weight:500; color:var(--fg); background:none; border:0; border-radius:var(--r-md); position:relative; }
+.cc-sum { background:var(--sf); border-radius:var(--r-md); padding:16px; display:flex; flex-direction:column; gap:12px; position:relative; }
+.cc-sum .it { display:flex; flex-direction:column; gap:8px; }
+.cc-sum .it > b { font-size:14px; font-weight:500; line-height:14px; color:var(--fg); }
+.cc-sum .it > p { margin:0; font-size:14px; line-height:20px; color:var(--fg); }
+.cc-sum ul { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:2px; }
+.cc-sum li { position:relative; padding-left:9px; font-size:14px; line-height:20px; color:var(--fg); }
+.cc-sum li::before { content:""; position:absolute; left:0; top:9px; width:3px; height:3px; background:var(--fg); }
+.cc-sum hr { margin:0; border:0; border-top:1px solid var(--bd); }
+.cc-sum.sm { padding:12px; gap:10px; }
+.cc-sum.sm .it { gap:6px; }
+.cc-sum.sm .it > b { font-size:13px; font-weight:600; line-height:16px; }
+.cc-sum.sm li { font-size:13px; line-height:18px; } .cc-sum.sm li::before { top:8px; }
+.vrc { background:var(--p50); border:1px dashed var(--p); border-radius:var(--r-md); padding:12px; display:flex; flex-direction:column; gap:8px; position:relative; }
+.vrc-t { display:flex; align-items:center; gap:8px; min-height:32px; position:relative; }
+.vrc-t b { font-size:14px; font-weight:600; line-height:17px; color:var(--fg); }
+.vrc-t .sp { flex:1; }
+.vrc-l { display:flex; flex-direction:column; }
+.vrc-i { display:flex; align-items:center; gap:8px; height:24px; font-size:13px; line-height:16px; color:var(--fg); }
+.vrc-i .rd { width:16px; height:16px; flex:none; border-radius:50%; border:1px solid #cbd5e1; background:#fff; box-shadow:var(--sh-xs); }
+.vrc-i.on .rd { border:5px solid var(--p); }
+.dlg.vsd { width:560px; max-width:100%; padding:24px; gap:20px; border:0; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.15); }
+.vsd-h { display:flex; align-items:center; justify-content:space-between; }
+.vsd-h h5 { line-height:21px; }
+.vsd-h .ib.sm { color:var(--fg); opacity:.7; }
+.vsd .inp.vsd-cb { height:36px; padding:0 16px; font-size:14px; font-weight:500; }
+.vsd-sel { background:#f5f5f5; border-radius:var(--r-md); padding:12px 16px; display:flex; flex-direction:column; gap:8px; }
+.vsd-kv { display:flex; gap:12px; font-size:13px; line-height:16px; }
+.vsd-kv > span { width:72px; flex:none; color:#737373; }
+.vsd-kv > b { font-weight:600; color:#1a1a1a; }
+.vsd-ct { display:flex; flex-direction:column; gap:6px; }
+.vsd-ct > b { font-size:14px; font-weight:600; line-height:17px; color:#1a1a1a; }
+.vsd .ta2 { height:120px; font-size:14px; }
+.vsd .acts { margin-top:0; }
+.pw-sum { padding:10px 14px 12px; border-top:1px solid #E2E8F0; display:flex; flex-direction:column; gap:6px; position:relative; }
+.pw-sw { font-size:12.5px; font-weight:500; line-height:16px; color:#70707a; }
+/* 실시간 상담 알림 · 통화 방향 · SOS · 대화 클리핑 · 지식 추천 · 상담코드 검색 · 2026.11.13 b */
+.dirb { display:inline-flex; align-items:center; gap:4px; height:20px; padding:0 8px; border-radius:9999px; background:var(--p); color:#f8fafc; font-size:12px; font-weight:500; line-height:16px; white-space:nowrap; position:relative; flex:none; }
+.dirb svg.i { width:12px; height:12px; }
+.sosb { display:inline-flex; align-items:center; gap:4px; height:20px; padding:0 8px; border-radius:9999px; background:var(--sf); color:#0f172a; font-size:14px; font-weight:500; line-height:20px; white-space:nowrap; position:relative; flex:none; cursor:pointer; }
+.sosb svg.i { width:16px; height:16px; opacity:.7; }
+.cal { align-items:center; border-color:var(--bd); }
+.cal > svg.i { margin-top:0; }
+.cal > div { flex:1; min-width:0; }
+.cal b, .cal.err b { font-size:14px; font-weight:700; line-height:20px; }
+.cal.err { background:#fdf4f4; border-color:var(--bd); color:var(--rd); }
+.cal.inf { background:#e8f6ed; border-color:var(--bd); color:var(--gr); }
+.sonner.w336 { width:336px; padding:16px; border-radius:8px; font-size:14px; font-weight:500; line-height:20px; box-shadow:0 4px 4px rgba(0,0,0,.1), 0 4px 12px -1px rgba(124,58,237,.1); }
+.sonner.w336 svg.i { width:20px; height:20px; color:var(--fg); }
+.pp.cards { gap:16px; }
+.clipbar { display:flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--p); border-radius:var(--r-md); background:var(--p50); font-size:13px; line-height:18px; color:var(--fg); }
+.clipbar .sp { flex:1; }
+.u.clp .ub { box-shadow:0 0 0 2px var(--p); }
+.u.clpi .ub { box-shadow:0 0 0 2px #94d3ef; }
+.cltag { display:inline-flex; align-items:center; height:18px; margin-left:6px; padding:0 6px; border-radius:999px; background:var(--p); color:#fff; font-size:11px; font-weight:600; vertical-align:1px; }
+.dvd.clp { color:var(--p6); font-weight:500; }
+.dvd.clp::before, .dvd.clp::after { background:#94d3ef; }
+.clpx { display:flex; flex-direction:column; gap:6px; padding:10px 12px; border-radius:var(--r-lg); background:var(--sf); font-size:13px; line-height:18px; color:var(--fg); }
+.clpx .h { display:flex; align-items:center; gap:8px; } .clpx .h .sp { flex:1; }
+.clpx .ln { display:flex; gap:8px; } .clpx .ln > span:first-child { width:40px; flex:none; color:var(--mu); }
+.qans .kt2 { display:block; font-size:14px; font-weight:600; line-height:20px; color:var(--fg); position:relative; padding-right:20px; }
+.qans h6.sumh { display:flex; align-items:center; gap:6px; position:relative; }
+.qans h6.sumh .bw { height:18px; font-size:11px; }
+.cs-sel3 { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+.cs-q { display:flex; flex-direction:column; gap:4px; }
+.cs-q > .inp { border-color:var(--p); }
+.cs-dd { display:flex; flex-direction:column; padding:4px; border:1px solid var(--bd); border-radius:var(--r-md); background:#fff; box-shadow:0 4px 12px rgba(15,23,42,.12); }
+.cs-dd .it { display:flex; gap:8px; padding:8px 10px; border-radius:6px; font-size:13px; line-height:18px; color:var(--fg); }
+.cs-dd .it.on { background:var(--sf); }
+.cs-dd .it b { flex:none; font-weight:600; }
+.cs-dd .it span { min-width:0; color:#334155; }
+.cs-dd mark { background:#fff3b0; color:inherit; padding:0; }
+/* 추천 상담코드 선택 표시 · 2026.11.13 c */
+.cc-code > .rd { width:16px; height:16px; flex:none; margin-top:2px; border-radius:50%; border:1px solid #cbd5e1; background:#fff; box-shadow:var(--sh-xs); }
+.cc-code.on > .rd { border:5px solid var(--p); }
+.cc-code.on { background:var(--p50); border-color:var(--p); }
+.col > .cal + .cal { margin-top:0; }

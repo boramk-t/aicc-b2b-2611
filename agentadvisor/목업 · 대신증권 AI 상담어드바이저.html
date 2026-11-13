@@ -13,7 +13,7 @@
     <h1>대신증권 AI 상담어드바이저 · 넘버링 목업</h1>
     <p>상담직원 화면 기능을 목업으로 표현하고, 각 화면 요소에 기능 목록의 No를 배지로 붙였습니다. 화면마다 아래에 넘버링 매핑표가 있고, 문서 끝에 전체 기능 목록(No 1~77, 24가 두 행이라 78행)과 목업 위치를 정리했습니다.</p>
     <p>디자인은 2026 U+AICC 디자인시스템(대신증권)을 따릅니다. 화면은 Figma 와이어프레임 '기획-상담어드바이저'를 기준으로 통일했습니다(상담 어드바이저 · 실시간대화 · 오안내 · 상담요약 v2 · 관리자 코칭 요청 · 화면 설정 · 책갈피 · 퀵메뉴 · 프로필). 같은 기능은 모든 화면에서 같은 컴포넌트로 그렸습니다.</p>
-    <p>메뉴는 I.A(상담사: 상담 어드바이저 · 상담 이력 조회 · 이슈 콜 목록 · 상담 어시스트 책갈피, LNB 공통: 퀵 메뉴 · 공지사항 · 알림)를 따릅니다. 관리자 화면 기능(No 1~29, 72, 74, 76, 77)은 리더어드바이저 목업에 있고, No 11(별도 STT 관리 메뉴)과 No 29(BE 기능)는 목업에서 뺐습니다. 두 포털에 모두 해당하는 기능(17, 30, 68~71, 73, 75)은 양쪽에 붙였습니다. 기준일 2026.11.07, 값은 모두 예시입니다.</p>
+    <p>메뉴는 I.A(상담사: 상담 어드바이저 · 상담 이력 조회 · 이슈 콜 목록 · 상담 어시스트 책갈피, LNB 공통: 퀵 메뉴 · 공지사항 · 알림)를 따릅니다. 관리자 화면 기능(No 1~29, 72, 74, 76, 77)은 리더어드바이저 목업에 있고, No 11(별도 STT 관리 메뉴)과 No 29(BE 기능)는 목업에서 뺐습니다. 두 포털에 모두 해당하는 기능(17, 30, 48, 53, 68~71, 73, 75)은 양쪽에 붙였습니다. 기준일 2026.11.07, 값은 모두 예시입니다.</p>
     <span class="legend-hint"><i class="n in">12</i> 화면 기능 번호 <i class="n in be">68</i> 분석 엔진(BE) 기능 · 결과가 보이는 위치에 표시</span>
     <p id="cover-count" class="hint" style="margin-top:8px"></p>
     <div class="toc">
@@ -33,34 +33,32 @@
         <div class="ctb" data-gen="1" data-bd="pin"></div>
         <div class="wsx">
           <div class="wl">
-            <div class="wtt"><h3>실시간 대화</h3><span class="bw" title="인바운드 · 콜 ID C-20261107-01842">IB<i class="n r" data-k="68"></i></span><span class="sp"></span><span class="ib sm" title="대화 내용 검색"><i data-ic="search"></i><i class="n" data-k="33"></i></span></div>
+            <div class="wtt"><h3>실시간 대화</h3><span class="dirb" title="인바운드 · 콜 ID C-20261107-01842"><i data-ic="aup"></i>IB<i class="n r" data-k="68"></i></span><span class="sosb" title="리더에게 SOS 요청"><i data-ic="sos"></i>SOS<i class="n r" data-k="67"></i></span><span class="sp"></span><span class="ib sm" title="대화 내용 검색"><i data-ic="search"></i><i class="n" data-k="33"></i></span></div>
             <div class="stt">
               <div class="dvd">통화가 연결되었습니다 · 오전 10:30<i class="n r" data-k="38"></i></div>
-              <div class="cal inf"><i data-ic="phone"></i><div><b>관심 번호 인입</b><span>02-1588-4488 · 민원 이력 다수로 등록된 번호입니다. 담당 리더에게도 알렸습니다.</span></div><i class="n r" data-k="30"></i></div>
-              <div class="cinfo"><div class="hd">고객 이력 정보</div><dl class="kv"><dt>이름</dt><dd><u class="lk" role="link" tabindex="0">김*준</u></dd><dt>연락처</dt><dd><u class="lk" role="link" tabindex="0">010-****-1234<i class="n r" data-k="69"></i></u></dd><dt>보유 계좌</dt><dd><u class="lk" role="link" tabindex="0">종합매매, 연금저축</u></dd><dt>인입 채널</dt><dd><u class="lk" role="link" tabindex="0">[ARS] 수수료 문의</u></dd><dt>호전환 정보</dt><dd><u class="lk" role="link" tabindex="0">[ISA 상담] 신규 가입 문의</u></dd><dt>최근 상담</dt><dd><u class="lk on" role="link" tabindex="0">매매 수수료 내역 문의 (09/12)<i class="n r" data-k="39"></i></u></dd></dl><i class="n r" data-k="35"></i></div>
+              <div class="cal inf"><i data-ic="info"></i><div><b>관심 번호로 등록된 번호입니다 · 02-1588-4488</b></div><i class="n r" data-k="30"></i></div>
+              <div class="cinfo"><div class="hd">고객 이력 정보</div><dl class="kv"><dt>이름</dt><dd><u class="lk" role="link" tabindex="0">김민준</u></dd><dt>연락처</dt><dd><u class="lk" role="link" tabindex="0">010-0000-1234<i class="n r" data-k="69"></i></u></dd><dt>보유 계좌</dt><dd><u class="lk" role="link" tabindex="0">종합매매, 연금저축</u></dd><dt>인입 채널</dt><dd><u class="lk" role="link" tabindex="0">[ARS] 수수료 문의</u></dd><dt>호전환 정보</dt><dd><u class="lk" role="link" tabindex="0">[ISA 상담] 신규 가입 문의</u></dd><dt>최근 상담</dt><dd><u class="lk on" role="link" tabindex="0">매매 수수료 내역 문의 (09/12)<i class="n r" data-k="39"></i></u></dd></dl><i class="n r" data-k="35"></i></div>
               <div class="u a"><div class="ba"><div class="ub">감사합니다, 대신증권 이서연입니다. 무엇을 도와드릴까요?</div></div><span class="tm">오전 10:30</span></div>
-              <div class="u"><span class="nm">김*준 고객님</span><div class="ba"><div class="ub">ISA 계좌를 새로 만들고 싶은데요, 월배당 ETF도 담을 수 있나요?<i class="n r" data-k="36"></i></div><div class="hb2"><span class="ib sm" title="복사하기 · 대화 클리핑에 담기"><i data-ic="copy"></i></span><span class="ib sm" title="STT 평가 좋아요"><i data-ic="up"></i></span><span class="ib sm" title="STT 평가 싫어요 · 누르면 STT 보정"><i data-ic="down"></i></span><i class="n r" data-k="53"></i></div></div><span class="tm">오전 10:30</span></div>
+              <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">ISA 계좌를 새로 만들고 싶은데요, 월배당 ETF도 담을 수 있나요?<i class="n r" data-k="36"></i></div><div class="hb2"><span class="ib sm" title="STT 평가 좋아요"><i data-ic="up"></i></span><span class="ib sm" title="STT 평가 싫어요 · 누르면 STT 보정"><i data-ic="down"></i></span></div></div><span class="tm">오전 10:30</span></div>
               <div class="u a"><div class="ba"><div class="ub">네 고객님, 본인 확인 후 안내드릴게요. 성함과 생년월일 말씀해 주시겠어요?</div></div><span class="tm">오전 10:30</span></div>
-              <div class="u"><span class="nm">김*준 고객님</span><div class="ba"><div class="ub">제 이름은 <span class="ner t-name" title="클릭하면 메모에 기록합니다"><span class="nl">성명</span><u>김*준</u></span>이고 생년월일은 <span class="ner t-date" title="클릭하면 메모에 기록합니다"><span class="nl">생년월일</span><u>1985.03.12</u></span>, 연락처는 <span class="ner t-ct" title="클릭하면 메모에 기록합니다"><span class="nl">연락처</span><u>010-****-1234</u></span>입니다.<i class="n r" data-k="37"></i><i class="n r b" data-k="42"></i></div></div><span class="tm">오전 10:30</span></div>
+              <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">제 이름은 <span class="ner t-name" title="클릭하면 메모에 기록합니다"><span class="nl">성명</span><u>김민준</u></span>이고 생년월일은 <span class="ner t-date" title="클릭하면 메모에 기록합니다"><span class="nl">생년월일</span><u>1985.03.12</u></span>, 연락처는 <span class="ner t-ct" title="클릭하면 메모에 기록합니다"><span class="nl">연락처</span><u>010-0000-1234</u></span>입니다.<i class="n r" data-k="37"></i><i class="n r b" data-k="42"></i></div></div><span class="tm">오전 10:30</span></div>
               <div class="u a"><div class="ba"><div class="ub">확인되었습니다. ISA는 국내 상장 ETF에 투자할 수 있고 월배당 ETF도 담을 수 있습니다.</div></div><span class="tm">오전 10:30</span></div>
-              <div class="u"><span class="nm">김*준 고객님</span><div class="ba"><div class="ub">세제혜택은 어떻게 되나요?<span class="sfx"><i data-ic="pencil"></i>STT 수정됨 (이서연)</span><i class="n r" data-k="32"></i></div></div><span class="tm">오전 10:31</span></div>
+              <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">세제혜택은 어떻게 되나요?<span class="sfx"><i data-ic="pencil"></i>STT 수정됨 · 계좌상담1팀 이서연</span><i class="n r" data-k="32"></i></div></div><span class="tm">오전 10:31</span></div>
               <div class="u a"><div class="wrn"><i class="n in" data-k="40"></i><span class="bw r">오안내 유의</span>바른 답변을 확인하세요</div><div class="ba"><div class="ub bad">일반형 기준 순이익 400만 원까지 비과세입니다.</div></div><span class="tm">오전 10:31</span></div>
-              <div class="u"><span class="nm">김*준 고객님</span><div class="ba"><div class="ub">지난번에 수수료가 많이 빠졌던데, 이번엔 손해 볼 일 없는 거죠?</div></div><span class="tm">오전 10:31</span></div>
+              <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">지난번에 수수료가 많이 빠졌던데, 이번엔 손해 볼 일 없는 거죠?</div></div><span class="tm">오전 10:31</span></div>
               <div class="cm"><div class="snd"><b>박지훈</b><span>계좌상담1팀</span></div><div class="cb"><p>반복 민원 고객입니다. 공감 표현 후 수수료 차감 내역부터 확인해 드린다고 안내해 주세요.</p><div class="ra"><span class="btn s">추가 요청</span></div><i class="n r" data-k="66"></i></div><span class="tm">오전 10:31</span></div>
-              <div class="u"><span class="nm">김*준 고객님</span><div class="ba"><div class="ub">또 그러면 금감원에 신고할 거예요.</div></div><span class="tm">오전 10:32</span></div>
-              <div class="cal err"><i data-ic="alert"></i><div><b>민원성 불만이 감지되었습니다</b><span>고객 발화 '금감원에 신고' · 담당 리더에게도 알렸습니다.</span></div><i class="n r" data-k="17"></i></div>
+              <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">또 그러면 금감원에 신고할 거예요.</div></div><span class="tm">오전 10:32</span></div>
+              <div class="cal err"><i data-ic="calert"></i><div><b>[민원성] 문의가 접수되었습니다.</b></div><i class="n r" data-k="17"></i></div>
               <div class="nmw"><span class="nmsg"><i data-ic="adown"></i>아래로<i class="n r" data-k="38"></i></span></div>
             </div>
             <div class="rsz"></div>
-            <div class="brow"><span class="clt">대화 클리핑 <em>2</em><i class="n" data-k="53"></i></span><span class="sp"></span><span class="btn" title="상담 요약 · 상담코드는 통화가 종료되면 생성됩니다.">요약 생성<i class="n" data-k="49"></i></span><span class="btn">VOC 조회<i class="n r" data-k="46"></i></span></div>
-            <div class="cmb"><div class="ln"><span>“지난번에 수수료가 많이 빠졌던데, 이번엔 손해 볼 일 없는 거죠?”</span><span class="hint">고객 · 10:31:30</span><i data-ic="x"></i></div><div class="ln"><span>“ISA 계좌를 새로 만들고 싶은데요, 월배당 ETF도 담을 수 있나요?”</span><span class="hint">고객 · 10:30:20</span><i data-ic="x"></i></div></div>
+            <div class="brow"><span class="sp"></span><span class="btn" title="시작 발화와 끝 발화를 골라 그 사이 대화를 클리핑합니다">대화 클리핑<i class="n" data-k="53"></i></span><span class="btn" title="상담 요약 · 상담코드는 통화가 종료되면 생성됩니다.">요약 생성<i class="n" data-k="49"></i></span><span class="btn">VOC 조회<i class="n r" data-k="46"></i></span></div>
           </div>
           <div class="wr">
             <div class="wtt"><h3>상담 어시스트</h3><span class="bw g">자동 추천 ON</span><span class="sp"></span><span class="ib sm" title="지식 추천 설정"><i data-ic="gear"></i><i class="n r" data-k="54"></i></span></div>
             <div class="qal">
-              <div class="qai kq2"><span class="lb"><i data-ic="bulb"></i>실시간 지식 추천<span class="tm">오전 10:30</span><span class="ib sm" title="책갈피"><i data-ic="bm"></i><i class="n r" data-k="64"></i></span></span><div class="qb2"><b class="kt2">ISA 비과세 한도</b><div>일반형은 순이익 200만 원까지, 서민형·농어민형은 400만 원까지 비과세입니다. 한도 초과분은 9.9% 분리과세됩니다.</div><i class="n" data-k="55"></i></div></div>
               <div class="qai"><span class="lb"><i data-ic="spark"></i>고객 발화 의도</span><div class="qb2">ISA 세제혜택은 어떻게 되나요?<i class="n r" data-k="41"></i></div></div>
-              <div class="qai"><div class="qans"><h6>스크립트</h6><p>“고객님, ISA 일반형은 순이익 200만 원까지 비과세이고, 초과분은 9.9% 분리과세됩니다.”</p><h6>추천 답변</h6><p>일반형 200만 원 · 서민형/농어민형 400만 원 비과세 → 초과분 9.9% 분리과세 → 의무 가입 기간 3년 순으로 안내합니다.</p><div class="src2">출처 · <u>ISA 상품설명서 v3 · 4p</u><i class="n r" data-k="53"></i></div><i class="n" data-k="51"></i></div>
+              <div class="qai kq2"><span class="lb"><i data-ic="bulb"></i>실시간 지식 추천<span class="tm">오전 10:31</span><span class="ib sm" title="책갈피"><i data-ic="bm"></i><i class="n r" data-k="64"></i></span></span><div class="qans"><b class="kt2">ISA 비과세 한도<i class="n r" data-k="55"></i></b><h6>스크립트</h6><p>“고객님, ISA 일반형은 순이익 200만 원까지 비과세이고, 초과분은 9.9% 분리과세됩니다.”</p><h6>추천 답변</h6><p>일반형 200만 원 · 서민형/농어민형 400만 원 비과세 → 초과분 9.9% 분리과세 → 의무 가입 기간 3년 순으로 안내합니다.</p><div class="src2">출처 · <u>ISA 상품설명서 v3 · 4p</u><i class="n r" data-k="53"></i></div><i class="n" data-k="51"></i></div>
                 <div class="qfb"><span class="ib sm" title="도움이 됐어요"><i data-ic="up"></i></span><span class="ib sm" title="도움이 안 됐어요"><i data-ic="down"></i></span><i class="n r" data-k="52"></i></div></div>
               <div class="wc"><div class="wc-h"><i data-ic="alert"></i>오안내 유의<span class="sp"></span><span class="tm" title="누르면 해당 발화로 이동">오전 10:31</span></div><div class="wc-x"><b>X</b><span>일반형 기준 순이익 400만 원까지 비과세입니다.</span><span></span></div><div class="wc-o"><b>O</b><span>일반형 ISA 비과세 한도는 순이익 200만 원입니다. 400만 원은 서민형·농어민형 기준입니다.</span><span class="lnk" title="근거 지식 추천 카드로 이동"><i data-ic="link"></i></span></div><i class="n" data-k="40"></i></div>
             </div>
@@ -77,12 +75,38 @@
 <div class="mg sel"><div class="mgh">일반<span class="hint">3</span><span class="sp"></span><span class="ib sm on" title="선택된 그룹 · NER 태그가 이 그룹에 추가됩니다"><i data-ic="check"></i></span><span class="ib sm" title="그룹 접기"><i data-ic="cu"></i></span></div><div class="mi"><i data-ic="grip"></i><span class="tn t-prod">상품명</span><span class="mtx">ISA</span><i class="n r" data-k="42"></i></div><div class="mi"><i data-ic="grip"></i><span class="tn t-name">성명</span><span class="mtx">김*준</span></div><div class="mi drag"><i data-ic="grip"></i><span class="mtx">월배당 ETF 비교표 문자 발송 요청</span></div></div>
 <div class="mg dropin"><div class="mgh">후속 안내<span class="hint">1</span><span class="sp"></span><span class="ib sm" title="이 그룹 선택"><i data-ic="check"></i></span><span class="ib sm" title="그룹 접기"><i data-ic="cu"></i></span></div><div class="mi"><i data-ic="grip"></i><span class="mtx">수수료 차감 내역 확인 후 당일 회신</span></div></div>
 <div class="pbf"><div class="in2 ph"><span>메모 입력</span></div><span class="btn s p">저장</span></div><i class="n" data-k="44"></i></div></div></div>
-      <div class="col" style="width:440px;flex:none"><div class="lg-lbl">실시간 대화 [돋보기] → 검색 입력창 열림</div><div class="bx" style="gap:10px"><div class="wtt"><h3 style="font-size:16px">실시간 대화</h3><span class="bw">IB</span><span class="sp"></span><span class="ib sm on" title="대화 내용 검색"><i data-ic="search"></i></span></div><div class="wsrch on"><i data-ic="search"></i><span class="cur"></span><span class="ph">대화 내용 검색</span><i data-ic="x"></i><i class="n r" data-k="33"></i></div></div><div class="lg-lbl" style="margin-top:10px">고객 말풍선 [싫어요] → STT 보정 → [저장] → 'STT 수정됨 (수정한 사람)'</div><div class="bx stt" style="gap:10px">
-              <div class="u"><span class="nm">김*준 고객님</span><div class="ba"><div class="ub sttx"><div class="sti">세제혜택은 어떻게 되나요?</div><div class="sta"><span class="hint">STT 보정 · 인식 결과를 바르게 고쳐 저장합니다</span><span class="sp"></span><span class="btn s">취소</span><span class="btn s p">저장</span></div><i class="n r" data-k="32"></i></div><div class="hb2"><span class="ib sm" title="복사하기 · 대화 클리핑에 담기"><i data-ic="copy"></i></span><span class="ib sm" title="STT 평가 좋아요"><i data-ic="up"></i></span><span class="ib sm on" title="STT 평가 싫어요 · 누르면 STT 보정"><i data-ic="down"></i></span></div></div><span class="tm">오전 10:31</span></div>
+      <div class="col" style="width:440px;flex:none"><div class="lg-lbl">실시간 대화 [돋보기] → 검색 입력창 열림</div><div class="bx" style="gap:10px"><div class="wtt"><h3 style="font-size:16px">실시간 대화</h3><span class="bw">IB</span><span class="sp"></span><span class="ib sm on" title="대화 내용 검색"><i data-ic="search"></i></span></div><div class="wsrch on"><i data-ic="search"></i><span class="cur"></span><span class="ph">대화 내용 검색</span><i data-ic="x"></i><i class="n r" data-k="33"></i></div></div><div class="lg-lbl" style="margin-top:10px">고객 말풍선 [싫어요] → STT 보정 → [저장] → 'STT 수정됨 · 소속팀 상담사명'</div><div class="bx stt" style="gap:10px">
+              <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub sttx"><div class="sti">세제혜택은 어떻게 되나요?</div><div class="sta"><span class="hint">STT 보정 · 인식 결과를 바르게 고쳐 저장합니다</span><span class="sp"></span><span class="btn s">취소</span><span class="btn s p">저장</span></div><i class="n r" data-k="32"></i></div><div class="hb2"><span class="ib sm" title="STT 평가 좋아요"><i data-ic="up"></i></span><span class="ib sm on" title="STT 평가 싫어요 · 누르면 STT 보정"><i data-ic="down"></i></span></div></div><span class="tm">오전 10:31</span></div>
               <div class="dvd">[저장] 후</div>
-              <div class="u"><span class="nm">김*준 고객님</span><div class="ba"><div class="ub">세제혜택은 어떻게 되나요?<span class="sfx"><i data-ic="pencil"></i>STT 수정됨 (이서연)</span></div></div><span class="tm">오전 10:31</span></div>
+              <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">세제혜택은 어떻게 되나요?<span class="sfx"><i data-ic="pencil"></i>STT 수정됨 · 계좌상담1팀 이서연</span></div></div><span class="tm">오전 10:31</span></div>
             </div></div>
-      <div class="card g1" style="box-shadow:none"><h4>실시간 대화 · 메모 동작</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· 통화가 연결되면 '통화가 연결되었습니다'를 먼저 보여 주고, 그 아래에 고객 이력 정보를 한 영역으로 보여 줍니다. 항목은 한 줄에 하나씩이고, 값을 누를 수 있습니다. [최근 상담]을 누르면 그 상담 이력을 엽니다.<br>· 관심 번호로 등록된 번호가 인입되면 배지 대신 실시간 대화 안에 관심 번호 안내를 표시합니다.<br>· 대화 검색은 제목 줄의 돋보기 아이콘입니다. 누르면 입력창이 열리고 placeholder '대화 내용 검색'이 보입니다.<br>· 고객 말풍선에 마우스를 올리면 [복사하기] · 좋아요 · 싫어요가 나타납니다. [복사하기]를 누르면 그 발화가 대화 클리핑에 담깁니다.<br>· [싫어요]를 누르면 그 말풍선이 입력창으로 바뀌어 STT 인식 결과를 고칠 수 있습니다. [저장]하면 보정한 문장으로 바뀌고 말풍선 안에 'STT 수정됨 (수정한 사람)'이 표시됩니다. [취소]하면 원래대로 돌아갑니다.<br>· 상담 어시스트의 실시간 지식 추천은 고객 발화 의도와 같은 형식(라벨 + 말풍선)으로 보여 줍니다. 추천 답변 표시 개수는 상담 어시스트 설정에서 1~5개 사이로 - / +로 정합니다.<br>· 아래 대화를 보고 있지 않을 때 새 발화가 오면 [아래로] 버튼이 나타나고, 누르면 최신 발화로 이동합니다.<br>· LNB [메모](공지사항 아래)를 누르면 스티키 메모가 화면 위에 팝업됩니다. 닫기 전까지 떠 있고, 끌어서 위치를 옮깁니다.<br>· 메모는 그룹으로 관리합니다(최대 10개). 체크 표시가 있는 그룹이 선택된 그룹이며, 실시간 대화의 NER 태그를 누르면 그 값이 선택된 그룹에 태그명과 함께 기록됩니다. 메모는 끌어서 다른 그룹으로 옮기고, [전체 복사]로 모든 메모를 복사합니다.</div></div>
+      <div class="card g1" style="box-shadow:none"><h4>실시간 대화 · 메모 동작</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· 통화가 연결되면 '통화가 연결되었습니다'를 먼저 보여 주고, 그 아래에 고객 이력 정보를 한 영역으로 보여 줍니다. 항목은 한 줄에 하나씩이고, 값을 누를 수 있습니다. [최근 상담]을 누르면 그 상담 이력을 엽니다.<br>· 관심 번호로 등록된 번호가 인입되면 배지 대신 실시간 대화 안에 초록색 안내 Alert를 띄웁니다. [개인정보] · [민원성] 문의 같은 위험 알림은 빨간색 Alert입니다.<br>· 대화 검색은 제목 줄의 돋보기 아이콘입니다. 누르면 입력창이 열리고 placeholder '대화 내용 검색'이 보입니다.<br>· 고객 말풍선에 마우스를 올리면 좋아요 · 싫어요가 나타납니다.<br>· [싫어요]를 누르면 그 말풍선이 입력창으로 바뀌어 STT 인식 결과를 고칠 수 있습니다. [저장]하면 보정한 문장으로 바뀌고 말풍선 안에 'STT 수정됨 · 소속팀 상담사명'이 표시됩니다. [취소]하면 원래대로 돌아갑니다.<br>· 상담 어시스트는 고객 발화 의도 바로 아래에 실시간 지식 추천(스크립트 · 추천 답변 · 출처)을 보여 줍니다. 추천 답변 표시 개수는 상담 어시스트 설정에서 1~5개 사이로 - / +로 정합니다.<br>· 아래 대화를 보고 있지 않을 때 새 발화가 오면 [아래로] 버튼이 나타나고, 누르면 최신 발화로 이동합니다.<br>· LNB [메모](공지사항 아래)를 누르면 스티키 메모가 화면 위에 팝업됩니다. 닫기 전까지 떠 있고, 끌어서 위치를 옮깁니다.<br>· 메모는 그룹으로 관리합니다(최대 10개). 체크 표시가 있는 그룹이 선택된 그룹이며, 실시간 대화의 NER 태그를 누르면 그 값이 선택된 그룹에 태그명과 함께 기록됩니다. 메모는 끌어서 다른 그룹으로 옮기고, [전체 복사]로 모든 메모를 복사합니다.</div></div>
+    </div>
+    <div class="row" style="margin-top:14px;align-items:flex-start;flex-wrap:wrap">
+      <div class="col" style="width:480px;flex:none">
+        <div class="lg-lbl">하단 [대화 클리핑] → 시작 발화 · 끝 발화 선택 → [클리핑]</div>
+        <div class="bx stt" style="gap:10px">
+          <div class="clipbar"><span>시작 발화와 끝 발화를 선택해 주세요.</span><span class="sp"></span><span class="btn s">취소</span><span class="btn s p">클리핑</span></div>
+          <div class="u clp"><span class="nm">김민준 고객님<span class="cltag">시작</span></span><div class="ba"><div class="ub">지난번에 수수료가 많이 빠졌던데, 이번엔 손해 볼 일 없는 거죠?</div></div><span class="tm">오전 10:31</span></div>
+          <div class="u a clpi"><div class="ba"><div class="ub">수수료 차감 내역부터 확인해 드리겠습니다.</div></div><span class="tm">오전 10:31</span></div>
+          <div class="u clp"><span class="nm">김민준 고객님<span class="cltag">끝</span></span><div class="ba"><div class="ub">또 그러면 금감원에 신고할 거예요.</div></div><span class="tm">오전 10:32</span></div>
+          <i class="n" data-k="53"></i>
+        </div>
+        <div class="sonner w336">대화를 클리핑했습니다.</div>
+      </div>
+      <div class="col" style="width:480px;flex:none">
+        <div class="lg-lbl">실시간 대화 알림 문구 (위험 · 안내)</div>
+        <div class="cal err"><i data-ic="calert"></i><div><b>[개인정보] 관련 문의가 접수되었습니다.</b></div></div>
+        <div class="cal err"><i data-ic="calert"></i><div><b>[민원성] 문의가 접수되었습니다.</b></div></div>
+        <div class="cal inf"><i data-ic="info"></i><div><b>[대외기관품질평가]로 예상되는 콜입니다.</b></div></div>
+        <div class="cal inf"><i data-ic="info"></i><div><b>관심 번호로 등록된 번호입니다 · 02-1588-4488</b></div><i class="n r" data-k="17"></i></div>
+      </div>
+      <div class="col" style="width:360px;flex:none">
+        <div class="lg-lbl">제목 줄 [SOS] → 결과 Sonner (화면 위 가운데)</div>
+        <div class="sonner w336">리더에게 SOS를 요청했습니다.</div>
+        <div class="sonner w336"><i data-ic="calert"></i>SOS 요청을 보내지 못했습니다. 잠시 후 다시 시도해 주세요.<i class="n r" data-k="67"></i></div>
+      </div>
+      <div class="card" style="box-shadow:none;flex:1 1 100%"><h4>실시간 상담 알림 · SOS · 대화 클리핑 · 개인정보</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· 통화 중 알림은 실시간 대화 안에 한 줄 Alert로 띄웁니다. 문구는 '[유형] + 내용' 형태입니다. 위험 알림은 빨간색 · 경고 아이콘, 안내 알림은 초록색 · 정보 아이콘입니다.<br>· 제목 줄의 통화 방향 배지(IB/OB) 옆 [SOS]를 누르면 담당 리더에게 바로 도움을 요청합니다. 요청에 성공하면 한 줄 Sonner, 실패하면 아이콘이 있는 두 줄 Sonner를 화면 위 가운데에 띄웁니다. [SOS]는 통화 중에만 보입니다.<br>· 하단 [대화 클리핑]을 누르면 선택 모드가 됩니다. 시작 발화와 끝 발화를 누르면 그 사이 대화가 함께 선택되고, [클리핑]으로 저장하고 [취소]로 선택을 지웁니다. 클리핑한 대화는 실시간 대화에 따로 모아 보여 주지 않고 상담 이력 조회 › 상담 이력 상세에서만 봅니다.<br>· 개인정보: 실시간 대화 · 고객 이력 정보 · NER 태그는 마스킹하지 않고 보여 줍니다. 상담 이력 · 메모 · 후처리 저장본처럼 저장하는 데이터에만 마스킹을 적용합니다.<br>· STT 보정을 저장하면 말풍선 안에 'STT 수정됨 · 소속팀 상담사명'(예: STT 수정됨 · 계좌상담1팀 이서연)을 표시합니다.</div></div>
     </div>
     <div class="card" style="box-shadow:none;margin-top:14px">
       <h4>오안내 표시 규칙 (와이어프레임 오안내 1-1 ~ 1-8)</h4>
@@ -91,7 +115,7 @@
         · 판정이 늦어져도 완료 즉시 표시합니다. 판정 중이거나 판정에 실패하면 아무것도 표시하지 않습니다. 통화당 감지 건수는 제한하지 않습니다.<br>
         · 표시하지 않는 발화: 지식 추천 이전 발화, 추천 지식과 일치하는 발화, 추천 지식과 맥락이 무관한 발화, 고객 발화.<br>
         · 한 발화에 오안내가 여러 건이면 말풍선 표시는 1개, 카드는 오안내마다 1개씩 만듭니다. 같은 오안내를 반복하면 매번 표시합니다.<br>
-        · NER(개체명): 성명 · 생년월일처럼 개체 이름을 태그로 붙이고 값에 밑줄을 칩니다. 값을 누르면 스티키 메모의 선택된 그룹에 기록됩니다(개인정보는 마스킹 값).<br><span class="ner-lg">태그 예 <span class="ner t-name" title="클릭하면 메모에 기록합니다"><span class="nl">성명</span><u>김*준</u></span><span class="ner t-date" title="클릭하면 메모에 기록합니다"><span class="nl">생년월일</span><u>1985.03.12</u></span><span class="ner t-ct" title="클릭하면 메모에 기록합니다"><span class="nl">연락처</span><u>010-****-1234</u></span><span class="ner t-acct" title="클릭하면 메모에 기록합니다"><span class="nl">계좌번호</span><u>***-****-881</u></span><span class="ner t-prod" title="클릭하면 메모에 기록합니다"><span class="nl">상품명</span><u>ISA</u></span></span><br>· 카드의 발화 시각을 누르면 실시간 대화가 해당 발화로, 출처를 누르면 근거 지식 위치로 이동합니다. 위로 스크롤한 상태에서 새 카드가 생기면 위치를 유지하고 새 카드 알림 버튼을 띄웁니다.
+        · NER(개체명): 성명 · 생년월일처럼 개체 이름을 태그로 붙이고 값에 밑줄을 칩니다. 값을 누르면 스티키 메모의 선택된 그룹에 기록되고, 메모에 저장할 때 개인정보를 마스킹합니다.<br><span class="ner-lg">태그 예 <span class="ner t-name" title="클릭하면 메모에 기록합니다"><span class="nl">성명</span><u>김민준</u></span><span class="ner t-date" title="클릭하면 메모에 기록합니다"><span class="nl">생년월일</span><u>1985.03.12</u></span><span class="ner t-ct" title="클릭하면 메모에 기록합니다"><span class="nl">연락처</span><u>010-0000-1234</u></span><span class="ner t-acct" title="클릭하면 메모에 기록합니다"><span class="nl">계좌번호</span><u>000-0000-881</u></span><span class="ner t-prod" title="클릭하면 메모에 기록합니다"><span class="nl">상품명</span><u>ISA</u></span></span><br>· 카드의 발화 시각을 누르면 실시간 대화가 해당 발화로, 출처를 누르면 근거 지식 위치로 이동합니다. 위로 스크롤한 상태에서 새 카드가 생기면 위치를 유지하고 새 카드 알림 버튼을 띄웁니다.
       </div>
     </div>
   </section>
@@ -107,24 +131,25 @@
         <div class="ctb" data-gen="1"></div>
         <div class="wsx">
           <div class="wl">
-            <div class="wtt"><h3>실시간 대화</h3><span class="bw">IB</span><span class="sp"></span><span class="ib sm on" title="대화 내용 검색"><i data-ic="search"></i></span></div>
+            <div class="wtt"><h3>실시간 대화</h3><span class="dirb"><i data-ic="aup"></i>IB</span><span class="sosb" title="리더에게 SOS 요청"><i data-ic="sos"></i>SOS</span><span class="sp"></span><span class="ib sm on" title="대화 내용 검색"><i data-ic="search"></i></span></div>
             <div class="wsrch on"><i data-ic="search"></i><span class="vl">이월</span><span class="cnt">1/2</span><i data-ic="x"></i></div>
             <div class="stt">
-              <div class="u"><span class="nm">김*준 고객님</span><div class="ba"><div class="ub">ISA 만기 전에 해지하면 세금 혜택이 없어지나요?</div></div><span class="tm">오전 10:34</span></div>
+              <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">ISA 만기 전에 해지하면 세금 혜택이 없어지나요?</div></div><span class="tm">오전 10:34</span></div>
               <div class="u a"><div class="ba"><div class="ub">의무 가입 기간 3년을 채우지 않으면 감면받은 세액이 추징될 수 있습니다.</div></div><span class="tm">오전 10:34</span></div>
-              <div class="u"><span class="nm">김*준 고객님</span><div class="ba"><div class="ub">그럼 올해 납입 한도가 남으면 내년으로 <mark>이월</mark>되나요?</div></div><span class="tm">오전 10:35</span></div>
+              <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">그럼 올해 납입 한도가 남으면 내년으로 <mark>이월</mark>되나요?</div></div><span class="tm">오전 10:35</span></div>
               <div class="u a"><div class="ba"><div class="ub">네, 미납입분은 다음 해로 <mark>이월</mark>되고 총 납입 한도는 1억 원입니다.</div></div><span class="tm">오전 10:35</span></div>
             </div>
             <div class="rsz"></div>
-            <div class="brow"><span class="clt">대화 클리핑 <em>2</em></span><span class="sp"></span><span class="btn" title="상담 요약을 다시 생성합니다">요약 생성</span><span class="btn">VOC 조회</span></div>
-            <div class="cmb"><div class="ln"><span>“지난번에 수수료가 많이 빠졌던데, 이번엔 손해 볼 일 없는 거죠?”</span><span class="hint">고객 · 10:31:30</span><i data-ic="x"></i></div><div class="ln"><span>“ISA 계좌를 새로 만들고 싶은데요, 월배당 ETF도 담을 수 있나요?”</span><span class="hint">고객 · 10:30:20</span><i data-ic="x"></i></div></div>
+            <div class="brow"><span class="sp"></span><span class="btn" title="시작 발화와 끝 발화를 골라 그 사이 대화를 클리핑합니다">대화 클리핑</span><span class="btn" title="상담 요약을 다시 생성합니다">요약 생성</span><span class="btn">VOC 조회</span></div>
           </div>
           <div class="wr">
             <div class="wtt"><h3>상담 어시스트</h3><span class="bw g">자동 추천 ON</span><span class="sp"></span><span class="ib sm" title="지식 추천 설정"><i data-ic="gear"></i><i class="n r" data-k="54"></i></span></div>
             <div class="qal">
-              <div class="qai kq2"><span class="lb"><i data-ic="bulb"></i>실시간 지식 추천<span class="tm">오전 10:34</span><span class="ib sm" title="책갈피"><i data-ic="bm"></i><i class="n r" data-k="64"></i></span></span><div class="qb2"><b class="kt2">ISA 의무가입기간 · 중도해지</b><div><span class="qai" style="display:inline-flex;padding-right:24px"><span class="lb"><i data-ic="spark"></i>AI 요약</span><i class="n r" data-k="56"></i></span> 의무 가입 기간 3년 미만 해지 시 감면 세액을 추징합니다. 사망·해외 이주 등 부득이한 사유는 예외입니다.</div><i class="n" data-k="55"></i></div></div>
+              <div class="qai"><span class="lb"><i data-ic="spark"></i>고객 발화 의도</span><div class="qb2">ISA 만기 전에 해지하면 세금 혜택이 없어지나요?</div></div>
+              <div class="qai kq2"><span class="lb"><i data-ic="bulb"></i>실시간 지식 추천<span class="tm">오전 10:34</span><span class="ib sm" title="책갈피"><i data-ic="bm"></i><i class="n r" data-k="64"></i></span></span><div class="qans"><b class="kt2">ISA 의무가입기간 · 중도해지<i class="n r" data-k="55"></i></b><h6>스크립트</h6><p>“고객님, 의무 가입 기간 3년을 채우지 않고 해지하시면 감면받은 세액이 추징될 수 있습니다.”</p><h6>추천 답변</h6><p>의무 가입 기간 3년 미만 해지 시 감면 세액을 추징합니다.</p><h6 class="sumh">지식 요약<span class="bw g">AI 요약</span><i class="n r" data-k="56"></i></h6><p>사망 · 해외 이주 등 부득이한 사유로 해지하면 추징하지 않습니다.</p><div class="src2">출처 · <u>ISA 상품설명서 v3 · 9p</u></div></div>
+                <div class="qfb"><span class="ib sm" title="도움이 됐어요"><i data-ic="up"></i></span><span class="ib sm" title="도움이 안 됐어요"><i data-ic="down"></i></span></div></div>
               <div class="qai"><span class="lb"><i data-ic="spark"></i>고객 발화 의도</span><div class="qb2">ISA 미납입 한도는 다음 해로 이월되나요?</div></div>
-              <div class="qai"><div class="qans"><h6>스크립트</h6><p>“고객님, 올해 납입하지 않은 한도는 내년으로 이월되어 함께 납입하실 수 있습니다.”</p><h6>추천 답변</h6><p>연간 2,000만 원 한도 중 미납입분은 다음 해로 이월되며 총 납입 한도는 1억 원입니다.</p><div class="src2">출처 · <u>ISA 상품설명서 v3 · 12p</u></div><i class="n" data-k="51"></i></div>
+              <div class="qai kq2"><span class="lb"><i data-ic="bulb"></i>실시간 지식 추천<span class="tm">오전 10:35</span><span class="ib sm" title="책갈피"><i data-ic="bm"></i></span></span><div class="qans"><b class="kt2">ISA 납입 한도 이월</b><h6>스크립트</h6><p>“고객님, 올해 납입하지 않은 한도는 내년으로 이월되어 함께 납입하실 수 있습니다.”</p><h6>추천 답변</h6><p>연간 2,000만 원 한도 중 미납입분은 다음 해로 이월되며 총 납입 한도는 1억 원입니다.</p><div class="src2">출처 · <u>ISA 상품설명서 v3 · 12p</u></div><i class="n" data-k="51"></i></div>
                 <div class="qfb"><span class="ib sm" title="도움이 됐어요"><i data-ic="up"></i></span><span class="ib sm" title="도움이 안 됐어요"><i data-ic="down"></i></span><i class="n r" data-k="52"></i></div></div>
               <div class="qme"><div class="qb2">중개형 ISA 이월</div></div>
               <div class="qai"><div class="qans"><h6>스크립트</h6><p>“고객님, 중개형 ISA도 일반 ISA와 같이 올해 납입하지 않은 한도는 내년으로 이월되어 함께 납입하실 수 있습니다.”</p><h6>추천 답변</h6><p>중개형 ISA도 연간 납입 한도 2,000만 원 중 미납입분이 다음 해로 이월되며, 총 납입 한도는 1억 원입니다.</p><div class="src2">출처 · <u>ISA 상품설명서 v3 · 12p</u> · <u>중개형 ISA 업무 매뉴얼 2.4</u><i class="n r" data-k="53"></i></div><i class="n" data-k="59"></i></div>
@@ -168,30 +193,39 @@
           <div class="wl">
             <div class="wtt"><h3>실시간 대화</h3><span class="bw a">후처리</span><span class="sp"></span><span class="ib sm" title="대화 내용 검색"><i data-ic="search"></i></span></div>
             <div class="stt">
-              <div class="u"><span class="nm">김*준 고객님</span><div class="ba"><div class="ub">네, 알겠습니다. 감사합니다.</div></div><span class="tm">오전 10:36</span></div>
+              <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">네, 알겠습니다. 감사합니다.</div></div><span class="tm">오전 10:36</span></div>
               <div class="u a"><div class="ba"><div class="ub">감사합니다. 좋은 하루 보내세요.</div></div><span class="tm">오전 10:36</span></div>
               <div class="dvd">통화가 종료되었습니다 · 오전 10:36</div>
-              <div class="pp">
-                <div class="pp-t">추천 상담코드<span class="sp"></span><span class="ib sm" title="상담코드 검색"><i data-ic="search"></i></span></div>
-                <div style="display:flex;flex-direction:column;gap:2px;position:relative">
-                  <div class="cr on"><span class="rd"></span><span class="acc">92.4%</span><span class="cd">C3012</span><span class="ib sm" title="상담코드 복사"><i data-ic="copy"></i></span><span class="path">상품 &gt; ISA &gt; 비과세 한도 문의</span></div>
-                  <div class="cr"><span class="rd"></span><span class="acc">81.7%</span><span class="cd">C3015</span><span class="ib sm" title="상담코드 복사"><i data-ic="copy"></i></span><span class="path">상품 &gt; ISA &gt; 납입 한도 문의</span></div>
-                  <div class="cr"><span class="rd"></span><span class="acc">64.2%</span><span class="cd">D4101</span><span class="ib sm" title="상담코드 복사"><i data-ic="copy"></i></span><span class="path">민원 &gt; 안내 오류 &gt; 정정 요청</span></div>
-                  <i class="n" data-k="70"></i><i class="n" style="left:132px" data-k="47"></i>
+              <div class="pp cards">
+                <div class="ccard">
+                  <div class="cc-t"><i data-ic="fdig" data-big></i><b>추천 상담코드</b><span class="sp"></span><span class="ib sm" title="상담코드 검색"><i data-ic="search"></i></span></div>
+                  <div class="cc-list">
+                    <div class="cc-code on"><span class="rd"></span><div class="cc-acc"><span class="pct">92.4%</span><span class="cc-cd" title="상담코드 복사"><u>C3012</u><i data-ic="copy"></i><i class="n r" data-k="47"></i></span></div><div class="cc-path"><div class="lm"><span><span class="cc-lv">대</span>상품</span><span><span class="cc-lv">중</span>ISA</span></div><div class="s"><span class="cc-lv on">소</span>비과세 한도 문의</div></div></div>
+                    <div class="cc-code"><span class="rd"></span><div class="cc-acc"><span class="pct">81.7%</span><span class="cc-cd" title="상담코드 복사"><u>C3015</u><i data-ic="copy"></i></span></div><div class="cc-path"><div class="lm"><span><span class="cc-lv">대</span>상품</span><span><span class="cc-lv">중</span>ISA</span></div><div class="s"><span class="cc-lv on">소</span>납입 한도 문의</div></div></div>
+                    <div class="cc-code"><span class="rd"></span><div class="cc-acc"><span class="pct">64.2%</span><span class="cc-cd" title="상담코드 복사"><u>D4101</u><i data-ic="copy"></i></span></div><div class="cc-path"><div class="lm"><span><span class="cc-lv">대</span>민원</span><span><span class="cc-lv">중</span>안내 오류</span></div><div class="s"><span class="cc-lv on">소</span>정정 요청</div></div></div>
+                    <i class="n" data-k="70"></i>
+                  </div>
+                  <button class="cc-more">더보기</button>
                 </div>
-                <button class="more">더보기</button>
-                <div class="pp-sep"></div>
-                <div class="pp-t">상담 요약<span class="sp"></span><span class="ib sm" title="요약 복사"><i data-ic="copy"></i><i class="n r" data-k="47"></i></span></div>
-                <div class="pp-who">이서연 / 김*준<i class="n r" data-k="48"></i></div>
-                <div class="ta2">[요청] ISA 일반형 비과세 한도, 납입 한도 이월 문의<br>[처리] 일반형 200만 원 기준 정정 안내, 미납입분 이월 안내<br>[특이] 이전 안내 오류 불만, 민원 언급<span class="cnt">86 / 500</span></div>
-                <div class="dash"><b style="color:var(--fg)">VOC 추천</b> · 안내 불만 &gt; 상담 안내 오류<br>근거 발화: "지난번에도 안내가 틀렸는데…" (오전 10:32)<i class="n" data-k="45"></i></div>
+                <div class="ccard">
+                  <div class="cc-t"><i data-ic="fpen" data-big></i><b>상담 요약</b><span class="sp"></span><span class="ib sm" title="요약 복사"><i data-ic="copy"></i><i class="n r" data-k="47"></i></span></div>
+                  <div class="cc-sum"><div class="it"><b>상담사 / 고객</b><p>이서연 / 김민준</p></div><hr><div class="it"><b>고객 요청내용</b><ul><li>ISA 일반형 비과세 한도, 납입 한도 이월 문의</li><li>이전 안내 오류에 불만, 민원 언급</li></ul></div><hr><div class="it"><b>상담사 처리내용</b><ul><li>일반형 200만 원 기준 정정 안내</li><li>미납입분 이월 안내</li></ul></div><i class="n r" data-k="48"></i></div>
+                </div>
+                <div class="vrc">
+                  <div class="vrc-t"><b>추천 VOC</b><span class="sp"></span><span class="btn">VOC 검색<i class="n r" data-k="46"></i></span></div>
+                  <div class="vrc-l">
+                    <div class="vrc-i on"><span class="rd"></span>상담 안내 오류 · 고객지원팀</div>
+                    <div class="vrc-i"><span class="rd"></span>ISA 비과세 한도 문의 · 자산관리팀</div>
+                    <div class="vrc-i"><span class="rd"></span>수수료 이의 제기 · 고객지원팀</div>
+                  </div>
+                  <i class="n" data-k="45"></i>
+                </div>
                 <div class="pp-act"><button class="btn lg">저장 자리비움</button><button class="btn lg p">저장 대기</button><i class="n r" data-k="50"></i></div>
               </div>
 
             </div>
             <div class="rsz"></div>
-            <div class="brow"><span class="clt">대화 클리핑 <em>2</em></span><span class="sp"></span><span class="btn" title="상담 요약을 다시 생성합니다">요약 생성<i class="n" data-k="49"></i></span><span class="btn">VOC 조회<i class="n r" data-k="46"></i></span></div>
-            <div class="cmb"><div class="ln"><span>“지난번에 수수료가 많이 빠졌던데, 이번엔 손해 볼 일 없는 거죠?”</span><span class="hint">고객 · 10:31:30</span><i data-ic="x"></i></div><div class="ln"><span>“ISA 계좌를 새로 만들고 싶은데요, 월배당 ETF도 담을 수 있나요?”</span><span class="hint">고객 · 10:30:20</span><i data-ic="x"></i></div></div>
+            <div class="brow"><span class="sp"></span><span class="btn" title="시작 발화와 끝 발화를 골라 그 사이 대화를 클리핑합니다">대화 클리핑</span><span class="btn" title="상담 요약을 다시 생성합니다">요약 생성<i class="n" data-k="49"></i></span><span class="btn">VOC 조회<i class="n r" data-k="46"></i></span></div>
           </div>
           <div class="wr">
             <div class="wtt"><h3>상담 어시스트</h3><span class="bw g">자동 추천 ON</span><span class="sp"></span><span class="ib sm" title="지식 추천 설정"><i data-ic="gear"></i></span></div>
@@ -206,9 +240,10 @@
     <div class="card" style="box-shadow:none;margin-top:14px">
       <h4>후처리 동작 (와이어프레임 상담요약 v2)</h4>
       <div class="hint" style="font-size:12px;line-height:1.75;color:#334155">
-        · 통화가 끝나면 '통화가 종료되었습니다' 아래에 후처리 블록이 생기고 영역 제목에 [후처리] 배지가 붙습니다. 상담코드 경로는 대분류 &gt; 중분류 &gt; 소분류 3단계입니다.<br>
-        · 추천 상담코드는 정확도 순으로 3개를 보여 주고, 4개 이상이면 [더보기]로 최대 5개까지 펼칩니다([닫기]로 접기). <i data-ic="search"></i>는 '상담코드 선택' 창을 엽니다.<br>
-        · 상담 요약은 최대 500자이며 직접 수정할 수 있습니다. 하단 [요약 생성]은 통화 중에도 누를 수 있고, 누를 때마다 다시 요약합니다.<br>
+        · 통화가 끝나면 '통화가 종료되었습니다' 아래에 후처리 카드가 생기고 영역 제목에 [후처리] 배지가 붙습니다. 순서는 추천 상담코드 카드 → 상담 요약 카드 → 추천 VOC → 저장 버튼입니다.<br>
+        · 추천 상담코드 카드 1건은 정확도(%) · 상담코드 · 분류(대 · 중 · 소 3단계)입니다. 정확도 순으로 3건을 보여 주고 1순위를 기본으로 선택하고, 선택한 카드는 라디오와 테두리로 표시합니다. 다른 카드를 누르면 선택이 바뀌고, 저장할 때 선택한 상담코드를 저장합니다. 상담코드 옆 <i data-ic="copy"></i>를 누르면 상담코드와 분류 경로를 복사합니다. 4건 이상이면 [더보기]로 최대 5건까지 펼칩니다([닫기]로 접기). <i data-ic="search"></i>는 '상담코드 선택' 창을 엽니다.<br>
+        · 상담 요약 카드는 상담사 / 고객 · 고객 요청내용 · 상담사 처리내용으로 나눠 보여 주고, 요청 · 처리 내용은 항목별 글머리로 씁니다. 요약은 최대 500자이며 직접 수정할 수 있습니다. 하단 [요약 생성]은 통화 중에도 누를 수 있고, 누를 때마다 다시 요약합니다.<br>
+        · 추천 VOC는 'VOC 유형 · 담당팀'으로 3건을 보여 주고 라디오로 1건을 고릅니다. 맞는 VOC가 없으면 [VOC 검색]으로 'VOC 검색' 창을 열어 직접 고릅니다.<br>
         · [저장 대기]는 저장 후 내 상태를 '대기중'으로, [저장 자리비움]은 '자리비움'으로 바꿉니다. 상담코드를 고르지 않으면 두 버튼이 비활성입니다. 저장 후 블록은 읽기 전용이 되고 복사 버튼은 계속 쓸 수 있습니다.
       </div>
     </div>
@@ -227,15 +262,38 @@
         </div>
       </div>
       <div class="col g1">
-        <div class="lg-lbl"><i data-ic="search"></i> 상담코드 선택 (Dialog)</div>
+        <div class="lg-lbl"><i data-ic="search"></i> 상담코드 선택 (Dialog) · 검색어 3자 이상 입력 → 부분 일치 드롭다운</div>
         <div class="dlg">
           <h5>상담코드 선택</h5>
-          <div style="display:flex;gap:6px"><span class="inp v dd" style="flex:1">상품</span><span class="inp v dd" style="flex:1">ISA</span></div>
-          <div class="inp v">ISA 한<i data-ic="search"></i></div>
-          <div class="cr on" style="grid-template-columns:16px 50px minmax(0,1fr)"><span class="rd"></span><span class="cd">C3012</span><span class="path">상품 &gt; ISA &gt; 비과세 한도 문의</span></div>
-          <div class="cr" style="grid-template-columns:16px 50px minmax(0,1fr)"><span class="rd"></span><span class="cd">C3015</span><span class="path">상품 &gt; ISA &gt; 납입 한도 문의</span></div>
-          <div class="hint">2자 이상 입력하면 검색합니다. 결과가 없으면 '검색 결과가 없습니다. 검색 조건을 변경해 주세요.'</div>
+          <div class="cs-sel3"><span class="inp dd">대분류 선택</span><span class="inp dd">중분류 선택</span><span class="inp dd">소분류 선택</span></div>
+          <div class="cs-q"><div class="inp v">비과세 한<i data-ic="search"></i></div>
+            <div class="cs-dd"><div class="it on"><b>C3012</b><span>상품 &gt; ISA &gt; <mark>비과세 한</mark>도 문의</span></div><div class="it"><b>C3021</b><span>상품 &gt; 연금저축 &gt; <mark>비과세 한</mark>도 초과 문의</span></div><div class="it"><b>T5104</b><span>세금 &gt; <mark>비과세 한</mark>도 &gt; 해외주식 양도세</span></div></div></div>
+          <div class="hint">· 대분류 → 중분류 → 소분류 순서로 고르면 그 분류의 상담코드만 남습니다. 중분류는 고른 대분류, 소분류는 고른 중분류의 목록입니다.<br>· 검색어를 3자 이상 입력하면 대 · 중 · 소 분류와 관계없이 분류명이 부분 일치하는 상담코드를 드롭다운으로 보여 줍니다. 글자를 더 입력할수록 일치하는 항목만 남고, 일치하는 부분은 강조합니다. 2자 이하는 조회하지 않습니다.<br>· 드롭다운에서 고르면 분류 Select에도 그 경로가 채워집니다. 결과가 없으면 '검색 결과가 없습니다. 검색 조건을 변경해 주세요.'</div>
           <div class="acts"><button class="btn">취소</button><button class="btn p">선택</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-top:14px;align-items:flex-start">
+      <div class="col" style="width:560px;flex:none">
+        <div class="lg-lbl">추천 VOC [VOC 검색] → VOC 검색 (Dialog · 상단 [<i data-ic="x"></i>]로 닫기)</div>
+        <div class="dlg vsd">
+          <div class="vsd-h"><h5>VOC 검색</h5><span class="ib sm" title="닫기"><i data-ic="x"></i></span></div>
+          <div class="inp v dd vsd-cb">상담 안내 오류</div>
+          <div class="vsd-sel"><div class="vsd-kv"><span>VOC 유형</span><b>안내 불만 &gt; 상담 안내 &gt; 상담 안내 오류</b></div><div class="vsd-kv"><span>담당팀</span><b>고객지원팀</b></div></div>
+          <div class="vsd-kv"><span>고객 이름</span><b>김민준</b></div>
+          <div class="vsd-ct"><b>VOC 내용</b><div class="ta2 ph">VOC 내용 입력</div></div>
+          <div class="acts"><button class="btn lg p" disabled>저장</button></div>
+          <i class="n" data-k="46"></i>
+        </div>
+      </div>
+      <div class="card g1" style="box-shadow:none">
+        <h4>VOC 검색 동작</h4>
+        <div class="hint" style="font-size:12px;line-height:1.75;color:#334155">
+          · 검색창(Combobox)에 VOC 유형을 입력해 고르면, 아래에 VOC 유형(대 &gt; 중 &gt; 소)과 담당팀을 보여 줍니다. placeholder는 'VOC 유형 검색'입니다.<br>
+          · 고객 이름은 현재 통화 고객으로 채우고 수정하지 않습니다.<br>
+          · VOC 유형을 고르고 VOC 내용을 입력하면 [저장]이 활성화됩니다. [저장]을 누르면 창을 닫고 고른 VOC를 추천 VOC에서 선택한 상태로 반영합니다(확인 필요: VOC 검색 [저장] 동작).<br>
+          · 상단 <i data-ic="x"></i>를 누르면 반영하지 않고 창을 닫습니다.<br>
+          · 고른 VOC는 [저장 대기] · [저장 자리비움]으로 후처리를 저장할 때 내부 상담시스템에 등록합니다.
         </div>
       </div>
     </div>
@@ -283,20 +341,19 @@
         <div class="ctb" data-gen="1"></div>
         <div class="wsx">
           <div class="wl">
-            <div class="wtt"><h3>실시간 대화</h3><span class="bw">IB</span><span class="sp"></span><span class="ib sm" title="대화 내용 검색"><i data-ic="search"></i></span></div>
+            <div class="wtt"><h3>실시간 대화</h3><span class="dirb"><i data-ic="aup"></i>IB</span><span class="sosb" title="리더에게 SOS 요청"><i data-ic="sos"></i>SOS</span><span class="sp"></span><span class="ib sm" title="대화 내용 검색"><i data-ic="search"></i></span></div>
             <div class="stt">
-              <div class="u"><span class="nm">김*준 고객님</span><div class="ba"><div class="ub">ISA 계좌를 새로 만들고 싶은데요, 월배당 ETF도 담을 수 있나요?</div></div><span class="tm">오전 10:30</span></div>
+              <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">ISA 계좌를 새로 만들고 싶은데요, 월배당 ETF도 담을 수 있나요?</div></div><span class="tm">오전 10:30</span></div>
               <div class="u a"><div class="ba"><div class="ub">네, ISA는 국내 상장 ETF에 투자할 수 있고 월배당 ETF도 담을 수 있습니다.</div></div><span class="tm">오전 10:30</span></div>
-              <div class="u"><span class="nm">김*준 고객님</span><div class="ba"><div class="ub">세제혜택은 어떻게 되나요?</div></div><span class="tm">오전 10:31</span></div>
+              <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">세제혜택은 어떻게 되나요?</div></div><span class="tm">오전 10:31</span></div>
             </div>
             <div class="rsz"></div>
-            <div class="brow"><span class="clt">대화 클리핑 <em>2</em></span><span class="sp"></span><span class="btn" title="상담 요약을 다시 생성합니다">요약 생성</span><span class="btn">VOC 조회</span></div>
-            <div class="cmb"><div class="ln"><span>“지난번에 수수료가 많이 빠졌던데, 이번엔 손해 볼 일 없는 거죠?”</span><span class="hint">고객 · 10:31:30</span><i data-ic="x"></i></div><div class="ln"><span>“ISA 계좌를 새로 만들고 싶은데요, 월배당 ETF도 담을 수 있나요?”</span><span class="hint">고객 · 10:30:20</span><i data-ic="x"></i></div></div>
+            <div class="brow"><span class="sp"></span><span class="btn" title="시작 발화와 끝 발화를 골라 그 사이 대화를 클리핑합니다">대화 클리핑</span><span class="btn" title="상담 요약을 다시 생성합니다">요약 생성</span><span class="btn">VOC 조회</span></div>
           </div>
           <div class="wr">
             <div class="wtt"><h3>상담 어시스트</h3><span class="bw g">자동 추천 ON</span><span class="sp"></span><span class="ib sm" title="지식 추천 설정"><i data-ic="gear"></i></span></div>
             <div class="qal">
-              <div class="qai kq2"><span class="lb"><i data-ic="bulb"></i>실시간 지식 추천<span class="tm">오전 10:30</span><span class="ib sm on" title="책갈피"><i data-ic="bm"></i></span></span><div class="qb2"><b class="kt2">ISA 비과세 한도</b><div>일반형은 순이익 200만 원까지, 서민형·농어민형은 400만 원까지 비과세입니다.</div></div></div>
+              <div class="qai"><span class="lb"><i data-ic="spark"></i>고객 발화 의도</span><div class="qb2">ISA 세제혜택은 어떻게 되나요?</div></div><div class="qai kq2"><span class="lb"><i data-ic="bulb"></i>실시간 지식 추천<span class="tm">오전 10:30</span><span class="ib sm on" title="책갈피"><i data-ic="bm"></i></span></span><div class="qans"><b class="kt2">ISA 비과세 한도</b><h6>스크립트</h6><p>“고객님, ISA 일반형은 순이익 200만 원까지 비과세입니다.”</p><h6>추천 답변</h6><p>일반형은 순이익 200만 원까지, 서민형·농어민형은 400만 원까지 비과세입니다.</p></div></div>
               <div class="sonner" style="align-self:flex-start"><i data-ic="ccheck"></i>책갈피에 저장했습니다.</div>
             </div>
             <div class="sbx"><span class="ph">상담 중 궁금한 내용을 입력해 주세요</span><div class="row2"><span class="sp"></span><span class="sel2"><span>자동 선택</span><i data-ic="chev"></i></span><span class="ibp"><i data-ic="send"></i></span></div></div>
@@ -306,21 +363,21 @@
       </div>
 <div class="spop scr" style="right:16px;top:64px">
 <div class="hd"><b>화면 설정</b><span>변경 즉시 적용되며 사용자별로 저장됩니다.</span></div><hr>
-<div class="sec"><div class="hd"><b>영역 표시</b><span>끄면 해당 영역을 숨깁니다</span></div><div class="swr"><span>대화 클리핑</span><span class="swd on"></span></div><div class="swr"><span>상담 어시스트</span><span class="swd on"></span></div><span class="hint">기본값은 모두 ON입니다. 끄면 해당 영역이 화면에서 사라지고, 다시 켜면 그대로 돌아옵니다.</span></div><hr>
+<div class="sec"><div class="hd"><b>영역 표시</b><span>끄면 해당 영역을 숨깁니다</span></div><div class="swr"><span>상담 어시스트</span><span class="swd on"></span></div><span class="hint">기본값은 모두 ON입니다. 끄면 해당 영역이 화면에서 사라지고, 다시 켜면 그대로 돌아옵니다.</span></div><hr>
 <div class="sec"><div class="hd"><b>영역 배치</b><span>드래그해서 좌우 순서를 바꿉니다</span></div><div class="ord"><span class="no">1</span><i data-ic="grip"></i>실시간 대화</div><div class="ord"><span class="no">2</span><i data-ic="grip"></i>상담 어시스트</div></div><hr>
 <div class="sec" style="gap:4px"><div class="hd"><b>영역 크기</b></div><div class="szr"><i data-ic="lr"></i><div><b>가로폭</b><span>영역 사이 세로 경계선을 좌우로 드래그합니다</span></div></div><div class="szr"><i data-ic="ud"></i><div><b>세로폭</b><span>영역 안 가로 경계선을 위아래로 드래그합니다</span></div></div></div><hr>
 <div class="sec"><div class="hd"><b>글자 크기</b><span>실시간 대화 · 상담 어시스트의 글자 크기를 바꿉니다</span></div><div class="seg" style="flex:none"><span>작게</span><span class="on">보통</span><span>크게</span></div><div class="swr"><span>반응형 모드 (창 크기에 따라 영역 자동 숨김)</span><span class="swd on"></span></div></div>
 <button class="btn lg" style="width:100%">기본값으로 되돌리기</button><i class="n r" data-k="63"></i></div>
     </div></div>
     <div class="row" style="margin-top:14px;align-items:flex-start">
-      <div class="col" style="width:402px;flex:none"><div class="lg-lbl">[미니 팝업 열기] → 미니 팝업 (별도 창)</div><div class="win"><div class="wtb"><span>AI 상담어드바이저 - 미니 팝업</span><span class="sp"></span><i data-ic="x"></i></div><div class="wbd"><div style="display:flex;align-items:center;gap:8px"><span class="st talk"><i></i>통화중</span><span class="hint">02:05 · 김*준 고객님</span></div>
-              <div class="qai kq2"><span class="lb"><i data-ic="bulb"></i>실시간 지식 추천<span class="tm">오전 10:30</span><span class="ib sm" title="책갈피"><i data-ic="bm"></i></span></span><div class="qb2"><b class="kt2">ISA 비과세 한도</b><div>일반형은 순이익 200만 원까지 비과세입니다.</div></div></div>
+      <div class="col" style="width:402px;flex:none"><div class="lg-lbl">[미니 팝업 열기] → 미니 팝업 (별도 창)</div><div class="win"><div class="wtb"><span>AI 상담어드바이저 - 미니 팝업</span><span class="sp"></span><i data-ic="x"></i></div><div class="wbd"><div style="display:flex;align-items:center;gap:8px"><span class="st talk"><i></i>통화중</span><span class="hint">02:05 · 김민준 고객님</span></div>
+              <div class="qai"><span class="lb"><i data-ic="spark"></i>고객 발화 의도</span><div class="qb2">ISA 세제혜택은 어떻게 되나요?</div></div><div class="qai kq2"><span class="lb"><i data-ic="bulb"></i>실시간 지식 추천<span class="tm">오전 10:30</span><span class="ib sm" title="책갈피"><i data-ic="bm"></i></span></span><div class="qans"><b class="kt2">ISA 비과세 한도</b><h6>스크립트</h6><p>“고객님, ISA 일반형은 순이익 200만 원까지 비과세입니다.”</p><h6>추천 답변</h6><p>일반형은 순이익 200만 원까지 비과세입니다.</p></div></div>
               <div class="wc"><div class="wc-h"><i data-ic="alert"></i>오안내 유의<span class="sp"></span><span class="tm" title="누르면 해당 발화로 이동">오전 10:31</span></div><div class="wc-x"><b>X</b><span>일반형 기준 순이익 400만 원까지 비과세입니다.</span><span></span></div><div class="wc-o"><b>O</b><span>일반형 비과세 한도는 순이익 200만 원입니다.</span><span class="lnk" title="근거 지식 추천 카드로 이동"><i data-ic="link"></i></span></div></div></div><i class="n" data-k="62"></i><i class="n r b" data-k="60"></i></div><div class="hint">별도 창으로 열리고 항상 다른 창 위에 표시됩니다. 그래서 '화면 최상단 고정' 버튼은 두지 않습니다(No 60).</div></div>
       <div class="col" style="width:425px;flex:none"><div class="lg-lbl">프로필 메뉴 [의견 보내기] → Dialog (와이어프레임 프로필 2-2)</div><div class="dlg" style="padding:24px;gap:16px"><div><h5 style="line-height:22px">의견 보내기</h5><p style="margin-top:6px">보낸 의견은 리더어드바이저의 개선 이행에 접수됩니다.</p></div>
   <div class="fs"><div class="lbl">유형<em>*</em></div><div class="in2"><span>기능 개선</span><i data-ic="chev"></i></div></div>
   <div class="fs"><div class="lbl">내용<em>*</em></div><div class="ta3">오안내 유의 카드에서 근거 문서 원문으로 바로 가는 버튼이 있으면 좋겠습니다.</div><div class="hint" style="text-align:right">39자</div></div>
   <div class="acts" style="margin-top:0"><button class="btn lg">취소</button><button class="btn lg p">보내기</button></div><i class="n" data-k="64"></i></div></div>
-      <div class="card g1" style="box-shadow:none"><h4>화면 설정 동작 (와이어프레임 화면 설정 1-1 ~ 3-1)</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· [화면 설정]을 누르면 버튼 아래에 팝오버가 열립니다. 변경은 즉시 적용되고 사용자별로 저장됩니다.<br>· 영역 표시: 대화 클리핑 · 상담 어시스트를 켜고 끕니다. 기본값은 모두 ON입니다. 메모는 LNB [메모]의 스티키 메모로 따로 엽니다.<br>· 영역 배치: 실시간 대화 · 상담 어시스트 순서를 끌어서 바꿉니다.<br>· 영역 크기: 세로 경계선을 좌우로, 가로 경계선을 위아래로 끌어서 조정합니다.<br>· 글자 크기(작게 · 보통 · 크게)와 반응형 모드(창 크기에 따라 영역 자동 숨김)도 같은 팝오버에서 정합니다.<br>· [기본값으로 되돌리기]로 처음 상태로 돌립니다. 저장에 실패하면 Sonner로 알립니다.</div></div>
+      <div class="card g1" style="box-shadow:none"><h4>화면 설정 동작 (와이어프레임 화면 설정 1-1 ~ 3-1)</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· [화면 설정]을 누르면 버튼 아래에 팝오버가 열립니다. 변경은 즉시 적용되고 사용자별로 저장됩니다.<br>· 영역 표시: 상담 어시스트를 켜고 끕니다. 기본값은 ON입니다. 메모는 LNB [메모]의 스티키 메모로 따로 엽니다.<br>· 영역 배치: 실시간 대화 · 상담 어시스트 순서를 끌어서 바꿉니다.<br>· 영역 크기: 세로 경계선을 좌우로, 가로 경계선을 위아래로 끌어서 조정합니다.<br>· 글자 크기(작게 · 보통 · 크게)와 반응형 모드(창 크기에 따라 영역 자동 숨김)도 같은 팝오버에서 정합니다.<br>· [기본값으로 되돌리기]로 처음 상태로 돌립니다. 저장에 실패하면 Sonner로 알립니다.</div></div>
     </div>
     <div class="row" style="margin-top:14px;align-items:flex-start">
       <div class="col" style="width:360px;flex:none"><div class="lg-lbl">알림 목록 상단 [알림 설정] → 알림 설정</div><div class="spop sst" style="">
@@ -435,21 +492,20 @@
         <div class="ctb" data-gen="1"></div>
         <div class="wsx">
           <div class="wl">
-            <div class="wtt"><h3>실시간 대화</h3><span class="bw">IB</span><span class="sp"></span><span class="ib sm" title="대화 내용 검색"><i data-ic="search"></i></span></div>
+            <div class="wtt"><h3>실시간 대화</h3><span class="dirb"><i data-ic="aup"></i>IB</span><span class="sosb" title="리더에게 SOS 요청"><i data-ic="sos"></i>SOS</span><span class="sp"></span><span class="ib sm" title="대화 내용 검색"><i data-ic="search"></i></span></div>
             <div class="stt">
-              <div class="u"><span class="nm">김*준 고객님</span><div class="ba"><div class="ub">또 그러면 금감원에 신고할 거예요.</div></div><span class="tm">오전 10:32</span></div>
+              <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">또 그러면 금감원에 신고할 거예요.</div></div><span class="tm">오전 10:32</span></div>
               <div class="u a"><div class="ba"><div class="ub">불편을 드려 정말 죄송합니다. 정확한 기준을 다시 확인해 안내드리겠습니다.</div></div><span class="tm">오전 10:32</span></div>
               <div class="cm"><div class="snd"><b>박지훈</b><span>계좌상담1팀</span></div><div class="cb"><p>사과 멘트를 먼저 하고 일반형 200만 원 기준으로 정정해 주세요. 민원 응대 스크립트를 첨부합니다.</p><div class="af"><i data-ic="doc"></i><span>민원응대스크립트_ISA.pdf</span><span class="ib sm" title="다운로드"><i data-ic="dl"></i></span></div><div class="ra"><span class="btn s">추가 요청<i class="n r" data-k="67"></i></span></div><i class="n r" data-k="66"></i></div><span class="tm">오전 10:33</span></div>
               <div class="u a"><div class="ba"><div class="ub">고객님, 일반형 ISA 비과세 한도는 순이익 200만 원입니다. 앞서 잘못 안내드려 죄송합니다.</div></div><span class="tm">오전 10:34</span></div>
             </div>
             <div class="rsz"></div>
-            <div class="brow"><span class="clt">대화 클리핑 <em>2</em></span><span class="sp"></span><span class="btn" title="상담 요약을 다시 생성합니다">요약 생성</span><span class="btn">VOC 조회</span></div>
-            <div class="cmb"><div class="ln"><span>“지난번에 수수료가 많이 빠졌던데, 이번엔 손해 볼 일 없는 거죠?”</span><span class="hint">고객 · 10:31:30</span><i data-ic="x"></i></div><div class="ln"><span>“ISA 계좌를 새로 만들고 싶은데요, 월배당 ETF도 담을 수 있나요?”</span><span class="hint">고객 · 10:30:20</span><i data-ic="x"></i></div></div>
+            <div class="brow"><span class="sp"></span><span class="btn" title="시작 발화와 끝 발화를 골라 그 사이 대화를 클리핑합니다">대화 클리핑</span><span class="btn" title="상담 요약을 다시 생성합니다">요약 생성</span><span class="btn">VOC 조회</span></div>
           </div>
           <div class="wr">
             <div class="wtt"><h3>상담 어시스트</h3><span class="bw g">자동 추천 ON</span><span class="sp"></span><span class="ib sm" title="지식 추천 설정"><i data-ic="gear"></i></span></div>
             <div class="qal">
-              <div class="qai kq2"><span class="lb"><i data-ic="bulb"></i>실시간 지식 추천<span class="tm">오전 10:30</span><span class="ib sm" title="책갈피"><i data-ic="bm"></i></span></span><div class="qb2"><b class="kt2">ISA 비과세 한도</b><div>일반형은 순이익 200만 원까지, 서민형·농어민형은 400만 원까지 비과세입니다.</div></div></div>
+              <div class="qai"><span class="lb"><i data-ic="spark"></i>고객 발화 의도</span><div class="qb2">ISA 세제혜택은 어떻게 되나요?</div></div><div class="qai kq2"><span class="lb"><i data-ic="bulb"></i>실시간 지식 추천<span class="tm">오전 10:30</span><span class="ib sm" title="책갈피"><i data-ic="bm"></i></span></span><div class="qans"><b class="kt2">ISA 비과세 한도</b><h6>스크립트</h6><p>“고객님, ISA 일반형은 순이익 200만 원까지 비과세입니다.”</p><h6>추천 답변</h6><p>일반형은 순이익 200만 원까지, 서민형·농어민형은 400만 원까지 비과세입니다.</p></div></div>
               <div class="wc"><div class="wc-h"><i data-ic="alert"></i>오안내 유의<span class="sp"></span><span class="tm" title="누르면 해당 발화로 이동">오전 10:31</span></div><div class="wc-x"><b>X</b><span>일반형 기준 순이익 400만 원까지 비과세입니다.</span><span></span></div><div class="wc-o"><b>O</b><span>일반형 ISA 비과세 한도는 순이익 200만 원입니다. 400만 원은 서민형·농어민형 기준입니다.</span><span class="lnk" title="근거 지식 추천 카드로 이동"><i data-ic="link"></i></span></div></div>
             </div>
             <div class="sbx"><span class="ph">상담 중 궁금한 내용을 입력해 주세요</span><div class="row2"><span class="sp"></span><span class="sel2"><span>자동 선택</span><i data-ic="chev"></i></span><span class="ibp"><i data-ic="send"></i></span></div></div>

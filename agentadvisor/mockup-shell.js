@@ -109,7 +109,7 @@
   });
   /* 고객 탭 (와이어프레임 실시간대화 [A2] Tabs): [핀] 고객명 [X] · 최대 5개 */
   document.querySelectorAll('.ctb[data-gen]').forEach(function (el) {
-    var has = flags(el), T = [['김*준', 0], ['이*영', 1], ['박*호', 0]];
+    var has = flags(el), T = [['김민준', 0], ['이지영', 1], ['박민호', 0]];
     el.innerHTML = '<div class="ctabs">' + T.map(function (t, i) {
       return '<span class="ct' + (i === 0 ? ' on' : '') + '"><span class="pn2' + (t[1] ? ' on' : '') + '" title="' + (t[1] ? '고정 해제' : '탭 고정') + '">' + ic('pin') +
         (i === 1 && has('pin') ? bd('31', 'r') : '') + '</span><span>' + t[0] + '</span><span class="pn2" title="탭 닫기">' + ic('x') + '</span></span>';
