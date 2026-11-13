@@ -1011,3 +1011,9 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 .ntgl > span:last-child { border-radius:0 8px 8px 0; } .ntgl > span.on { background:#F1F5F9; }
 .ntg2 { display:flex; align-items:center; gap:8px; flex-wrap:wrap; } .lbl2 { font-size:14px; font-weight:500; margin-right:4px; } .lbl2 em { color:var(--rd); font-style:normal; }
 .nsel { box-sizing:border-box; display:inline-flex; align-items:center; gap:8px; height:36px; padding:8px 12px; min-width:150px; background:#FFFFFF; border:1px solid #E2E8F0; box-shadow:0px 1px 2px rgba(0,0,0,0.05); border-radius:8px; font-size:14px; } .nsel b { flex:1; font-weight:400; color:#020617; } .nsel svg.i { color:#64748B; }
+/* 미니 팝업: 실시간 대화 이력 · [현재 상담] · [직전 상담] 탭 */
+.win.mn .wbd { gap:12px; }
+.mn-hd { display:flex; align-items:center; gap:8px; }
+.ctabs.mn-tabs { display:flex; width:100%; box-sizing:border-box; }
+.mn-tabs .ct { flex:1 1 0; width:auto; min-width:0; }
+.stt.mn-stt { gap:10px; }
