@@ -61,6 +61,8 @@ window.DSICON = {
     chevsl: '<path d="m11 17-5-5 5-5"/><path d="m18 17-5-5 5-5"/>',
     chevsr: '<path d="m6 17 5-5-5-5"/><path d="m13 17 5-5-5-5"/>',
     aup: '<path d="m5 12 7-7 7 7"/><path d="M12 19V5"/>',
+    key: '<path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5"/>',
+    lchk: '<path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/>',
     info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>',
     sos: '<path d="M6 18v-6a6 6 0 0 1 12 0v6"/><path d="M3 21h18"/><path d="M3 18h18"/><path d="M12 2.25v1.5"/><path d="m4.5 4.5 1.06 1.06"/><path d="m19.5 4.5-1.06 1.06"/>',
     fdig: '<path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><rect width="4" height="6" x="2" y="12" rx="2"/><path d="M10 12h2v6"/><path d="M10 18h4"/>',

@@ -63,7 +63,9 @@
       ['조회', [['hist', 'tsearch', '상담 이력 조회'], ['issue', 'alert', '이슈 콜 목록'], ['bm', 'bm', '상담 어시스트 책갈피']]]
     ]
   };
-  var OPS = [['users', '사용자 관리'], ['roles', '역할 관리'], ['audit', '감사로그']];
+  var OPS = [['users', '사용자 관리', 'users'], ['roles', '역할 관리', 'key'], ['audit', '감사로그', 'lchk']];
+  /* 운영 관리: 아래로 펼치지 않고 퀵 메뉴처럼 오른쪽 메뉴 3개 (nav data-op="1"이면 열린 상태) */
+  function OPOP(cur) { return '<div class="qpop opop" style="left:calc(100% + 16px);bottom:0;width:200px;gap:2px;padding:6px">' + OPS.map(function (o) { return '<div class="qrow' + (o[0] === cur ? ' on' : '') + '">' + ic(o[2]) + '<span class="nm">' + o[1] + '</span></div>'; }).join('') + '</div>'; }
   document.querySelectorAll('nav.asb').forEach(function (el) {
     var on = el.dataset.on, has = flags(el), d = el.dataset;
     function item(key, icon, label, cls, extra) { return '<div class="nv' + (cls || '') + (on === key ? ' on' : '') + '">' + (icon ? ic(icon, 1) : '') + '<span>' + label + '</span>' + (extra || '') + '</div>'; }
@@ -74,14 +76,13 @@
       g[1].forEach(function (m) { h += item(m[0], m[1], m[2], '', m[3] ? '<span class="sp"></span>' + ic('chev') : '') + (m[3] ? subs(m[3]) : ''); });
     });
     h += '<span class="grow"></span><div class="ft">';
-    h += '<div class="nv' + (d.mm ? ' on' : '') + '" title="스티키 메모가 화면 위에 팝업됩니다">' + ic('pencil', 1) + '<span>메모</span>' + (has('mm') && PORTAL === 'A' ? bd('44', 'r') : '') + '</div>';
+    h += '<div class="nv' + (d.mm ? ' on' : '') + '" title="스티키 메모를 화면 위에 엽니다">' + ic('pencil', 1) + '<span>메모</span>' + (has('mm') && PORTAL === 'A' ? bd('44', 'r') : '') + '</div>';
     h += '<div class="nv' + (d.qm ? ' on' : '') + '">' + ic('link', 1) + '<span>퀵 메뉴</span>' + (has('qm') ? bd('65', 'r') : '') + (d.qm ? QPOP : '') + '</div>';
     h += '<div class="nv' + (d.nt ? ' on' : '') + '" title="공지사항 목록으로 이동합니다">' + ic('mega', 1) + '<span>공지사항</span><span class="nvc">2</span>' + (has('nt') ? bd(PORTAL === 'L' ? '12' : '61', 'r') : '') + '</div>';
     h += '<div class="nv' + (d.al ? ' on' : '') + '">' + ic('bell', 1) + '<span>알림</span><span class="nvc">3</span>' + (has('al') ? bd(PORTAL === 'L' ? '13' : '61', 'r') : '') + '</div>';
     if (IA.admin) {
       var opsOn = OPS.some(function (o) { return o[0] === on; });
-      h += item('ops', 'ucog', '운영 관리', '', '<span class="sp"></span>' + ic('chev'));
-      if (opsOn) h += subs(OPS);
+      h += '<div class="nv' + (opsOn || d.op ? ' on' : '') + '" title="오른쪽에 운영 관리 메뉴를 엽니다">' + ic('ucog', 1) + '<span>운영 관리</span><span class="sp"></span>' + ic('chevr') + (d.op ? OPOP(on) : '') + '</div>';
     }
     h += '</div>';
     h += '<div class="prof' + (d.pm ? ' on' : '') + '"><span class="av">' + IA.user[0] + '</span><div style="min-width:0"><b>' + IA.user[1] + '</b><span class="hint">' + IA.user[2] + '</span><span class="hint">' + IA.user[3] + '</span></div><span class="sp"></span>' + ic('updown') +
@@ -89,19 +90,19 @@
     el.innerHTML = h;
   });
 
-  /* 상단 바 (DS Common / Header): [LNB 펼치기·접기] | 브레드크럼 | (상담사) 내 상태 … 미니 팝업 · 화면 설정 · 코칭 요청
+  /* 상단 바 (DS Common / Header): [LNB 펼치기·접기] | 브레드크럼 | (상담사) 내 상태 … 미니 어드바이저 · 화면 설정 · 코칭 요청
      data-st(talk|wait|after|none: 상태·상담사 버튼 없음) · data-tm · data-ttl(> 로 구분) · data-bd(st,pip,set,coach). 직접 넣은 버튼은 오른쪽 끝에 붙습니다. */
   document.querySelectorAll('.tnb[data-st]').forEach(function (el) {
     var has = flags(el), st = el.dataset.st, off = st !== 'talk' ? ' ghost' : '';
     var h = '<span class="ib sm hb" title="메뉴 접기/펼치기">' + ic('panel') + '</span><span class="dv sm"></span>';
-    h += '<nav class="bc" aria-label="breadcrumb">' + (el.dataset.ttl || '상담 어드바이저').split('>').map(function (x, i, a) { return (i < a.length - 1 ? '<span class="bci">' : '<b class="ttl">') + x.trim() + (i < a.length - 1 ? '</span><span class="bcs">›</span>' : '</b>'); }).join('') + '</nav>';
+    h += '<nav class="bc" aria-label="breadcrumb">' + (el.dataset.ttl || '상담 어드바이저').split('>').map(function (x, i, a) { return (i < a.length - 1 ? '<span class="bci">' : '<b class="ttl">') + x.trim() + (i < a.length - 1 ? '</span><span class="bcs">›</span>' : '</b>'); }).join('') + '</nav>' + (el.dataset.tip ? '<span class="ifo" data-tip="' + el.dataset.tip.replace(/"/g, '&quot;') + '" aria-label="안내" tabindex="0">' + ic('info') + '</span>' : '');
     if (st !== 'none') {
       var S = { talk: '통화중', wait: '대기중', away: '자리비움', after: '후처리' }[st];
       h += '<span class="dv"></span><div class="mys" title="통화 상태: 통화중 · 대기중 · 자리비움 · 후처리"><span class="st ' + st + '"><i></i>' + S + '</span>' + (el.dataset.tm ? '<span class="tm">' + el.dataset.tm + '</span>' : '') + (has('st') ? bd('34') : '') + '</div>';
     }
     h += '<span class="sp"></span>';
     if (st !== 'none') {
-      h += '<span class="btn" title="별도 창으로 열리며 항상 다른 창 위에 표시됩니다">' + ic('pip') + '미니 팝업 열기' + (has('pip') ? bd('62') + bd('60', 'r b') : '') + '</span>';
+      h += '<span class="btn" title="별도 창으로 열리며 항상 다른 창 위에 표시됩니다">' + ic('pip') + '미니 어드바이저 열기' + (has('pip') ? bd('62') + bd('60', 'r b') : '') + '</span>';
       h += '<span class="btn">' + ic('layout') + '화면 설정' + (has('set') ? bd('63') : '') + '</span>';
       h += '<span class="btn p' + off + '">' + ic('headset') + '코칭 요청' + (has('coach') ? bd('67') : '') + '</span>';
     }
