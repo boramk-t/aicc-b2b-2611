@@ -74,9 +74,9 @@
       g[1].forEach(function (m) { h += item(m[0], m[1], m[2], '', m[3] ? '<span class="sp"></span>' + ic('chev') : '') + (m[3] ? subs(m[3]) : ''); });
     });
     h += '<span class="grow"></span><div class="ft">';
+    h += '<div class="nv' + (d.mm ? ' on' : '') + '" title="스티키 메모가 화면 위에 팝업됩니다">' + ic('pencil', 1) + '<span>메모</span>' + (has('mm') && PORTAL === 'A' ? bd('44', 'r') : '') + '</div>';
     h += '<div class="nv' + (d.qm ? ' on' : '') + '">' + ic('link', 1) + '<span>퀵 메뉴</span>' + (has('qm') ? bd('65', 'r') : '') + (d.qm ? QPOP : '') + '</div>';
     h += '<div class="nv' + (d.nt ? ' on' : '') + '" title="공지사항 목록으로 이동합니다">' + ic('mega', 1) + '<span>공지사항</span><span class="nvc">2</span>' + (has('nt') ? bd(PORTAL === 'L' ? '12' : '61', 'r') : '') + '</div>';
-    if (PORTAL === 'A') h += '<div class="nv' + (d.mm ? ' on' : '') + '" title="스티키 메모가 화면 위에 팝업됩니다">' + ic('pencil', 1) + '<span>메모</span>' + (has('mm') ? bd('44', 'r') : '') + '</div>';
     h += '<div class="nv' + (d.al ? ' on' : '') + '">' + ic('bell', 1) + '<span>알림</span><span class="nvc">3</span>' + (has('al') ? bd(PORTAL === 'L' ? '13' : '61', 'r') : '') + '</div>';
     if (IA.admin) {
       var opsOn = OPS.some(function (o) { return o[0] === on; });

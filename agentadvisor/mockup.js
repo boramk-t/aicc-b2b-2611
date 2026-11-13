@@ -74,4 +74,20 @@
     var cnt = document.getElementById('cover-count');
     if (cnt) cnt.textContent = '이 목업에 붙인 기능 ' + shown + '건 / 전체 ' + SPEC.length + '건 (목업 제외 ' + excluded + '건 · 나머지는 ' + other.name + '에 있습니다)';
   }
+  /* 영역 배치 좌우 바꾸기: 화면 설정 [⇄] 클릭 또는 슬롯 끌어 놓기 → 같은 화면의 실시간 대화 · 상담 어시스트 좌우 교체 */
+  function swapArea(box) {
+    var b = box.querySelectorAll('.slot b'); if (b.length < 2) return;
+    var x = b[0].textContent; b[0].textContent = b[1].textContent; b[1].textContent = x;
+    var ab = box.closest('.ab'); if (ab) ab.classList.toggle('swp-on');
+  }
+  document.querySelectorAll('.spop .slots').forEach(function (box) {
+    var sw = box.querySelector('.swp'); if (sw) sw.addEventListener('click', function () { swapArea(box); });
+    box.querySelectorAll('.slot').forEach(function (s) {
+      s.addEventListener('dragstart', function (e) { e.dataTransfer.setData('text/plain', 'slot'); s.classList.add('drag'); });
+      s.addEventListener('dragend', function () { s.classList.remove('drag'); });
+      s.addEventListener('dragover', function (e) { e.preventDefault(); s.classList.add('over'); });
+      s.addEventListener('dragleave', function () { s.classList.remove('over'); });
+      s.addEventListener('drop', function (e) { e.preventDefault(); s.classList.remove('over'); if (!s.classList.contains('drag')) swapArea(box); });
+    });
+  });
 })();

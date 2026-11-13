@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=1480" />
 <title>대신증권 AI 상담어드바이저 · 넘버링 목업</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-<link rel="stylesheet" href="mockup.css" />
+<link rel="stylesheet" href="mockup.css?v=20261113" />
 </head>
 <body data-portal="A">
 <div class="doc">
@@ -13,7 +13,7 @@
     <h1>대신증권 AI 상담어드바이저 · 넘버링 목업</h1>
     <p>상담직원 화면 기능을 목업으로 표현하고, 각 화면 요소에 기능 목록의 No를 배지로 붙였습니다. 화면마다 아래에 넘버링 매핑표가 있고, 문서 끝에 전체 기능 목록(No 1~77, 24가 두 행이라 78행)과 목업 위치를 정리했습니다.</p>
     <p>디자인은 2026 U+AICC 디자인시스템(대신증권)을 따릅니다. 화면은 Figma 와이어프레임 '기획-상담어드바이저'를 기준으로 통일했습니다(상담 어드바이저 · 실시간대화 · 오안내 · 상담요약 v2 · 관리자 코칭 요청 · 화면 설정 · 책갈피 · 퀵메뉴 · 프로필). 같은 기능은 모든 화면에서 같은 컴포넌트로 그렸습니다.</p>
-    <p>메뉴는 I.A(상담사: 상담 어드바이저 · 상담 이력 조회 · 이슈 콜 목록 · 상담 어시스트 책갈피, LNB 공통: 퀵 메뉴 · 공지사항 · 알림)를 따릅니다. 관리자 화면 기능(No 1~29, 72, 74, 76, 77)은 리더어드바이저 목업에 있고, No 11(별도 STT 관리 메뉴)과 No 29(BE 기능)는 목업에서 뺐습니다. 두 포털에 모두 해당하는 기능(17, 30, 48, 53, 68~71, 73, 75)은 양쪽에 붙였습니다. 기준일 2026.11.07, 값은 모두 예시입니다.</p>
+    <p>메뉴는 I.A(상담사: 상담 어드바이저 · 상담 이력 조회 · 이슈 콜 목록 · 상담 어시스트 책갈피, LNB 공통: 메모 · 퀵 메뉴 · 공지사항 · 알림)를 따릅니다. 관리자 화면 기능(No 1~29, 72, 74, 76, 77)은 리더어드바이저 목업에 있고, No 11(별도 STT 관리 메뉴)과 No 29(BE 기능)는 목업에서 뺐습니다. 두 포털에 모두 해당하는 기능(17, 30, 48, 53, 68~71, 73, 75)은 양쪽에 붙였습니다. 기준일 2026.11.07, 값은 모두 예시입니다.</p>
     <span class="legend-hint"><i class="n in">12</i> 화면 기능 번호 <i class="n in be">68</i> 분석 엔진(BE) 기능 · 결과가 보이는 위치에 표시</span>
     <p id="cover-count" class="hint" style="margin-top:8px"></p>
     <div class="toc">
@@ -52,7 +52,7 @@
               <div class="nmw"><span class="nmsg"><i data-ic="adown"></i>아래로<i class="n r" data-k="38"></i></span></div>
             </div>
             <div class="rsz"></div>
-            <div class="brow"><span class="sp"></span><span class="btn" title="시작 발화와 끝 발화를 골라 그 사이 대화를 클리핑합니다">대화 클리핑<i class="n" data-k="53"></i></span><span class="btn" title="상담 요약 · 상담코드는 통화가 종료되면 생성됩니다.">요약 생성<i class="n" data-k="49"></i></span><span class="btn">VOC 조회<i class="n r" data-k="46"></i></span></div>
+            <div class="brow"><span class="sp"></span><span class="btn" title="시작 발화와 끝 발화를 골라 그 사이 대화를 클리핑합니다">대화 클리핑<i class="n" data-k="53"></i></span><span class="btn" title="상담 요약 · 상담코드는 통화가 종료되면 생성됩니다.">요약 생성<i class="n" data-k="49"></i></span><span class="btn">VOC 조회</span></div>
           </div>
           <div class="wr">
             <div class="wtt"><h3>상담 어시스트</h3><span class="bw g">자동 추천 ON</span><span class="sp"></span><span class="ib sm" title="지식 추천 설정"><i data-ic="gear"></i><i class="n r" data-k="54"></i></span></div>
@@ -75,12 +75,12 @@
 <div class="mg sel"><div class="mgh">일반<span class="hint">3</span><span class="sp"></span><span class="ib sm on" title="선택된 그룹 · NER 태그가 이 그룹에 추가됩니다"><i data-ic="check"></i></span><span class="ib sm" title="그룹 접기"><i data-ic="cu"></i></span></div><div class="mi"><i data-ic="grip"></i><span class="tn t-prod">상품명</span><span class="mtx">ISA</span><i class="n r" data-k="42"></i></div><div class="mi"><i data-ic="grip"></i><span class="tn t-name">성명</span><span class="mtx">김*준</span></div><div class="mi drag"><i data-ic="grip"></i><span class="mtx">월배당 ETF 비교표 문자 발송 요청</span></div></div>
 <div class="mg dropin"><div class="mgh">후속 안내<span class="hint">1</span><span class="sp"></span><span class="ib sm" title="이 그룹 선택"><i data-ic="check"></i></span><span class="ib sm" title="그룹 접기"><i data-ic="cu"></i></span></div><div class="mi"><i data-ic="grip"></i><span class="mtx">수수료 차감 내역 확인 후 당일 회신</span></div></div>
 <div class="pbf"><div class="in2 ph"><span>메모 입력</span></div><span class="btn s p">저장</span></div><i class="n" data-k="44"></i></div></div></div>
-      <div class="col" style="width:440px;flex:none"><div class="lg-lbl">실시간 대화 [돋보기] → 검색 입력창 열림</div><div class="bx" style="gap:10px"><div class="wtt"><h3 style="font-size:16px">실시간 대화</h3><span class="bw">IB</span><span class="sp"></span><span class="ib sm on" title="대화 내용 검색"><i data-ic="search"></i></span></div><div class="wsrch on"><i data-ic="search"></i><span class="cur"></span><span class="ph">대화 내용 검색</span><i data-ic="x"></i><i class="n r" data-k="33"></i></div></div><div class="lg-lbl" style="margin-top:10px">고객 말풍선 [싫어요] → STT 보정 → [저장] → 'STT 수정됨 · 소속팀 상담사명'</div><div class="bx stt" style="gap:10px">
+      <div class="col" style="width:440px;flex:none"><div class="lg-lbl">실시간 대화 [돋보기] → 제목 줄이 검색창으로 바뀜</div><div class="bx" style="gap:10px"><span class="hint">기본 · 제목 줄 오른쪽 돋보기</span><div class="wtt"><h3 style="font-size:16px">실시간 대화</h3><span class="bw">IB</span><span class="sp"></span><span class="ib sm" title="대화 내용 검색"><i data-ic="search"></i></span></div><span class="hint">[돋보기] 누른 뒤 · 제목 줄이 검색창으로 바뀜</span>            <div class="wtt wtt-s"><div class="wsr2"><span class="ph">대화 내용 검색</span><span class="ib sm wx" title="검색 닫기"><i data-ic="x"></i></span><i class="n r" data-k="33"></i></div></div><span class="hint">검색어 입력 · 오른쪽에 결과 수</span>            <div class="wtt wtt-s"><div class="wsr2"><span class="vl">비과세</span><span class="cnt">1/2</span><span class="ib sm wx" title="검색 닫기"><i data-ic="x"></i></span></div></div></div><div class="lg-lbl" style="margin-top:10px">고객 말풍선 [싫어요] → STT 보정 → [저장] → 'STT 수정됨 · 소속팀 상담사명'</div><div class="bx stt" style="gap:10px">
               <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub sttx"><div class="sti">세제혜택은 어떻게 되나요?</div><div class="sta"><span class="hint">STT 보정 · 인식 결과를 바르게 고쳐 저장합니다</span><span class="sp"></span><span class="btn s">취소</span><span class="btn s p">저장</span></div><i class="n r" data-k="32"></i></div><div class="hb2"><span class="ib sm" title="STT 평가 좋아요"><i data-ic="up"></i></span><span class="ib sm on" title="STT 평가 싫어요 · 누르면 STT 보정"><i data-ic="down"></i></span></div></div><span class="tm">오전 10:31</span></div>
               <div class="dvd">[저장] 후</div>
               <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">세제혜택은 어떻게 되나요?<span class="sfx"><i data-ic="pencil"></i>STT 수정됨 · 계좌상담1팀 이서연</span></div></div><span class="tm">오전 10:31</span></div>
             </div></div>
-      <div class="card g1" style="box-shadow:none"><h4>실시간 대화 · 메모 동작</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· 통화가 연결되면 '통화가 연결되었습니다'를 먼저 보여 주고, 그 아래에 고객 이력 정보를 한 영역으로 보여 줍니다. 항목은 한 줄에 하나씩이고, 값을 누를 수 있습니다. [최근 상담]을 누르면 그 상담 이력을 엽니다.<br>· 관심 번호로 등록된 번호가 인입되면 배지 대신 실시간 대화 안에 초록색 안내 Alert를 띄웁니다. [개인정보] · [민원성] 문의 같은 위험 알림은 빨간색 Alert입니다.<br>· 대화 검색은 제목 줄의 돋보기 아이콘입니다. 누르면 입력창이 열리고 placeholder '대화 내용 검색'이 보입니다.<br>· 고객 말풍선에 마우스를 올리면 좋아요 · 싫어요가 나타납니다.<br>· [싫어요]를 누르면 그 말풍선이 입력창으로 바뀌어 STT 인식 결과를 고칠 수 있습니다. [저장]하면 보정한 문장으로 바뀌고 말풍선 안에 'STT 수정됨 · 소속팀 상담사명'이 표시됩니다. [취소]하면 원래대로 돌아갑니다.<br>· 상담 어시스트는 고객 발화 의도 바로 아래에 실시간 지식 추천(스크립트 · 추천 답변 · 출처)을 보여 줍니다. 추천 답변 표시 개수는 상담 어시스트 설정에서 1~5개 사이로 - / +로 정합니다.<br>· 아래 대화를 보고 있지 않을 때 새 발화가 오면 [아래로] 버튼이 나타나고, 누르면 최신 발화로 이동합니다.<br>· LNB [메모](공지사항 아래)를 누르면 스티키 메모가 화면 위에 팝업됩니다. 닫기 전까지 떠 있고, 끌어서 위치를 옮깁니다.<br>· 메모는 그룹으로 관리합니다(최대 10개). 체크 표시가 있는 그룹이 선택된 그룹이며, 실시간 대화의 NER 태그를 누르면 그 값이 선택된 그룹에 태그명과 함께 기록됩니다. 메모는 끌어서 다른 그룹으로 옮기고, [전체 복사]로 모든 메모를 복사합니다.</div></div>
+      <div class="card g1" style="box-shadow:none"><h4>실시간 대화 · 메모 동작</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· 통화가 연결되면 '통화가 연결되었습니다'를 먼저 보여 주고, 그 아래에 고객 이력 정보를 한 영역으로 보여 줍니다. 항목은 한 줄에 하나씩이고, 값을 누를 수 있습니다. [최근 상담]을 누르면 그 상담 이력을 엽니다.<br>· 관심 번호로 등록된 번호가 인입되면 배지 대신 실시간 대화 안에 초록색 안내 Alert를 띄웁니다. [개인정보] · [민원성] 문의 같은 위험 알림은 빨간색 Alert입니다.<br>· 대화 검색은 제목 줄의 돋보기 아이콘입니다. 누르면 제목 줄 자리에 검색창(닫기 [X])이 열리고 placeholder '대화 내용 검색'이 보입니다. 검색어를 입력하면 오른쪽에 결과 수(예: 1/2)가 보이고, [X]를 누르면 검색창을 닫고 제목 줄로 돌아갑니다.<br>· 고객 말풍선에 마우스를 올리면 좋아요 · 싫어요가 나타납니다.<br>· [싫어요]를 누르면 그 말풍선이 입력창으로 바뀌어 STT 인식 결과를 고칠 수 있습니다. [저장]하면 보정한 문장으로 바뀌고 말풍선 안에 'STT 수정됨 · 소속팀 상담사명'이 표시됩니다. [취소]하면 원래대로 돌아갑니다.<br>· 상담 어시스트는 고객 발화 의도 바로 아래에 실시간 지식 추천(스크립트 · 추천 답변 · 출처)을 보여 줍니다. 추천 답변 표시 개수는 상담 어시스트 설정에서 1~5개 사이로 - / +로 정합니다.<br>· [대화 클리핑] · [요약 생성] · [VOC 조회]는 실시간 대화 영역 맨 아래에 고정합니다. [VOC 조회]를 누르면 VOC 검색 창이 열립니다.<br>· 아래 대화를 보고 있지 않을 때 새 발화가 오면 [아래로] 버튼이 나타나고, 누르면 최신 발화로 이동합니다.<br>· LNB [메모](공통 영역 맨 위 · 메모 › 퀵 메뉴 › 공지사항 › 알림)를 누르면 스티키 메모가 화면 위에 팝업됩니다. 닫기 전까지 떠 있고, 끌어서 위치를 옮깁니다.<br>· 메모는 그룹으로 관리합니다(최대 10개). 체크 표시가 있는 그룹이 선택된 그룹이며, 실시간 대화의 NER 태그를 누르면 그 값이 선택된 그룹에 태그명과 함께 기록됩니다. 메모는 끌어서 다른 그룹으로 옮기고, [전체 복사]로 모든 메모를 복사합니다.</div></div>
     </div>
     <div class="row" style="margin-top:14px;align-items:flex-start;flex-wrap:wrap">
       <div class="col" style="width:480px;flex:none">
@@ -131,8 +131,7 @@
         <div class="ctb" data-gen="1"></div>
         <div class="wsx">
           <div class="wl">
-            <div class="wtt"><h3>실시간 대화</h3><span class="dirb"><i data-ic="aup"></i>IB</span><span class="sosb" title="리더에게 SOS 요청"><i data-ic="sos"></i>SOS</span><span class="sp"></span><span class="ib sm on" title="대화 내용 검색"><i data-ic="search"></i></span></div>
-            <div class="wsrch on"><i data-ic="search"></i><span class="vl">이월</span><span class="cnt">1/2</span><i data-ic="x"></i></div>
+            <div class="wtt wtt-s"><div class="wsr2"><span class="vl">이월</span><span class="cnt">1/2</span><span class="ib sm wx" title="검색 닫기"><i data-ic="x"></i></span></div></div>
             <div class="stt">
               <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">ISA 만기 전에 해지하면 세금 혜택이 없어지나요?</div></div><span class="tm">오전 10:34</span></div>
               <div class="u a"><div class="ba"><div class="ub">의무 가입 기간 3년을 채우지 않으면 감면받은 세액이 추징될 수 있습니다.</div></div><span class="tm">오전 10:34</span></div>
@@ -211,21 +210,21 @@
                   <div class="cc-t"><i data-ic="fpen" data-big></i><b>상담 요약</b><span class="sp"></span><span class="ib sm" title="요약 복사"><i data-ic="copy"></i><i class="n r" data-k="47"></i></span></div>
                   <div class="cc-sum"><div class="it"><b>상담사 / 고객</b><p>이서연 / 김민준</p></div><hr><div class="it"><b>고객 요청내용</b><ul><li>ISA 일반형 비과세 한도, 납입 한도 이월 문의</li><li>이전 안내 오류에 불만, 민원 언급</li></ul></div><hr><div class="it"><b>상담사 처리내용</b><ul><li>일반형 200만 원 기준 정정 안내</li><li>미납입분 이월 안내</li></ul></div><i class="n r" data-k="48"></i></div>
                 </div>
-                <div class="vrc">
-                  <div class="vrc-t"><b>추천 VOC</b><span class="sp"></span><span class="btn">VOC 검색<i class="n r" data-k="46"></i></span></div>
-                  <div class="vrc-l">
-                    <div class="vrc-i on"><span class="rd"></span>상담 안내 오류 · 고객지원팀</div>
-                    <div class="vrc-i"><span class="rd"></span>ISA 비과세 한도 문의 · 자산관리팀</div>
-                    <div class="vrc-i"><span class="rd"></span>수수료 이의 제기 · 고객지원팀</div>
+                <div class="ccard">
+                  <div class="cc-t"><i data-ic="chat" data-big></i><b>추천 VOC</b><span class="sp"></span><span class="ib sm" title="VOC 검색"><i data-ic="search"></i><i class="n r" data-k="46"></i></span></div>
+                  <div class="cc-list">
+                    <div class="cc-code vcc on"><span class="rd"></span><div class="cc-path"><div class="lm"><span><span class="cc-lv">대</span>안내 불만</span><span><span class="cc-lv">중</span>상담 안내</span></div><div class="s"><span class="cc-lv on">소</span>상담 안내 오류</div></div><span class="cc-team">고객지원팀</span></div>
+                    <div class="cc-code vcc"><span class="rd"></span><div class="cc-path"><div class="lm"><span><span class="cc-lv">대</span>상품</span><span><span class="cc-lv">중</span>ISA</span></div><div class="s"><span class="cc-lv on">소</span>비과세 한도 문의</div></div><span class="cc-team">자산관리팀</span></div>
+                    <div class="cc-code vcc"><span class="rd"></span><div class="cc-path"><div class="lm"><span><span class="cc-lv">대</span>수수료</span><span><span class="cc-lv">중</span>매매 수수료</span></div><div class="s"><span class="cc-lv on">소</span>수수료 이의 제기</div></div><span class="cc-team">고객지원팀</span></div>
+                    <i class="n" data-k="45"></i>
                   </div>
-                  <i class="n" data-k="45"></i>
                 </div>
                 <div class="pp-act"><button class="btn lg">저장 자리비움</button><button class="btn lg p">저장 대기</button><i class="n r" data-k="50"></i></div>
               </div>
 
             </div>
             <div class="rsz"></div>
-            <div class="brow"><span class="sp"></span><span class="btn" title="시작 발화와 끝 발화를 골라 그 사이 대화를 클리핑합니다">대화 클리핑</span><span class="btn" title="상담 요약을 다시 생성합니다">요약 생성<i class="n" data-k="49"></i></span><span class="btn">VOC 조회<i class="n r" data-k="46"></i></span></div>
+            <div class="brow"><span class="sp"></span><span class="btn" title="시작 발화와 끝 발화를 골라 그 사이 대화를 클리핑합니다">대화 클리핑</span><span class="btn" title="상담 요약을 다시 생성합니다">요약 생성<i class="n" data-k="49"></i></span><span class="btn">VOC 조회</span></div>
           </div>
           <div class="wr">
             <div class="wtt"><h3>상담 어시스트</h3><span class="bw g">자동 추천 ON</span><span class="sp"></span><span class="ib sm" title="지식 추천 설정"><i data-ic="gear"></i></span></div>
@@ -240,27 +239,14 @@
     <div class="card" style="box-shadow:none;margin-top:14px">
       <h4>후처리 동작 (와이어프레임 상담요약 v2)</h4>
       <div class="hint" style="font-size:12px;line-height:1.75;color:#334155">
-        · 통화가 끝나면 '통화가 종료되었습니다' 아래에 후처리 카드가 생기고 영역 제목에 [후처리] 배지가 붙습니다. 순서는 추천 상담코드 카드 → 상담 요약 카드 → 추천 VOC → 저장 버튼입니다.<br>
+        · 통화가 끝나면 '통화가 종료되었습니다' 아래에 후처리 카드가 생기고 영역 제목에 [후처리] 배지가 붙습니다. 순서는 추천 상담코드 카드 → 상담 요약 카드 → 추천 VOC 카드 → 저장 버튼이고, 세 카드는 같은 형식(아이콘 · 제목 · 오른쪽 위 버튼 · 회색 항목)입니다.<br>
         · 추천 상담코드 카드 1건은 정확도(%) · 상담코드 · 분류(대 · 중 · 소 3단계)입니다. 정확도 순으로 3건을 보여 주고 1순위를 기본으로 선택하고, 선택한 카드는 라디오와 테두리로 표시합니다. 다른 카드를 누르면 선택이 바뀌고, 저장할 때 선택한 상담코드를 저장합니다. 상담코드 옆 <i data-ic="copy"></i>를 누르면 상담코드와 분류 경로를 복사합니다. 4건 이상이면 [더보기]로 최대 5건까지 펼칩니다([닫기]로 접기). <i data-ic="search"></i>는 '상담코드 선택' 창을 엽니다.<br>
         · 상담 요약 카드는 상담사 / 고객 · 고객 요청내용 · 상담사 처리내용으로 나눠 보여 주고, 요청 · 처리 내용은 항목별 글머리로 씁니다. 요약은 최대 500자이며 직접 수정할 수 있습니다. 하단 [요약 생성]은 통화 중에도 누를 수 있고, 누를 때마다 다시 요약합니다.<br>
-        · 추천 VOC는 'VOC 유형 · 담당팀'으로 3건을 보여 주고 라디오로 1건을 고릅니다. 맞는 VOC가 없으면 [VOC 검색]으로 'VOC 검색' 창을 열어 직접 고릅니다.<br>
+        · 추천 VOC 카드는 VOC 유형(대 · 중 · 소 3단계)과 담당팀으로 3건을 보여 주고 1순위를 기본으로 선택합니다. 선택한 항목은 라디오와 테두리로 표시합니다. 맞는 VOC가 없으면 카드 오른쪽 위 <i data-ic="search"></i>(VOC 검색)로 'VOC 검색' 창을 열어 직접 고릅니다. 실시간 대화 하단 [VOC 조회]도 같은 창을 엽니다.<br>
         · [저장 대기]는 저장 후 내 상태를 '대기중'으로, [저장 자리비움]은 '자리비움'으로 바꿉니다. 상담코드를 고르지 않으면 두 버튼이 비활성입니다. 저장 후 블록은 읽기 전용이 되고 복사 버튼은 계속 쓸 수 있습니다.
       </div>
     </div>
     <div class="row" style="margin-top:14px;align-items:flex-start">
-      <div class="col g1">
-        <div class="lg-lbl">[VOC 조회] → VOC 관리 (Dialog · [취소]로 닫기)</div>
-        <div class="dlg">
-          <h5>VOC 관리</h5>
-          <div style="display:flex;gap:6px"><span class="inp v dd" style="width:110px">최근 3개월</span><span class="inp" style="flex:1">VOC 유형·내용 검색</span><button class="btn">검색</button></div>
-          <table class="t"><tr><th>등록일</th><th>VOC 유형</th><th>상태</th><th></th></tr>
-            <tr><td>2026.11.07</td><td>안내 불만 &gt; 상담 안내 오류</td><td><span class="bdg b-aw">등록 대기</span></td><td><span class="lk">수정</span></td></tr>
-            <tr><td>2026.10.02</td><td>시스템 &gt; MTS 접속 오류</td><td><span class="bdg b-g">처리 완료</span></td><td><span class="lk">보기</span></td></tr></table>
-          <div class="fg c2"><div class="fld"><label>VOC 유형</label><div class="inp v dd">안내 불만 &gt; 상담 안내 오류</div></div><div class="fld"><label>처리 구분</label><div class="inp v dd">즉시 처리</div></div><div class="fld sa"><label>내용</label><div class="inp v ta">ISA 비과세 한도 오안내 후 정정 안내. 고객 불만 표출.</div></div></div>
-          <div class="acts"><button class="btn">취소</button><button class="btn p">VOC 등록</button></div>
-          <i class="n" data-k="46"></i>
-        </div>
-      </div>
       <div class="col g1">
         <div class="lg-lbl"><i data-ic="search"></i> 상담코드 선택 (Dialog) · 검색어 3자 이상 입력 → 부분 일치 드롭다운</div>
         <div class="dlg">
@@ -275,7 +261,7 @@
     </div>
     <div class="row" style="margin-top:14px;align-items:flex-start">
       <div class="col" style="width:560px;flex:none">
-        <div class="lg-lbl">추천 VOC [VOC 검색] → VOC 검색 (Dialog · 상단 [<i data-ic="x"></i>]로 닫기)</div>
+        <div class="lg-lbl">추천 VOC <i data-ic="search"></i> · 하단 [VOC 조회] → VOC 검색 (Dialog · 상단 [<i data-ic="x"></i>]로 닫기)</div>
         <div class="dlg vsd">
           <div class="vsd-h"><h5>VOC 검색</h5><span class="ib sm" title="닫기"><i data-ic="x"></i></span></div>
           <div class="inp v dd vsd-cb">상담 안내 오류</div>
@@ -289,6 +275,7 @@
       <div class="card g1" style="box-shadow:none">
         <h4>VOC 검색 동작</h4>
         <div class="hint" style="font-size:12px;line-height:1.75;color:#334155">
+          · 추천 VOC 카드의 <i data-ic="search"></i>와 실시간 대화 하단 [VOC 조회]가 같은 VOC 검색 창을 엽니다. 별도의 VOC 관리 창은 두지 않습니다.<br>
           · 검색창(Combobox)에 VOC 유형을 입력해 고르면, 아래에 VOC 유형(대 &gt; 중 &gt; 소)과 담당팀을 보여 줍니다. placeholder는 'VOC 유형 검색'입니다.<br>
           · 고객 이름은 현재 통화 고객으로 채우고 수정하지 않습니다.<br>
           · VOC 유형을 고르고 VOC 내용을 입력하면 [저장]이 활성화됩니다. [저장]을 누르면 창을 닫고 고른 VOC를 추천 VOC에서 선택한 상태로 반영합니다(확인 필요: VOC 검색 [저장] 동작).<br>
@@ -362,12 +349,10 @@
         </div>
       </div>
 <div class="spop scr" style="right:16px;top:64px">
-<div class="hd"><b>화면 설정</b><span>변경 즉시 적용되며 사용자별로 저장됩니다.</span></div><hr>
-<div class="sec"><div class="hd"><b>영역 표시</b><span>끄면 해당 영역을 숨깁니다</span></div><div class="swr"><span>상담 어시스트</span><span class="swd on"></span></div><span class="hint">기본값은 모두 ON입니다. 끄면 해당 영역이 화면에서 사라지고, 다시 켜면 그대로 돌아옵니다.</span></div><hr>
-<div class="sec"><div class="hd"><b>영역 배치</b><span>드래그해서 좌우 순서를 바꿉니다</span></div><div class="ord"><span class="no">1</span><i data-ic="grip"></i>실시간 대화</div><div class="ord"><span class="no">2</span><i data-ic="grip"></i>상담 어시스트</div></div><hr>
-<div class="sec" style="gap:4px"><div class="hd"><b>영역 크기</b></div><div class="szr"><i data-ic="lr"></i><div><b>가로폭</b><span>영역 사이 세로 경계선을 좌우로 드래그합니다</span></div></div><div class="szr"><i data-ic="ud"></i><div><b>세로폭</b><span>영역 안 가로 경계선을 위아래로 드래그합니다</span></div></div></div><hr>
-<div class="sec"><div class="hd"><b>글자 크기</b><span>실시간 대화 · 상담 어시스트의 글자 크기를 바꿉니다</span></div><div class="seg" style="flex:none"><span>작게</span><span class="on">보통</span><span>크게</span></div><div class="swr"><span>반응형 모드 (창 크기에 따라 영역 자동 숨김)</span><span class="swd on"></span></div></div>
-<button class="btn lg" style="width:100%">기본값으로 되돌리기</button><i class="n r" data-k="63"></i></div>
+<div class="sph"><div class="hd"><b>화면 설정</b><span>변경 즉시 적용되며 사용자별로 저장됩니다.</span></div><span class="btn s gh rst"><i data-ic="rotate"></i>초기화</span></div><hr>
+<div class="sec"><div class="hd"><b>영역 표시</b><span>끄면 해당 영역을 숨깁니다</span></div><div class="swr"><span>대화 클리핑</span><span class="swd on"></span></div><div class="swr"><span>상담 어시스트</span><span class="swd on"></span></div><span class="hint">기본값은 모두 ON입니다. 끄면 해당 영역이 화면에서 사라지고, 다시 켜면 그대로 돌아옵니다.</span></div><hr>
+<div class="sec"><div class="hd"><b>영역 배치</b><span>가운데 버튼으로 좌우 위치를 바꿉니다</span></div><div class="slots"><div class="slot" draggable="true"><span>왼쪽</span><b>실시간 대화</b></div><span class="ib swp" title="좌우 바꾸기"><i data-ic="lr"></i></span><div class="slot" draggable="true"><span>오른쪽</span><b>상담 어시스트</b></div></div></div><hr>
+<div class="sec" style="gap:4px"><b class="h14">영역 크기</b><div class="szr"><i data-ic="lr"></i><div><b>가로폭</b><span>영역 사이 세로 경계선을 좌우로 드래그합니다</span></div></div><div class="szr"><i data-ic="ud"></i><div><b>세로폭</b><span>영역 안 가로 경계선을 위아래로 드래그합니다</span></div></div></div><i class="n r" data-k="63"></i></div>
     </div></div>
     <div class="row" style="margin-top:14px;align-items:flex-start">
       <div class="col" style="width:402px;flex:none"><div class="lg-lbl">[미니 팝업 열기] → 미니 팝업 (별도 창)</div><div class="win"><div class="wtb"><span>AI 상담어드바이저 - 미니 팝업</span><span class="sp"></span><i data-ic="x"></i></div><div class="wbd"><div style="display:flex;align-items:center;gap:8px"><span class="st talk"><i></i>통화중</span><span class="hint">02:05 · 김민준 고객님</span></div>
@@ -377,13 +362,18 @@
   <div class="fs"><div class="lbl">유형<em>*</em></div><div class="in2"><span>기능 개선</span><i data-ic="chev"></i></div></div>
   <div class="fs"><div class="lbl">내용<em>*</em></div><div class="ta3">오안내 유의 카드에서 근거 문서 원문으로 바로 가는 버튼이 있으면 좋겠습니다.</div><div class="hint" style="text-align:right">39자</div></div>
   <div class="acts" style="margin-top:0"><button class="btn lg">취소</button><button class="btn lg p">보내기</button></div><i class="n" data-k="64"></i></div></div>
-      <div class="card g1" style="box-shadow:none"><h4>화면 설정 동작 (와이어프레임 화면 설정 1-1 ~ 3-1)</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· [화면 설정]을 누르면 버튼 아래에 팝오버가 열립니다. 변경은 즉시 적용되고 사용자별로 저장됩니다.<br>· 영역 표시: 상담 어시스트를 켜고 끕니다. 기본값은 ON입니다. 메모는 LNB [메모]의 스티키 메모로 따로 엽니다.<br>· 영역 배치: 실시간 대화 · 상담 어시스트 순서를 끌어서 바꿉니다.<br>· 영역 크기: 세로 경계선을 좌우로, 가로 경계선을 위아래로 끌어서 조정합니다.<br>· 글자 크기(작게 · 보통 · 크게)와 반응형 모드(창 크기에 따라 영역 자동 숨김)도 같은 팝오버에서 정합니다.<br>· [기본값으로 되돌리기]로 처음 상태로 돌립니다. 저장에 실패하면 Sonner로 알립니다.</div></div>
+      <div class="card g1" style="box-shadow:none"><h4>화면 설정 동작 (Figma 화면 설정 · 폭 360)</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· [화면 설정]을 누르면 버튼 아래에 팝오버가 열립니다. 변경은 즉시 적용되고 사용자별로 저장됩니다. 오른쪽 위 [초기화]로 처음 상태로 돌립니다.<br>· 영역 표시: 대화 클리핑 · 상담 어시스트를 켜고 끕니다. 기본값은 모두 ON입니다. 메모는 화면 설정에서 끄지 않고 LNB [메모]로 엽니다.<br>· 영역 배치: 왼쪽 · 오른쪽 슬롯 사이의 [⇄]를 누르거나, 슬롯을 끌어 다른 슬롯에 놓으면 실시간 대화와 상담 어시스트의 좌우 위치가 바뀝니다. 목업에서 [⇄]를 누르면 이 화면의 좌우가 실제로 바뀝니다.<br>· 영역 크기: 영역 사이 세로 경계선을 좌우로, 영역 안 가로 경계선을 위아래로 끌어서 조정합니다.<br>· 글자 크기 · 반응형 모드는 화면 설정에 두지 않습니다.<br>· 저장에 실패하면 Sonner로 알립니다.</div></div>
+    </div>
+    <div class="row" style="margin-top:14px;align-items:flex-start">
+      <div class="col" style="width:640px;flex:none"><div class="lg-lbl">[화면 설정] 영역 배치 [⇄] 누르기 · 슬롯 끌어 놓기 → 실시간 대화 · 상담 어시스트 좌우가 바뀜</div>
+        <div class="lyt"><div class="lyt-c"><span class="hint">바꾸기 전</span><div class="lyt-b"><div class="c">실시간 대화</div><div>상담 어시스트</div></div><div class="slots"><div class="slot"><span>왼쪽</span><b>실시간 대화</b></div><span class="ib swp">⇄</span><div class="slot"><span>오른쪽</span><b>상담 어시스트</b></div></div></div><span class="lyt-a">→</span><div class="lyt-c"><span class="hint">바꾼 뒤</span><div class="lyt-b r"><div>상담 어시스트</div><div class="c">실시간 대화</div></div><div class="slots"><div class="slot"><span>왼쪽</span><b>상담 어시스트</b></div><span class="ib swp">⇄</span><div class="slot"><span>오른쪽</span><b>실시간 대화</b></div></div></div><i class="n r" data-k="63"></i></div>
+      </div>
     </div>
     <div class="row" style="margin-top:14px;align-items:flex-start">
       <div class="col" style="width:360px;flex:none"><div class="lg-lbl">알림 목록 상단 [알림 설정] → 알림 설정</div><div class="spop sst" style="">
 <div class="hd"><b>알림 설정</b><span>받을 알림을 고릅니다.</span></div><hr>
 <div class="sec"><div class="swr"><span>공지사항 알림</span><span class="swd on"></span></div><div class="swr"><span>코칭 알림</span><span class="swd on"></span></div><div class="swr"><span>리마인드 알림</span><span class="swd on"></span></div></div><i class="n r" data-k="61"></i></div></div>
-      <div class="card g1" style="box-shadow:none"><h4>공지사항 · 알림 · 책갈피 (목록 → 상세)</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· LNB [공지사항] · [알림] · [상담 어시스트 책갈피]는 모두 같은 목록 화면입니다. 위쪽 탭으로 거르고, 표의 제목(밑줄)을 누르면 상세 화면으로 들어갑니다. 상세 화면 오른쪽 위 [목록]으로 돌아갑니다.<br>· 목록은 최신순이고, 아래쪽에 총 건수와 페이지 이동(처음 · 이전 · 다음 · 마지막)이 있습니다. 읽은 항목은 회색 배경으로 표시합니다.<br>· 공지사항: 상담직원은 조회만 합니다. 긴급 공지는 화면 상단 배너로도 보여 줍니다.<br>· 알림: 공지 · 코칭 · 리마인드 알림이 쌓이고, 코칭 이력도 여기서 확인합니다(화면 5). [모두 읽음]으로 한 번에 읽음 처리하고, [알림 설정]에서 알림 종류별 수신을 켜고 끕니다.</div></div>
+      <div class="card g1" style="box-shadow:none"><h4>공지사항 · 알림 · 책갈피 (목록 → 상세)</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· LNB [공지사항] · [알림] · [상담 어시스트 책갈피]는 모두 목록 → 상세 화면입니다. 위쪽 탭(공지사항은 검색 · [필터])으로 거르고, 표의 제목(밑줄)을 누르면 상세 화면으로 들어갑니다. 상세 화면 오른쪽 위 [목록]으로 돌아갑니다.<br>· 목록은 최신순이고, 아래쪽에 총 건수와 페이지 이동(처음 · 이전 · 다음 · 마지막)이 있습니다. 읽은 항목은 회색 배경으로 표시합니다.<br>· 공지사항: 상담직원은 조회만 합니다. 표는 번호(긴급 · 고정 공지는 배지) · 대상(소속 · 업무 · 팀) · 제목 · 작성자 · 등록일이고, [필터]로 대상 · 긴급 공지를 거릅니다. 긴급 공지는 화면 상단 배너로도 보여 줍니다.<br>· 알림: 공지 · 코칭 · 리마인드 알림이 쌓이고, 코칭 이력도 여기서 확인합니다(화면 5). [모두 읽음]으로 한 번에 읽음 처리하고, [알림 설정]에서 알림 종류별 수신을 켜고 끕니다.</div></div>
     </div>
     <div class="row" style="margin-top:14px;align-items:flex-start">
       <div class="col" style="width:425px;flex:none">
@@ -450,11 +440,13 @@
       <div class="amc">
         <div class="tnb" data-st="none" data-ttl="공지사항"></div>
         
-        <div class="lpg">
-          <div class="ltabs"><span class="on">전체</span><span>긴급</span></div>
-          
-          <div class="ldt"><div class="ltb"><table class="lt"><tr><th class="c1">구분</th><th>제목</th><th class="c3">등록일</th></tr><tr><td class="c1"><span class="lbdg r">긴급</span></td><td class="c2"><u>ISA 비과세 한도 안내 기준 변경</u></td><td class="c3">2026.11.07</td></tr><tr><td class="c1"><span class="lbdg r">긴급</span></td><td class="c2"><u>2026.11.07 18:00 MTS 점검 안내</u></td><td class="c3">2026.11.07</td></tr><tr class="rd"><td class="c1"><span class="lbdg">일반</span></td><td class="c2"><u>11월 해외주식 양도세 신고 대행 접수 안내</u></td><td class="c3">2026.11.03</td></tr><tr class="rd"><td class="c1"><span class="lbdg">일반</span></td><td class="c2"><u>상담 품질 평가 기준 개정</u></td><td class="c3">2026.10.28</td></tr><tr class="rd"><td class="c1"><span class="lbdg">일반</span></td><td class="c2"><u>연금저축 세액공제 한도 안내 스크립트 배포</u></td><td class="c3">2026.10.21</td></tr><tr class="rd"><td class="c1"><span class="lbdg">일반</span></td><td class="c2"><u>10월 상담 어시스트 지식 업데이트 내역</u></td><td class="c3">2026.10.15</td></tr></table><i class="n" data-k="61"></i></div>
-          <div class="lpgn"><span class="si">총 18건</span><div class="fx"><b>1 / 2</b><div class="bt"><span class="off" title="처음"><i data-ic="chevsl"></i></span><span class="off" title="이전"><i data-ic="chevl"></i></span><span title="다음"><i data-ic="chevr"></i></span><span title="마지막"><i data-ic="chevsr"></i></span></div></div></div></div>
+        <div class="lpg npg">
+          <div class="ldt">
+            <div class="lsr"><div class="lin"><i data-ic="search"></i><span>제목 · 내용 검색</span></div><span class="nfw"><span class="btn"><i data-ic="filter"></i>필터</span></span></div>
+            <div class="ltb"><table class="lt nt5"><tr><th class="cn">번호</th><th class="ct">대상</th><th>제목</th><th class="cw">작성자</th><th class="cd">등록일<svg class="srt" viewBox="0 0 24 24" width="16" height="16"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"></path></svg></th></tr>
+            <tr><td class="cn"><span class="lbdg r">긴급</span></td><td class="ct"><span class="lbdg">서울센터 전체</span></td><td class="c2"><u>ISA 비과세 한도 안내 기준 변경</u></td><td class="cw">박지훈</td><td class="cd">2026.11.07</td></tr><tr><td class="cn"><span class="lbdg r">긴급</span></td><td class="ct"><span class="lbdg">계좌 상담 업무</span></td><td class="c2"><u>2026.11.07 18:00 MTS 점검 안내</u></td><td class="cw">최유리</td><td class="cd">2026.11.07</td></tr><tr><td class="cn"><span class="lbdg g">고정</span></td><td class="ct"><span class="lbdg">서울센터 전체</span></td><td class="c2"><u>상담 품질 평가 기준 개정</u></td><td class="cw">김도윤</td><td class="cd">2026.10.28</td></tr><tr><td class="cn">15</td><td class="ct"><span class="lbdg">계좌상담1팀</span></td><td class="c2"><u>11월 해외주식 양도세 신고 대행 접수 안내</u></td><td class="cw">박지훈</td><td class="cd">2026.11.03</td></tr><tr><td class="cn">14</td><td class="ct"><span class="lbdg">연금상담팀</span></td><td class="c2"><u>연금저축 세액공제 한도 안내 스크립트 배포</u></td><td class="cw">정다은</td><td class="cd">2026.10.21</td></tr><tr><td class="cn">13</td><td class="ct"><span class="lbdg">서울센터 전체</span></td><td class="c2"><u>10월 상담 어시스트 지식 업데이트 내역</u></td><td class="cw">최유리</td><td class="cd">2026.10.15</td></tr><tr><td class="cn">12</td><td class="ct"><span class="lbdg">계좌상담2팀</span></td><td class="c2"><u>미수 동결 계좌 해제 절차 변경 안내</u></td><td class="cw">이준호</td><td class="cd">2026.10.10</td></tr><tr><td class="cn">11</td><td class="ct"><span class="lbdg">상품 상담 업무</span></td><td class="c2"><u>중개형 ISA 상품 안내 자료 업데이트</u></td><td class="cw">김도윤</td><td class="cd">2026.10.02</td></tr><tr><td class="cn">10</td><td class="ct"><span class="lbdg">부산센터 전체</span></td><td class="c2"><u>추석 연휴 상담 운영 시간 안내</u></td><td class="cw">한서진</td><td class="cd">2026.09.25</td></tr><tr><td class="cn">9</td><td class="ct"><span class="lbdg">계좌상담1팀</span></td><td class="c2"><u>9월 상담 품질 우수 사례 공유</u></td><td class="cw">박지훈</td><td class="cd">2026.09.18</td></tr></table><i class="n" data-k="61"></i></div>
+            <div class="lpgn"><span class="si">총 18건</span><div class="fx"><b>1 / 2</b><div class="bt"><span class="off" title="처음"><i data-ic="chevsl"></i></span><span class="off" title="이전"><i data-ic="chevl"></i></span><span title="다음"><i data-ic="chevr"></i></span><span title="마지막"><i data-ic="chevsr"></i></span></div></div></div>
+          </div>
         </div>
       </div>
 
@@ -465,14 +457,14 @@
       <div class="amc">
         <div class="tnb" data-st="none" data-ttl="공지사항 > 공지사항 상세"><span class="btn"><i data-ic="chevl"></i>목록</span></div>
         
-        <div class="lpg">
-          <div class="ldv">
-            <div class="dh"><span class="lbdg r">긴급</span><b>ISA 비과세 한도 안내 기준 변경</b><span class="sp"></span><span class="tm">2026.11.07 09:30</span></div>
-            <div class="dm">운영관리팀 · 대상 서울센터 전체</div>
-            <hr>
-            <div class="ds"><h6>내용</h6><p>ISA 일반형 비과세 한도는 순이익 200만 원, 서민형 · 농어민형은 400만 원입니다. 고객 안내 시 일반형 기준을 먼저 말씀해 주시고, 한도 초과분은 9.9% 분리과세된다고 안내해 주세요.<br>관련 스크립트는 상담 어시스트 지식에 반영되었습니다.</p></div>
-            <div class="ds"><h6>첨부 파일</h6><div class="af"><i data-ic="doc"></i><span>ISA_비과세한도_안내기준_2611.pdf</span><span class="ib sm" title="다운로드"><i data-ic="dl"></i></span></div></div>
-            
+        <div class="lpg npg">
+          <div class="nvw">
+            <div class="nta"><div class="ntg"><span class="lbdg r">긴급</span><span class="lbdg">서울센터 전체</span><span class="lbdg g">상단 고정</span><span class="lbdg g">배너 노출</span></div>
+              <h2 class="nttl">ISA 비과세 한도 안내 기준 변경</h2>
+              <div class="ntm"><span>박지훈 · 운영관리팀</span><i></i><span>등록 2026.11.07 09:30</span><i></i><span>게시 2026.11.07 09:30 ~ 2026.11.30 18:00</span></div></div>
+            <div class="nimg"><i data-ic="img"></i></div>
+            <p class="ntx">ISA 일반형 비과세 한도는 순이익 200만 원, 서민형 · 농어민형은 400만 원입니다. 고객 안내 시 일반형 기준을 먼저 말씀해 주시고, 한도 초과분은 9.9% 분리과세된다고 안내해 주세요.<br>관련 스크립트는 상담 어시스트 지식에 반영되었습니다.</p>
+            <div class="natt"><span class="nab"><i data-ic="clip"></i>첨부 파일</span><u>ISA_비과세한도_안내기준_2611.pdf</u><span class="ib sm" title="다운로드"><i data-ic="dl"></i></span></div>
           </div>
         </div>
       </div>
@@ -589,9 +581,9 @@
     <div id="all-map" class="map"></div>
   </section>
 </div>
-<script src="mockup-icons.js"></script>
-<script src="mockup-shell.js"></script>
-<script src="mockup-spec.js"></script>
-<script src="mockup.js"></script>
+<script src="mockup-icons.js?v=20261113"></script>
+<script src="mockup-shell.js?v=20261113"></script>
+<script src="mockup-spec.js?v=20261113"></script>
+<script src="mockup.js?v=20261113"></script>
 </body>
 </html>
