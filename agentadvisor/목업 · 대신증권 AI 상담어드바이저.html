@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=1480" />
 <title>대신증권 AI 상담어드바이저 · 넘버링 목업</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-<link rel="stylesheet" href="mockup.css?v=20261114e" />
+<link rel="stylesheet" href="mockup.css?v=20261114f" />
 </head>
 <body data-portal="A">
 <div class="doc">
@@ -95,24 +95,25 @@
         <div class="sonner w336">대화를 클리핑했습니다.</div>
       </div>
       <div class="col" style="width:480px;flex:none">
-        <div class="lg-lbl">[클리핑] 후 → 대화 창 안에 클리핑 구간 표시 · [클리핑 취소] · [대화 클리핑]을 다시 누르면 구간 추가</div>
+        <div class="lg-lbl">[클리핑] 후 → 대화 창 안에 클리핑 구간 표시 (한 구간만 · 대화 창 안에 취소 버튼 없음)</div>
         <div class="bx stt" style="gap:10px">
           <div class="clpz">
-            <div class="dvd clp"><span>클리핑 1 시작 · 10:31</span><span class="btn s clx" title="이 구간의 클리핑을 취소합니다"><i data-ic="x"></i>클리핑 취소</span></div>
+            <div class="dvd clp"><span>클리핑 시작 · 10:31</span></div>
             <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">지난번에 수수료가 많이 빠졌던데, 이번엔 손해 볼 일 없는 거죠?</div></div><span class="tm">10:31</span></div>
             <div class="u a"><div class="ba"><div class="ub">수수료 차감 내역부터 확인해 드리겠습니다.</div></div><span class="tm">10:31</span></div>
             <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">또 그러면 금감원에 신고할 거예요.</div></div><span class="tm">10:32</span></div>
-            <div class="dvd clp"><span>클리핑 1 종료 · 10:32</span></div>
+            <div class="dvd clp"><span>클리핑 종료 · 10:32</span></div>
           </div>
           <div class="u a"><div class="ba"><div class="ub">불편을 드려 죄송합니다. 정확한 기준을 다시 확인해 안내드리겠습니다.</div></div><span class="tm">10:32</span></div>
-          <div class="clpz">
-            <div class="dvd clp"><span>클리핑 2 시작 · 10:34</span><span class="btn s clx" title="이 구간의 클리핑을 취소합니다"><i data-ic="x"></i>클리핑 취소</span></div>
-            <div class="u a"><div class="ba"><div class="ub">고객님, 일반형 ISA 비과세 한도는 순이익 200만 원입니다. 앞서 잘못 안내드려 죄송합니다.</div></div><span class="tm">10:34</span></div>
-            <div class="dvd clp"><span>클리핑 2 종료 · 10:34</span></div>
-          </div>
-          <div class="brow"><span class="hint">클리핑 2건</span><span class="sp"></span><span class="btn on" title="다시 누르면 새 구간을 추가로 클리핑합니다"><i data-ic="clip"></i>대화 클리핑</span></div>
+          <div class="u a"><div class="ba"><div class="ub">고객님, 일반형 ISA 비과세 한도는 순이익 200만 원입니다. 앞서 잘못 안내드려 죄송합니다.</div></div><span class="tm">10:34</span></div>
+          <div class="brow"><span class="sp"></span><span class="btn on" title="다시 누르면 이전 클리핑 구간을 취소하고 새로 클리핑합니다"><i data-ic="clip"></i>대화 클리핑</span></div>
           <i class="n" data-k="53"></i>
         </div>
+      </div>
+      <div class="col" style="width:440px;flex:none">
+        <div class="lg-lbl">클리핑한 구간이 있을 때 [대화 클리핑] 다시 누름 → 다시 클리핑 확인 Alert Dialog</div>
+        <div class="dlg um-d" role="alertdialog"><h5>다시 클리핑하시겠습니까?</h5><p>이전에 클리핑한 구간(10:31 ~ 10:32)은 취소됩니다. 대화 클리핑은 한 구간만 저장합니다.</p><div class="um-acts"><button class="btn lg dg">다시 클리핑</button><button class="btn lg um-fc">취소</button></div></div>
+        <span class="hint">[다시 클리핑] → 이전 구간 취소 · 시작 발화 · 끝 발화 선택 모드가 열림 → [클리핑]으로 새 구간 저장<br>[취소] → 이전 클리핑 구간을 그대로 둠 (초기 포커스 [취소])</span>
       </div>
       <div class="col" style="width:480px;flex:none">
         <div class="lg-lbl">실시간 대화 알림 문구 (위험 · 안내)</div>
@@ -126,7 +127,7 @@
         <div class="sonner w336">리더에게 SOS를 요청했습니다.</div>
         <div class="sonner w336"><i data-ic="calert"></i>SOS 요청을 보내지 못했습니다. 잠시 후 다시 시도해 주세요.<i class="n r" data-k="67"></i></div>
       </div>
-      <div class="card" style="box-shadow:none;flex:1 1 100%"><h4>실시간 상담 알림 · SOS · 대화 클리핑 · 개인정보</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· 통화 중 알림은 실시간 대화 안에 한 줄 Alert로 띄웁니다. 문구는 '[유형] + 내용' 형태입니다. 위험 알림은 빨간색 · 경고 아이콘, 안내 알림은 초록색 · 정보 아이콘입니다.<br>· 제목 줄의 통화 방향 배지(IB/OB) 옆 [SOS]를 누르면 담당 리더에게 바로 도움을 요청합니다. 요청에 성공하면 한 줄 Sonner, 실패하면 아이콘이 있는 두 줄 Sonner를 화면 위 가운데에 띄웁니다. [SOS]는 통화 중에만 보입니다.<br>· 하단 [대화 클리핑]을 누르면 선택 모드가 됩니다. 시작 발화와 끝 발화를 누르면 그 사이 대화가 함께 선택되고, [클리핑]으로 저장하고 [취소]로 선택을 지웁니다.<br>· 클리핑한 구간은 대화 창 안에서 '클리핑 N 시작' · '클리핑 N 종료' 구분선과 연한 배경으로 묶어 보여 줍니다. 시작 구분선의 [클리핑 취소]를 누르면 그 구간의 클리핑만 취소되고 구분선이 사라집니다.<br>· [대화 클리핑]을 다시 누르면 선택 모드가 다시 열려 새 구간을 추가로 클리핑합니다(클리핑 1, 클리핑 2 …). 클리핑한 구간은 상담 이력 조회 › 상담 이력 상세에서도 봅니다.<br>· 개인정보: 실시간 대화 · 고객 이력 정보 · NER 태그는 마스킹하지 않고 보여 줍니다. 상담 이력 · 메모 · 후처리 저장본처럼 저장하는 데이터에만 마스킹을 적용합니다.<br>· STT 보정을 저장하면 말풍선 안에 'STT 수정됨 · 소속팀 상담사명'(예: STT 수정됨 · 계좌상담1팀 이서연)을 표시합니다.</div></div>
+      <div class="card" style="box-shadow:none;flex:1 1 100%"><h4>실시간 상담 알림 · SOS · 대화 클리핑 · 개인정보</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· 통화 중 알림은 실시간 대화 안에 한 줄 Alert로 띄웁니다. 문구는 '[유형] + 내용' 형태입니다. 위험 알림은 빨간색 · 경고 아이콘, 안내 알림은 초록색 · 정보 아이콘입니다.<br>· 제목 줄의 통화 방향 배지(IB/OB) 옆 [SOS]를 누르면 담당 리더에게 바로 도움을 요청합니다. 요청에 성공하면 한 줄 Sonner, 실패하면 아이콘이 있는 두 줄 Sonner를 화면 위 가운데에 띄웁니다. [SOS]는 통화 중에만 보입니다.<br>· 하단 [대화 클리핑]을 누르면 선택 모드가 됩니다. 시작 발화와 끝 발화를 누르면 그 사이 대화가 함께 선택되고, [클리핑]으로 저장하고 [취소]로 선택을 지웁니다.<br>· 클리핑은 한 구간만 저장합니다. 클리핑한 구간은 대화 창 안에서 '클리핑 시작' · '클리핑 종료' 구분선과 연한 배경으로 묶어 보여 주고, 대화 창 안에는 클리핑 취소 버튼을 두지 않습니다.<br>· 클리핑한 구간이 있을 때 [대화 클리핑]을 다시 누르면 Alert Dialog '다시 클리핑하시겠습니까?'가 뜹니다. [다시 클리핑]을 누르면 이전 구간이 취소되고 선택 모드가 열려 새로 클리핑하고, [취소]를 누르면 이전 구간을 그대로 둡니다(초기 포커스 [취소]). 클리핑한 구간은 상담 이력 조회 › 상담 이력 상세에서도 봅니다.<br>· 개인정보: 실시간 대화 · 고객 이력 정보 · NER 태그는 마스킹하지 않고 보여 줍니다. 상담 이력 · 메모 · 후처리 저장본처럼 저장하는 데이터에만 마스킹을 적용합니다.<br>· STT 보정을 저장하면 말풍선 안에 'STT 수정됨 · 소속팀 상담사명'(예: STT 수정됨 · 계좌상담1팀 이서연)을 표시합니다.</div></div>
     </div>
     <div class="card" style="box-shadow:none;margin-top:14px">
       <h4>오안내 표시 규칙 (와이어프레임 오안내 1-1 ~ 1-8)</h4>
@@ -605,9 +606,9 @@
     <div id="all-map" class="map"></div>
   </section>
 </div>
-<script src="mockup-icons.js?v=20261114e"></script>
-<script src="mockup-shell.js?v=20261114e"></script>
-<script src="mockup-spec.js?v=20261114e"></script>
-<script src="mockup.js?v=20261114e"></script>
+<script src="mockup-icons.js?v=20261114f"></script>
+<script src="mockup-shell.js?v=20261114f"></script>
+<script src="mockup-spec.js?v=20261114f"></script>
+<script src="mockup.js?v=20261114f"></script>
 </body>
 </html>
