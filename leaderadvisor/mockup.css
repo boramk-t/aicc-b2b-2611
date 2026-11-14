@@ -1158,3 +1158,5 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 .um-psz { display:flex; align-items:center; gap:8px; margin-right:24px; font-size:14px; line-height:20px; color:#020617; white-space:nowrap; } .um-psz .in2 { width:96px; }
 .um-pw { display:flex; flex-direction:column; align-items:flex-end; gap:4px; align-self:flex-start; } .um-pw .um-psz { margin-right:0; }
 .um-dd.um-pdd { width:96px; margin-top:0; box-sizing:border-box; } .um-pdd .um-o > svg.i { width:14px; height:14px; color:#020617; }
+.lt.um-t td small.um-zr, .lt.um-t td.um-zr { color:#DC2626; }
+.lt.um-t td u + small { margin-top:2px; }
