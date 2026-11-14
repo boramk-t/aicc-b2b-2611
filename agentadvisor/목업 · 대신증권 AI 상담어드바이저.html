@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=1480" />
 <title>대신증권 AI 상담어드바이저 · 넘버링 목업</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-<link rel="stylesheet" href="mockup.css?v=20261114d" />
+<link rel="stylesheet" href="mockup.css?v=20261114e" />
 </head>
 <body data-portal="A">
 <div class="doc">
@@ -95,6 +95,26 @@
         <div class="sonner w336">대화를 클리핑했습니다.</div>
       </div>
       <div class="col" style="width:480px;flex:none">
+        <div class="lg-lbl">[클리핑] 후 → 대화 창 안에 클리핑 구간 표시 · [클리핑 취소] · [대화 클리핑]을 다시 누르면 구간 추가</div>
+        <div class="bx stt" style="gap:10px">
+          <div class="clpz">
+            <div class="dvd clp"><span>클리핑 1 시작 · 10:31</span><span class="btn s clx" title="이 구간의 클리핑을 취소합니다"><i data-ic="x"></i>클리핑 취소</span></div>
+            <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">지난번에 수수료가 많이 빠졌던데, 이번엔 손해 볼 일 없는 거죠?</div></div><span class="tm">10:31</span></div>
+            <div class="u a"><div class="ba"><div class="ub">수수료 차감 내역부터 확인해 드리겠습니다.</div></div><span class="tm">10:31</span></div>
+            <div class="u"><span class="nm">김민준 고객님</span><div class="ba"><div class="ub">또 그러면 금감원에 신고할 거예요.</div></div><span class="tm">10:32</span></div>
+            <div class="dvd clp"><span>클리핑 1 종료 · 10:32</span></div>
+          </div>
+          <div class="u a"><div class="ba"><div class="ub">불편을 드려 죄송합니다. 정확한 기준을 다시 확인해 안내드리겠습니다.</div></div><span class="tm">10:32</span></div>
+          <div class="clpz">
+            <div class="dvd clp"><span>클리핑 2 시작 · 10:34</span><span class="btn s clx" title="이 구간의 클리핑을 취소합니다"><i data-ic="x"></i>클리핑 취소</span></div>
+            <div class="u a"><div class="ba"><div class="ub">고객님, 일반형 ISA 비과세 한도는 순이익 200만 원입니다. 앞서 잘못 안내드려 죄송합니다.</div></div><span class="tm">10:34</span></div>
+            <div class="dvd clp"><span>클리핑 2 종료 · 10:34</span></div>
+          </div>
+          <div class="brow"><span class="hint">클리핑 2건</span><span class="sp"></span><span class="btn on" title="다시 누르면 새 구간을 추가로 클리핑합니다"><i data-ic="clip"></i>대화 클리핑</span></div>
+          <i class="n" data-k="53"></i>
+        </div>
+      </div>
+      <div class="col" style="width:480px;flex:none">
         <div class="lg-lbl">실시간 대화 알림 문구 (위험 · 안내)</div>
         <div class="cal err"><i data-ic="calert"></i><div><b>[개인정보] 관련 문의가 접수됐습니다.</b></div></div>
         <div class="cal err"><i data-ic="calert"></i><div><b>[민원성] 문의가 접수됐습니다.</b></div></div>
@@ -106,7 +126,7 @@
         <div class="sonner w336">리더에게 SOS를 요청했습니다.</div>
         <div class="sonner w336"><i data-ic="calert"></i>SOS 요청을 보내지 못했습니다. 잠시 후 다시 시도해 주세요.<i class="n r" data-k="67"></i></div>
       </div>
-      <div class="card" style="box-shadow:none;flex:1 1 100%"><h4>실시간 상담 알림 · SOS · 대화 클리핑 · 개인정보</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· 통화 중 알림은 실시간 대화 안에 한 줄 Alert로 띄웁니다. 문구는 '[유형] + 내용' 형태입니다. 위험 알림은 빨간색 · 경고 아이콘, 안내 알림은 초록색 · 정보 아이콘입니다.<br>· 제목 줄의 통화 방향 배지(IB/OB) 옆 [SOS]를 누르면 담당 리더에게 바로 도움을 요청합니다. 요청에 성공하면 한 줄 Sonner, 실패하면 아이콘이 있는 두 줄 Sonner를 화면 위 가운데에 띄웁니다. [SOS]는 통화 중에만 보입니다.<br>· 하단 [대화 클리핑]을 누르면 선택 모드가 됩니다. 시작 발화와 끝 발화를 누르면 그 사이 대화가 함께 선택되고, [클리핑]으로 저장하고 [취소]로 선택을 지웁니다. 클리핑한 대화는 실시간 대화에 따로 모아 보여 주지 않고 상담 이력 조회 › 상담 이력 상세에서만 봅니다.<br>· 개인정보: 실시간 대화 · 고객 이력 정보 · NER 태그는 마스킹하지 않고 보여 줍니다. 상담 이력 · 메모 · 후처리 저장본처럼 저장하는 데이터에만 마스킹을 적용합니다.<br>· STT 보정을 저장하면 말풍선 안에 'STT 수정됨 · 소속팀 상담사명'(예: STT 수정됨 · 계좌상담1팀 이서연)을 표시합니다.</div></div>
+      <div class="card" style="box-shadow:none;flex:1 1 100%"><h4>실시간 상담 알림 · SOS · 대화 클리핑 · 개인정보</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· 통화 중 알림은 실시간 대화 안에 한 줄 Alert로 띄웁니다. 문구는 '[유형] + 내용' 형태입니다. 위험 알림은 빨간색 · 경고 아이콘, 안내 알림은 초록색 · 정보 아이콘입니다.<br>· 제목 줄의 통화 방향 배지(IB/OB) 옆 [SOS]를 누르면 담당 리더에게 바로 도움을 요청합니다. 요청에 성공하면 한 줄 Sonner, 실패하면 아이콘이 있는 두 줄 Sonner를 화면 위 가운데에 띄웁니다. [SOS]는 통화 중에만 보입니다.<br>· 하단 [대화 클리핑]을 누르면 선택 모드가 됩니다. 시작 발화와 끝 발화를 누르면 그 사이 대화가 함께 선택되고, [클리핑]으로 저장하고 [취소]로 선택을 지웁니다.<br>· 클리핑한 구간은 대화 창 안에서 '클리핑 N 시작' · '클리핑 N 종료' 구분선과 연한 배경으로 묶어 보여 줍니다. 시작 구분선의 [클리핑 취소]를 누르면 그 구간의 클리핑만 취소되고 구분선이 사라집니다.<br>· [대화 클리핑]을 다시 누르면 선택 모드가 다시 열려 새 구간을 추가로 클리핑합니다(클리핑 1, 클리핑 2 …). 클리핑한 구간은 상담 이력 조회 › 상담 이력 상세에서도 봅니다.<br>· 개인정보: 실시간 대화 · 고객 이력 정보 · NER 태그는 마스킹하지 않고 보여 줍니다. 상담 이력 · 메모 · 후처리 저장본처럼 저장하는 데이터에만 마스킹을 적용합니다.<br>· STT 보정을 저장하면 말풍선 안에 'STT 수정됨 · 소속팀 상담사명'(예: STT 수정됨 · 계좌상담1팀 이서연)을 표시합니다.</div></div>
     </div>
     <div class="card" style="box-shadow:none;margin-top:14px">
       <h4>오안내 표시 규칙 (와이어프레임 오안내 1-1 ~ 1-8)</h4>
@@ -544,7 +564,6 @@
             <hr>
             <div class="ds"><h6>요청 내용 · 10:32 (이서연)</h6><p>ISA 비과세 한도를 잘못 안내한 뒤 고객이 민원을 언급했습니다. 정정 안내 문구와 민원 응대 방법 확인 부탁드립니다.</p><div class="af"><i data-ic="doc"></i><span>상담화면_캡처_1031.png</span><span class="ib sm" title="다운로드"><i data-ic="dl"></i></span></div><div class="af"><i data-ic="doc"></i><span>ISA_상품설명서_발췌.pdf</span><span class="ib sm" title="다운로드"><i data-ic="dl"></i></span></div></div>
             <div class="ds"><h6>코칭 답변 · 10:33 (박지훈)</h6><p>사과 멘트를 먼저 하고 일반형 200만 원 기준으로 정정해 주세요. 민원 응대 스크립트를 첨부합니다.</p><div class="af"><i data-ic="doc"></i><span>민원응대스크립트_ISA.pdf</span><span class="ib sm" title="다운로드"><i data-ic="dl"></i></span></div><i class="n r" data-k="66"></i></div>
-            <div class="da"><span class="btn">추가 요청<i class="n r" data-k="67"></i></span></div>
           </div>
         </div>
       </div>
@@ -554,7 +573,7 @@
       <div class="col" style="width:402px;flex:none"><div class="lg-lbl">코칭 메시지 [추가 요청] → 추가 요청 창 (와이어프레임 2-3)</div><div class="win" style="width:402px"><div class="wtb"><span>AI 상담어드바이저 - 추가 요청</span><span class="sp"></span><i data-ic="x"></i></div><div class="wbd"><div class="fs"><div class="lbl">요청 내용<em>*</em></div><div class="ta3">고객이 정정 안내 후에도 보상을 요구합니다. 보상 불가 안내 문구도 부탁드립니다.</div></div>
 <div class="fs" style="gap:8px"><div class="atr"><span class="ib sm" title="파일 첨부"><i data-ic="clip"></i></span>파일 첨부</div><div class="af"><i data-ic="doc"></i><span>고객_요청내용_메모.txt</span><span class="ib sm" title="첨부 제외"><i data-ic="x"></i></span></div></div>
 <div class="acts"><button class="btn lg">취소</button><button class="btn lg p">요청</button></div></div><i class="n" data-k="67"></i></div></div>
-      <div class="card g1" style="box-shadow:none"><h4>코칭 동작 (와이어프레임 코칭 1-1 ~ 3-2)</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· 상단 [코칭 요청]을 누르면 새 창이 열립니다. 관리자 1명을 고르고 요청 내용을 1자 이상(띄어쓰기 제외) 입력하면 [요청]이 활성됩니다. 요청 내용은 최대 500자이며 5줄을 넘으면 스크롤합니다.<br>· [파일 첨부]로 파일을 붙여 쪽지처럼 함께 보냅니다. 첨부 파일은 파일명.확장자로 보여 주고 [X]로 뺍니다. [취소]는 창을 닫고 입력값을 지웁니다.<br>· 보내면 창이 닫히고 Sonner "코칭 요청을 보냈습니다."를 띄웁니다. 실패하면 "코칭 요청을 보내지 못했습니다. 다시 시도해 주세요."를 띄우고 입력값을 유지합니다.<br>· 호출할 관리자가 없으면 "지금은 호출 가능한 관리자가 없습니다", 목록 조회에 실패하면 "관리자 리스트를 불러오지 못했습니다"를 보여 줍니다. 진행 중인 요청이 있어도 새로 요청할 수 있고, 선택한 탭의 통화가 끝나면 [코칭 요청]이 비활성됩니다.<br>· 관리자 코칭 메시지는 실시간 대화의 가장 최근 위치에 상담사 쪽 말풍선(파란 테두리)으로 표시하고, 발신자 이름 · 소속팀은 말풍선 위에 둡니다. 첨부 파일명을 누르면 열고, 다운로드 버튼으로 저장합니다.<br>· [추가 요청]은 통화가 끝난 뒤에도 쓸 수 있지만 그때는 [파일 첨부]가 비활성됩니다.<br>· 코칭 메시지를 받으면 알림 목록에 '코칭 답변' 알림이 최신순으로 쌓이고 LNB [알림] 배지 숫자가 늘어납니다. LNB [알림]을 누르면 알림 목록으로 바뀌고, 제목을 누르면 알림 상세에서 요청 내용 · 코칭 답변 · 첨부 파일을 보고 [추가 요청]을 보낼 수 있습니다. 읽은 알림은 목록에서 회색 배경으로 바뀌고, 확인하지 않은 알림이 남아 있으면 [알림] 배지를 유지합니다.</div></div>
+      <div class="card g1" style="box-shadow:none"><h4>코칭 동작 (와이어프레임 코칭 1-1 ~ 3-2)</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· 상단 [코칭 요청]을 누르면 새 창이 열립니다. 관리자 1명을 고르고 요청 내용을 1자 이상(띄어쓰기 제외) 입력하면 [요청]이 활성됩니다. 요청 내용은 최대 500자이며 5줄을 넘으면 스크롤합니다.<br>· [파일 첨부]로 파일을 붙여 쪽지처럼 함께 보냅니다. 첨부 파일은 파일명.확장자로 보여 주고 [X]로 뺍니다. [취소]는 창을 닫고 입력값을 지웁니다.<br>· 보내면 창이 닫히고 Sonner "코칭 요청을 보냈습니다."를 띄웁니다. 실패하면 "코칭 요청을 보내지 못했습니다. 다시 시도해 주세요."를 띄우고 입력값을 유지합니다.<br>· 호출할 관리자가 없으면 "지금은 호출 가능한 관리자가 없습니다", 목록 조회에 실패하면 "관리자 리스트를 불러오지 못했습니다"를 보여 줍니다. 진행 중인 요청이 있어도 새로 요청할 수 있고, 선택한 탭의 통화가 끝나면 [코칭 요청]이 비활성됩니다.<br>· 관리자 코칭 메시지는 실시간 대화의 가장 최근 위치에 상담사 쪽 말풍선(파란 테두리)으로 표시하고, 발신자 이름 · 소속팀은 말풍선 위에 둡니다. 첨부 파일명을 누르면 열고, 다운로드 버튼으로 저장합니다.<br>· [추가 요청]은 통화가 끝난 뒤에도 쓸 수 있지만 그때는 [파일 첨부]가 비활성됩니다.<br>· 코칭 메시지를 받으면 알림 목록에 '코칭 답변' 알림이 최신순으로 쌓이고 LNB [알림] 배지 숫자가 늘어납니다. LNB [알림]을 누르면 알림 목록으로 바뀌고, 제목을 누르면 알림 상세에서 요청 내용 · 코칭 답변 · 첨부 파일을 봅니다. 알림 상세는 끝난 코칭 기록이라 [추가 요청]을 두지 않고, 추가 요청은 통화 중 실시간 대화의 코칭 말풍선에서 보냅니다. 읽은 알림은 목록에서 회색 배경으로 바뀌고, 확인하지 않은 알림이 남아 있으면 [알림] 배지를 유지합니다.</div></div>
     </div>
   </section>
 
@@ -586,9 +605,9 @@
     <div id="all-map" class="map"></div>
   </section>
 </div>
-<script src="mockup-icons.js?v=20261114d"></script>
-<script src="mockup-shell.js?v=20261114d"></script>
-<script src="mockup-spec.js?v=20261114d"></script>
-<script src="mockup.js?v=20261114d"></script>
+<script src="mockup-icons.js?v=20261114e"></script>
+<script src="mockup-shell.js?v=20261114e"></script>
+<script src="mockup-spec.js?v=20261114e"></script>
+<script src="mockup.js?v=20261114e"></script>
 </body>
 </html>
