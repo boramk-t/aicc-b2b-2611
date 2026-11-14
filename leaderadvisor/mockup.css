@@ -1047,8 +1047,8 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 .nfp.cbx { width:240px; padding:4px; }
 .nfp .nfs { display:flex; align-items:center; gap:8px; height:36px; padding:0 8px; border-bottom:1px solid #E2E8F0; margin-bottom:4px; font-size:14px; color:#64748B; } .nfp .nfs svg.i { width:16px; height:16px; color:#020617; opacity:.5; }
 .nfp.cbx .it { padding-left:8px; }
-.cb { width:16px; height:16px; flex:none; box-sizing:border-box; border:1px solid #cbd5e1; border-radius:4px; background:#fff; position:relative; }
-.cb.on { background:var(--p); border-color:var(--p); } .cb.on::after { content:""; position:absolute; left:4.5px; top:1.5px; width:4px; height:8px; border:solid #fff; border-width:0 2px 2px 0; transform:rotate(45deg); }
+.ckb { width:16px; height:16px; flex:none; box-sizing:border-box; border:1px solid #cbd5e1; border-radius:4px; background:#fff; position:relative; }
+.ckb.on { background:var(--p); border-color:var(--p); } .ckb.on::after { content:""; position:absolute; left:4.5px; top:1.5px; width:4px; height:8px; border:solid #fff; border-width:0 2px 2px 0; transform:rotate(45deg); }
 .nfp .rst { height:32px; display:flex; align-items:center; justify-content:center; font-size:14px; color:#020617; border-radius:6px; cursor:pointer; }
 /* 운영 관리 오른쪽 메뉴 */
 .opop .qrow.on { background:var(--sf); font-weight:600; } .opop .qrow > svg.i { width:16px; height:16px; color:#020617; }
