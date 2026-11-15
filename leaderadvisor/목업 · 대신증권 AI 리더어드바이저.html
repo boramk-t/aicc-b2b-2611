@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=1480" />
 <title>대신증권 AI 리더어드바이저 · 넘버링 목업</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-<link rel="stylesheet" href="mockup.css?v=20261114m" />
+<link rel="stylesheet" href="mockup.css?v=20261114n" />
 </head>
 <body data-portal="L">
 <div class="doc">
   <div class="doc-head">
     <h1>대신증권 AI 리더어드바이저 · 넘버링 목업</h1>
     <p>관리자 · 리더 화면 기능을 목업으로 표현하고, 각 화면 요소에 기능 목록의 No를 배지로 붙였습니다. 화면마다 아래에 넘버링 매핑표가 있고, 문서 끝에 전체 기능 목록(고객사 요구사항 No 1~74, 23 · 24 · 25가 두 행이라 77행 · 그 뒤 No 75~77은 목업에서 추가한 기능)과 목업 위치를 정리했습니다.</p>
-    <p>디자인과 컴포넌트는 상담어드바이저 목업과 같습니다(2026 U+AICC 디자인시스템 · Figma 와이어프레임 '기획-상담어드바이저'). 메뉴는 I.A를 따릅니다: 일반(리더 어드바이저) · 조회(실시간 모니터링, 상담 이력 조회, 이슈 콜 목록, 상담 어시스트 책갈피) · 통계 · 분석(콜 통계, 개선 이행) · 도구(키워드 관리, 관심 통화 관리, 위협 감지 설정, 지식 관리) · LNB 공통(메모, 퀵 메뉴, 공지사항, 알림, 운영 관리).</p>
+    <p>디자인과 컴포넌트는 상담어드바이저 목업과 같습니다(2026 U+AICC 디자인시스템 · Figma 와이어프레임 '기획-상담어드바이저'). 메뉴는 I.A를 따릅니다: 일반(리더 어드바이저) · 조회(실시간 모니터링, 상담 이력 조회, 이슈 콜 목록, 상담 어시스트 책갈피) · 통계 · 분석(콜 통계, 개선 이행) · 도구(키워드 관리, 상담코드 관리, 관심 통화 관리, 위협 감지 설정, 지식 관리) · LNB 공통(메모, 퀵 메뉴, 공지사항, 알림, 운영 관리).</p>
     <p>상담직원 화면 기능(No 31~67)은 상담어드바이저 목업에 있습니다. 두 포털에 모두 해당하는 기능(17, 30, 48, 53, 64, 68~71, 73, 75)은 양쪽에 붙였습니다. No 11(별도 STT 관리 메뉴)과 No 29(BE 기능)는 목업에서 뺐습니다. 기준일 2026.11.07, 값은 모두 예시입니다.</p>
     <span class="legend-hint"><i class="n in">12</i> 화면 기능 번호 <i class="n in be">68</i> 분석 엔진(BE) 기능 · 결과가 보이는 위치에 표시</span>
     <p id="cover-count" class="hint" style="margin-top:8px"></p>
-    <div class="toc"><a href="#l1">L1 리더 어드바이저</a><a href="#l2">L2 실시간 모니터링</a><a href="#l3">L3 상담 이력 조회</a><a href="#l4">L4 이슈 콜 목록</a><a href="#l5">L5 상담 어시스트 책갈피</a><a href="#l6">L6 콜 통계</a><a href="#l7">L7 개선 이행</a><a href="#l8">L8 키워드 관리</a><a href="#l9">L9 관심 통화 관리</a><a href="#l10">L10 위협 감지 설정</a><a href="#l11">L11 지식 관리</a><a href="#l12">L12 LNB 공통 영역</a><a href="#l13">L13 운영 관리</a><a href="#all">전체 기능 목록</a></div>
+    <div class="toc"><a href="#l1">L1 리더 어드바이저</a><a href="#l2">L2 실시간 모니터링</a><a href="#l3">L3 상담 이력 조회</a><a href="#l4">L4 이슈 콜 목록</a><a href="#l5">L5 상담 어시스트 책갈피</a><a href="#l6">L6 콜 통계</a><a href="#l7">L7 개선 이행</a><a href="#l8">L8 키워드 관리</a><a href="#l9">L9 관심 통화 관리</a><a href="#l10">L10 위협 감지 설정</a><a href="#l11">L11 지식 관리</a><a href="#l12">L12 LNB 공통 영역</a><a href="#l13">L13 운영 관리</a><a href="#l14">L14 상담코드 관리</a><a href="#all">전체 기능 목록</a></div>
   </div>
 
   <section class="screen" id="l1" data-title="L1 · 리더 어드바이저">
@@ -884,14 +884,67 @@
     </div></div>
   </section>
 
+  <section class="screen" id="l14" data-title="L14 · 상담코드 관리">
+    <div class="screen-caption"><span class="tag">L14</span> 상담코드 관리 <small>도구 · 기간계 상담코드 분류(대 · 중 · 소 3단계) 조회 전용 · 수정 요청 이력 · 미분류 · 저신뢰도 콜 · 기간계 → 상담어드바이저 단방향</small></div>
+    <div class="lg-lbl">14-1 LNB 도구 [상담코드 관리] → [분류 체계] 탭 (조회 전용 · 1시간마다 기간계 기준 갱신)</div>
+    <div class="frame"><div class="ab">
+      <nav class="asb" data-on="code"></nav>
+      <div class="amc">
+        <div class="tnb" data-st="none" data-ttl="도구 > 상담코드 관리" data-tip="분류 체계는 기간계 → 상담어드바이저 단방향입니다. 등록 · 변경 · 사용 중지는 기간계에서 하고, 이 화면은 조회 전용입니다."></div>
+        <div class="lpg npg">
+          <div class="um-w">
+            <div class="ltabs rtab"><span class="on">분류 체계</span><span>수정 요청 이력</span><span>미분류 · 저신뢰도 콜</span></div>
+            <div class="alr um-al"><i data-ic="refresh"></i><div><b>기간계 분류 기준 · 마지막 갱신 2026.11.07 11:00</b><span>1시간마다 기간계 분류 전체를 받아 갱신합니다. 다음 갱신 12:00 · 이번 갱신 신규 2건 · 사용 중지 1건</span></div></div>
+            <div class="um-qf"><div class="fl2" style="width:260px"><label>검색어</label><div class="in2 ph"><i data-ic="search"></i><span>상담코드 또는 분류명 검색</span></div></div><div class="fl2" style="width:150px"><label>대분류</label><div class="in2"><span>전체</span><i data-ic="chev"></i></div></div><div class="fl2" style="width:130px"><label>상태</label><div class="in2"><span>전체</span><i data-ic="chev"></i></div></div><span class="btn lg">초기화</span><span class="btn lg p">검색</span></div>
+            <div class="ltb"><table class="lt um-t"><tr><th>상담코드<svg class="srt" viewBox="0 0 24 24" width="16" height="16"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"></path></svg></th><th>대분류</th><th>중분류</th><th>소분류</th><th>상태</th><th>기간계 변경일</th></tr><tr><td><b>C3012</b></td><td>상품</td><td>ISA</td><td>비과세 한도 문의</td><td><span class="lbdg">사용</span></td><td>2026.09.01 09:00</td></tr><tr><td><b>C3015</b></td><td>상품</td><td>ISA</td><td>납입 한도 문의</td><td><span class="lbdg">사용</span></td><td>2026.09.01 09:00</td></tr><tr><td><b>C3040</b></td><td>상품</td><td>해외주식</td><td>양도세 문의</td><td><span class="lbdg">사용</span></td><td>2026.10.15 14:20</td></tr><tr><td><b>C3098</b></td><td>상품</td><td>해외주식</td><td>양도세 신고 대행</td><td><span class="lbdg g">사용 중지</span></td><td>2026.11.07 10:50</td></tr><tr><td><b>C3120</b></td><td>상품</td><td>RIA</td><td>양도세 감면 문의</td><td><span class="lbdg">사용</span> <span class="bw" title="11:00 갱신에서 새로 들어온 상담코드입니다">신규</span></td><td>2026.11.07 10:30</td></tr><tr><td><b>C3121</b></td><td>상품</td><td>RIA</td><td>타사 대체 입고 문의</td><td><span class="lbdg">사용</span> <span class="bw" title="11:00 갱신에서 새로 들어온 상담코드입니다">신규</span></td><td>2026.11.07 10:30</td></tr><tr><td><b>D4101</b></td><td>민원</td><td>안내 오류</td><td>정정 요청</td><td><span class="lbdg">사용</span></td><td>2026.08.20 10:00</td></tr><tr><td><b>E9001</b></td><td>기타</td><td>기타</td><td>기타 문의</td><td><span class="lbdg">사용</span></td><td>2026.01.02 09:00</td></tr></table><i class="n" data-k="70"></i></div>
+            <div class="lpgn"><span class="si">총 412건</span><div class="fx"><b>1 / 52</b><div class="bt"><span class="off" title="처음"><i data-ic="chevsl"></i></span><span class="off" title="이전"><i data-ic="chevl"></i></span><span title="다음"><i data-ic="chevr"></i></span><span title="마지막"><i data-ic="chevsr"></i></span></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+    <div class="lg-lbl" style="margin-top:18px">14-2 [수정 요청 이력] 탭 · 기간계 반영 결과</div>
+    <div class="frame"><div class="ab">
+      <nav class="asb" data-on="code"></nav>
+      <div class="amc">
+        <div class="tnb" data-st="none" data-ttl="도구 > 상담코드 관리" data-tip="분류 체계는 기간계 → 상담어드바이저 단방향입니다. 등록 · 변경 · 사용 중지는 기간계에서 하고, 이 화면은 조회 전용입니다."></div>
+        <div class="lpg npg">
+          <div class="um-w">
+            <div class="ltabs rtab"><span>분류 체계</span><span class="on">수정 요청 이력</span><span>미분류 · 저신뢰도 콜</span></div>
+            <div class="um-qf"><div class="fl2" style="width:230px"><label>기간</label><div class="in2"><i data-ic="cal"></i><span>2026.11.01 ~ 2026.11.07</span></div></div><div class="fl2" style="width:140px"><label>결과</label><div class="in2"><span>전체</span><i data-ic="chev"></i></div></div><div class="fl2" style="width:180px"><label>상담직원</label><div class="in2 ph"><i data-ic="search"></i><span>이름 검색</span></div></div><span class="btn lg">초기화</span><span class="btn lg p">검색</span></div>
+            <div class="um-tb"><span class="bw g">반영됨 128</span><span class="bw r">반영 실패 3</span><span class="bw a">처리 중 1</span><span class="sp"></span></div>
+            <div class="ltb"><table class="lt um-t"><tr><th>요청 일시<svg class="srt" viewBox="0 0 24 24" width="16" height="16"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"></path></svg></th><th>콜 ID</th><th>상담직원</th><th>변경 전</th><th>변경 후</th><th>결과</th><th>사유</th></tr><tr><td>2026.11.07 10:58</td><td>C-20261107-01901</td><td>김하은</td><td><b>C3040</b><small>상품 &gt; 해외주식 &gt; 양도세 문의</small></td><td><b>C3098</b><small>상품 &gt; 해외주식 &gt; 양도세 신고 대행</small></td><td><span class="bw r">반영 실패</span></td><td class="w">기간계에서 사용 중지된 상담코드(10:50)</td></tr><tr><td>2026.11.07 10:42</td><td>C-20261107-01842</td><td>이서연</td><td><b>C3015</b><small>상품 &gt; ISA &gt; 납입 한도 문의</small></td><td><b>C3012</b><small>상품 &gt; ISA &gt; 비과세 한도 문의</small></td><td><span class="bw g">반영됨</span></td><td class="mu">-</td></tr><tr><td>2026.11.07 10:41</td><td>C-20261107-01839</td><td>정하늘</td><td class="mu">미분류</td><td><b>C3120</b><small>상품 &gt; RIA &gt; 양도세 감면 문의</small></td><td><span class="bw g">반영됨</span></td><td class="mu">-</td></tr><tr><td>2026.11.07 10:38</td><td>C-20261107-01833</td><td>한지수</td><td><b>D4101</b><small>민원 &gt; 안내 오류 &gt; 정정 요청</small></td><td><b>D4105</b><small>민원 &gt; 안내 오류 &gt; 보상 요청</small></td><td><span class="bw a">처리 중</span></td><td class="mu">-</td></tr></table><i class="n" data-k="70"></i></div>
+            <div class="lpgn"><span class="si">총 132건</span><div class="fx"><b>1 / 14</b><div class="bt"><span class="off" title="처음"><i data-ic="chevsl"></i></span><span class="off" title="이전"><i data-ic="chevl"></i></span><span title="다음"><i data-ic="chevr"></i></span><span title="마지막"><i data-ic="chevsr"></i></span></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+    <div class="lg-lbl" style="margin-top:18px">14-3 [미분류 · 저신뢰도 콜] 탭</div>
+    <div class="frame"><div class="ab">
+      <nav class="asb" data-on="code"></nav>
+      <div class="amc">
+        <div class="tnb" data-st="none" data-ttl="도구 > 상담코드 관리" data-tip="분류 체계는 기간계 → 상담어드바이저 단방향입니다. 등록 · 변경 · 사용 중지는 기간계에서 하고, 이 화면은 조회 전용입니다."></div>
+        <div class="lpg npg">
+          <div class="um-w">
+            <div class="ltabs rtab"><span>분류 체계</span><span>수정 요청 이력</span><span class="on">미분류 · 저신뢰도 콜</span></div>
+            <div class="um-qf"><div class="fl2" style="width:230px"><label>기간</label><div class="in2"><i data-ic="cal"></i><span>2026.11.01 ~ 2026.11.07</span></div></div><div class="fl2" style="width:140px"><label>구분</label><div class="in2"><span>전체</span><i data-ic="chev"></i></div></div><div class="fl2" style="width:170px"><label>센터/팀</label><div class="in2"><span>서울센터 · 전체</span><i data-ic="chev"></i></div></div><span class="btn lg">초기화</span><span class="btn lg p">검색</span></div>
+            <div class="um-tb"><span class="bw kn-g">미분류 4</span><span class="bw scd-lo">저신뢰도 11</span><span class="hint"><span class="ifo" data-tip="기타는 분류 체계의 기타 분류라 여기에 넣지 않습니다." aria-label="안내" tabindex="0"><i data-ic="info"></i></span></span><span class="sp"></span></div>
+            <div class="ltb"><table class="lt um-t"><tr><th>일시<svg class="srt" viewBox="0 0 24 24" width="16" height="16"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"></path></svg></th><th>콜 ID</th><th>상담직원</th><th>구분</th><th>AI 추천 1순위</th><th>정확도</th><th>최종 상담코드</th></tr><tr><td>2026.11.07 10:41</td><td>C-20261107-01839</td><td>정하늘</td><td><span class="bw kn-g">미분류</span></td><td class="mu">-</td><td class="mu">-</td><td><b>C3120</b><small>상품 &gt; RIA &gt; 양도세 감면 문의 · 상담 유형 검색으로 선택</small></td></tr><tr><td>2026.11.07 10:11</td><td>C-20261107-01790</td><td>김하은</td><td><span class="bw scd-lo">저신뢰도</span></td><td><b>C3040</b><small>상품 &gt; 해외주식 &gt; 양도세 문의</small></td><td><span class="scd-pct lo" title="저신뢰도(50% 이하)">44.2%</span></td><td><b>C3040</b><small>상품 &gt; 해외주식 &gt; 양도세 문의</small></td></tr><tr><td>2026.11.07 09:58</td><td>C-20261107-01755</td><td>이서연</td><td><span class="bw scd-lo">저신뢰도</span></td><td><b>A2010</b><small>계좌 &gt; 계좌 조회 &gt; 잔고 문의</small></td><td><span class="scd-pct lo" title="저신뢰도(50% 이하)">38.0%</span></td><td><b>A2015</b><small>계좌 &gt; 계좌 조회 &gt; 거래 내역 문의</small></td></tr></table><i class="n" data-k="70"></i></div>
+            <div class="lpgn"><span class="si">총 15건</span><div class="fx"><b>1 / 2</b><div class="bt"><span class="off" title="처음"><i data-ic="chevsl"></i></span><span class="off" title="이전"><i data-ic="chevl"></i></span><span title="다음"><i data-ic="chevr"></i></span><span title="마지막"><i data-ic="chevsr"></i></span></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+    <div class="row" style="margin-top:14px;align-items:flex-start"><div class="card g1" style="box-shadow:none"><h4>상담코드 관리 동작 (기간계 단방향)</h4><div class="hint" style="font-size:12px;line-height:1.75;color:#334155">· LNB 도구 › [상담코드 관리]는 기간계 상담코드 분류(대 · 중 · 소 3단계)를 상담어드바이저 기준으로 보여 주는 조회 화면입니다. 상담 유형 = 상담코드입니다.<br>· 분류 체계는 기간계 → 상담어드바이저 단방향입니다. 등록 · 변경 · 사용 중지는 기간계에서만 하고, 이 화면에는 등록 · 수정 버튼을 두지 않습니다.<br>· [분류 체계]: 1시간마다 기간계 분류 전체를 받아 갱신합니다. 위쪽에 마지막 · 다음 갱신 시각과 이번 갱신에서 새로 들어온 코드(신규) · 사용 중지된 코드 수를 보여 줍니다. 사용 중지된 코드는 지우지 않고 '사용 중지'로 남겨 과거 상담 이력의 분류를 유지합니다.<br>· 갱신 사이에 기간계에 새로 등록된 코드는 다음 갱신 때 들어옵니다. 그 사이 상담직원은 후처리 [상담 유형 검색]으로 기간계 최신 분류에서 찾아 고릅니다(예: C3120 · C3121).<br>· [수정 요청 이력]: 상담직원이 후처리에서 고른 상담코드를 기간계에 보낸 수정 요청과 결과(반영됨 · 반영 실패 · 처리 중)를 봅니다. 반영되면 상담어드바이저 값을 기간계 값으로 덮어쓰고, 반영 실패는 사유를 보여 줍니다(예: 갱신 사이에 사용 중지된 코드).<br>· [미분류 · 저신뢰도 콜]: AI가 분류하지 못한 콜(미분류)과 추천 1순위 정확도가 50% 이하인 콜(저신뢰도, 주황색)을 따로 모아 봅니다. 기타는 기타 분류라 넣지 않습니다.<br>· 확인 필요: 메뉴 위치(도구 · 운영 관리), 이 화면을 볼 수 있는 역할, 미분류 · 저신뢰도 콜에서 상담코드를 다시 지정할 수 있게 할지.</div></div></div>
+  </section>
+
   <section class="screen" id="all" data-title="전체 기능 목록">
     <div class="screen-caption"><span class="tag">전체</span> 전체 기능 목록 (고객사 요구사항 No 1~74 · 77행 + 추가 75~77) <small>회색 행은 상담어드바이저 목업에 있거나 목업에서 뺀 기능입니다</small></div>
     <div id="all-map" class="map"></div>
   </section>
 </div>
-<script src="mockup-icons.js?v=20261114m"></script>
-<script src="mockup-shell.js?v=20261114m"></script>
-<script src="mockup-spec.js?v=20261114m"></script>
-<script src="mockup.js?v=20261114m"></script>
+<script src="mockup-icons.js?v=20261114n"></script>
+<script src="mockup-shell.js?v=20261114n"></script>
+<script src="mockup-spec.js?v=20261114n"></script>
+<script src="mockup.js?v=20261114n"></script>
 </body>
 </html>

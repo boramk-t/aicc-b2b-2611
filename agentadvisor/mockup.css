@@ -1215,3 +1215,8 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 .iss-ln { display:flex; align-items:center; flex-wrap:wrap; gap:6px; }
 .iss-p { display:inline-flex; align-items:center; flex-wrap:wrap; gap:4px; margin-right:4px; font-size:14px; line-height:20px; color:var(--fg); }
 .iss-p > i { font-style:normal; color:var(--mu); } .iss-p > b { font-weight:600; color:var(--rd); } .iss-p > .hint { margin-left:4px; font-size:12px; }
+/* L14 상담코드 관리 · 최상위 창 자리비움 */
+.scd-pct.lo { color:#ea580c; font-weight:600; }
+.bw.scd-lo { border-color:#ea580c; background:#fff7ed; color:#ea580c; }
+.um-tb .hint .ifo { margin-left:0; }
+.st.away { color:var(--mu); }
