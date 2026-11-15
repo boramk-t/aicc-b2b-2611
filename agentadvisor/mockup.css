@@ -1220,3 +1220,5 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 .bw.scd-lo { border-color:#ea580c; background:#fff7ed; color:#ea580c; }
 .um-tb .hint .ifo { margin-left:0; }
 .st.away { color:var(--mu); }
+/* 상담유형(상담코드 대 > 중 > 소) 셀: 줄바꿈 허용 */
+.tbx td.cty { white-space:normal; word-break:keep-all; min-width:130px; max-width:190px; font-size:13px; line-height:18px; }
