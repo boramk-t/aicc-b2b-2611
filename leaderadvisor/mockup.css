@@ -1222,3 +1222,17 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 .st.away { color:var(--mu); }
 /* 상담유형(상담코드 대 > 중 > 소) 셀: 줄바꿈 허용 */
 .tbx td.cty { white-space:normal; word-break:keep-all; min-width:130px; max-width:190px; font-size:13px; line-height:18px; }
+/* L14 상담코드 관리: 제목 옆 업데이트 일시 · 정렬 표시 · 수정 / 추가 Dialog */
+.tnb-sub { margin-left:6px; font-size:13px; line-height:20px; color:var(--mu); white-space:nowrap; }
+.lt .srt.on { stroke:var(--p6); }
+.lt.um-t td u.scd-c { font-weight:600; cursor:pointer; }
+.um-g3 { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.scd-h { margin-top:-8px; font-size:12px; line-height:16px; color:var(--mu); }
+.scd-ok { display:flex; align-items:center; gap:4px; font-size:12px; line-height:16px; color:var(--gr); } .scd-ok svg.i { width:14px; height:14px; }
+.cs-dd.scd-dd { margin-top:-4px; }
+.cs-dd .it { align-items:center; } .cs-dd .it .lbdg { margin-left:auto; flex:none; }
+.cs-dd .it.off, .cs-dd .it.off span, .cs-dd .it.off u { color:#94A3B8; }
+.cs-dd .it:not(.off):last-of-type { background:var(--sf); }
+/* 추천 상담코드 없음: 미분류 콜 */
+.cc-emp { display:flex; flex-direction:column; align-items:center; gap:6px; padding:20px 16px; border-radius:var(--r-md); background:var(--sf); text-align:center; }
+.cc-emp > svg.i { width:20px; height:20px; color:var(--mu); } .cc-emp b { font-size:14px; font-weight:600; line-height:20px; color:var(--fg); } .cc-emp span { font-size:13px; line-height:18px; color:var(--mu); }

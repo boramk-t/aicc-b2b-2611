@@ -96,7 +96,7 @@
   document.querySelectorAll('.tnb[data-st]').forEach(function (el) {
     var has = flags(el), st = el.dataset.st, off = st !== 'talk' ? ' ghost' : '';
     var h = '<span class="ib sm hb" title="메뉴 접기/펼치기">' + ic('panel') + '</span><span class="dv sm"></span>';
-    h += '<nav class="bc" aria-label="breadcrumb">' + (el.dataset.ttl || '상담 어드바이저').split('>').map(function (x, i, a) { return (i < a.length - 1 ? '<span class="bci">' : '<b class="ttl">') + x.trim() + (i < a.length - 1 ? '</span><span class="bcs">›</span>' : '</b>'); }).join('') + '</nav>' + (el.dataset.tip ? '<span class="ifo" data-tip="' + el.dataset.tip.replace(/"/g, '&quot;') + '" aria-label="안내" tabindex="0">' + ic('info') + '</span>' : '');
+    h += '<nav class="bc" aria-label="breadcrumb">' + (el.dataset.ttl || '상담 어드바이저').split('>').map(function (x, i, a) { return (i < a.length - 1 ? '<span class="bci">' : '<b class="ttl">') + x.trim() + (i < a.length - 1 ? '</span><span class="bcs">›</span>' : '</b>'); }).join('') + '</nav>' + (el.dataset.sub ? '<span class="tnb-sub">' + el.dataset.sub + '</span>' : '') + (el.dataset.tip ? '<span class="ifo" data-tip="' + el.dataset.tip.replace(/"/g, '&quot;') + '" aria-label="안내" tabindex="0">' + ic('info') + '</span>' : '');
     if (st !== 'none') {
       var S = { talk: '통화중', wait: '대기중', away: '자리비움', after: '후처리' }[st];
       h += '<span class="dv"></span><div class="mys" title="통화 상태: 통화중 · 대기중 · 자리비움 · 후처리"><span class="st ' + st + '"><i></i>' + S + '</span>' + (el.dataset.tm ? '<span class="tm">' + el.dataset.tm + '</span>' : '') + (has('st') ? bd('34') : '') + '</div>';
