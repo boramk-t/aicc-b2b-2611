@@ -1202,3 +1202,12 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 .cc-t > .ifo { margin-left:2px; }
 .cc-acc .pct.lo { color:#ea580c; font-weight:600; }
 .cc-acc .pct.etc { color:var(--mu); font-size:13px; white-space:nowrap; }
+/* 추천 상담코드: 기타 / 미분류 · [상담 유형 검색](기간계 최신 분류 호출) */
+.cc-un { font-size:13px; line-height:20px; color:var(--mu); }
+.cc-srch { display:flex; align-items:center; gap:8px; height:36px; padding:0 12px; border:1px solid var(--bd); border-radius:var(--r-md); background:#fff; box-shadow:var(--sh-xs); font-size:14px; color:var(--mu); position:relative; }
+.cc-srch.on { border-color:var(--p); box-shadow:0 0 0 3px rgba(41,169,224,.18); }
+.cc-srch .ph, .cc-srch .vl { flex:1; min-width:0; } .cc-srch .vl { color:var(--fg); } .cc-srch .ib.sm { width:24px; height:24px; }
+.cs-dd.cc-dd { margin-top:-10px; }
+.cs-dd .it u { flex:none; font-weight:700; color:var(--p6); }
+.cs-dd .it .bw { margin-left:auto; flex:none; height:18px; font-size:11px; color:var(--p); }
+.cs-dd .ft { display:flex; align-items:center; gap:6px; margin-top:4px; padding:6px 10px 4px; border-top:1px solid var(--bd); font-size:12px; line-height:16px; color:var(--mu); } .cs-dd .ft svg.i { width:14px; height:14px; }
