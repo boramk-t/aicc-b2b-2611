@@ -1197,3 +1197,8 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 .bw.kn-g { border-color:var(--bd); background:var(--sf); color:var(--fg); }
 .qans h6.sumh .bw.kn-g { height:18px; font-size:11px; }
 .win.pipw .wtb .sp { flex:1; }
+/* 추천 상담코드: 분류 갱신 시각 · 저신뢰도(50% 이하 주황) · 기타 · 미분류 */
+.cc-up { font-size:12px; line-height:16px; color:var(--mu); white-space:nowrap; }
+.cc-t > .ifo { margin-left:2px; }
+.cc-acc .pct.lo { color:#ea580c; font-weight:600; }
+.cc-acc .pct.etc { color:var(--mu); font-size:13px; white-space:nowrap; }
