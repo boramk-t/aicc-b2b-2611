@@ -1060,7 +1060,7 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 .rdlg .rfg { display:grid; grid-template-columns:1fr 1fr 120px; gap:12px; }
 .rdlg .tbx table td, .rdlg .tbx table th { padding-top:6px; padding-bottom:6px; }
 /* 개선 이행 표: 날짜가 길어져 줄바꿈 허용 */
-#l7 .tbx table td, #l7 .tbx table th { white-space:normal; }
+#l8 .tbx table td, #l8 .tbx table th { white-space:normal; }
 /* L10 위협 감지 설정 (Figma 1-1 위협 감지 탭 · 2-4 레벨 추가) */
 .pg.rkp { padding:24px; gap:16px; }
 .ltabs.rtab { width:auto; align-self:flex-start; } .ltabs.rtab > span { flex:none; padding:4px 8px; }
@@ -1236,3 +1236,16 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 /* 추천 상담코드 없음: 미분류 콜 */
 .cc-emp { display:flex; flex-direction:column; align-items:center; gap:6px; padding:20px 16px; border-radius:var(--r-md); background:var(--sf); text-align:center; }
 .cc-emp > svg.i { width:20px; height:20px; color:var(--mu); } .cc-emp b { font-size:14px; font-weight:600; line-height:20px; color:var(--fg); } .cc-emp span { font-size:13px; line-height:18px; color:var(--mu); }
+/* 2026.11 메뉴 개편 · 목록 통일: 오른쪽 끝 업데이트 일시 · 탭 줄 · 위협 레벨 머리 · 증감 · 상세 조건 */
+.tnb-up { font-size:13px; line-height:20px; color:var(--mu); white-space:nowrap; } .tnb > .tnb-up + .ifo { margin-left:0; }
+.um-tabr { display:flex; align-items:center; gap:8px; min-height:36px; position:relative; } .um-tabr .sp { flex:1; } .um-tabr > .ifo { margin-left:0; }
+.rk-h { display:flex; align-items:center; gap:6px; min-height:32px; position:relative; } .rk-h b { font-size:16px; font-weight:600; line-height:24px; color:#020617; } .rk-h .sp { flex:1; } .rk-h > .ifo { margin-left:0; }
+.rk-sec { display:flex; flex-direction:column; gap:12px; min-width:0; position:relative; }
+.um-w .rk-i { height:auto; }
+.um-tr.up { color:var(--rd); font-weight:500; } .um-tr.dn { color:var(--p6); font-weight:500; }
+.um-snd { display:inline-flex; align-items:center; gap:6px; white-space:nowrap; }
+.lt.um-t td .kw { margin:2px 4px 2px 0; display:inline-flex; }
+.btn.um-more > svg.i { width:14px; height:14px; } .btn.um-more.on > svg.i { transform:rotate(180deg); }
+.crt-r { display:flex; align-items:center; gap:8px; font-size:14px; } .crt-r > .in2:not([style]) { width:96px; }
+.lt.um-t td .swd { display:inline-block; vertical-align:middle; }
+.lt.rlv .c-m .btn + .btn, .lt.um-t .c-m .btn + .btn { margin-left:8px; } .lt.um-t .c-m { width:150px; white-space:nowrap; }
