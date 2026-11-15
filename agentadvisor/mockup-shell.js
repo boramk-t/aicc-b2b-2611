@@ -24,6 +24,7 @@
     gear: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/>',
     layout: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',
     pip: '<path d="M21 9V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h4"/><rect x="12" y="13" width="10" height="7" rx="2"/>',
+    ext: '<path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/>',
     plus: '<path d="M12 5v14M5 12h14"/>', chevr: '<path d="m9 18 6-6-6-6"/>', grip: '<circle cx="9" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="18" r="1"/>',
     pencil: '<path d="M21.2 6.8a2.8 2.8 0 0 0-4-4L3.8 16.2a2 2 0 0 0-.5.8L2 22l5-1.3a2 2 0 0 0 .8-.5z"/>',
     trash: '<path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>',
@@ -90,7 +91,7 @@
     el.innerHTML = h;
   });
 
-  /* 상단 바 (DS Common / Header): [LNB 펼치기·접기] | 브레드크럼 | (상담사) 내 상태 … 미니 어드바이저 · 화면 설정 · 코칭 요청
+  /* 상단 바 (DS Common / Header): [LNB 펼치기·접기] | 브레드크럼 | (상담사) 내 상태 … 미니 어드바이저 · 최상위로 띄우기 · 화면 설정 · 코칭 요청
      data-st(talk|wait|after|none: 상태·상담사 버튼 없음) · data-tm · data-ttl(> 로 구분) · data-bd(st,pip,set,coach). 직접 넣은 버튼은 오른쪽 끝에 붙습니다. */
   document.querySelectorAll('.tnb[data-st]').forEach(function (el) {
     var has = flags(el), st = el.dataset.st, off = st !== 'talk' ? ' ghost' : '';
@@ -102,7 +103,8 @@
     }
     h += '<span class="sp"></span>';
     if (st !== 'none') {
-      h += '<span class="btn" title="별도 창으로 열리며 항상 다른 창 위에 표시됩니다">' + ic('pip') + '미니 어드바이저 열기' + (has('pip') ? bd('62') + bd('60', 'r b') : '') + '</span>';
+      h += '<span class="btn" title="별도 웹 창(팝업)으로 열립니다. 현재 상담 · 직전 상담 대화를 봅니다.">' + ic('ext') + '미니 어드바이저 열기' + (has('pip') ? bd('62') : '') + '</span>';
+      h += '<span class="btn" title="다른 창 위에 항상 떠 있는 최상위 창(PiP)을 엽니다. Chrome · Edge 116 이상에서만 보입니다.">' + ic('pip') + '최상위로 띄우기' + (has('pip') ? bd('60') : '') + '</span>';
       h += '<span class="btn">' + ic('layout') + '화면 설정' + (has('set') ? bd('63') : '') + '</span>';
       h += '<span class="btn p' + off + '">' + ic('headset') + '코칭 요청' + (has('coach') ? bd('67') : '') + '</span>';
     }
