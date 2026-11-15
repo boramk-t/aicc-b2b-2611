@@ -1279,3 +1279,25 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 .pip-col > .qal { flex:1; gap:12px; } .pip-col .qans { width:auto; }
 .pip-col .emp { padding:24px 0; } .pip-col .emp b { font-size:15px; line-height:22px; }
 .pip-col > .sbx { padding:10px; }
+
+/* upd43: 페이지당 표시는 총 n건 바로 옆 · 페이저는 오른쪽 */
+.lpgn:has(> .um-psz) > .si { flex:none; }
+.lpgn > .um-psz { margin:0 auto 0 8px; }
+/* upd43: 신규 키워드 [등록] 열 좌우 여백 */
+.lt.um-t .c-act { width:96px; text-align:center; padding-left:16px; padding-right:16px; }
+/* upd43: 밑줄 클릭 → 수정 Dialog */
+.lt td u.ed { font-weight:600; cursor:pointer; }
+/* upd43: 리스크 감지 설정 위협 감지 탭 섹션 */
+.rk-sec + .rk-sec { border-top:1px solid #E2E8F0; padding-top:20px; }
+.rk-ft { display:flex; justify-content:flex-end; }
+/* upd43: 조직 트리 센터 > 그룹 > 팀 (채널 단계 없음) */
+.um-ti.l1 { padding-left:0; }
+.um-ti.l2 { padding-left:22px; }
+.um-ti.l3 { padding-left:66px; }
+/* upd43: 실시간 모니터링 번호별 통화 목록 (건수는 표 밖) */
+.mn-cl { display:flex; flex-direction:column; gap:12px; margin-top:16px; }
+.mn-cl .mn-h { font-size:14px; font-weight:600; line-height:20px; color:#020617; }
+
+/* upd44: 최근 상담 이력 제목 옆 30일 인입 콜 수 · 요약은 단어 단위로 줄바꿈 */
+.rch-h .rch-n { margin-left:6px; margin-right:2px; font-size:13px; line-height:20px; color:var(--mu); white-space:nowrap; }
+.rch-c ul, .rch-c li { word-break:keep-all; overflow-wrap:break-word; text-wrap:pretty; }
