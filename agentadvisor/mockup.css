@@ -1274,3 +1274,8 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 .rch-c ul { margin:0; padding-left:18px; display:flex; flex-direction:column; gap:4px; font-size:13px; line-height:20px; color:var(--fg); }
 /* 감사로그: 열이 많아 가로 스크롤 */
 .ltb.um-hs { overflow-x:auto; } .lt.um-au { min-width:1320px; } .lt.um-au td.w { min-width:120px; } .lt.um-au span.nw, .lt.um-au td.nw { white-space:nowrap; }
+/* 최상위 창: 후처리는 실시간 대화 아래 · 상담 어시스트는 탭 없이 지식 추천 + 검색창 */
+.pip-pp { display:flex; flex-direction:column; gap:10px; }
+.pip-col > .qal { flex:1; gap:12px; } .pip-col .qans { width:auto; }
+.pip-col .emp { padding:24px 0; } .pip-col .emp b { font-size:15px; line-height:22px; }
+.pip-col > .sbx { padding:10px; }
