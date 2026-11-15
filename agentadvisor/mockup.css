@@ -1211,3 +1211,7 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 .cs-dd .it u { flex:none; font-weight:700; color:var(--p6); }
 .cs-dd .it .bw { margin-left:auto; flex:none; height:18px; font-size:11px; color:var(--p); }
 .cs-dd .ft { display:flex; align-items:center; gap:6px; margin-top:4px; padding:6px 10px 4px; border-top:1px solid var(--bd); font-size:12px; line-height:16px; color:var(--mu); } .cs-dd .ft svg.i { width:14px; height:14px; }
+/* 이슈 유형: 이슈 키워드 > 이슈 키워드 종류 > 종류별 키워드 총 수 */
+.iss-ln { display:flex; align-items:center; flex-wrap:wrap; gap:6px; }
+.iss-p { display:inline-flex; align-items:center; flex-wrap:wrap; gap:4px; margin-right:4px; font-size:14px; line-height:20px; color:var(--fg); }
+.iss-p > i { font-style:normal; color:var(--mu); } .iss-p > b { font-weight:600; color:var(--rd); } .iss-p > .hint { margin-left:4px; font-size:12px; }
