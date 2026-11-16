@@ -1301,3 +1301,71 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 /* upd44: 최근 상담 이력 제목 옆 30일 인입 콜 수 · 요약은 단어 단위로 줄바꿈 */
 .rch-h .rch-n { margin-left:6px; margin-right:2px; font-size:13px; line-height:20px; color:var(--mu); white-space:nowrap; }
 .rch-c ul, .rch-c li { word-break:keep-all; overflow-wrap:break-word; text-wrap:pretty; }
+
+/* upd46: 리더 상담 이력 조회 목록 · 상담 이력 상세 (PRD 5. 화면 정의 · 말풍선은 실시간 대화와 같음) */
+.hs-lw { position:relative; align-self:stretch; min-width:0; }
+.lt.um-t.hs-lt { width:max-content; min-width:100%; }
+.lt.um-t.hs-lt td.mt mark { padding:0 1px; }
+.hs-g { display:grid; grid-template-columns:minmax(0,1fr) 380px; gap:16px; align-items:start; }
+.bx.hs-cv { gap:14px; }
+.hs-top { display:flex; align-items:center; gap:8px; min-height:36px; position:relative; }
+.hs-top .sp, .hs-pl .sp, .hs-vb > .h .sp { flex:1; }
+.hs-pi { display:flex; align-items:center; gap:6px; font-size:14px; line-height:20px; color:var(--fg); white-space:nowrap; }
+.hs-pi b { font-weight:600; }
+.hs-pi .mu { color:var(--mu); }
+.hs-pl { display:flex; flex-direction:column; gap:10px; padding:12px 14px; border:1px solid var(--bd); border-radius:var(--r-lg); background:#fff; position:relative; }
+.hs-pl .r1, .hs-pl .r3 { display:flex; align-items:center; gap:8px; }
+.hs-pl .seg.hs-tg { flex:none; width:220px; height:32px; }
+.hs-trk { height:6px; border-radius:3px; background:#E2E8F0; position:relative; margin:4px 7px; }
+.hs-trk i { position:absolute; left:0; top:0; bottom:0; border-radius:3px; background:var(--p); }
+.hs-trk em { position:absolute; top:-4px; width:14px; height:14px; margin-left:-7px; box-sizing:border-box; border-radius:50%; background:#fff; border:2px solid var(--p); }
+.hs-tt { min-width:110px; font-size:13px; line-height:20px; color:var(--mu); font-variant-numeric:tabular-nums; }
+.hs-pl .ib.sm.hs-ic { width:32px; height:32px; color:var(--fg); }
+.hs-pl .ib.sm.hs-pp { width:40px; height:40px; }
+.hs-pl .ib.sm.hs-pp svg.i { width:22px; height:22px; }
+.hs-vol { display:flex; align-items:center; gap:8px; color:var(--mu); }
+.hs-vol .tk { width:72px; height:4px; border-radius:2px; background:#E2E8F0; position:relative; }
+.hs-vol .tk i { position:absolute; left:0; top:0; bottom:0; border-radius:2px; background:#334155; }
+.hs-vol .tk em { position:absolute; top:-4px; width:12px; height:12px; margin-left:-6px; box-sizing:border-box; border-radius:50%; background:#fff; border:2px solid #334155; }
+.in2.hs-spd { width:88px; flex:none; }
+.wtt.hs-tl { min-height:36px; }
+.hs-tl .ib.sm { color:var(--fg); }
+.hs-tl.sr { display:flex; align-items:center; gap:8px; position:relative; }
+.hs-tl .in2.sc { width:120px; flex:none; }
+.wsr2.hs-q { gap:4px; padding-right:4px; }
+.wsr2.hs-q .cnt { flex:none; margin:0 4px 0 auto; font-size:13px; font-variant-numeric:tabular-nums; }
+.wsr2.hs-q .ib.sm { width:28px; height:28px; color:var(--fg); }
+.ib.sm.dis { opacity:.35; pointer-events:none; }
+.hs-nf { font-size:13px; line-height:20px; color:var(--mu); }
+.hs-sw { display:flex; align-items:center; gap:20px; position:relative; }
+.hs-sw .swl { display:inline-flex; align-items:center; gap:8px; font-size:14px; line-height:20px; color:var(--fg); white-space:nowrap; }
+.hs-sw .swl.off { color:var(--mu); }
+.swd.dis { opacity:.45; }
+.hs-vb { border:1px solid var(--bd); border-radius:var(--r-lg); background:#fff; position:relative; }
+.hs-vb > .h { display:flex; align-items:center; gap:8px; height:48px; padding:0 8px 0 12px; cursor:pointer; }
+.hs-vb > .h > svg.i { width:16px; height:16px; color:var(--mu); }
+.hs-vb > .h b { font-size:14px; font-weight:600; line-height:20px; }
+.hs-vb > .stt, .hs-vb > .hs-vbe { padding:12px; border-top:1px solid var(--bd); }
+.hs-stt .ub { cursor:pointer; }
+.hs-stt .u.pl .ub { box-shadow:0 0 0 2px #fff, 0 0 0 4px #0F172A; }
+.hs-stt .u .ub mark { color:#0F172A; }
+.hs-stt mark.on { background:#F59E0B; }
+.hs-stt .hs-ra { display:flex; align-items:flex-start; gap:6px; max-width:400px; font-size:13px; line-height:18px; color:var(--fg); }
+.hs-stt .hs-ra b { flex:none; font-weight:600; color:var(--gr); }
+.hs-stt .cm .cb .af { width:auto; }
+.cm.rq .cb { border-color:var(--bd); background:var(--sf); }
+.hs-r { display:flex; flex-direction:column; gap:12px; min-width:0; }
+.bx.hs-c { gap:10px; }
+.hs-kv { display:grid; grid-template-columns:116px minmax(0,1fr); gap:6px 12px; margin:0; font-size:14px; line-height:20px; position:relative; }
+.hs-kv dt { color:var(--mu); }
+.hs-kv dd { margin:0; min-width:0; color:var(--fg); position:relative; word-break:keep-all; overflow-wrap:anywhere; }
+.hs-kv dd.mu { color:var(--mu); }
+.hs-dt { font-size:14px; line-height:22px; color:var(--fg); white-space:pre-line; word-break:keep-all; }
+.hs-ai { display:flex; align-items:center; gap:6px; font-size:12px; line-height:16px; color:var(--mu); }
+.hs-ai > svg.i { width:14px; height:14px; }
+.hs-mini { width:100%; box-sizing:border-box; }
+.um-emp.er > svg.i { color:var(--rd); }
+
+/* upd47: 상담 이력 상세 말풍선은 단어 단위 줄바꿈 · 넓은 표는 잘리지 않고 표 안 가로 스크롤 */
+.hs-stt .u .ub, .hs-stt .cm .cb p, .hs-stt .hs-ra span { word-break:keep-all; overflow-wrap:break-word; }
+.tbx.hs-x { overflow-x:auto; }
