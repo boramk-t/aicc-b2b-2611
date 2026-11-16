@@ -105,3 +105,10 @@
     w.appendChild(t);
   });
 })();
+/* upd58: 자동 메모 입력칸에 쓰고 Enter → 자동 메모에 추가 */
+document.addEventListener('keydown', function (e) {
+  var t = e.target; if (e.key !== 'Enter' || e.isComposing || !t || !t.matches || !t.matches('.am-in input')) return;
+  var v = t.value.trim(); if (!v) return; e.preventDefault();
+  var l = t.closest('.am-p').querySelector('.am-l'), d = document.createElement('div'), s = document.createElement('span');
+  d.className = 'am-i'; s.className = 'mtx'; s.textContent = v; d.appendChild(s); l.appendChild(d); t.value = '';
+});

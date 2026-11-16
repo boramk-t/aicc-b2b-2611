@@ -1478,3 +1478,44 @@ u.ed.cs-lk { color:var(--p6); font-weight:500; cursor:pointer; text-underline-of
 .kw-br em.up, .kw-t em.up { color:#DC2626; } .kw-br em.dn, .kw-t em.dn { color:var(--p6); }
 .kw-br.on { background:#EAF6FC; } .kw-br.on .nm { font-weight:600; color:var(--p6); }
 .kw-h { margin-top:6px; font-size:12px; line-height:16px; color:var(--mu); } .kw-h.er { color:#DC2626; } .in2.kw-er { border-color:#DC2626; }
+
+/* upd58: 조회 조건 꽉 채움 · 상담 정보 한 줄 · 이슈 상세 2×2 · 키워드 더 보기 · 이슈 콜 설정 · 개선 이행 상세 · 메모 */
+.hs-qf > .um-qf > .fl2, .hs-adv > .um-qf > .fl2 { flex:1 1 auto; }
+.hs-qf .hs-kq { width:100%; } .hs-kq > .in2:last-child { flex:1; min-width:0; }
+.hs-cd.hs-nw .hs-dl { grid-template-columns:repeat(5, minmax(max-content, 1fr)); column-gap:12px; }
+.hs-cd.hs-nw .hs-di { padding-right:0; } .hs-cd.hs-nw .hs-di > b, .hs-cd.hs-nw .hs-di > span { white-space:nowrap; }
+.hs-cd.hs-c2 .hs-dl { grid-template-columns:repeat(2, minmax(0,1fr)); column-gap:16px; }
+.kmore { position:relative; display:inline-flex; align-items:center; height:18px; margin-left:4px; padding:0 5px; border-radius:4px; background:#F1F5F9; color:#334155; font-weight:600; line-height:18px; cursor:help; vertical-align:1px; }
+.kmore::after { content:attr(data-tip); position:absolute; left:0; top:calc(100% + 8px); width:max-content; max-width:280px; padding:6px 10px; border-radius:6px; background:#0F172A; color:#F8FAFC; font-size:12px; font-weight:400; line-height:16px; white-space:normal; display:none; z-index:60; pointer-events:none; }
+.kmore::before { content:""; position:absolute; left:6px; top:calc(100% + 4px); width:8px; height:8px; background:#0F172A; transform:rotate(45deg); display:none; z-index:60; }
+.kmore:hover::after, .kmore:hover::before, .kmore:focus-visible::after, .kmore:focus-visible::before, .kmore.show::after, .kmore.show::before { display:block; }
+.ic-row { display:flex; align-items:center; gap:8px; } .ic-ow { display:flex; flex-wrap:wrap; gap:6px; } .ic-st { display:flex; align-items:center; gap:6px; } .ic-st svg.i { width:14px; height:14px; color:var(--mu); }
+.in2.ic-ro { background:#F8FAFC; color:#64748B; box-shadow:none; }
+.cs-pc.ip b { color:var(--p6); }
+.ldv.ip-dv { max-width:920px; } .ip-fm { align-items:stretch; gap:14px; } .ip-fm > .um-f, .ip-fm > .um-g2 { align-self:stretch; }
+.ip-kv { width:100%; box-sizing:border-box; }
+.lt.um-t.ip-t td.ip-op { max-width:360px; overflow:hidden; text-overflow:ellipsis; }
+.am-in input { box-sizing:border-box; width:100%; height:32px; padding:0 10px; border:1px solid var(--bd); border-radius:var(--r-md); background:#fff; font:inherit; font-size:13px; color:var(--fg); outline:none; }
+.am-in input:focus { border-color:var(--p); box-shadow:0 0 0 3px rgba(41,169,224,.15); } .am-in input::placeholder { color:#94A3B8; }
+.mi.ml { align-items:flex-start; padding-top:6px; padding-bottom:6px; } .mi.ml > svg.i { margin-top:2px; } .mi.ml .mtx { white-space:pre-line; line-height:20px; }
+
+/* upd59: 조회 조건 꽉 채움(모든 화면) · 카드 2줄 · 원형 그래프 크게 · 상담 정보 줄마다 꽉 채움 · 스위치 · 상태 드롭다운 */
+.pg .um-qf > .fl2, .lpg .um-qf > .fl2, .pg .qf > .fl2, .lpg .qf > .fl2 { flex:1 1 auto; }
+.pg .um-qf > .fl2.fx, .pg .um-qf > .fl2:has(> .seg), .pg .qf > .fl2:has(> .seg), .lpg .um-qf > .fl2:has(> .seg) { flex:none; }
+.cs-kw { display:flex; flex-direction:column; gap:12px; position:relative; margin-top:4px; }
+.kpis.c3 { grid-template-columns:repeat(3, minmax(0,1fr)); }
+.kpis.cs-big .kpi { padding:18px 20px; } .kpis.cs-big .kpi > span:first-child { font-size:14px; line-height:20px; } .kpis.cs-big .kpi b { font-size:26px; line-height:36px; }
+.cs-pbx.lg { width:180px; height:180px; } .cs-pbx.lg .cs-pie { width:180px; height:180px; }
+.cs-pc.tt b { font-size:22px; line-height:28px; color:#020617; } .cs-pc.tt span { font-size:12px; }
+.cs-li.nc { grid-template-columns:10px minmax(0,1fr) auto; }
+.cs-g1 .cs-pw { gap:28px; }
+.cs-sb .c i.ib:only-of-type { border-radius:3px 3px 0 0; }
+.kw-br .kw-n { font-weight:600; text-align:right; white-space:nowrap; }
+.hs-drs { display:flex; flex-direction:column; }
+.hs-drs > .hs-dl { column-gap:12px; }
+.um-f .swl { display:inline-flex; align-items:center; gap:8px; font-size:14px; line-height:20px; color:var(--fg); white-space:nowrap; }
+.cs-dd .it > .bw:first-child { margin-left:0; }
+.ldv.ip-dv, .ldv.lfm { max-width:none; }
+.smemo { width:440px; }
+.kw-br.n4 { grid-template-columns:18px 84px minmax(0,1fr) 52px; }
+.cs-g2.cs-pp > .cs-pi + .cs-pi { border-left:1px solid var(--bd); padding-left:24px; }

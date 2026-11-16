@@ -74,7 +74,7 @@
     var h = '<div class="lg"><span class="lgm">D</span><div><b>대신증권</b><span class="hint">' + IA.svc + '</span></div></div>';
     IA.groups.forEach(function (g) {
       h += '<div class="sg">' + g[0] + '</div>';
-      g[1].forEach(function (m) { h += item(m[0], m[1], m[2], '', m[3] ? '<span class="sp"></span>' + ic('chev') : '') + (m[3] ? subs(m[3]) : ''); });
+      g[1].forEach(function (m) { var op = m[3] && m[3].some(function (s) { return s[0] === on; }); h += item(m[0], m[1], m[2], '', m[3] ? '<span class="sp"></span>' + ic(op ? 'chev' : 'chevr') : '') + (op ? subs(m[3]) : ''); });
     });
     h += '<span class="grow"></span><div class="ft">';
     h += '<div class="nv' + (d.mm ? ' on' : '') + '" title="스티키 메모를 화면 위에 엽니다">' + ic('pencil', 1) + '<span>메모</span>' + (has('mm') && PORTAL === 'A' ? bd('44', 'r') : '') + '</div>';
