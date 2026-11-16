@@ -91,3 +91,17 @@
     });
   });
 })();
+/* upd57: 원형 그래프 조각에 마우스를 올리면 비율 · 증가율 툴팁 */
+(function () {
+  document.addEventListener('mouseover', function (e) {
+    var s = e.target && e.target.closest ? e.target.closest('.cs-seg') : null;
+    document.querySelectorAll('.cs-ftip.hv').forEach(function (x) { x.remove(); });
+    if (!s) { document.querySelectorAll('.cs-ftip.hd').forEach(function (x) { x.classList.remove('hd'); x.style.display = ''; }); return; }
+    var w = s.closest('.cs-pbx'); if (!w) return;
+    w.querySelectorAll('.cs-ftip').forEach(function (x) { x.classList.add('hd'); x.style.display = 'none'; });
+    var r = w.getBoundingClientRect(), b = s.getBoundingClientRect(), t = document.createElement('div');
+    t.className = 'cs-ftip hv'; t.textContent = s.getAttribute('data-tip') || '';
+    t.style.left = (b.left + b.width / 2 - r.left) + 'px'; t.style.top = (b.top + b.height / 2 - r.top) + 'px';
+    w.appendChild(t);
+  });
+})();
