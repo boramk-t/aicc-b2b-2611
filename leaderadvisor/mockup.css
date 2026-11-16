@@ -1402,3 +1402,48 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 .wr.lks-b { display:flex; flex-direction:column; gap:12px; padding:14px; min-width:0; }
 .hs-di .hs-tm { margin-left:6px; font-size:12px; color:#94A3B8; white-space:nowrap; }
 .win .wtb > .sp { flex:1; }
+
+/* upd55: 콜 통계 · 실시간 모니터링 (비교 증감 · 그래프 · 툴팁 · 시간대별 표) */
+.cs-qf > .um-qf > .fl2 { flex:1 1 0; min-width:0; } .cs-qf > .um-qf > .fl2.fx { flex:none; } .cs-qf .seg { flex:none; }
+.kpis.cs-k7 { grid-template-columns:repeat(7, minmax(0,1fr)); } .cs-k7 .kpi { padding:12px 14px; } .cs-k7 .kpi b { font-size:20px; line-height:28px; }
+.kpi .dl { margin-top:4px; font-size:12px; line-height:16px; white-space:nowrap; }
+.kpi .dl em, .cs-sum em, .cs-ib .ibar em { font-style:normal; font-weight:600; color:var(--mu); }
+.kpi .dl em.up, .cs-sum em.up, .cs-ib .ibar em.up { color:#DC2626; } .kpi .dl em.dn, .cs-sum em.dn, .cs-ib .ibar em.dn { color:var(--p6); }
+.cs-lgd { display:flex; align-items:center; gap:12px; font-size:12px; font-weight:400; line-height:16px; color:var(--mu); }
+.cs-lgd > span { display:inline-flex; align-items:center; gap:4px; white-space:nowrap; }
+.cs-lgd i { display:inline-block; width:10px; height:10px; border-radius:3px; } .cs-lgd i.ln { width:14px; height:0; border-radius:0; border-top:2px dashed #64748B; }
+.cs-sb { display:flex; align-items:flex-end; gap:14px; height:160px; padding-top:8px; border-bottom:1px solid var(--bd); position:relative; }
+.cs-sb.sm { height:120px; } .cs-sb.t { gap:4px; }
+.cs-sb .c { flex:1; height:100%; min-width:0; display:flex; flex-direction:column; justify-content:flex-end; position:relative; }
+.cs-sb .c i { display:block; flex:none; } .cs-sb .c i.ob { background:#94d3ef; border-radius:3px 3px 0 0; } .cs-sb .c i.ib { background:var(--p); }
+.cs-sb .c i.is { background:#F87171; border-radius:3px 3px 0 0; } .cs-sb .c.fu { background:#F8FAFC; border-radius:3px 3px 0 0; }
+.cs-sb .c em { position:absolute; left:-3px; right:-3px; height:0; border-top:2px dashed #475569; }
+.cs-sb .c:hover i, .cs-sb .c[data-sh] i { filter:brightness(.9); }
+.axis.cs-ax { justify-content:flex-start; gap:14px; } .axis.cs-ax.t { gap:4px; }
+.axis.cs-ax span { flex:1; min-width:0; text-align:center; white-space:nowrap; }
+.cs-tip { position:relative; cursor:default; }
+.cs-tip::after { content:attr(data-tip); position:absolute; left:50%; bottom:calc(100% + 8px); transform:translateX(-50%); width:max-content; max-width:300px; padding:6px 10px; border-radius:6px; background:#0F172A; color:#F8FAFC; font-size:12px; font-weight:400; line-height:18px; text-align:left; white-space:pre; display:none; pointer-events:none; z-index:60; box-shadow:0 4px 6px -1px rgba(0,0,0,.1); }
+.cs-tip::before { content:""; position:absolute; left:50%; bottom:calc(100% + 4px); width:8px; height:8px; background:#0F172A; transform:translateX(-50%) rotate(45deg); display:none; z-index:60; }
+.cs-tip:hover::after, .cs-tip:hover::before, .cs-tip[data-sh]::after, .cs-tip[data-sh]::before { display:block; }
+.cs-sb .cs-tip::after { left:calc(100% + 8px); bottom:auto; top:16px; transform:none; } .cs-sb .cs-tip::before { left:calc(100% + 4px); bottom:auto; top:26px; transform:rotate(45deg); }
+.cs-lw { position:relative; } .cs-ln { display:block; width:100%; height:auto; overflow:visible; }
+.cs-ln line { stroke:#E2E8F0; } .cs-ln text { font-size:11px; fill:#94A3B8; } .cs-ln polyline { fill:none; }
+.cs-ln .cu { stroke:var(--p); stroke-width:2.5; } .cs-ln .pv { stroke:#94A3B8; stroke-width:2; stroke-dasharray:5 4; }
+.cs-pt { position:absolute; width:10px; height:10px; margin:-5px 0 0 -5px; border-radius:50%; background:#fff; border:2px solid var(--p); box-sizing:border-box; }
+.cs-pt:hover, .cs-pt[data-sh] { background:var(--p); }
+.cs-g2 { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:24px; }
+.cs-st { display:flex; align-items:center; gap:6px; margin-bottom:4px; font-size:13px; font-weight:600; line-height:20px; color:#334155; } .cs-st b { margin-left:auto; font-weight:600; color:var(--fg); }
+.cs-ib .ibar { grid-template-columns:88px minmax(0,1fr) 34px 34px; gap:8px; } .cs-ib .ibar em { font-size:12px; text-align:right; }
+.cs-sum { display:flex; align-items:baseline; gap:8px; } .cs-sum b { font-size:24px; font-weight:600; line-height:30px; color:var(--rd); }
+.cs-sum span { font-size:13px; color:var(--mu); } .cs-sum em { font-size:12px; }
+.heat.cs-hm { grid-template-columns:34px repeat(12, minmax(0,1fr)); gap:4px; font-size:12px; }
+.heat.cs-hm > span { text-align:center; }
+.heat.cs-hm i { height:30px; display:flex; align-items:center; justify-content:center; border-radius:4px; font-style:normal; font-size:12px; color:#0F172A; }
+.heat.cs-hm i.dk { color:#fff; } .heat.cs-hm i:hover, .heat.cs-hm i[data-sh] { outline:2px solid #0F172A; outline-offset:-2px; }
+.cs-hl { display:flex; align-items:center; justify-content:flex-end; gap:3px; font-size:11px; color:var(--mu); } .cs-hl i { display:inline-block; width:18px; height:10px; border-radius:2px; } .cs-hl span { margin:0 4px; }
+.mn-h .hint { font-weight:400; }
+.cs-g3 { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) minmax(0,1.5fr); gap:16px; }
+.cs-g3 .bx > .cs-lgd { margin-top:-6px; }
+.cs-top { display:flex; align-items:center; gap:8px; position:relative; } .cs-top .lb { font-size:14px; font-weight:500; }
+.cs-top .hint { display:inline-flex; align-items:center; gap:4px; font-size:13px; color:var(--mu); } .cs-top .hint svg.i { width:14px; height:14px; }
+.um-dd.um-pdd.cs-cdd { width:auto; }
