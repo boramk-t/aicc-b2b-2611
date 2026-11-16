@@ -109,6 +109,7 @@
 document.addEventListener('keydown', function (e) {
   var t = e.target; if (e.key !== 'Enter' || e.isComposing || !t || !t.matches || !t.matches('.am-in input')) return;
   var v = t.value.trim(); if (!v) return; e.preventDefault();
-  var l = t.closest('.am-p').querySelector('.am-l'), d = document.createElement('div'), s = document.createElement('span');
-  d.className = 'am-i'; s.className = 'mtx'; s.textContent = v; d.appendChild(s); l.appendChild(d); t.value = '';
+  var l = t.closest('.am-p').querySelector('.am-l');
+  if (l.classList.contains('am-box')) { l.textContent = (l.textContent ? l.textContent + '\n' : '') + v; l.scrollTop = l.scrollHeight; } else { var d = document.createElement('div'), s = document.createElement('span'); d.className = 'am-i'; s.className = 'mtx'; s.textContent = v; d.appendChild(s); l.appendChild(d); }
+  t.value = '';
 });
