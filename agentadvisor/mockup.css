@@ -1387,3 +1387,18 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 .ta3.hs-ta { min-height:140px; white-space:pre-line; }
 .hs-mini { width:100%; box-sizing:border-box; }
 .um-emp.er > svg.i { color:var(--rd); }
+
+/* upd53: 리스크 인텐트 목록 · 리스크 추가 Dialog · 리더 지식 검색 창 · 이슈 상세 감지 시각 */
+.rk-tt { display:flex; align-items:center; gap:8px; min-height:20px; }
+.rk-tt b { font-size:18px; font-weight:600; line-height:18px; color:#020617; white-space:nowrap; }
+.rk-tt span { font-size:14px; line-height:20px; color:#64748B; }
+.rk-nm { display:inline-flex; align-items:center; gap:6px; }
+.dlg.rkd.rk-ad { width:480px; }
+.rk-op { margin-left:6px; font-size:12px; font-weight:400; color:#64748B; }
+.rk-ta { display:flex; align-items:flex-start; gap:6px; font-size:12px; line-height:16px; color:#64748B; }
+.rk-ta > svg.i { width:14px; height:14px; flex:none; margin-top:1px; }
+.win.lks { width:460px; }
+.win.lks .wbd { padding:0; }
+.wr.lks-b { display:flex; flex-direction:column; gap:12px; padding:14px; min-width:0; }
+.hs-di .hs-tm { margin-left:6px; font-size:12px; color:#94A3B8; white-space:nowrap; }
+.win .wtb > .sp { flex:1; }
