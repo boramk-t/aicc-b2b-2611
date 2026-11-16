@@ -1447,3 +1447,8 @@ table.lt { width:100%; border-collapse:separate; border-spacing:0; }
 .cs-top { display:flex; align-items:center; gap:8px; position:relative; } .cs-top .lb { font-size:14px; font-weight:500; }
 .cs-top .hint { display:inline-flex; align-items:center; gap:4px; font-size:13px; color:var(--mu); } .cs-top .hint svg.i { width:14px; height:14px; }
 .um-dd.um-pdd.cs-cdd { width:auto; }
+
+/* upd56: 상담 이력 목록 특이사항 > 키워드(상품명 · 이슈) 3단 머리글 */
+.lt.um-t.hs-lt th[rowspan] { height:72px; }
+.lt.um-t.hs-lt th.hs-kg, .lt.um-t.hs-lt tr.hs-sr th { height:36px; }
+.lt.um-t.hs-lt th.hs-kg { font-weight:600; color:#334155; }
